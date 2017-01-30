@@ -16,7 +16,7 @@ public class FirstAccess extends AppCompatActivity {
         Intent i = new Intent(this, Login.class);
         startActivity(i);
     }
-    public void loginCadastroFirst(View v){
+    public void cadastroClickFirst(View v){
         Intent i = new Intent(this, Cadastro.class);
         startActivity(i);
     }

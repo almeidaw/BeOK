@@ -29,13 +29,13 @@ import android.widget.TextView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class Cadastro extends AppCompatActivity implements Callback<Object> {
+public class Cadastro extends AppCompatActivity implements Callback<Usuario> {
 
     private int cont1 = 1; // Intent contato 1
     private int cont2 = 2; // Intent contato 2
     private int cont3 = 3; // Intent contato 3
 
-    Call<Object> ucall;
+    Call<Usuario> ucall;
     DBLocal db;
 
     Usuario usuario;
@@ -404,16 +404,18 @@ public class Cadastro extends AppCompatActivity implements Callback<Object> {
         ucall = service.cadastrar(usuario);
         ucall.enqueue(this);
 
-        //Banco de dados local
-        db=new DBLocal(this);
-        db.resetaTabela();
-        db.insereUsuario(usuario);
-
     }
     //Resposta do webservice
     @Override
-    public void onResponse(Call<Object> call, Response<Object> response) {
+    public void onResponse(Call<Usuario> call, Response<Usuario> response) {
         if(response.isSuccessful()){
+
+            //Banco de dados local
+            db=new DBLocal(this);
+            db.resetaTabela();
+            db.insereUsuario(response.body());
+
+            //Tela da home
             Intent i=new Intent(this,Home.class);
             startActivity(i);
         }else{
@@ -422,7 +424,7 @@ public class Cadastro extends AppCompatActivity implements Callback<Object> {
     }
 
     @Override
-    public void onFailure(Call<Object> call, Throwable t) {
+    public void onFailure(Call<Usuario> call, Throwable t) {
         Toast.makeText(this,"Erro na rede, tente novamente",Toast.LENGTH_SHORT).show();
         t.printStackTrace();
     }

@@ -16,5 +16,5 @@ public interface ServiceWS {
     Call<Usuario> getUsuario(@Path("email") String email, @Path("senha") String password);
 
     @PUT("ws/main/user/cadastro")
-    Call<Object> cadastrar(@Body Usuario body);
+    Call<Usuario> cadastrar(@Body Usuario body);
 }
