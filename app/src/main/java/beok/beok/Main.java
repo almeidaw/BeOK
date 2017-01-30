@@ -19,7 +19,7 @@ public class Main extends AppCompatActivity {
             startActivity(i);
         }else{
             //vai para a página de login/cadastro
-            Intent i=new Intent(this,Cadastro.class);
+            Intent i=new Intent(this,FirstAccess.class);
             startActivity(i);
         }
     }
