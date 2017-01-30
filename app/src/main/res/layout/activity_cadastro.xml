@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_cadastro"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -9,64 +10,740 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="beok.beok.Cadastro">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="E-mail"
-        android:id="@+id/label_email"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/email"
-        android:layout_below="@+id/label_email"
-        android:layout_centerHorizontal="true" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Senha"
-        android:id="@+id/label_senha"
-        android:layout_below="@+id/email"
-        android:layout_centerHorizontal="true" />
+            <TextView
+                android:text="Nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/scrollView2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/txtnome"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="@dimen/tamanho_perguntas" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/edtextnome"
+                android:hint="Digite seu nome"
+                android:textSize="14sp" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/senha"
-        android:layout_below="@+id/label_senha"
-        android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Repita a senha"
-        android:id="@+id/label_rep_senha"
-        android:layout_below="@+id/senha"
-        android:layout_centerHorizontal="true" />
+            <TextView
+                android:text="Email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtemail"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="@dimen/tamanho_perguntas"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/rep_senha"
-        android:layout_below="@+id/label_rep_senha"
-        android:layout_centerHorizontal="true" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/edtxtemail"
+                android:hint="Digite seu email"
+                android:textSize="14sp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cadastro simples"
-        android:id="@+id/cadastro_simples"
-        android:layout_below="@+id/rep_senha"
-        android:layout_centerHorizontal="true" />
+            <TextView
+                android:text="Senha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtsenha"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cadastro completo"
-        android:id="@+id/cadastro_completo"
-        android:layout_below="@+id/cadastro_simples"
-        android:layout_centerHorizontal="true" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/edtxtsenha"
+                android:hint="Insira uma senha"
+                android:textSize="14sp" />
+
+            <TextView
+                android:text="Idade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtidade"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="@dimen/tamanho_perguntas" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spidade"
+                android:entries="@array/idade" />
+
+            <TextView
+                android:text="Gênero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/scrollView2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="59dp"
+                android:id="@+id/txtgenero"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="@dimen/tamanho_perguntas"/>
+
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spgenero"
+                android:entries="@array/genero" />
+
+            <TextView
+                android:text="Quais drogas você já utilizou?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtdrogas"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="@dimen/tamanho_perguntas"/>
+
+            <CheckBox
+                android:text="Álcool"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbalcool"
+                android:onClick="usouAlcool"/>
+
+            <TextView
+                android:text="@string/idade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtalcoolidade"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"
+                android:textSize="@dimen/tamanho_perguntas"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spalcoolidade"
+                android:visibility="gone"
+                android:entries="@array/idade"/>
+
+            <CheckBox
+                android:text="Maconha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbmaconha"
+                android:onClick="usouMaconha"/>
+
+            <TextView
+                android:text="@string/idade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtmaconhaidade"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"
+                android:textSize="@dimen/tamanho_perguntas"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spmaconhaidade"
+                android:entries="@array/idade"
+                android:visibility="gone"/>
+
+            <CheckBox
+                android:text="Cocaína"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbcocaina"
+                android:onClick="usouCocaina"/>
+
+            <TextView
+                android:text="@string/idade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtcocainaidade"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"
+                android:textSize="@dimen/tamanho_perguntas"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spcocainaidade"
+                android:entries="@array/idade"
+                android:visibility="gone"/>
+
+            <CheckBox
+                android:text="Crack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbcrack"
+                android:onClick="usouCrack"/>
+
+            <TextView
+                android:text="@string/idade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtcrackidade"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"
+                android:textSize="@dimen/tamanho_perguntas"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spcrackidade"
+                android:entries="@array/idade"
+                android:visibility="gone"/>
+
+            <CheckBox
+                android:text="Ecstasy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbecstasy"
+                android:onClick="usouEcstasy"/>
+
+            <TextView
+                android:text="@string/idade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtecstasyidade"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"
+                android:textSize="@dimen/tamanho_perguntas"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/specstasyidade"
+                android:entries="@array/idade"
+                android:visibility="gone"/>
+
+            <CheckBox
+                android:text="Alucinógenos (ácido, cogumelos, etc)"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbalucinogeno"
+                android:onClick="usouAlucinogenos"/>
+
+            <TextView
+                android:text="@string/idade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtalucinogenoidade"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"
+                android:textSize="@dimen/tamanho_perguntas"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spalucinogenoidade"
+                android:entries="@array/idade"
+                android:visibility="gone"/>
+
+            <CheckBox
+                android:text="Outros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cboutradroga"
+                android:onClick="usouOutras"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/edtxtoutrasdrogas"
+                android:textSize="14sp"
+                android:hint="Digite quais outras drogas você utilizou"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="@string/idade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtoutrasidade"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"
+                android:textSize="@dimen/tamanho_perguntas"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spoutrasidade"
+                android:entries="@array/idade"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="Quais drogas você pretende tratar com o uso do aplicativo?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtdrogasparar"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="@dimen/tamanho_perguntas"/>
+
+            <CheckBox
+                android:text="Álcool"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbparaalcool"
+                android:onClick="trataAlcool" />
+
+            <TextView
+                android:text="@string/freq90dias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtalcoolfreq"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spalcoolfreq"
+                android:entries="@array/freq"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="@string/qtd90dias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtalcoolqtd"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="@string/ultimavez"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtalcoolultima"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"/>
+
+            <CheckBox
+                android:text="Maconha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbparamaconha"
+                android:onClick="trataMaconha"/>
+
+            <TextView
+                android:text="@string/freq90dias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtmaconhafreq"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spmaconhafreq"
+                android:entries="@array/freq"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="@string/qtd90dias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtmaconhaqtd"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="@string/ultimavez"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtmaconhaultima"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone" />
+
+            <CheckBox
+                android:text="Cocaína"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbparacocaina"
+                android:onClick="trataCocaina"/>
+
+            <TextView
+                android:text="@string/freq90dias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtcocainafreq"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spcocainafreq"
+                android:entries="@array/freq"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="@string/qtd90dias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtcocainaqtd"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="@string/ultimavez"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtcocainaultima"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"/>
+
+            <CheckBox
+                android:text="Crack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbparacrack"
+                android:onClick="trataCrack"/>
+
+            <TextView
+                android:text="@string/freq90dias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtcrackfreq"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spcrackfreq"
+                android:entries="@array/freq"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="@string/qtd90dias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtcrackqtd"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="@string/ultimavez"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtcrackultima"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"/>
+
+            <CheckBox
+                android:text="Ecstasy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbparaecstasy"
+                android:onClick="trataEcstasy"/>
+
+            <TextView
+                android:text="@string/freq90dias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtecstasyfreq"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/specstasyfreq"
+                android:entries="@array/freq"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="@string/qtd90dias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtecstasyqtd"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="@string/ultimavez"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtecstasyultima"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone" />
+
+            <CheckBox
+                android:text="Alucinógenos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbparaalucinogeno"
+                android:onClick="trataAlucinogenos"/>
+
+            <TextView
+                android:text="@string/freq90dias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtalucinogenofreq"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spalucinogenofreq"
+                android:entries="@array/freq"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="@string/qtd90dias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtalucinogenoqtd"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="@string/ultimavez"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtalucinogenoultima"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"/>
+
+            <CheckBox
+                android:text="Outras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbparaoutras"
+                android:onClick="trataOutras"/>
+
+            <TextView
+                android:text="@string/freq90dias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtoutrasfreq"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spoutrasfreq"
+                android:entries="@array/freq"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="@string/qtd90dias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtoutrasqtd"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="@string/ultimavez"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtoutrasultima"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="Quais são suas motivações para a mudança? "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtmotivacao"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="@dimen/tamanho_perguntas"/>
+
+            <CheckBox
+                android:text="Família"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbfamilia"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <CheckBox
+                android:text="Dinheiro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbdinheiro"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <CheckBox
+                android:text="Saúde física"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbsfisica"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <CheckBox
+                android:text="Saúde emocional"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbsemocional"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <CheckBox
+                android:text="Trabalho"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbtrabalho"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <CheckBox
+                android:text="Estudos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbestudos"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <CheckBox
+                android:text="Outras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cboutros" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/edtxtoutramot"
+                android:hint="Especifique"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="Contatos para emergência"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtcontatos"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="@dimen/tamanho_perguntas"/>
+
+            <TextView
+                android:text="Contato 1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:id="@+id/txtcontato1" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/edtxtcontato1"
+                android:hint="Nome do contato"
+                />
+
+            <Button
+                android:text="Ir para Contatos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btcontato1"
+                android:onClick="selecionarContato1"/>
+
+            <TextView
+                android:text="Contato 2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:id="@+id/txtcontato2" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/edtxtcontato2"
+                android:hint="Nome do contato"
+                />
+
+            <Button
+                android:text="Contatos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btcontato2"
+                android:onClick="selecionarContato2"/>
+
+            <TextView
+                android:text="Contato 3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:id="@+id/txtcontato3" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/edtxtcontato3"
+                android:hint="Nome do contato"
+                />
+
+            <Button
+                android:text="Contatos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btcontato3"
+                android:onClick="selecionarContato3"/>
+
+            <TextView
+                android:text="Qual sua meta final?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtmetafinal"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="@dimen/tamanho_perguntas"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Spinner
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spmetafinal"
+                    android:entries="@array/meta_final"
+                    android:layout_width="wrap_content" />
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spreduzir"
+                    android:entries="@array/meta_final_reduzir_qtd"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:visibility="gone"/>
+            </RelativeLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btconfirma"
+                android:onClick="confirmaCadastro"
+                android:text="Cadastrar"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
 </RelativeLayout>

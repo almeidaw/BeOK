@@ -1,3 +1,75 @@
 <resources>
     <string name="app_name">BeOK</string>
+
+    <string name="freq90dias">Com que frequência você utlizou nos últimos 90 dias?</string>
+    <string name="idade">Qual sua idade quando usou pela primeira vez?</string>
+    <string name="ultimavez">Quando foi a última vez que usou?</string>
+    <string name="qtd90dias">Em que quantidade usou nos últimos 90 dias?</string>
+
+    <string-array name="genero">
+        <item>Masculino</item>
+        <item>Feminino</item>
+        <item>Outro</item>
+    </string-array>
+
+    <string-array name="freq">
+        <item>Mais de uma vez por dia</item>
+        <item>Todos os dias</item>
+        <item>De 3 a 5 vezes por semana</item>
+        <item>Nos fins de semana</item>
+    </string-array>
+
+    <string-array name="meta_final">
+        <item>Abstinência</item>
+        <item>Reduzir o uso</item>
+    </string-array>
+
+    <string-array name="meta_final_reduzir_qtd">
+        <item>3 vezes por semana</item>
+        <item>2 vezes por semana</item>
+        <item>1 vez por semana</item>
+    </string-array>
+
+    <string-array name="idade">
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>39</item>
+        <item>40</item>
+        <item>41</item>
+        <item>42</item>
+        <item>43</item>
+        <item>44</item>
+        <item>45</item>
+        <item>46</item>
+        <item>47</item>
+        <item>48</item>
+        <item>49</item>
+        <item>50</item>
+        <item>51</item>
+        <item>52</item>
+        <item>53</item>
+        <item>54</item>
+        <item>55</item>
+    </string-array>
 </resources>
