@@ -417,8 +417,7 @@ public class Cadastro extends AppCompatActivity implements Callback<Object> {
             Intent i=new Intent(this,Home.class);
             startActivity(i);
         }else{
-            Toast.makeText(this,"Erro no servidor.",Toast.LENGTH_SHORT).show();
-
+            Toast.makeText(this, "Usuário com este e-mail já existente.", Toast.LENGTH_LONG).show();
         }
     }
 

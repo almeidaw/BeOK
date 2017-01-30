@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 import beok.beok.POJO.Usuario;
 import beok.beok.api.ServiceGenerator;
 import beok.beok.localdb.DBLocal;
@@ -48,13 +50,18 @@ public class Login extends AppCompatActivity implements Callback<Usuario> {
             Intent i=new Intent(this,Home.class);
             startActivity(i);
         }else{
-            Toast.makeText(this,"Erro no servidor.",Toast.LENGTH_SHORT).show();
+            int code=response.code();
+            if(code==404){
+                Toast.makeText(this,"E-mail ou senha incorreto(s)",Toast.LENGTH_LONG).show();
+            }else if(code==403){
+                Toast.makeText(this,"Problema no servidor. Tente novamente mais tarde",Toast.LENGTH_LONG).show();
+            }
         }
     }
 
     @Override
     public void onFailure(Call<Usuario> call, Throwable t) {
-        Toast.makeText(this,"Erro na rede, verifique sua conexão na internet e tente novamente",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Erro na rede, verifique sua conexão na internet e tente novamente",Toast.LENGTH_LONG).show();
         t.printStackTrace();
     }
 }
