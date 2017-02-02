@@ -5,10 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.orm.SugarContext;
+import com.orm.SugarRecord;
 
 import org.w3c.dom.Text;
 
-import beok.beok.localdb.DBLocal;
+import java.util.List;
+
+import beok.beok.POJO.Usuario;
 
 
 public class Home extends AppCompatActivity {
@@ -34,6 +40,10 @@ public class Home extends AppCompatActivity {
         txt52 = (TextView) findViewById(R.id.txt5_2);
         txt61 = (TextView) findViewById(R.id.txt6_1);
         txt62 = (TextView) findViewById(R.id.txt6_2);
+        SugarContext.init(this);
+       // Usuario u=SugarRecord.listAll(Usuario.class).get(0);
+       // Toast.makeText(this,"ID ext e interno é "+ u.getId(),Toast.LENGTH_LONG).show();
+
 
         /*
         * TODO:
@@ -44,8 +54,8 @@ public class Home extends AppCompatActivity {
     }
 
     public void deslogaClick(View v){
-        DBLocal db=new DBLocal(this);
-        db.resetaTabela();
+       // DBLocal db=new DBLocal(this);
+       // db.resetaTabela();
         Intent i = new Intent(this, Cadastro.class);
         startActivity(i);
     }

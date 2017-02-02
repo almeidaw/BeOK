@@ -4,7 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import beok.beok.localdb.DBLocal;
+import com.orm.SugarContext;
+import com.orm.SugarDb;
+import com.orm.SugarRecord;
+
+import java.util.List;
+
+import beok.beok.POJO.Usuario;
 
 public class Main extends AppCompatActivity {
 
@@ -12,8 +18,14 @@ public class Main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DBLocal db= new DBLocal(this);
-        if(db.usuarioLogado()){
+
+        SugarContext.init(this);
+
+        List<Usuario> us= SugarRecord.listAll(Usuario.class);
+
+
+
+        if(!us.isEmpty()){
             //redireciona para a home
             Intent i=new Intent(this,Home.class);
             startActivity(i);

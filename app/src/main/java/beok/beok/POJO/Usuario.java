@@ -1,9 +1,12 @@
 package beok.beok.POJO;
 
+import com.orm.SugarRecord;
+import com.orm.dsl.Table;
+
 /**
  * Created by pietro on 28/01/17.
  */
-
+@Table
 public class Usuario {
 
     private String nome;
@@ -11,7 +14,8 @@ public class Usuario {
     private String senha;
     private String email;
     private int idade;
-    private int id;
+
+    private Long id;
 
 
     public String getNome() {
@@ -54,11 +58,11 @@ public class Usuario {
         this.idade = idade;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }

@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import beok.beok.POJO.Usuario;
 import beok.beok.api.ServiceGenerator;
-import beok.beok.localdb.DBLocal;
 import beok.beok.webservice.ServiceWS;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,6 +28,9 @@ import android.widget.TextView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.orm.SugarContext;
+import com.orm.SugarRecord;
+
 public class Cadastro extends AppCompatActivity implements Callback<Usuario> {
 
     private int cont1 = 1; // Intent contato 1
@@ -36,7 +38,6 @@ public class Cadastro extends AppCompatActivity implements Callback<Usuario> {
     private int cont3 = 3; // Intent contato 3
 
     Call<Usuario> ucall;
-    DBLocal db;
 
     Usuario usuario;
 
@@ -63,6 +64,8 @@ public class Cadastro extends AppCompatActivity implements Callback<Usuario> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
+
+        SugarContext.init(this);
 
         cbalcool = (CheckBox) findViewById(R.id.cbalcool);
         cbmaconha = (CheckBox) findViewById(R.id.cbmaconha);
@@ -411,9 +414,8 @@ public class Cadastro extends AppCompatActivity implements Callback<Usuario> {
         if(response.isSuccessful()){
 
             //Banco de dados local
-            db=new DBLocal(this);
-            db.resetaTabela();
-            db.insereUsuario(response.body());
+            Usuario u=response.body();
+            SugarRecord.save(u);
 
             //Tela da home
             Intent i=new Intent(this,Home.class);

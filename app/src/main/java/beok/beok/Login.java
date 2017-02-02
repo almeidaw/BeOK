@@ -7,11 +7,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.orm.SugarContext;
+import com.orm.SugarRecord;
+
 import java.io.IOException;
 
 import beok.beok.POJO.Usuario;
 import beok.beok.api.ServiceGenerator;
-import beok.beok.localdb.DBLocal;
 import beok.beok.webservice.ServiceWS;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,6 +31,8 @@ public class Login extends AppCompatActivity implements Callback<Usuario> {
         setContentView(R.layout.activity_login);
         email=(EditText)findViewById(R.id.email_login);
         senha=(EditText)findViewById(R.id.senha_login);
+
+        SugarContext.init(this);
     }
     public void loginClickLogin(View v){
         ServiceWS service= ServiceGenerator.createService(ServiceWS.class);
@@ -44,9 +48,9 @@ public class Login extends AppCompatActivity implements Callback<Usuario> {
     @Override
     public void onResponse(Call<Usuario> call, Response<Usuario> response) {
         if(response.isSuccessful()){
-            DBLocal db=new DBLocal(this);
-            db.resetaTabela();
-            db.insereUsuario(response.body());
+            Usuario u=response.body();
+            SugarRecord.save(u);
+
             Intent i=new Intent(this,Home.class);
             startActivity(i);
         }else{
