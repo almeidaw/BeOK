@@ -1,5 +1,7 @@
 package beok.beok.webservice;
 
+import beok.beok.POJO.CreatedObjects;
+import beok.beok.POJO.DataTeste;
 import beok.beok.POJO.Usuario;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -17,4 +19,10 @@ public interface ServiceWS {
 
     @PUT("ws/main/user/cadastro")
     Call<Usuario> cadastrar(@Body Usuario body);
+
+    @GET("ws/main/teste")
+    Call<CreatedObjects> teste();
+
+    @PUT("ws/main/data/create/{id}")
+    Call<CreatedObjects> create(@Body Object body,@Path("id") long idUsuario);
 }

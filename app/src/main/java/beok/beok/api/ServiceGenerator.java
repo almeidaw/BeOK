@@ -1,5 +1,9 @@
 package beok.beok.api;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.orm.SugarRecord;
+
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -11,17 +15,19 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceGenerator {
 
-    public static final String API_BASE_URL = "http://172.16.202.52:8080/";
+    public static final String API_BASE_URL = "http://192.168.100.93:8080/";
 
     private static OkHttpClient.Builder httpClient;
 
     private static Retrofit.Builder builder;
+    private static Gson gson;
 
     public static <S> S createService(Class<S> serviceClass) {
         final AuthToken token=new AuthToken();
+        gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
         builder = new Retrofit.Builder()
                 .baseUrl(API_BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create());
+                .addConverterFactory(GsonConverterFactory.create(gson));
 
         httpClient = new OkHttpClient.Builder()
                 .addInterceptor(new Interceptor() {

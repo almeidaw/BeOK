@@ -14,7 +14,6 @@ public class BotaoAtivo {
 
 
     private Long id;
-    private int idUsuario;
     private Date dataAtivo;
     private boolean motivo;
     private int oQueFez;
@@ -29,20 +28,6 @@ public class BotaoAtivo {
      * @param id the id to set
      */
     public void setId(Long id) { this.id = id; }
-
-    /**
-     * @return the idUsuario
-     */
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    /**
-     * @param idUsuario the idUsuario to set
-     */
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
 
     /**
      * @return the dataAtivo

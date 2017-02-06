@@ -14,7 +14,7 @@ public class RelatoDiario {
 
 
     private Long id;
-    private int idUsuario;
+
     private Date dataDiario;
     private boolean vontade;
     private boolean uso;
@@ -30,19 +30,6 @@ public class RelatoDiario {
      */
     public void setId(Long id) { this.id = id; }
 
-    /**
-     * @return the idUsuario
-     */
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    /**
-     * @param idUsuario the idUsuario to set
-     */
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
 
     /**
      * @return the dataDiario

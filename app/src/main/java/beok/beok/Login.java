@@ -48,7 +48,7 @@ public class Login extends AppCompatActivity implements Callback<Usuario> {
     //Resposta do webservice
     @Override
     public void onResponse(Call<Usuario> call, Response<Usuario> response) {
-        if(response.isSuccessful()){
+        if(response.isSuccessful() && response.body()!=null){
             Usuario u=response.body();
             SugarRecord.save(u);
 
@@ -60,6 +60,9 @@ public class Login extends AppCompatActivity implements Callback<Usuario> {
                 Toast.makeText(this,"E-mail ou senha incorreto(s)",Toast.LENGTH_LONG).show();
             }else if(code==403){
                 Toast.makeText(this,"Problema no servidor. Tente novamente mais tarde",Toast.LENGTH_LONG).show();
+            }
+            if(response.body()==null){
+                Toast.makeText(this,"E-mail ou senha incorreto(s)",Toast.LENGTH_LONG).show();
             }
         }
     }

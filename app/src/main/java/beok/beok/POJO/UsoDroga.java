@@ -14,8 +14,8 @@ public class UsoDroga {
 
 
     private Long id;
-    private int idUsuario;
-    private int idReelatoDiario;
+
+    private int idRelatoDiario;
     private int tipo;
     private String outros;
     private Date quando;
@@ -40,32 +40,19 @@ public class UsoDroga {
      */
     public void setId(Long id) { this.id = id; }
 
-    /**
-     * @return the idUsuario
-     */
-    public int getIdUsuario() {
-        return idUsuario;
-    }
 
     /**
-     * @param idUsuario the idUsuario to set
-     */
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    /**
-     * @return the idReelatoDiario
+     * @return the idRelatoDiario
      */
     public int getIdRelatoDiario() {
-        return idReelatoDiario;
+        return idRelatoDiario;
     }
 
     /**
-     * @param idReelatoDiario the idReelatoDiario to set
+     * @param idRelatoDiario the idRelatoDiario to set
      */
-    public void setidRelatoDiario(int idReelatoDiario) {
-        this.idReelatoDiario = idReelatoDiario;
+    public void setidRelatoDiario(int idRelatoDiario) {
+        this.idRelatoDiario = idRelatoDiario;
     }
 
     /**

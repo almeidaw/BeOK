@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 
 import beok.beok.POJO.Usuario;
+import beok.beok.api.DB;
 import beok.beok.api.ServiceGenerator;
 import beok.beok.webservice.ServiceWS;
 import retrofit2.Call;
@@ -416,6 +417,8 @@ public class Cadastro extends AppCompatActivity implements Callback<Usuario> {
             //Banco de dados local
             Usuario u=response.body();
             SugarRecord.save(u);
+
+            DB.idUsuario=u.getId();
 
             //Tela da home
             Intent i=new Intent(this,Home.class);
