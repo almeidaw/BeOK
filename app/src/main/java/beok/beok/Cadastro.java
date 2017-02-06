@@ -1,7 +1,11 @@
 package beok.beok;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -359,18 +363,39 @@ public class Cadastro extends AppCompatActivity implements Callback<Usuario> {
     }
 
     public void selecionarContato1(View v) {
-        Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-        startActivityForResult(i, cont1);
+        // Verifica se a permissao para acessar o Contacts foi concedida e so permite o acesso se for true
+        if ((ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS))
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS},cont1);
+        }
+        else {
+            Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+            startActivityForResult(i, cont1);
+        }
     }
 
     public void selecionarContato2(View v) {
-        Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-        startActivityForResult(i, cont2);
+        // Verifica se a permissao para acessar o Contacts foi concedida e so permite o acesso se for true
+        if ((ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS))
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS},cont1);
+        }
+        else {
+            Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+            startActivityForResult(i, cont2);
+        }
     }
 
     public void selecionarContato3(View v) {
-        Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-        startActivityForResult(i, cont3);
+        // Verifica se a permissao para acessar o Contacts foi concedida e so permite o acesso se for true
+        if ((ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS))
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS},cont1);
+        }
+        else {
+            Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+            startActivityForResult(i, cont3);
+        }
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent i) {
