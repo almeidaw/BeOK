@@ -1,9 +1,13 @@
 package beok.beok;
 
+import android.app.Fragment;
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,17 +26,18 @@ import beok.beok.POJO.Wrapper;
 import beok.beok.api.DB;
 
 
-public class Home extends AppCompatActivity {
+public class Home extends Fragment {
 
     TextView txt11, txt12, txt21, txt22, txt31, txt32, txt41, txt42, txt51, txt52, txt61, txt62;
 
 
-
-
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View v = inflater.inflate(R.layout.fragment_home, container, false);
+
+/*        setContentView(R.layout.fragment_home);
         txt11 = (TextView) findViewById(R.id.txt1_1);
         txt12 = (TextView) findViewById(R.id.txt1_2);
         txt21 = (TextView) findViewById(R.id.txt2_1);
@@ -50,15 +55,21 @@ public class Home extends AppCompatActivity {
        // Toast.makeText(this,"ID ext e interno é "+ u.getId(),Toast.LENGTH_LONG).show();
 
 
+*/
+
         /*
         * TODO:
         * Recuperar dos bancos de dados os valores que aparecerão nos TextViews acima
         * (alguns dados armazenados no local, outros armazenados no remoto)
         * DEVE SER FEITO NO ONCREATE()
         * */
+
+        return v;
     }
+
+
     public void saveClick(View v){
-        Date dtn=new Date();
+/*        Date dtn=new Date();
         dtn.setTime(System.currentTimeMillis());
         BotaoAtivo btA=new BotaoAtivo();
         btA.setMotivo(true);
@@ -66,11 +77,12 @@ public class Home extends AppCompatActivity {
         btA.setDataAtivo(dtn);
 
         DB.save(btA);
-    }
-    public void deslogaClick(View v){
+*/    }
+/*    public void deslogaClick(View v){
        // DBLocal db=new DBLocal(this);
        // db.resetaTabela();
         Intent i = new Intent(this, Cadastro.class);
         startActivity(i);
     }
+*/
 }

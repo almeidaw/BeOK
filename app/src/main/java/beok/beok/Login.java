@@ -34,6 +34,10 @@ public class Login extends AppCompatActivity implements Callback<Usuario> {
         senha=(EditText)findViewById(R.id.senha_login);
 
         SugarContext.init(this);
+
+        Intent i=new Intent(this,Home.class);
+        startActivity(i);
+
     }
     public void loginClickLogin(View v){
         ServiceWS service= ServiceGenerator.createService(ServiceWS.class);

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/diaryItem"
+        android:icon="@drawable/ic_diary"
+        android:title="Diário"
+        />
+
+    <item
+        android:id="@+id/goalsItem"
+        android:icon="@drawable/ic_goals"
+        android:title="Metas"
+        />
+
+    <item
+        android:id="@+id/homeItem"
+        android:icon="@drawable/ic_home"
+        android:title="Principal"
+        />
+
+    <item
+        android:id="@+id/inspirationItem"
+        android:icon="@drawable/ic_inspiration"
+        android:title="Inspiração"
+        />
+
+    <item
+        android:id="@+id/therapyItem"
+        android:icon="@drawable/ic_therapy"
+        android:title="Terapia"
+        />
+
+
+</menu>
