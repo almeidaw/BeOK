@@ -2,6 +2,7 @@ package beok.beok;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import beok.beok.POJO.DataTeste;
 import beok.beok.POJO.Usuario;
 import beok.beok.POJO.Wrapper;
 import beok.beok.api.DB;
+import beok.beok.api.ServiceSincronizer;
 
 
 public class Home extends Fragment {
@@ -32,6 +34,11 @@ public class Home extends Fragment {
 
 
     @Nullable
+    int period = 10000;
+    final Handler handler=new Handler();
+    ServiceSincronizer sc;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -50,12 +57,13 @@ public class Home extends Fragment {
         txt52 = (TextView) findViewById(R.id.txt5_2);
         txt61 = (TextView) findViewById(R.id.txt6_1);
         txt62 = (TextView) findViewById(R.id.txt6_2);
-        SugarContext.init(this);
+
+        initialize();
+
+        handler.postDelayed(runnable, period);
        // Usuario u=SugarRecord.listAll(Usuario.class).get(0);
        // Toast.makeText(this,"ID ext e interno é "+ u.getId(),Toast.LENGTH_LONG).show();
 
-
-*/
 
         /*
         * TODO:
@@ -69,7 +77,7 @@ public class Home extends Fragment {
 
 
     public void saveClick(View v){
-/*        Date dtn=new Date();
+        Date dtn=new Date();
         dtn.setTime(System.currentTimeMillis());
         BotaoAtivo btA=new BotaoAtivo();
         btA.setMotivo(true);
@@ -77,12 +85,23 @@ public class Home extends Fragment {
         btA.setDataAtivo(dtn);
 
         DB.save(btA);
-*/    }
-/*    public void deslogaClick(View v){
-       // DBLocal db=new DBLocal(this);
-       // db.resetaTabela();
-        Intent i = new Intent(this, Cadastro.class);
-        startActivity(i);
     }
-*/
+
+    private void initialize(){
+        SugarContext.init(this);
+        //Toast.makeText(getApplicationContext(), SugarRecord.listAll(Wrapper.class).size()+"", Toast.LENGTH_SHORT).show();
+        sc=new ServiceSincronizer();
+        ServiceSincronizer.scContext=getApplicationContext();
+    }
+
+    private Runnable runnable = new Runnable() {
+
+        @Override
+        public void run() {
+            Toast.makeText(getApplicationContext(),"pulse", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), SugarRecord.listAll(Wrapper.class).size()+"", Toast.LENGTH_SHORT).show();
+            DB.flush();
+            handler.postDelayed(this, period);
+        }
+    };
 }

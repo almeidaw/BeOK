@@ -24,9 +24,6 @@ import beok.beok.api.ServiceSincronizer;
 
 public class PreLogIn extends AppCompatActivity {
 
-    int period = 10000;
-    final Handler handler=new Handler();
-    ServiceSincronizer sc;
 
     TextView t;
 
@@ -39,7 +36,6 @@ public class PreLogIn extends AppCompatActivity {
 
         t=(TextView)findViewById(R.id.textView3);
 
-        handler.postDelayed(runnable, period);
 
         List<Usuario> us=DB.listAll(Usuario.class);
 
@@ -57,9 +53,6 @@ public class PreLogIn extends AppCompatActivity {
     private void initialize(){
         SugarContext.init(this);
         DB.updateQueue();
-        Toast.makeText(getApplicationContext(), SugarRecord.listAll(Wrapper.class).size()+"", Toast.LENGTH_SHORT).show();
-        sc=new ServiceSincronizer();
-        ServiceSincronizer.scContext=getApplicationContext();
     }
     public void clicaCadastra(View v){
         Date dtn=new Date();
@@ -70,14 +63,4 @@ public class PreLogIn extends AppCompatActivity {
 
         DB.save(dteste);
     }
-    private Runnable runnable = new Runnable() {
-
-        @Override
-        public void run() {
-            //Toast.makeText(getApplicationContext(),"pulse", Toast.LENGTH_SHORT).show();
-            //Toast.makeText(getApplicationContext(), SugarRecord.listAll(Wrapper.class).size()+"", Toast.LENGTH_SHORT).show();
-            DB.flush();
-            handler.postDelayed(this, period);
-        }
-    };
 }
