@@ -7,7 +7,13 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
+
+import java.util.Date;
+
+import beok.beok.POJO.BotaoAtivo;
+import beok.beok.api.DB;
 
 
 public class Main extends AppCompatActivity {
@@ -73,6 +79,18 @@ public class Main extends AppCompatActivity {
 
         fragmentTransaction.commit();
     }
+
+    public void saveClick(View v){
+        Date dtn=new Date();
+        dtn.setTime(System.currentTimeMillis());
+        BotaoAtivo btA=new BotaoAtivo();
+        btA.setMotivo(true);
+        btA.setOQueFez(5);
+        btA.setDataAtivo(dtn);
+
+        DB.save(btA);
+    }
+
 
 
 }

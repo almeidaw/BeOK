@@ -58,9 +58,6 @@ public class Home extends Fragment {
         txt61 = (TextView) findViewById(R.id.txt6_1);
         txt62 = (TextView) findViewById(R.id.txt6_2);
 
-        initialize();
-
-        handler.postDelayed(runnable, period);
        // Usuario u=SugarRecord.listAll(Usuario.class).get(0);
        // Toast.makeText(this,"ID ext e interno é "+ u.getId(),Toast.LENGTH_LONG).show();
 
@@ -72,33 +69,26 @@ public class Home extends Fragment {
         * DEVE SER FEITO NO ONCREATE()
         * */
 
+        initialize();
+
+        handler.postDelayed(runnable, period);
         return v;
     }
 
 
-    public void saveClick(View v){
-        Date dtn=new Date();
-        dtn.setTime(System.currentTimeMillis());
-        BotaoAtivo btA=new BotaoAtivo();
-        btA.setMotivo(true);
-        btA.setOQueFez(5);
-        btA.setDataAtivo(dtn);
-
-        DB.save(btA);
-    }
 
     private void initialize(){
-        SugarContext.init(this);
+        SugarContext.init(getActivity());
         //Toast.makeText(getApplicationContext(), SugarRecord.listAll(Wrapper.class).size()+"", Toast.LENGTH_SHORT).show();
         sc=new ServiceSincronizer();
-        ServiceSincronizer.scContext=getApplicationContext();
+        ServiceSincronizer.scContext=getActivity();
     }
 
     private Runnable runnable = new Runnable() {
 
         @Override
         public void run() {
-            Toast.makeText(getApplicationContext(),"pulse", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(),"pulse", Toast.LENGTH_SHORT).show();
             //Toast.makeText(getApplicationContext(), SugarRecord.listAll(Wrapper.class).size()+"", Toast.LENGTH_SHORT).show();
             DB.flush();
             handler.postDelayed(this, period);
