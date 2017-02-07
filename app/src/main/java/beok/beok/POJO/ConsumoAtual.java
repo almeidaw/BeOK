@@ -60,12 +60,6 @@ public class ConsumoAtual {
         return outros;
     }
 
-    /**
-     * @param outros the outros to set
-     */
-    public void setOutros(String outros) {
-        this.outros = outros;
-    }
 
     /**
      * @return the freqSemanal
@@ -191,5 +185,22 @@ public class ConsumoAtual {
      */
     public void setGasto(int gasto) {
         this.gasto = gasto;
+    }
+
+    public void setAlcool(){
+        tipo=0;
+    }
+    public void setMaconha(){
+        tipo=1;
+    }
+    public void setCocaina(){
+        tipo=2;
+    }
+    public void setCrack(){
+        tipo=3;
+    }
+    public void setOutros(String outros){
+        this.outros=outros;
+        tipo=4;
     }
 }
