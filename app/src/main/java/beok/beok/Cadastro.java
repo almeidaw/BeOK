@@ -1,18 +1,20 @@
 package beok.beok;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
+import beok.beok.POJO.ConsumoAtual;
+import beok.beok.POJO.MetaGeral;
 import beok.beok.POJO.Usuario;
 import beok.beok.api.DB;
 import beok.beok.api.ServiceGenerator;
@@ -32,37 +34,53 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.widget.ViewSwitcher;
 
 import com.orm.SugarContext;
 import com.orm.SugarRecord;
 
 public class Cadastro extends AppCompatActivity implements Callback<Usuario> {
 
-    private int cont1 = 1; // Intent contato 1
-    private int cont2 = 2; // Intent contato 2
-    private int cont3 = 3; // Intent contato 3
-
     Call<Usuario> ucall;
 
     Usuario usuario;
 
-    CheckBox cbalcool, cbmaconha, cbcocaina, cbcrack, cbecstasy, cbalucinogeno, cboutradroga,
-            cbparaalcool, cbparamaconha, cbparacrack, cbparacocaina, cbparaecstasy, cbparaalucinogeno, cbparaoutras,
-            cbfamilia, cbdinheiro, cbtrabalho, cbestudos, cbsfisica, cbsemocional, cboutro;
+    private int cont1 = 1; // Intent contato 1
+    private int cont2 = 2; // Intent contato 2
+    private int cont3 = 3; // Intent contato 3
 
-    TextView txtalcoolidade, txtmaconhaidade, txtcocainaidade, txtcrackidade, txtecstasyidade, txtalucinogenoidade, txtoutrasidade,
-            txtalcoolfreq, txtmaconhafreq, txtcocainafreq, txtcrackfreq, txtecstasyfreq, txtalucinogenofreq, txtoutrasfreq,
-            txtalcoolqtd, txtmaconhaqtd, txtcocainaqtd, txtcrackqtd, txtecstasyqtd, txtalucinogenoqtd, txtoutrasqtd,
-            txtalcoolultima, txtmaconhaultima, txtcocainaultima, txtcrackultima, txtecstasyultima, txtalucinogenoultima, txtoutrasultima,
-            txtcontato1, txtcontato2, txtcontato3;
+    Handler setDelay;   //Necessario para fazer
+    Runnable startDelay;//o delay
+
+    ViewSwitcher vs1, vs2, vs2_1, vs2_2, vs2_3, vs2_4, vs2_7,
+            vs3, vs3_1, vs3_2, vs3_3, vs3_4, vs3_7, vs4;
+
+    Animation left, right;
+
+    Button btproximo1, btproximo2, btproximo3, btproximo4, btfimcadastro,
+            btalcoolidade, btmaconhaidade, btcocainaidade, btcrackidade, btoutrasidade,
+            bttrataalcool, bttratamaconha, bttratacocaina, bttratacrack, bttrataoutras;
+
+    CheckBox cbalcool, cbmaconha, cbcocaina, cbcrack, cboutradroga,
+            cbparaalcool, cbparamaconha, cbparacrack, cbparacocaina, cbparaoutras,
+            cbfamilia, cbdinheiro, cbtrabalho, cbestudos, cbsfisica, cbsemocional, cboutros;
+
+    TextView txtalcoolidade, txtmaconhaidade, txtcocainaidade, txtcrackidade, txtoutrasidade,
+            txtalcoolfreq, txtmaconhafreq, txtcocainafreq, txtcrackfreq, txtoutrasfreq,
+            txtalcoolqtd, txtmaconhaqtd, txtcocainaqtd, txtcrackqtd, txtoutrasqtd,
+            txtalcoolultima, txtmaconhaultima, txtcocainaultima, txtcrackultima, txtoutrasultima,
+            txtcontato1, txtcontato2, txtcontato3,
+            txtdrogas, txtdrogasparar;
 
     Spinner spidade, spgenero,
-            spalcoolidade, spmaconhaidade, spcocainaidade, spcrackidade, specstasyidade, spalucinogenoidade, spoutrasdrogaidade,
-            spalcoolfreq, spmaconhafreq, spcocainafreq, spcrackfreq, specstasyfreq, spalucinogenofreq, spoutrasfreq,
-            spmetafinal, spreduzir;
+            spalcoolidade, spmaconhaidade, spcocainaidade, spcrackidade, spoutrasdrogaidade,
+            spalcoolfreq, spmaconhafreq, spcocainafreq, spcrackfreq, spoutrasfreq,
+            spfinalalcool, spfinalmaconha, spfinalcocaina, spfinalcrack, spfinaloutras,
+            spreduziralcool, spreduzirmaconha, spreduzircocaina, spreduzircrack, spreduziroutras;
 
-    TextView edtxtnome, edtxtemail, edtxtsenha,
+    EditText edtxtnome, edtxtemail, edtxtsenha,
             edtxtoutrasdrogas,
+            edtxtoutramot,
             edtxtcontato1, edtxtcontato2, edtxtcontato3;
 
     @Override
@@ -76,16 +94,12 @@ public class Cadastro extends AppCompatActivity implements Callback<Usuario> {
         cbmaconha = (CheckBox) findViewById(R.id.cbmaconha);
         cbcocaina = (CheckBox) findViewById(R.id.cbcocaina);
         cbcrack = (CheckBox) findViewById(R.id.cbcrack);
-        cbecstasy = (CheckBox) findViewById(R.id.cbecstasy);
-        cbalucinogeno = (CheckBox) findViewById(R.id.cbalucinogeno);
         cboutradroga = (CheckBox) findViewById(R.id.cboutradroga);
 
         cbparaalcool = (CheckBox) findViewById(R.id.cbparaalcool);
         cbparamaconha = (CheckBox) findViewById(R.id.cbparamaconha);
         cbparacocaina = (CheckBox) findViewById(R.id.cbparacocaina);
         cbparacrack = (CheckBox) findViewById(R.id.cbparacrack);
-        cbparaecstasy = (CheckBox) findViewById(R.id.cbparaecstasy);
-        cbparaalucinogeno = (CheckBox) findViewById(R.id.cbparaalucinogeno);
         cbparaoutras = (CheckBox) findViewById(R.id.cbparaoutras);
 
         cbfamilia = (CheckBox) findViewById(R.id.cbfamilia);
@@ -94,40 +108,39 @@ public class Cadastro extends AppCompatActivity implements Callback<Usuario> {
         cbsfisica = (CheckBox) findViewById(R.id.cbsfisica);
         cbtrabalho = (CheckBox) findViewById(R.id.cbtrabalho);
         cbestudos = (CheckBox) findViewById(R.id.cbestudos);
-        cboutro = (CheckBox) findViewById(R.id.cboutros);
+        cboutros = (CheckBox) findViewById(R.id.cboutros);
+
+        txtdrogas = (TextView) findViewById(R.id.txtdrogas);
 
         txtalcoolidade = (TextView) findViewById(R.id.txtalcoolidade);
         txtmaconhaidade = (TextView) findViewById(R.id.txtmaconhaidade);
         txtcocainaidade = (TextView) findViewById(R.id.txtcocainaidade);
         txtcrackidade = (TextView) findViewById(R.id.txtcrackidade);
-        txtecstasyidade = (TextView) findViewById(R.id.txtecstasyidade);
-        txtalucinogenoidade = (TextView) findViewById(R.id.txtalucinogenoidade);
         txtoutrasidade = (TextView) findViewById(R.id.txtoutrasidade);
+
+        txtdrogasparar = (TextView) findViewById(R.id.txtdrogasparar);
 
         txtalcoolfreq = (TextView) findViewById(R.id.txtalcoolfreq);
         txtmaconhafreq = (TextView) findViewById(R.id.txtmaconhafreq);
         txtcocainafreq = (TextView) findViewById(R.id.txtcocainafreq);
         txtcrackfreq = (TextView) findViewById(R.id.txtcrackfreq);
-        txtecstasyfreq = (TextView) findViewById(R.id.txtecstasyfreq);
-        txtalucinogenofreq = (TextView) findViewById(R.id.txtalucinogenofreq);
         txtoutrasfreq = (TextView) findViewById(R.id.txtoutrasfreq);
+/*
+        TEXTVIEW PARA AS OUTRAS PERGUNTAS
 
         txtalcoolqtd = (TextView) findViewById(R.id.txtalcoolqtd);
         txtmaconhaqtd = (TextView) findViewById(R.id.txtmaconhaqtd);
         txtcocainaqtd = (TextView) findViewById(R.id.txtcocainaqtd);
-        txtcrackqtd = (TextView) findViewById(R.id.txtcrackqtd);
-        txtecstasyqtd = (TextView) findViewById(R.id.txtecstasyqtd);
-        txtalucinogenoqtd = (TextView) findViewById(R.id.txtalucinogenoqtd);
+        txtcrackqtd = (TextView) findViewById(R.id.txtcrackqtd);\
         txtoutrasqtd = (TextView) findViewById(R.id.txtoutrasqtd);
 
         txtalcoolultima = (TextView) findViewById(R.id.txtalcoolultima);
         txtmaconhaultima = (TextView) findViewById(R.id.txtmaconhaultima);
         txtcocainaultima = (TextView) findViewById(R.id.txtcocainaultima);
-        txtcrackultima = (TextView) findViewById(R.id.txtcrackultima);
-        txtecstasyultima = (TextView) findViewById(R.id.txtecstasyultima);
-        txtalucinogenoultima = (TextView) findViewById(R.id.txtalucinogenoultima);
+        txtcrackultima = (TextView) findViewById(R.id.txtcrackultima);\
         txtoutrasultima = (TextView) findViewById(R.id.txtoutrasultima);
 
+*/
         txtcontato1 = (TextView) findViewById(R.id.txtcontato1);
         txtcontato2 = (TextView) findViewById(R.id.txtcontato2);
         txtcontato3 = (TextView) findViewById(R.id.txtcontato3);
@@ -139,33 +152,167 @@ public class Cadastro extends AppCompatActivity implements Callback<Usuario> {
         spmaconhaidade = (Spinner) findViewById(R.id.spmaconhaidade);
         spcocainaidade = (Spinner) findViewById(R.id.spcocainaidade);
         spcrackidade = (Spinner) findViewById(R.id.spcrackidade);
-        specstasyidade = (Spinner) findViewById(R.id.specstasyidade);
-        spalucinogenoidade = (Spinner) findViewById(R.id.spalucinogenoidade);
         spoutrasdrogaidade = (Spinner) findViewById(R.id.spoutrasidade);
 
         spalcoolfreq = (Spinner) findViewById(R.id.spalcoolfreq);
         spmaconhafreq = (Spinner) findViewById(R.id.spmaconhafreq);
         spcocainafreq = (Spinner) findViewById(R.id.spcocainafreq);
         spcrackfreq = (Spinner) findViewById(R.id.spcrackfreq);
-        specstasyfreq = (Spinner) findViewById(R.id.specstasyfreq);
-        spalucinogenofreq = (Spinner) findViewById(R.id.spalucinogenofreq);
         spoutrasfreq = (Spinner) findViewById(R.id.spoutrasfreq);
 
-        spmetafinal = (Spinner) findViewById(R.id.spmetafinal);
-        spreduzir = (Spinner) findViewById(R.id.spreduzir);
+        spfinalalcool = (Spinner) findViewById(R.id.spfinalalcool);
+        spfinalmaconha = (Spinner) findViewById(R.id.spfinalmaconha);
+        spfinalcocaina = (Spinner) findViewById(R.id.spfinalcocaina);
+        spfinalcrack = (Spinner) findViewById(R.id.spfinalcrack);
+        spfinaloutras = (Spinner) findViewById(R.id.spfinaloutras);
 
-        edtxtnome = (TextView) findViewById(R.id.edtextnome);
-        edtxtemail = (TextView) findViewById(R.id.edtxtemail);
-        edtxtsenha = (TextView) findViewById(R.id.edtxtsenha);
+        spreduziralcool = (Spinner) findViewById(R.id.spreduziralcool);
+        spreduzirmaconha = (Spinner) findViewById(R.id.spreduzirmaconha);
+        spreduzircocaina = (Spinner) findViewById(R.id.spreduzircocaina);
+        spreduzircrack = (Spinner) findViewById(R.id.spreduzircrack);
+        spreduziroutras = (Spinner) findViewById(R.id.spreduziroutras);
 
-        edtxtoutrasdrogas = (TextView) findViewById(R.id.edtxtoutrasdrogas);
-        edtxtcontato1 = (TextView) findViewById(R.id.edtxtcontato1);
-        edtxtcontato2 = (TextView) findViewById(R.id.edtxtcontato2);
-        edtxtcontato3 = (TextView) findViewById(R.id.edtxtcontato3);
+        edtxtnome = (EditText) findViewById(R.id.edtextnome);
+        edtxtemail = (EditText) findViewById(R.id.edtxtemail);
+        edtxtsenha = (EditText) findViewById(R.id.edtxtsenha);
+
+        edtxtoutrasdrogas = (EditText) findViewById(R.id.edtxtoutrasdrogas);
+
+        edtxtoutramot = (EditText) findViewById(R.id.edtxtoutramot);
+
+        edtxtcontato1 = (EditText) findViewById(R.id.edtxtcontato1);
+        edtxtcontato2 = (EditText) findViewById(R.id.edtxtcontato2);
+        edtxtcontato3 = (EditText) findViewById(R.id.edtxtcontato3);
+
+        /// ---------------- ////////// ------------ /////////
+
+        btproximo1 = (Button) findViewById(R.id.btproximo1);
+        btproximo2 = (Button) findViewById(R.id.btproximo2);
+        btproximo3 = (Button) findViewById(R.id.btproximo3);
+        btproximo4 = (Button) findViewById(R.id.btproximo4);
+        btfimcadastro = (Button) findViewById(R.id.btfimcadastro);
+
+        btalcoolidade = (Button) findViewById(R.id.btalcoolidade);
+        btmaconhaidade = (Button) findViewById(R.id.btmaconhaidade);
+        btcocainaidade = (Button) findViewById(R.id.btcocainaidade);
+        btcrackidade = (Button) findViewById(R.id.btcrackidade);
+        btoutrasidade = (Button) findViewById(R.id.btoutrasidade);
+
+        bttrataalcool = (Button) findViewById(R.id.bttrataalcool);
+        bttratamaconha = (Button) findViewById(R.id.bttratamaconha);
+        bttratacocaina = (Button) findViewById(R.id.bttratacocaina);
+        bttratacrack = (Button) findViewById(R.id.bttratacrack);
+        bttrataoutras = (Button) findViewById(R.id.bttrataoutras);
+
+        vs1 = (ViewSwitcher) findViewById(R.id.vs1);
+        vs2 = (ViewSwitcher) findViewById(R.id.vs2);
+        vs2_1 = (ViewSwitcher) findViewById(R.id.vs2_1);
+        vs2_2 = (ViewSwitcher) findViewById(R.id.vs2_2);
+        vs2_3 = (ViewSwitcher) findViewById(R.id.vs2_3);
+        vs2_4 = (ViewSwitcher) findViewById(R.id.vs2_4);
+        vs2_7 = (ViewSwitcher) findViewById(R.id.vs2_7);
+        vs3 = (ViewSwitcher) findViewById(R.id.vs3);
+        vs3_1 = (ViewSwitcher) findViewById(R.id.vs3_1);
+        vs3_2 = (ViewSwitcher) findViewById(R.id.vs3_2);
+        vs3_3 = (ViewSwitcher) findViewById(R.id.vs3_3);
+        vs3_4 = (ViewSwitcher) findViewById(R.id.vs3_4);
+        vs3_7 = (ViewSwitcher) findViewById(R.id.vs3_7);
+        vs4 = (ViewSwitcher) findViewById(R.id.vs4);
+
+        // --------------- Animacao entre as telas ------------------------------ //
+        left = AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left);
+        right = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right);
+
+        vs1.setInAnimation(left);vs1.setOutAnimation(right);
+        vs2.setInAnimation(left);vs2.setOutAnimation(right);
+        vs2_1.setInAnimation(left);vs2_1.setOutAnimation(right);
+        vs2_2.setInAnimation(left);vs2_2.setOutAnimation(right);
+        vs2_3.setInAnimation(left);vs2_3.setOutAnimation(right);
+        vs2_4.setInAnimation(left);vs2_4.setOutAnimation(right);
+        vs2_7.setInAnimation(left);vs2_7.setOutAnimation(right);
+        vs3.setInAnimation(left);vs3.setOutAnimation(right);
+        vs3_1.setInAnimation(left);vs3_1.setOutAnimation(right);
+        vs3_2.setInAnimation(left);vs3_2.setOutAnimation(right);
+        vs3_3.setInAnimation(left);vs3_3.setOutAnimation(right);
+        vs3_4.setInAnimation(left);vs3_4.setOutAnimation(right);
+        vs3_7.setInAnimation(left);vs3_7.setOutAnimation(right);
+        vs4.setInAnimation(left);vs4.setOutAnimation(right);
+        // ------------------------ // ----------------------------------------- //
 
         usuario = new Usuario();
 
+        setDelay = new Handler(); //Delay
+
+        spfinalalcool.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (spfinalalcool.getItemAtPosition(position).equals("Reduzir o uso")){
+                    spreduziralcool.setVisibility(View.VISIBLE);
+                }else{spreduziralcool.setVisibility(View.GONE);}
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        spfinalmaconha.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (spfinalmaconha.getItemAtPosition(position).equals("Reduzir o uso")){
+                    spreduzirmaconha.setVisibility(View.VISIBLE);
+                }else{spreduzirmaconha.setVisibility(View.GONE);}
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        spfinalcocaina.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (spfinalcocaina.getItemAtPosition(position).equals("Reduzir o uso")){
+                    spreduzircocaina.setVisibility(View.VISIBLE);
+                }else{spreduzircocaina.setVisibility(View.GONE);}
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        spfinalcrack.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (spfinalcrack.getItemAtPosition(position).equals("Reduzir o uso")){
+                    spreduzircrack.setVisibility(View.VISIBLE);
+                }else{spreduzircrack.setVisibility(View.GONE);}
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        spfinaloutras.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (spfinaloutras.getItemAtPosition(position).equals("Reduzir o uso")){
+                    spreduziroutras.setVisibility(View.VISIBLE);
+                }else{spreduziroutras.setVisibility(View.GONE);}
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         // Colocando as informacoes do usuario no banco de dados interno
+        usuario.setNome(edtxtnome.getText().toString());
+        usuario.setEmail(edtxtemail.getText().toString());
+        usuario.setSenha(edtxtsenha.getText().toString());
         spidade.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -191,211 +338,363 @@ public class Cadastro extends AppCompatActivity implements Callback<Usuario> {
 
 
     }
+    public void botaoProximo1(View v){
+        vs1.showNext();
+    }
+    public void botaoProximo2(View v){
+        vs2.showNext();
+    }
+    public void botaoProximo3(View v){
+        vs3.showNext();
+    }
+    public void botaoProximo4(View v){
+        vs4.showNext();
+    }
+    public void salvaDroga(CheckBox check,Spinner spfreq,Spinner spfinal, int tipo, String outros){
+        if (check.isChecked()){
+            ConsumoAtual c=new ConsumoAtual();
+            c.setTipo(tipo);
+            if(outros!=null){
+                c.setOutros(outros);
+            }
+            int pos=spfreq.getSelectedItemPosition();
+            switch (pos){
+                case 0:
+                    c.setFreqSemanal(7);
+                    c.setFreqDia(1);
+                    c.setFimDeSem(false);
+                    break;
+                case 1:
+                    c.setFreqDia(0);
+                    c.setFreqSemanal(7);
+                    c.setFimDeSem(false);
+                    break;
+                case 2:
+                    c.setFreqSemanal(4);
+                    c.setFreqDia(0);
+                    c.setFimDeSem(false);
+                case 3:
+                    c.setFimDeSem(true);
+                    c.setFreqSemanal(0);
+                    c.setFreqDia(0);
+                    break;
+            }
+            MetaGeral mg=new MetaGeral();
+            if(spfinal.getSelectedItemPosition()==0) {
+                mg.setFreqDia(0);
+            }else{
+                mg.setFreqDia(1);
+            }
+            DB.save(mg);
+            DB.save(c);
+        }
+    }
+    public void FinalizarCadastro(View v) {
+        salvaDroga(cbalcool,spalcoolfreq,spfinalalcool,0,null);
+        salvaDroga(cbmaconha,spmaconhafreq,spfinalmaconha,1,null);
+        salvaDroga(cbcocaina,spcocainafreq,spfinalcocaina,2,null);
+        salvaDroga(cbcrack,spcrackfreq,spfinalcrack,3,null);
+        salvaDroga(cboutros,spoutrasfreq,spfinaloutras,3,edtxtoutrasdrogas.getText().toString());
+        if(cbfamilia.isChecked()) {
+            usuario.setMotivacao(0);
+        }else if(cbdinheiro.isChecked()){
+            usuario.setMotivacao(0);
+        }
+
+        usuario.setNome(edtxtnome.getText().toString());
+        usuario.setEmail(edtxtemail.getText().toString());
+        usuario.setSenha(edtxtsenha.getText().toString());
+        //Banco de dados remoto
+        ServiceWS service = ServiceGenerator.createService(ServiceWS.class);
+        ucall = service.cadastrar(usuario);
+        ucall.enqueue(this);
+    }
+
+    public void botaoAlcoolIdade(View v){
+        vs2_1.showPrevious();
+        startDelay = new Runnable() {
+            @Override
+            public void run() {
+                txtdrogas.setVisibility(View.VISIBLE);
+                cbalcool.setVisibility(View.VISIBLE);
+                cbmaconha.setVisibility(View.VISIBLE);
+                cbcocaina.setVisibility(View.VISIBLE);
+                cbcrack.setVisibility(View.VISIBLE);
+                cboutradroga.setVisibility(View.VISIBLE);
+                btproximo2.setVisibility(View.VISIBLE);
+            }
+        };
+        setDelay.postDelayed(startDelay, 400);
+    }
+    public void botaoMaconhaIdade(View v){
+        vs2_2.showPrevious();
+        startDelay = new Runnable() {
+            @Override
+            public void run() {
+                txtdrogas.setVisibility(View.VISIBLE);
+                cbalcool.setVisibility(View.VISIBLE);
+                cbmaconha.setVisibility(View.VISIBLE);
+                cbcocaina.setVisibility(View.VISIBLE);
+                cbcrack.setVisibility(View.VISIBLE);
+                cboutradroga.setVisibility(View.VISIBLE);
+                btproximo2.setVisibility(View.VISIBLE);
+            }
+        };
+        setDelay.postDelayed(startDelay, 400);
+    }
+    public void botaoCocainaIdade(View v){
+        vs2_3.showPrevious();
+        startDelay = new Runnable() {
+            @Override
+            public void run() {
+                txtdrogas.setVisibility(View.VISIBLE);
+                cbalcool.setVisibility(View.VISIBLE);
+                cbmaconha.setVisibility(View.VISIBLE);
+                cbcocaina.setVisibility(View.VISIBLE);
+                cbcrack.setVisibility(View.VISIBLE);
+                cboutradroga.setVisibility(View.VISIBLE);
+                btproximo2.setVisibility(View.VISIBLE);
+            }
+        };
+        setDelay.postDelayed(startDelay, 400);
+    }
+    public void botaoCrackIdade(View v){
+        vs2_4.showPrevious();
+        startDelay = new Runnable() {
+            @Override
+            public void run() {
+                txtdrogas.setVisibility(View.VISIBLE);
+                cbalcool.setVisibility(View.VISIBLE);
+                cbmaconha.setVisibility(View.VISIBLE);
+                cbcocaina.setVisibility(View.VISIBLE);
+                cbcrack.setVisibility(View.VISIBLE);
+                cboutradroga.setVisibility(View.VISIBLE);
+                btproximo2.setVisibility(View.VISIBLE);
+            }
+        };
+        setDelay.postDelayed(startDelay, 400);
+    }
+    public void botaoOutrasIdade(View v){
+        vs2_7.showPrevious();
+        startDelay = new Runnable() {
+            @Override
+            public void run() {
+                txtdrogas.setVisibility(View.VISIBLE);
+                cbalcool.setVisibility(View.VISIBLE);
+                cbmaconha.setVisibility(View.VISIBLE);
+                cbcocaina.setVisibility(View.VISIBLE);
+                cbcrack.setVisibility(View.VISIBLE);
+                cboutradroga.setVisibility(View.VISIBLE);
+                btproximo2.setVisibility(View.VISIBLE);
+            }
+        };
+        setDelay.postDelayed(startDelay, 400);
+    }
+
+    public void botaoTrataAlcool(View v){
+        vs3_1.showPrevious();
+        startDelay = new Runnable() {
+            @Override
+            public void run() {
+                txtdrogasparar.setVisibility(View.VISIBLE);
+                cbparaalcool.setVisibility(View.VISIBLE);
+                cbparamaconha.setVisibility(View.VISIBLE);
+                cbparacocaina.setVisibility(View.VISIBLE);
+                cbparacrack.setVisibility(View.VISIBLE);
+                cbparaoutras.setVisibility(View.VISIBLE);
+                btproximo3.setVisibility(View.VISIBLE);
+            }
+        };
+        setDelay.postDelayed(startDelay, 400);
+    }
+    public void botaoTrataMaconha(View v){
+        vs3_2.showPrevious();
+        startDelay = new Runnable() {
+            @Override
+            public void run() {
+                txtdrogasparar.setVisibility(View.VISIBLE);
+                cbparaalcool.setVisibility(View.VISIBLE);
+                cbparamaconha.setVisibility(View.VISIBLE);
+                cbparacocaina.setVisibility(View.VISIBLE);
+                cbparacrack.setVisibility(View.VISIBLE);
+                cbparaoutras.setVisibility(View.VISIBLE);
+                btproximo3.setVisibility(View.VISIBLE);
+            }
+        };
+        setDelay.postDelayed(startDelay, 400);
+    }
+    public void botaoTrataCocaina(View v){
+        vs3_3.showPrevious();
+        startDelay = new Runnable() {
+            @Override
+            public void run() {
+                txtdrogasparar.setVisibility(View.VISIBLE);
+                cbparaalcool.setVisibility(View.VISIBLE);
+                cbparamaconha.setVisibility(View.VISIBLE);
+                cbparacocaina.setVisibility(View.VISIBLE);
+                cbparacrack.setVisibility(View.VISIBLE);
+                cbparaoutras.setVisibility(View.VISIBLE);
+                btproximo3.setVisibility(View.VISIBLE);
+            }
+        };
+        setDelay.postDelayed(startDelay, 400);
+    }
+    public void botaoTrataCrack(View v){
+        vs3_4.showPrevious();
+        startDelay = new Runnable() {
+            @Override
+            public void run() {
+                txtdrogasparar.setVisibility(View.VISIBLE);
+                cbparaalcool.setVisibility(View.VISIBLE);
+                cbparamaconha.setVisibility(View.VISIBLE);
+                cbparacocaina.setVisibility(View.VISIBLE);
+                cbparacrack.setVisibility(View.VISIBLE);
+                cbparaoutras.setVisibility(View.VISIBLE);
+                btproximo3.setVisibility(View.VISIBLE);
+            }
+        };
+        setDelay.postDelayed(startDelay, 400);
+    }
+    public void botaoTrataOutas(View v){
+        vs3_7.showPrevious();
+        startDelay = new Runnable() {
+            @Override
+            public void run() {
+                txtdrogasparar.setVisibility(View.VISIBLE);
+                cbparaalcool.setVisibility(View.VISIBLE);
+                cbparamaconha.setVisibility(View.VISIBLE);
+                cbparacocaina.setVisibility(View.VISIBLE);
+                cbparacrack.setVisibility(View.VISIBLE);
+                cbparaoutras.setVisibility(View.VISIBLE);
+                btproximo3.setVisibility(View.VISIBLE);
+            }
+        };
+        setDelay.postDelayed(startDelay, 400);
+
+    }
 
     public void usouAlcool(View v) {
-        if (cbalcool.isChecked()) {
-            txtalcoolidade.setVisibility(View.VISIBLE);
-            spalcoolidade.setVisibility(View.VISIBLE);
-        } else {
-            txtalcoolidade.setVisibility(View.GONE);
-            spalcoolidade.setVisibility(View.GONE);
-        }
+        vs2_1.showNext();
+        txtdrogas.setVisibility(View.GONE);
+        cbalcool.setVisibility(View.GONE);
+        cbmaconha.setVisibility(View.GONE);
+        cbcocaina.setVisibility(View.GONE);
+        cbcrack.setVisibility(View.GONE);
+        cboutradroga.setVisibility(View.GONE);
+        btproximo2.setVisibility(View.GONE);
     }
-
     public void usouMaconha(View v) {
-        if (cbmaconha.isChecked()) {
-            txtmaconhaidade.setVisibility(View.VISIBLE);
-            spmaconhaidade.setVisibility(View.VISIBLE);
-        } else {
-            txtmaconhaidade.setVisibility(View.GONE);
-            spmaconhaidade.setVisibility(View.GONE);
-        }
+        vs2_2.showNext();
+        txtdrogas.setVisibility(View.GONE);
+        cbalcool.setVisibility(View.GONE);
+        cbmaconha.setVisibility(View.GONE);
+        cbcocaina.setVisibility(View.GONE);
+        cbcrack.setVisibility(View.GONE);
+        cboutradroga.setVisibility(View.GONE);
+        btproximo2.setVisibility(View.GONE);
     }
-
     public void usouCocaina(View v) {
-        if (cbcocaina.isChecked()) {
-            txtcocainaidade.setVisibility(View.VISIBLE);
-            spcocainaidade.setVisibility(View.VISIBLE);
-        } else {
-            txtcocainaidade.setVisibility(View.GONE);
-            spcocainaidade.setVisibility(View.GONE);
-        }
+        vs2_3.showNext();
+        txtdrogas.setVisibility(View.GONE);
+        cbalcool.setVisibility(View.GONE);
+        cbmaconha.setVisibility(View.GONE);
+        cbcocaina.setVisibility(View.GONE);
+        cbcrack.setVisibility(View.GONE);
+        cboutradroga.setVisibility(View.GONE);
+        btproximo2.setVisibility(View.GONE);
     }
-
     public void usouCrack(View v) {
-        if (cbcrack.isChecked()) {
-            txtcrackidade.setVisibility(View.VISIBLE);
-            spcrackidade.setVisibility(View.VISIBLE);
-        } else {
-            txtcrackidade.setVisibility(View.GONE);
-            spcrackidade.setVisibility(View.GONE);
-        }
+        vs2_4.showNext();
+        txtdrogas.setVisibility(View.GONE);
+        cbalcool.setVisibility(View.GONE);
+        cbmaconha.setVisibility(View.GONE);
+        cbcocaina.setVisibility(View.GONE);
+        cbcrack.setVisibility(View.GONE);
+        cboutradroga.setVisibility(View.GONE);
+        btproximo2.setVisibility(View.GONE);
     }
-
-    public void usouEcstasy(View v) {
-        if (cbecstasy.isChecked()) {
-            txtecstasyidade.setVisibility(View.VISIBLE);
-            specstasyidade.setVisibility(View.VISIBLE);
-        } else {
-            txtecstasyidade.setVisibility(View.GONE);
-            specstasyidade.setVisibility(View.GONE);
-        }
-    }
-
-    public void usouAlucinogenos(View v) {
-        if (cbalucinogeno.isChecked()) {
-            txtalucinogenoidade.setVisibility(View.VISIBLE);
-            spalucinogenoidade.setVisibility(View.VISIBLE);
-        } else {
-            txtalucinogenoidade.setVisibility(View.GONE);
-            spalucinogenoidade.setVisibility(View.GONE);
-        }
-    }
-
     public void usouOutras(View v) {
-        if (cboutradroga.isChecked()) {
-            txtoutrasidade.setVisibility(View.VISIBLE);
-            spoutrasdrogaidade.setVisibility(View.VISIBLE);
-            edtxtoutrasdrogas.setVisibility(View.VISIBLE);
-        } else {
-            txtoutrasidade.setVisibility(View.GONE);
-            spoutrasdrogaidade.setVisibility(View.GONE);
-            edtxtoutrasdrogas.setVisibility(View.GONE);
-        }
+        vs2_7.showNext();
+        txtdrogas.setVisibility(View.GONE);
+        cbalcool.setVisibility(View.GONE);
+        cbmaconha.setVisibility(View.GONE);
+        cbcocaina.setVisibility(View.GONE);
+        cbcrack.setVisibility(View.GONE);
+        cboutradroga.setVisibility(View.GONE);
+        btproximo2.setVisibility(View.GONE);
     }
 
     public void trataAlcool(View v) {
-        if (cbparaalcool.isChecked()) {
-            txtalcoolfreq.setVisibility(View.VISIBLE);
-            txtalcoolqtd.setVisibility(View.VISIBLE);
-            txtalcoolultima.setVisibility(View.VISIBLE);
-            spalcoolfreq.setVisibility(View.VISIBLE);
-        } else {
-            txtalcoolfreq.setVisibility(View.GONE);
-            txtalcoolqtd.setVisibility(View.GONE);
-            txtalcoolultima.setVisibility(View.GONE);
-            spalcoolfreq.setVisibility(View.GONE);
-        }
-    }
+        vs3_1.showNext();
+        txtdrogasparar.setVisibility(View.GONE);
+        cbparaalcool.setVisibility(View.GONE);
+        cbparamaconha.setVisibility(View.GONE);
+        cbparacocaina.setVisibility(View.GONE);
+        cbparacrack.setVisibility(View.GONE);
+        cbparaoutras.setVisibility(View.GONE);
+        btproximo3.setVisibility(View.GONE);
 
+    }
     public void trataMaconha(View v) {
-        if (cbparamaconha.isChecked()) {
-            txtmaconhafreq.setVisibility(View.VISIBLE);
-            txtmaconhaqtd.setVisibility(View.VISIBLE);
-            txtmaconhaultima.setVisibility(View.VISIBLE);
-            spmaconhafreq.setVisibility(View.VISIBLE);
-        } else {
-            txtmaconhafreq.setVisibility(View.GONE);
-            txtmaconhaqtd.setVisibility(View.GONE);
-            txtmaconhaultima.setVisibility(View.GONE);
-            spmaconhafreq.setVisibility(View.GONE);
-        }
+        vs3_2.showNext();
+        txtdrogasparar.setVisibility(View.GONE);
+        cbparaalcool.setVisibility(View.GONE);
+        cbparamaconha.setVisibility(View.GONE);
+        cbparacocaina.setVisibility(View.GONE);
+        cbparacrack.setVisibility(View.GONE);
+        cbparaoutras.setVisibility(View.GONE);
+        btproximo3.setVisibility(View.GONE);
     }
-
     public void trataCocaina(View v) {
-        if (cbparacocaina.isChecked()) {
-            txtcocainafreq.setVisibility(View.VISIBLE);
-            txtcocainaqtd.setVisibility(View.VISIBLE);
-            txtcocainaultima.setVisibility(View.VISIBLE);
-            spcocainafreq.setVisibility(View.VISIBLE);
-        } else {
-            txtcocainafreq.setVisibility(View.GONE);
-            txtcocainaqtd.setVisibility(View.GONE);
-            txtcocainaultima.setVisibility(View.GONE);
-            spcocainafreq.setVisibility(View.GONE);
-        }
+        vs3_3.showNext();
+        txtdrogasparar.setVisibility(View.GONE);
+        cbparaalcool.setVisibility(View.GONE);
+        cbparamaconha.setVisibility(View.GONE);
+        cbparacocaina.setVisibility(View.GONE);
+        cbparacrack.setVisibility(View.GONE);
+        cbparaoutras.setVisibility(View.GONE);
+        btproximo3.setVisibility(View.GONE);
     }
-
     public void trataCrack(View v) {
-        if (cbparacrack.isChecked()) {
-            txtcrackfreq.setVisibility(View.VISIBLE);
-            txtcrackqtd.setVisibility(View.VISIBLE);
-            txtcrackultima.setVisibility(View.VISIBLE);
-            spcrackfreq.setVisibility(View.VISIBLE);
-        } else {
-            txtcrackfreq.setVisibility(View.GONE);
-            txtcrackqtd.setVisibility(View.GONE);
-            txtcrackultima.setVisibility(View.GONE);
-            spcrackfreq.setVisibility(View.GONE);
-        }
+        vs3_4.showNext();
+        txtdrogasparar.setVisibility(View.GONE);
+        cbparaalcool.setVisibility(View.GONE);
+        cbparamaconha.setVisibility(View.GONE);
+        cbparacocaina.setVisibility(View.GONE);
+        cbparacrack.setVisibility(View.GONE);
+        cbparaoutras.setVisibility(View.GONE);
+        btproximo3.setVisibility(View.GONE);
     }
-
-    public void trataEcstasy(View v) {
-        if (cbparaecstasy.isChecked()) {
-            txtecstasyfreq.setVisibility(View.VISIBLE);
-            txtecstasyqtd.setVisibility(View.VISIBLE);
-            txtecstasyultima.setVisibility(View.VISIBLE);
-            specstasyfreq.setVisibility(View.VISIBLE);
-        } else {
-            txtecstasyfreq.setVisibility(View.GONE);
-            txtecstasyqtd.setVisibility(View.GONE);
-            txtecstasyultima.setVisibility(View.GONE);
-            specstasyfreq.setVisibility(View.GONE);
-        }
-    }
-
-    public void trataAlucinogenos(View v) {
-        if (cbparaalucinogeno.isChecked()) {
-            txtalucinogenofreq.setVisibility(View.VISIBLE);
-            txtalucinogenoqtd.setVisibility(View.VISIBLE);
-            txtalucinogenoultima.setVisibility(View.VISIBLE);
-            spalucinogenofreq.setVisibility(View.VISIBLE);
-        } else {
-            txtalucinogenofreq.setVisibility(View.GONE);
-            txtalucinogenoqtd.setVisibility(View.GONE);
-            txtalucinogenoultima.setVisibility(View.GONE);
-            spalucinogenofreq.setVisibility(View.GONE);
-        }
-    }
-
     public void trataOutras(View v) {
-        if (cbparaoutras.isChecked()) {
-            txtoutrasfreq.setVisibility(View.VISIBLE);
-            txtoutrasqtd.setVisibility(View.VISIBLE);
-            txtoutrasultima.setVisibility(View.VISIBLE);
-            spoutrasfreq.setVisibility(View.VISIBLE);
-        } else {
-            txtoutrasfreq.setVisibility(View.GONE);
-            txtoutrasqtd.setVisibility(View.GONE);
-            txtoutrasultima.setVisibility(View.GONE);
-            spoutrasfreq.setVisibility(View.GONE);
+        vs3_7.showNext();
+        txtdrogasparar.setVisibility(View.GONE);
+        cbparaalcool.setVisibility(View.GONE);
+        cbparamaconha.setVisibility(View.GONE);
+        cbparacocaina.setVisibility(View.GONE);
+        cbparacrack.setVisibility(View.GONE);
+        cbparaoutras.setVisibility(View.GONE);
+        btproximo3.setVisibility(View.GONE);
+    }
+
+    public void outrasMotivacoes(View v){
+        if (cboutros.isChecked()){
+            edtxtoutramot.setVisibility(View.VISIBLE);
+        }else {
+            edtxtoutramot.setVisibility(View.GONE);
         }
     }
 
     public void selecionarContato1(View v) {
-        // Verifica se a permissao para acessar o Contacts foi concedida e so permite o acesso se for true
-        if ((ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS))
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS},cont1);
-        }
-        else {
-            Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-            startActivityForResult(i, cont1);
-        }
+        Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+        startActivityForResult(i, cont1);
     }
-
     public void selecionarContato2(View v) {
-        // Verifica se a permissao para acessar o Contacts foi concedida e so permite o acesso se for true
-        if ((ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS))
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS},cont1);
-        }
-        else {
-            Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-            startActivityForResult(i, cont2);
-        }
+        Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+        startActivityForResult(i, cont2);
     }
-
     public void selecionarContato3(View v) {
-        // Verifica se a permissao para acessar o Contacts foi concedida e so permite o acesso se for true
-        if ((ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS))
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS},cont1);
-        }
-        else {
-            Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-            startActivityForResult(i, cont3);
-        }
+        Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+        startActivityForResult(i, cont3);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent i) {
@@ -404,7 +703,6 @@ public class Cadastro extends AppCompatActivity implements Callback<Usuario> {
         int idcont = cursor.getColumnIndex(ContactsContract.Contacts._ID);
         cursor.moveToNext();
         String id = cursor.getString(idcont);
-
 
         Cursor c = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, ContactsContract.CommonDataKinds.Email.CONTACT_ID + " = ?", new String[]{id}, null);
         int num = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
@@ -424,16 +722,7 @@ public class Cadastro extends AppCompatActivity implements Callback<Usuario> {
         }
     }
 
-    public void confirmaCadastro(View v) {
-        usuario.setNome(edtxtnome.getText().toString());
-        usuario.setEmail(edtxtemail.getText().toString());
-        usuario.setSenha(edtxtsenha.getText().toString());
-        //Banco de dados remoto
-        ServiceWS service = ServiceGenerator.createService(ServiceWS.class);
-        ucall = service.cadastrar(usuario);
-        ucall.enqueue(this);
 
-    }
     //Resposta do webservice
     @Override
     public void onResponse(Call<Usuario> call, Response<Usuario> response) {

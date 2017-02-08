@@ -45,15 +45,15 @@ public class ServiceSincronizer implements Callback<CreatedObjects> {
     public void onResponse(Call<CreatedObjects> call, Response<CreatedObjects> response) {
         if(response.body()!=null && (response.body().getCreatedObjects() == response.body().getReceivedObjects()) && (response.body().getReceivedObjects() == DB.queueLength())){
             DB.emptyQueue();
-            //Toast.makeText(scContext,response.body().getCreatedObjects()+"", Toast.LENGTH_SHORT).show();
+            Toast.makeText(scContext,response.body().getCreatedObjects()+"", Toast.LENGTH_SHORT).show();
         }else{
-            //Toast.makeText(scContext,"nao", Toast.LENGTH_SHORT).show();
+            Toast.makeText(scContext,"nao", Toast.LENGTH_SHORT).show();
         }
 
     }
 
     @Override
     public void onFailure(Call<CreatedObjects> call, Throwable throwable) {
-        //Toast.makeText(scContext,"falha", Toast.LENGTH_SHORT).show();
+        Toast.makeText(scContext,"falha", Toast.LENGTH_SHORT).show();
     }
 }
