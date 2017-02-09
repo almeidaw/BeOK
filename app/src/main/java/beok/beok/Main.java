@@ -2,6 +2,7 @@ package beok.beok;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -31,6 +32,7 @@ public class Main extends AppCompatActivity {
 
     Home home_fragment;
     TestFragment tf;
+    ShowDiary show_diary_fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,8 @@ public class Main extends AppCompatActivity {
         handler.postDelayed(runnable, period);
 
         home_fragment = new Home();
+        show_diary_fragment = new ShowDiary();
+
         tf = new TestFragment();
 
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottom_navigation);
@@ -50,9 +54,9 @@ public class Main extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
-                            case R.id.diaryItem:
+                            case R.id.showDiaryItem:
                                 Toast.makeText(Main.this, "diário", Toast.LENGTH_SHORT).show();
-                                Main.this.colocaFragment(tf, R.id.main_fragment_container);
+                                Main.this.colocaFragment(show_diary_fragment, R.id.main_fragment_container);
                                 break;
 
                             case R.id.goalsItem:
@@ -120,6 +124,7 @@ public class Main extends AppCompatActivity {
             handler.postDelayed(this, period);
         }
     };
+
 
 
 }

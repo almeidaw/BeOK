@@ -223,9 +223,9 @@ public class Cadastro extends AppCompatActivity implements Callback<Usuario> {
         left = AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left);
         right = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right);
 
-        vs1.setInAnimation(left);vs1.setOutAnimation(right);
-        vs2.setInAnimation(left);vs2.setOutAnimation(right);
-        vs2_1.setInAnimation(left);vs2_1.setOutAnimation(right);
+        vs1.setInAnimation(right);vs1.setOutAnimation(left);
+        vs2.setInAnimation(right);vs2.setOutAnimation(left);
+        vs2_1.setInAnimation(right);vs2_1.setOutAnimation(left);
         vs2_2.setInAnimation(left);vs2_2.setOutAnimation(right);
         vs2_3.setInAnimation(left);vs2_3.setOutAnimation(right);
         vs2_4.setInAnimation(left);vs2_4.setOutAnimation(right);
