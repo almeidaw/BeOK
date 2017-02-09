@@ -20,6 +20,15 @@
         </activity>
         <activity android:name=".PreLogIn" />
         <activity android:name=".Cadastro" />
+        <activity android:name=".Diary1" />
+        <activity android:name=".Diary2" />
+        <activity android:name=".Diary3Alcohol" />
+        <activity android:name=".Diary3Marijuana" />
+        <activity android:name=".Diary3Cocaine" />
+        <activity android:name=".Diary3Crack" />
+        <activity android:name=".Diary4" />
+        <activity android:name=".Diary5" />
+        <activity android:name=".Diary6" />
         <activity android:name=".FirstAccess" />
         <activity android:name=".Login"></activity>
 
