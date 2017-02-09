@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="alcooltipo">
+        <item>Cerveja</item>
+        <item>Vinho</item>
+        <item>Whisky</item>
+        <item>Vodka</item>
+        <item>Drinks</item>
+    </array>
+
+    <array name="doses">
+        <item>1 dose</item>
+        <item>2 doses</item>
+        <item>3 doses</item>
+        <item>4 doses</item>
+        <item>5 doses</item>
+        <item>6 doses</item>
+        <item>7 doses</item>
+        <item>8 doses</item>
+        <item>9 doses</item>
+        <item>10 doses</item>
+    </array>
+
+    <array name="gramas">
+        <item>0,5 gramas</item>
+        <item>1 a 1,5 gramas</item>
+        <item>2 a 3 gramas</item>
+        <item>3 a 5 gramas</item>
+        <item>Mais de 5 gramas</item>
+    </array>
+
+    <array name="pedras">
+        <item>1 pedra</item>
+        <item>2 pedras</item>
+        <item>3 pedras</item>
+        <item>4 pedras</item>
+        <item>5 pedras</item>
+        <item>6 pedras</item>
+        <item>7 pedras</item>
+        <item>8 pedras</item>
+        <item>9 pedras</item>
+        <item>10 pedras</item>
+    </array>
+
+    <array name="baseados">
+        <item>meio baseado</item>
+        <item>1 baseados</item>
+        <item>2 baseados</item>
+        <item>3 baseados</item>
+        <item>Mais de 3 baseados</item>
+    </array>
+
+
+
+</resources>
