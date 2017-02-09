@@ -3,6 +3,7 @@ package beok.beok;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -10,13 +11,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.orm.SugarContext;
+
 import java.util.Date;
 
 import beok.beok.POJO.BotaoAtivo;
 import beok.beok.api.DB;
+import beok.beok.api.ServiceSincronizer;
 
 
 public class Main extends AppCompatActivity {
+
+    int period = 10000;
+    final Handler handler=new Handler();
+    ServiceSincronizer sc;
 
     BottomNavigationView bottomNavigationView;
 
@@ -28,6 +36,10 @@ public class Main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        initialize();
+
+        handler.postDelayed(runnable, period);
 
         home_fragment = new Home();
         tf = new TestFragment();
@@ -91,6 +103,23 @@ public class Main extends AppCompatActivity {
         DB.save(btA);
     }
 
+    private void initialize(){
+        SugarContext.init(this);
+        //Toast.makeText(getApplicationContext(), SugarRecord.listAll(Wrapper.class).size()+"", Toast.LENGTH_SHORT).show();
+        sc=new ServiceSincronizer();
+        ServiceSincronizer.scContext=this;
+    }
+
+    private Runnable runnable = new Runnable() {
+
+        @Override
+        public void run() {
+            Toast.makeText(getApplicationContext(),"pulse", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), SugarRecord.listAll(Wrapper.class).size()+"", Toast.LENGTH_SHORT).show();
+            DB.flush();
+            handler.postDelayed(this, period);
+        }
+    };
 
 
 }

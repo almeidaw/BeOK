@@ -33,11 +33,6 @@ public class Home extends Fragment {
     TextView txt11, txt12, txt21, txt22, txt31, txt32, txt41, txt42, txt51, txt52, txt61, txt62;
 
 
-    @Nullable
-    int period = 10000;
-    final Handler handler=new Handler();
-    ServiceSincronizer sc;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -69,29 +64,9 @@ public class Home extends Fragment {
         * DEVE SER FEITO NO ONCREATE()
         * */
 
-        initialize();
-
-        handler.postDelayed(runnable, period);
         return v;
     }
 
 
 
-    private void initialize(){
-        SugarContext.init(getActivity());
-        //Toast.makeText(getApplicationContext(), SugarRecord.listAll(Wrapper.class).size()+"", Toast.LENGTH_SHORT).show();
-        sc=new ServiceSincronizer();
-        ServiceSincronizer.scContext=getActivity();
-    }
-
-    private Runnable runnable = new Runnable() {
-
-        @Override
-        public void run() {
-            Toast.makeText(getActivity(),"pulse", Toast.LENGTH_SHORT).show();
-            //Toast.makeText(getApplicationContext(), SugarRecord.listAll(Wrapper.class).size()+"", Toast.LENGTH_SHORT).show();
-            DB.flush();
-            handler.postDelayed(this, period);
-        }
-    };
 }
