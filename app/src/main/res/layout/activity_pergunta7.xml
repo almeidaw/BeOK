@@ -7,43 +7,41 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="beok.beok.Diary1">
+    tools:context="beok.beok.Pergunta7">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtusuario"
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Você usou alguma droga recentemente?"
-        android:layout_marginBottom="68dp"
-        android:layout_above="@+id/btsim"
+        android:id="@+id/textView6"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btsim"
-        android:text="Sim"
-        android:onClick="botaoSim"
-        android:layout_gravity="center_horizontal"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/btnao"
-        android:layout_alignStart="@+id/btnao" />
+        android:text="Você usou alguma outra droga?"
+        android:id="@+id/textView7"
+        android:layout_below="@+id/textView6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnao"
-        android:text="Nao"
+        android:text="Sim"
+        android:id="@+id/button"
+        android:onClick="botaoSim"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignStart="@+id/button2" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Não"
+        android:id="@+id/button2"
         android:onClick="botaoNao"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/btsim"
+        android:layout_below="@+id/button"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="beok.beok.TelaPerguntas">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:text="@string/freq90dias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtfreq"
+                android:textSize="@dimen/tamanho_perguntas"
+                android:textAppearance="@style/TextAppearance.AppCompat"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spfreq"
+                android:entries="@array/freq"/>
+
+            <TextView
+                android:text="@string/qtd90dias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtqtd"
+                android:textSize="@dimen/tamanho_perguntas"
+                android:textAppearance="@style/TextAppearance.AppCompat"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="@dimen/tamanho_perguntas"
+                android:id="@+id/txtlegenda" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:id="@+id/ivlegenda"
+                android:visibility="gone"
+                android:src="@drawable/bebidas" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spbebidas"
+                android:entries="@array/bebidas"
+                android:visibility="gone"/>
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/sbqtd"/>
+
+            <TextView
+                android:text="@string/ultimavez"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtultimavez"
+                android:textSize="@dimen/tamanho_perguntas"
+                android:textAppearance="@style/TextAppearance.AppCompat"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spultimavez"
+                android:entries="@array/ultima_vez"/>
+
+            <TextView
+                android:text="@string/gasto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtgasto"
+                android:textSize="@dimen/tamanho_perguntas"
+                android:textAppearance="@style/TextAppearance.AppCompat"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:id="@+id/txtunidade"/>
+
+                <EditText
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:id="@+id/edtxtgasto" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:text="reais"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/meta_droga"
+                android:textSize="@dimen/tamanho_perguntas"
+                android:textAppearance="@style/TextAppearance.AppCompat"/>
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/meta_final"
+                android:id="@+id/spmetafinal"></Spinner>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confirmar"
+                android:id="@+id/btconfirma"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -7,8 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="beok.beok.Cadastro">
-
+    tools:context="beok.beok.Tela4">
 
     <LinearLayout
         android:orientation="vertical"
@@ -18,93 +17,90 @@
         android:focusableInTouchMode="true">
 
         <TextView
-            android:text="Nome"
+            android:text="Contatos para emergência"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/scrollView2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/txtnome"
+            android:id="@+id/txtcontatos"
             android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="@dimen/tamanho_perguntas" />
+            android:textSize="@dimen/tamanho_perguntas"/>
+
+        <TextView
+            android:text="Contato 1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/txtcontato1" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/edtextnome"
-            android:hint="Digite seu nome"
+            android:id="@+id/edtxtcontato1"
+            android:hint="Número do contato"
             />
 
-        <TextView
+        <Button
+            android:text="Adicionar de Contatos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gênero"
-            android:id="@+id/txtgenero"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="@dimen/tamanho_perguntas"/>
-
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spgenero"
-            android:entries="@array/genero" />
+            android:id="@+id/btcontato1"
+            android:onClick="selecionarContato1"/>
 
         <TextView
-            android:text="Idade"
+            android:text="Contato 2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtidade"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="@dimen/tamanho_perguntas" />
-
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spidade"
-            android:entries="@array/idade" />
-
-        <TextView
-            android:text="Email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtemail"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="@dimen/tamanho_perguntas"/>
+            android:textSize="20dp"
+            android:id="@+id/txtcontato2" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/edtxtemail"
-            android:hint="Digite seu email"
+            android:id="@+id/edtxtcontato2"
+            android:hint="Número do contato"
             />
 
-        <TextView
-            android:text="Senha"
+        <Button
+            android:text="Adicionar de Contatos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtsenha"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="@dimen/tamanho_perguntas"/>
+            android:id="@+id/btcontato2"
+            android:onClick="selecionarContato2"/>
+
+        <TextView
+            android:text="Contato 3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/txtcontato3" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
+            android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/edtxtsenha"
-            android:hint="Insira uma senha"
+            android:id="@+id/edtxtcontato3"
+            android:hint="Número do contato"
             />
+
+        <Button
+            android:text="Adicionar de Contatos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btcontato3"
+            android:onClick="selecionarContato3"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Próximo"
-            android:id="@+id/btproximo1"
-            />
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Finalizar o cadastro"
+            android:id="@+id/btfimcadastro"
+            android:onClick="FinalizarCadastro"/>
 
     </LinearLayout>
 </RelativeLayout>

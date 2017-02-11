@@ -1,9 +1,16 @@
 <resources>
     <string name="app_name">BeOK</string>
+
+	<string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
     <string name="freq90dias">Com que frequência você utlizou nos últimos 90 dias?</string>
-    <string name="idade">Qual sua idade quando usou pela primeira vez?</string>
     <string name="ultimavez">Quando foi a última vez que usou?</string>
     <string name="qtd90dias">Em que quantidade usou nos últimos 90 dias?</string>
+    <string name="gasto">Qual seu gasto com a droga por unidade?</string>
+
     <string name="meta_droga">Qual sua meta final em relação a essa droga?</string>
 
     <string-array name="genero">
@@ -19,15 +26,22 @@
         <item>Nos fins de semana</item>
     </string-array>
 
+    <string-array name="ultima_vez">
+        <item>Mais de uma vez por dia</item>
+        <item>Todos os dias</item>
+        <item>De 3 a 5 vezes por semana</item>
+        <item>Nos fins de semana</item>
+    </string-array>
+
     <string-array name="meta_final">
         <item>Abstinência</item>
         <item>Reduzir o uso</item>
     </string-array>
 
-    <string-array name="meta_final_reduzir_qtd">
-        <item>3 vezes por semana</item>
-        <item>2 vezes por semana</item>
-        <item>1 vez por semana</item>
+    <string-array name="bebidas">
+        <item>Cerveja</item>
+        <item>Vinho</item>
+        <item>Destilados(Whisky, Vodka)</item>
     </string-array>
 
     <string-array name="idade">

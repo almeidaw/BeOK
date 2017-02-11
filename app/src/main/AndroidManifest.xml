@@ -3,7 +3,7 @@
     package="beok.beok">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_CONTACTS"></uses-permission>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
 
     <application
         android:allowBackup="true"
@@ -18,19 +18,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main" />
+        <activity android:name=".Main" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Cadastro" />
         <activity android:name=".Diary1" />
-        <activity android:name=".Diary2" />
-        <activity android:name=".Diary3Alcohol" />
-        <activity android:name=".Diary3Marijuana" />
-        <activity android:name=".Diary3Cocaine" />
-        <activity android:name=".Diary3Crack" />
-        <activity android:name=".Diary4" />
-        <activity android:name=".Diary5" />
-        <activity android:name=".Diary6" />
         <activity android:name=".FirstAccess" />
-        <activity android:name=".Login"></activity>
+        <activity android:name=".Login"/>
+        <activity android:name=".Tela2"/>
+        <activity android:name=".Tela3"/>
+        <activity android:name=".Tela4"/>
+        <activity android:name=".TelaPerguntas"/>
+        <activity android:name=".UsouDroga" />
+        <activity android:name=".NaoUsouDroga" />
+        <activity android:name=".Fim" />
+        <activity android:name=".Pergunta1" />
+        <activity android:name=".Pergunta2" />
+        <activity android:name=".Pergunta3" />
+        <activity android:name=".Pergunta4" />
+        <activity android:name=".Pergunta5" />
+        <activity android:name=".Pergunta6" />
+        <activity android:name=".Pergunta7" />
+        <activity android:name=".VontadeUsa" />
+        <activity android:name=".AlternativaUso"/>
 
         <meta-data android:name="DATABASE" android:value="beok.db" />
         <meta-data android:name="VERSION" android:value="2" />

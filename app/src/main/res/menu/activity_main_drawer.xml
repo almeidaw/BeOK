@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:icon="@drawable/diario"
+            android:id="@+id/nav_diario"
+            android:title="Diário"/>
+
+        <item
+            android:id="@+id/nav_acompanhamento"
+            android:icon="@drawable/acompanhamento"
+            android:title="Acompanhamento"/>
+
+        <item
+            android:icon="@drawable/metas"
+            android:id="@+id/nav_metas"
+            android:title="Metas"/>
+
+
+        <item
+            android:icon="@drawable/terapia"
+            android:id="@+id/nav_terapia"
+            android:title="Terapia"/>
+
+        <item
+            android:icon="@drawable/inspiracao"
+            android:id="@+id/nav_inspiracao"
+            android:title="Inspiração"/>
+
+        <item
+            android:icon="@drawable/favoritos"
+            android:id="@+id/nav_favoritos"
+            android:title="Favoritos do feed"/>
+
+        <item
+            android:id="@+id/nav_info"
+            android:icon="@drawable/info"
+            android:title="Informações úteis" />
+        <item
+            android:id="@+id/nav_configuracoes"
+            android:icon="@drawable/configuracoes"
+            android:title="Configurações" />
+
+    </group>
+
+
+
+    </menu>

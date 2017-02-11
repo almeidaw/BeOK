@@ -7,52 +7,53 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="beok.beok.Diary2">
+    tools:context="beok.beok.UsouDroga">
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Qual você usou?"
+        android:text="Qual droga você usou?"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:id="@+id/textView" />
 
-    <Button
+    <CheckBox
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Álcool"
-        android:id="@+id/btalcool"
+        android:id="@+id/cbalcool"
         android:onClick="botaoAlcool"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp" />
 
-    <Button
+    <CheckBox
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Maconha"
-        android:id="@+id/btmaconha"
+        android:id="@+id/cbmaconha"
         android:onClick="botaoMaconha"
-        android:layout_below="@+id/btalcool"
+        android:layout_below="@+id/cbalcool"
         android:layout_centerHorizontal="true" />
 
-    <Button
+    <CheckBox
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Cocaina"
-        android:id="@+id/btcocaina"
+        android:id="@+id/cbcocaina"
         android:onClick="botaoCocaina"
-        android:layout_below="@+id/btmaconha"
+        android:layout_below="@+id/cbmaconha"
         android:layout_centerHorizontal="true" />
 
-    <Button
+    <CheckBox
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Crack"
-        android:id="@+id/btcrack"
+        android:id="@+id/cbcrack"
         android:onClick="botaoCrack"
-        android:layout_below="@+id/btcocaina"
+        android:layout_below="@+id/cbcocaina"
         android:layout_centerHorizontal="true" />
 
 
