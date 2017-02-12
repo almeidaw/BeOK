@@ -18,6 +18,7 @@ import com.orm.SugarContext;
 import java.util.Date;
 
 import beok.beok.POJO.BotaoAtivo;
+import beok.beok.api.App;
 import beok.beok.api.DB;
 import beok.beok.api.ServiceSincronizer;
 
@@ -30,7 +31,7 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
 
     Button btmenu;
 
-    static boolean b=true;
+    static boolean b;
 
     int period = 10000;
     final Handler handler=new Handler();
@@ -50,7 +51,8 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
 
         initialize();
 
-        handler.postDelayed(startRunnable, period);
+        if(!App.DEBUG)
+            handler.postDelayed(startRunnable, period);
 
         b=false;
 
@@ -148,8 +150,8 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
 
         @Override
         public void run() {
-           // Toast.makeText(getApplicationContext(),"pulse", Toast.LENGTH_SHORT).show();
-            //Toast.makeText(getApplicationContext(), SugarRecord.listAll(Wrapper.class).size()+"", Toast.LENGTH_SHORT).show();
+            if(App.VERB)
+                Toast.makeText(getApplicationContext(),"pulse", Toast.LENGTH_SHORT).show();
             DB.flush();
             b=true;
             handler.postDelayed(runnable, period);
@@ -161,8 +163,8 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
         @Override
         public void run() {
             if(b) {
-                //Toast.makeText(getApplicationContext(),"pulse", Toast.LENGTH_SHORT).show();
-                //Toast.makeText(getApplicationContext(), SugarRecord.listAll(Wrapper.class).size()+"", Toast.LENGTH_SHORT).show();
+                if(App.VERB)
+                    Toast.makeText(getApplicationContext(),"pulse", Toast.LENGTH_SHORT).show();
                 DB.flush();
 
                 handler.postDelayed(this, period);

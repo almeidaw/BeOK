@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.orm.SugarContext;
 
+import beok.beok.api.Conf;
 import beok.beok.api.DB;
 
 public class Diary1 extends AppCompatActivity {
@@ -29,7 +30,7 @@ public class Diary1 extends AppCompatActivity {
 
         String usuario; //Nome do usuario (banco de dados)
 
-        txtusuario.setText("Olá "+ DB.nomeUsuario); //Adicionar o usuario no texto
+        txtusuario.setText("Olá "+ Conf.getNomeUsuario()); //Adicionar o usuario no texto
     }
 
     public void botaoSim(View v){

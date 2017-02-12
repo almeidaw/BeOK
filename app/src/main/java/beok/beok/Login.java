@@ -54,9 +54,6 @@ public class Login extends AppCompatActivity implements Callback<Usuario> {
             Usuario u=response.body();
             SugarRecord.save(u);
 
-            DB.idUsuario=u.getId();
-            DB.nomeUsuario=u.getNome();
-
             Intent i=new Intent(this,Main.class);
             startActivity(i);
         }else{

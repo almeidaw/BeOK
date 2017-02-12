@@ -12,6 +12,7 @@ import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
+import beok.beok.api.Conf;
 import beok.beok.api.DB;
 import beok.beok.api.ServiceSincronizer;
 
@@ -33,7 +34,7 @@ public class Fim extends AppCompatActivity {
         Resources res = getResources();
 
         String[] msg = res.getStringArray(R.array.mensagens);
-        String mensagem = String.format(msg[r.nextInt(2)], DB.nomeUsuario); //Inserir o nome do usuario segundo parametro
+        String mensagem = String.format(msg[r.nextInt(2)], Conf.getNomeUsuario()); //Inserir o nome do usuario segundo parametro
 
         txtmsg.setText(mensagem);
 

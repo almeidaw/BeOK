@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.orm.SugarRecord;
 
 import beok.beok.POJO.Usuario;
+import beok.beok.api.App;
 import beok.beok.api.DB;
 import beok.beok.api.ServiceGenerator;
 import beok.beok.webservice.ServiceWS;
@@ -87,9 +88,15 @@ public class Cadastro extends AppCompatActivity implements View.OnClickListener,
                     Toast.makeText(this, "Insira todos os campos corretamente", Toast.LENGTH_LONG).show();
                 }else{
                     //Banco de dados remoto
-                    ServiceWS service = ServiceGenerator.createService(ServiceWS.class);
-                    ucall = service.cadastrar(usuario);
-                    ucall.enqueue(this);
+                    if(App.DEBUG){
+                        SugarRecord.save(usuario);
+                        Intent nextActivity = new Intent(this, Tela2.class);
+                        startActivity(nextActivity);
+                    }else {
+                        ServiceWS service = ServiceGenerator.createService(ServiceWS.class);
+                        ucall = service.cadastrar(usuario);
+                        ucall.enqueue(this);
+                    }
                 }
                 //slide from right to left
                 break;
@@ -105,9 +112,6 @@ public class Cadastro extends AppCompatActivity implements View.OnClickListener,
             //Banco de dados local
             Usuario u=response.body();
             SugarRecord.save(u);
-
-            DB.idUsuario=u.getId();
-            DB.nomeUsuario=u.getNome();
 
             //Tela da home
             Intent nextActivity = new Intent(this, Tela2.class);
