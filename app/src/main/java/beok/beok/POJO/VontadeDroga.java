@@ -17,17 +17,16 @@ public class VontadeDroga {
 
     private int idRelatoDiario;
     private int tipo;
-    private String outros;
     private boolean manha;
     private boolean tarde;
     private boolean noite;
     private boolean madrugada;
-    private int onde;
-    private String ondeOutros;
-    private int comQuem;
-    private String comQuemOutros;
     private int quantoVontade;
     private int fezLugar;
+    private String fezLugarOutros;
+    private int motivo;
+    private String motivoOutros;
+
 
 
     /**
@@ -67,20 +66,6 @@ public class VontadeDroga {
      */
     public void setTipo(int tipo) {
         this.tipo = tipo;
-    }
-
-    /**
-     * @return the outros
-     */
-    public String getOutros() {
-        return outros;
-    }
-
-    /**
-     * @param outros the outros to set
-     */
-    public void setOutros(String outros) {
-        this.outros = outros;
     }
 
     /**
@@ -139,61 +124,6 @@ public class VontadeDroga {
         this.madrugada = madrugada;
     }
 
-    /**
-     * @return the onde
-     */
-    public int getOnde() {
-        return onde;
-    }
-
-    /**
-     * @param onde the onde to set
-     */
-    public void setOnde(int onde) {
-        this.onde = onde;
-    }
-
-    /**
-     * @return the ondeOutros
-     */
-    public String getOndeOutros() {
-        return ondeOutros;
-    }
-
-    /**
-     * @param ondeOutros the ondeOutros to set
-     */
-    public void setOndeOutros(String ondeOutros) {
-        this.ondeOutros = ondeOutros;
-    }
-
-    /**
-     * @return the comQuem
-     */
-    public int getComQuem() {
-        return comQuem;
-    }
-
-    /**
-     * @param comQuem the comQuem to set
-     */
-    public void setComQuem(int comQuem) {
-        this.comQuem = comQuem;
-    }
-
-    /**
-     * @return the comQuemOutros
-     */
-    public String getComQuemOutros() {
-        return comQuemOutros;
-    }
-
-    /**
-     * @param comQuemOutros the comQuemOutros to set
-     */
-    public void setComQuemOutros(String comQuemOutros) {
-        this.comQuemOutros = comQuemOutros;
-    }
 
     /**
      * @return the quantoVontade
@@ -221,5 +151,29 @@ public class VontadeDroga {
      */
     public void setFezLugar(int fezLugar) {
         this.fezLugar = fezLugar;
+    }
+
+    public String getFezLugarOutros() {
+        return fezLugarOutros;
+    }
+
+    public void setFezLugarOutros(String fezLugarOutros) {
+        this.fezLugarOutros = fezLugarOutros;
+    }
+
+    public int getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(int motivo) {
+        this.motivo = motivo;
+    }
+
+    public String getMotivoOutros() {
+        return motivoOutros;
+    }
+
+    public void setMotivoOutros(String motivoOutros) {
+        this.motivoOutros = motivoOutros;
     }
 }

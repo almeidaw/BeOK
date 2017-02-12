@@ -30,6 +30,8 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
 
     Button btmenu;
 
+    static boolean b=true;
+
     int period = 10000;
     final Handler handler=new Handler();
     ServiceSincronizer sc;
@@ -48,7 +50,9 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
 
         initialize();
 
-        handler.postDelayed(runnable, period);
+        handler.postDelayed(startRunnable, period);
+
+        b=false;
 
         home_fragment = new Home();
         show_diary_fragment = new ShowDiary();
@@ -139,14 +143,30 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
         ServiceSincronizer.scContext=this;
     }
 
+
+    private Runnable startRunnable = new Runnable() {
+
+        @Override
+        public void run() {
+           // Toast.makeText(getApplicationContext(),"pulse", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), SugarRecord.listAll(Wrapper.class).size()+"", Toast.LENGTH_SHORT).show();
+            DB.flush();
+            b=true;
+            handler.postDelayed(runnable, period);
+        }
+    };
+
     private Runnable runnable = new Runnable() {
 
         @Override
         public void run() {
-            Toast.makeText(getApplicationContext(),"pulse", Toast.LENGTH_SHORT).show();
-            //Toast.makeText(getApplicationContext(), SugarRecord.listAll(Wrapper.class).size()+"", Toast.LENGTH_SHORT).show();
-            DB.flush();
-            handler.postDelayed(this, period);
+            if(b) {
+                //Toast.makeText(getApplicationContext(),"pulse", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), SugarRecord.listAll(Wrapper.class).size()+"", Toast.LENGTH_SHORT).show();
+                DB.flush();
+
+                handler.postDelayed(this, period);
+            }
         }
     };
 

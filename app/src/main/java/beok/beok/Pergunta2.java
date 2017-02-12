@@ -6,29 +6,29 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.orm.SugarContext;
+
 public class Pergunta2 extends AppCompatActivity {
 
-    boolean[] array;
 
     Button btprox2, btpularpergunta;
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pergunta2);
 
+        SugarContext.init(this);
+
         btprox2 = (Button) findViewById(R.id.btprox2);
         btpularpergunta = (Button) findViewById(R.id.btpularpergunta);
 
-        Bundle bundle = getIntent().getExtras();
-        array = bundle.getBooleanArray("checkbox");
-
+        bundle = getIntent().getExtras();
     }
 
     public void botaoProximo2(View v){
         //adicionar as coordenadas do local em que usou
-        Bundle bundle = new Bundle();
-        bundle.putBooleanArray("checkbox", array);
         Intent i = new Intent(this, Pergunta3.class);
         i.putExtras(bundle);
         startActivity(i);
@@ -38,8 +38,6 @@ public class Pergunta2 extends AppCompatActivity {
 
 
     public void pularPergunta(View v){
-        Bundle bundle = new Bundle();
-        bundle.putBooleanArray("checkbox", array);
         Intent i = new Intent(this, Pergunta3.class);
         i.putExtras(bundle);
         startActivity(i);

@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import beok.beok.POJO.ContatoEmergencia;
+import beok.beok.api.DB;
+
 public class Tela4 extends AppCompatActivity implements View.OnClickListener{
 
     private int cont1 = 1; // Intent contato 1
@@ -45,6 +48,27 @@ public class Tela4 extends AppCompatActivity implements View.OnClickListener{
 
         switch (v.getId()) {
             case R.id.btfimcadastro:
+                if(!edtxtcontato1.getText().toString().equals("")){
+                    ContatoEmergencia ce=new ContatoEmergencia();
+                    ce.setNome(txtcontato1.getText().toString());
+                    ce.setTelefone(edtxtcontato1.getText().toString());
+                    ce.setPrioridade(0);
+                    DB.save(ce);
+                }
+                if(!edtxtcontato2.getText().toString().equals("")){
+                    ContatoEmergencia ce=new ContatoEmergencia();
+                    ce.setNome(txtcontato2.getText().toString());
+                    ce.setTelefone(edtxtcontato2.getText().toString());
+                    ce.setPrioridade(1);
+                    DB.save(ce);
+                }
+                if(!edtxtcontato3.getText().toString().equals("")){
+                    ContatoEmergencia ce=new ContatoEmergencia();
+                    ce.setNome(txtcontato3.getText().toString());
+                    ce.setTelefone(edtxtcontato3.getText().toString());
+                    ce.setPrioridade(2);
+                    DB.save(ce);
+                }
                 Intent nextActivity = new Intent(this, Main.class);
                 startActivity(nextActivity);
                 //slide from right to left

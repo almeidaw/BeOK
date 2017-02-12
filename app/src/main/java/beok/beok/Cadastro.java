@@ -8,10 +8,21 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.orm.SugarRecord;
 
 import beok.beok.POJO.Usuario;
+import beok.beok.api.DB;
+import beok.beok.api.ServiceGenerator;
+import beok.beok.webservice.ServiceWS;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-public class Cadastro extends AppCompatActivity implements View.OnClickListener {
+public class Cadastro extends AppCompatActivity implements View.OnClickListener, Callback<Usuario> {
+
+    Call<Usuario> ucall;
 
     Usuario usuario;
 
@@ -35,9 +46,6 @@ public class Cadastro extends AppCompatActivity implements View.OnClickListener 
 
         btproximo1 = (Button) findViewById(R.id.btproximo1);
 
-        usuario.setNome(edtxtnome.getText().toString());
-        usuario.setEmail(edtxtemail.getText().toString());
-        usuario.setSenha(edtxtsenha.getText().toString());
 
         spidade.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -69,11 +77,50 @@ public class Cadastro extends AppCompatActivity implements View.OnClickListener 
 
         switch (v.getId()) {
             case R.id.btproximo1:
-                Intent nextActivity = new Intent(this, Tela2.class);
-                startActivity(nextActivity);
+                usuario.setNome(edtxtnome.getText().toString());
+                usuario.setEmail(edtxtemail.getText().toString());
+                usuario.setSenha(edtxtsenha.getText().toString());
+
+                if(usuario.getSenha().length()<8){
+                    Toast.makeText(this, "Senha muito curta (mínimo 8 caracteres)", Toast.LENGTH_LONG).show();
+                }else if(usuario.getNome().equals("") || usuario.getEmail().equals("")){
+                    Toast.makeText(this, "Insira todos os campos corretamente", Toast.LENGTH_LONG).show();
+                }else{
+                    //Banco de dados remoto
+                    ServiceWS service = ServiceGenerator.createService(ServiceWS.class);
+                    ucall = service.cadastrar(usuario);
+                    ucall.enqueue(this);
+                }
                 //slide from right to left
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
         }
+    }
+
+
+    //Resposta do webservice
+    @Override
+    public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+        if(response.isSuccessful()){
+
+            //Banco de dados local
+            Usuario u=response.body();
+            SugarRecord.save(u);
+
+            DB.idUsuario=u.getId();
+            DB.nomeUsuario=u.getNome();
+
+            //Tela da home
+            Intent nextActivity = new Intent(this, Tela2.class);
+            startActivity(nextActivity);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }else{
+            Toast.makeText(this, "Usuário com este e-mail já existente.", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onFailure(Call<Usuario> call, Throwable t) {
+        Toast.makeText(this,"Erro na rede, tente novamente",Toast.LENGTH_SHORT).show();
+        t.printStackTrace();
     }
 }

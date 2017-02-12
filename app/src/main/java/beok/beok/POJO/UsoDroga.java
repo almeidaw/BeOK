@@ -28,6 +28,7 @@ public class UsoDroga {
     private String ondeOutros;
     private int comQuem;
     private String comQuemOutros;
+    private int motivo;
 
 
     /**
@@ -76,12 +77,6 @@ public class UsoDroga {
         return outros;
     }
 
-    /**
-     * @param outros the outros to set
-     */
-    public void setOutros(String outros) {
-        this.outros = outros;
-    }
 
     /**
      * @return the quando
@@ -221,5 +216,33 @@ public class UsoDroga {
      */
     public void setComQuemOutros(String comQuemOutros) {
         this.comQuemOutros = comQuemOutros;
+    }
+
+
+    public void setCerveja(){
+        tipo=0;
+    }
+    public void setVinho() {tipo=1;}
+    public void setDestilado (){tipo=2;}
+    public void setMaconha(){
+        tipo=3;
+    }
+    public void setCocaina(){
+        tipo=4;
+    }
+    public void setCrack(){
+        tipo=5;
+    }
+    public void setOutros(String outros){
+        this.outros=outros;
+        tipo=6;
+    }
+
+    public int getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(int motivo) {
+        this.motivo = motivo;
     }
 }

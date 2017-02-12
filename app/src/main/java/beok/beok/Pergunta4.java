@@ -7,25 +7,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 
+import com.orm.SugarContext;
+
 public class Pergunta4 extends AppCompatActivity {
 
-    boolean[] array;
 
     int dia, mes, ano;
 
     Button btprox4;
     CalendarView calendarView;
 
+    Bundle bundle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pergunta4);
 
+        SugarContext.init(this);
+
         btprox4 = (Button) findViewById(R.id.btprox4);
         calendarView = (CalendarView) findViewById(R.id.calendarView);
 
-        Bundle bundle = getIntent().getExtras();
-        array = bundle.getBooleanArray("checkbox");
+        bundle = getIntent().getExtras();
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -40,9 +44,10 @@ public class Pergunta4 extends AppCompatActivity {
 
     public void botaoProximo4(View v){
         //Adicionar a data selecionada no calendario do dia em que usou
-        Bundle bundle = new Bundle();
-        bundle.putBooleanArray("checkbox", array);
         Intent i = new Intent(this, Pergunta5.class);
+        bundle.putInt("dia",dia);
+        bundle.putInt("mes",mes);
+        bundle.putInt("ano",ano);
         i.putExtras(bundle);
         startActivity(i);
         //slide from right to left

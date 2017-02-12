@@ -6,16 +6,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.orm.SugarContext;
+
 public class Pergunta3 extends AppCompatActivity {
 
-    boolean[] array;
 
     Button btamigos, btparceiro, btfamiliares, btsozinho, btdesconhecidos;
 
+    Bundle bundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pergunta3);
+
+        SugarContext.init(this);
 
         btamigos = (Button) findViewById(R.id.btamigos);
         btparceiro = (Button) findViewById(R.id.btparceiro);
@@ -23,16 +27,14 @@ public class Pergunta3 extends AppCompatActivity {
         btsozinho = (Button) findViewById(R.id.btsozinho);
         btdesconhecidos = (Button) findViewById(R.id.btdesconhecidos);
 
-        Bundle bundle = getIntent().getExtras();
-        array = bundle.getBooleanArray("checkbox");
+        bundle = getIntent().getExtras();
 
     }
 
     public void usouComAmigos(View v){
         //adicionar "com quem" ele usou a droga
-        Bundle bundle = new Bundle();
-        bundle.putBooleanArray("checkbox", array);
         Intent i = new Intent(this, Pergunta4.class);
+        bundle.putInt("usoucom",0);
         i.putExtras(bundle);
         startActivity(i);
         //slide from right to left
@@ -40,9 +42,8 @@ public class Pergunta3 extends AppCompatActivity {
     }
     public void usouComDesconhecidos(View v){
         //adicionar "com quem" ele usou a droga
-        Bundle bundle = new Bundle();
-        bundle.putBooleanArray("checkbox", array);
         Intent i = new Intent(this, Pergunta4.class);
+        bundle.putInt("usoucom",1);
         i.putExtras(bundle);
         startActivity(i);
         //slide from right to left
@@ -50,9 +51,8 @@ public class Pergunta3 extends AppCompatActivity {
     }
     public void usouComParceiro(View v){
         //adicionar "com quem" ele usou a droga
-        Bundle bundle = new Bundle();
-        bundle.putBooleanArray("checkbox", array);
         Intent i = new Intent(this, Pergunta4.class);
+        bundle.putInt("usoucom",2);
         i.putExtras(bundle);
         startActivity(i);
         //slide from right to left
@@ -60,9 +60,8 @@ public class Pergunta3 extends AppCompatActivity {
     }
     public void usouSozinho(View v){
         //adicionar "com quem" ele usou a droga
-        Bundle bundle = new Bundle();
-        bundle.putBooleanArray("checkbox", array);
         Intent i = new Intent(this, Pergunta4.class);
+        bundle.putInt("usoucom",3);
         i.putExtras(bundle);
         startActivity(i);
         //slide from right to left
@@ -70,9 +69,8 @@ public class Pergunta3 extends AppCompatActivity {
     }
     public void usouComFamiliares(View v){
         //adicionar "com quem" ele usou a droga
-        Bundle bundle = new Bundle();
-        bundle.putBooleanArray("checkbox", array);
         Intent i = new Intent(this, Pergunta4.class);
+        bundle.putInt("usoucom",4);
         i.putExtras(bundle);
         startActivity(i);
         //slide from right to left

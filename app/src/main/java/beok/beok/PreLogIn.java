@@ -41,6 +41,7 @@ public class PreLogIn extends AppCompatActivity {
 
         if(!us.isEmpty()){
             DB.idUsuario=us.get(0).getId();
+            DB.nomeUsuario=us.get(0).getNome();
             //redireciona para a home
             Intent i=new Intent(this,Main.class);
             startActivity(i);

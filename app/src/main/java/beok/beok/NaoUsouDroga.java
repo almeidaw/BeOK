@@ -6,6 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.orm.SugarContext;
+
+import java.util.Calendar;
+import java.util.Date;
+
+import beok.beok.POJO.RelatoDiario;
+import beok.beok.api.DB;
+
 public class NaoUsouDroga extends AppCompatActivity {
 
     Button btsim, btnao;
@@ -14,6 +22,8 @@ public class NaoUsouDroga extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nao_usou_droga);
+
+        SugarContext.init(this);
 
         btsim = (Button) findViewById(R.id.btsim);
         btnao = (Button) findViewById(R.id.btnao);
@@ -26,6 +36,17 @@ public class NaoUsouDroga extends AppCompatActivity {
     }
 
     public void botaoNao(View v){
+        RelatoDiario rd=new RelatoDiario();
+
+        Date dtnow=new Date();
+        dtnow.setTime(System.currentTimeMillis());
+
+        rd.setDataDiario(dtnow);
+        rd.setUso(false);
+        rd.setVontade(false);
+
+        DB.save(rd);
+
         Intent i = new Intent(this, Fim.class);
         startActivity(i);
     }

@@ -8,6 +8,14 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.orm.SugarContext;
+import com.orm.SugarRecord;
+
+import java.util.List;
+
+import beok.beok.POJO.Usuario;
+import beok.beok.api.DB;
+
 public class Tela3 extends AppCompatActivity implements View.OnClickListener{
 
     Button btproximo3;
@@ -18,6 +26,8 @@ public class Tela3 extends AppCompatActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela3);
+
+        SugarContext.init(this);
 
         btproximo3 = (Button) findViewById(R.id.btproximo3);
 
@@ -38,11 +48,35 @@ public class Tela3 extends AppCompatActivity implements View.OnClickListener{
 
         switch (v.getId()) {
             case R.id.btproximo3:
+                List<Usuario> us = SugarRecord.listAll(Usuario.class);
+                Usuario u=us.get(0);
+                int motiv=0;
+                motiv+=ch(cbfamilia);
+                motiv+=ch(cbdinheiro)*2;
+                motiv+=ch(cbsfisica)*4;
+                motiv+=ch(cbsemocional)*8;
+                motiv+=ch(cbtrabalho)*16;
+                motiv+=ch(cbestudos)*32;
+                motiv+=ch(cboutros)*64;
+
+                u.setMotivacao(motiv);
+                if(cboutros.isChecked()) {
+                    u.setMotivOutros(edtxtoutramot.getText().toString());
+                }
+                DB.save(u);
                 Intent nextActivity = new Intent(this, Tela4.class);
                 startActivity(nextActivity);
                 //slide from right to left
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
+        }
+    }
+
+    private int ch(CheckBox c){
+        if(c.isChecked()){
+            return 1;
+        }else{
+            return 0;
         }
     }
 
