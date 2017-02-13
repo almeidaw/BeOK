@@ -18,12 +18,6 @@ public class ConsumoAtual {
     private int tipo;
     private String outros;
     private int freqSemanal;
-    private boolean fimDeSem;
-    private int freqDia;
-    private boolean manha;
-    private boolean tarde;
-    private boolean noite;
-    private boolean madrugada;
     private int quantidade;
     private int gasto;
 
@@ -75,89 +69,6 @@ public class ConsumoAtual {
         this.freqSemanal = freqSemanal;
     }
 
-    /**
-     * @return the fimDeSem
-     */
-    public boolean getFimDeSem() {
-        return fimDeSem;
-    }
-
-    /**
-     * @param fimDeSem the fimDeSem to set
-     */
-    public void setFimDeSem(boolean fimDeSem) {
-        this.fimDeSem = fimDeSem;
-    }
-
-    /**
-     * @return the freqDia
-     */
-    public int getFreqDia() {
-        return freqDia;
-    }
-
-    /**
-     * @param freqDia the freqDia to set
-     */
-    public void setFreqDia(int freqDia) {
-        this.freqDia = freqDia;
-    }
-
-    /**
-     * @return the manha
-     */
-    public boolean getManha() {
-        return manha;
-    }
-
-    /**
-     * @param manha the manha to set
-     */
-    public void setManha(boolean manha) {
-        this.manha = manha;
-    }
-
-    /**
-     * @return the tarde
-     */
-    public boolean getTarde() {
-        return tarde;
-    }
-
-    /**
-     * @param tarde the tarde to set
-     */
-    public void setTarde(boolean tarde) {
-        this.tarde = tarde;
-    }
-
-    /**
-     * @return the noite
-     */
-    public boolean getNoite() {
-        return noite;
-    }
-
-    /**
-     * @param noite the noite to set
-     */
-    public void setNoite(boolean noite) {
-        this.noite = noite;
-    }
-
-    /**
-     * @return the madrugada
-     */
-    public boolean getMadrugada() {
-        return madrugada;
-    }
-
-    /**
-     * @param madrugada the madrugada to set
-     */
-    public void setMadrugada(boolean madrugada) {
-        this.madrugada = madrugada;
-    }
 
     /**
      * @return the quantidade
@@ -187,20 +98,22 @@ public class ConsumoAtual {
         this.gasto = gasto;
     }
 
-    public void setAlcool(){
+    public void setCerveja(){
         tipo=0;
     }
+    public void setVinho() {tipo=1;}
+    public void setDestilado (){tipo=2;}
     public void setMaconha(){
-        tipo=1;
+        tipo=3;
     }
     public void setCocaina(){
-        tipo=2;
+        tipo=4;
     }
     public void setCrack(){
-        tipo=3;
+        tipo=5;
     }
     public void setOutros(String outros){
         this.outros=outros;
-        tipo=4;
+        tipo=6;
     }
 }

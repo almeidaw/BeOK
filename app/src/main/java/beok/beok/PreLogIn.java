@@ -40,9 +40,8 @@ public class PreLogIn extends AppCompatActivity {
         List<Usuario> us=DB.listAll(Usuario.class);
 
         if(!us.isEmpty()){
-            DB.idUsuario=us.get(0).getId();
             //redireciona para a home
-            Intent i=new Intent(this,Home.class);
+            Intent i=new Intent(this,Main.class);
             startActivity(i);
         }else{
             //vai para a página de login/cadastro

@@ -17,6 +17,7 @@ public class DB extends SugarRecord {
     private static List<Wrapper> queue = new ArrayList<Wrapper>();
     private static ServiceSincronizer sc;
     public static long idUsuario;
+    public static String nomeUsuario;
 
     public static long save(Object object){
         //cadastra no banco de dados local

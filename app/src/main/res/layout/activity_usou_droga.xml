@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="beok.beok.UsouDroga">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Qual droga você usou?"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:id="@+id/textView" />
+
+    <CheckBox
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Álcool"
+        android:id="@+id/cbalcool"
+        android:onClick="botaoAlcool"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp" />
+
+    <CheckBox
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Maconha"
+        android:id="@+id/cbmaconha"
+        android:onClick="botaoMaconha"
+        android:layout_below="@+id/cbalcool"
+        android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Cocaina"
+        android:id="@+id/cbcocaina"
+        android:onClick="botaoCocaina"
+        android:layout_below="@+id/cbmaconha"
+        android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Crack"
+        android:id="@+id/cbcrack"
+        android:onClick="botaoCrack"
+        android:layout_below="@+id/cbcocaina"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

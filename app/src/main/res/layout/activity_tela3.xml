@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="beok.beok.Tela3">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="Quais são suas motivações para a mudança? "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtmotivacao"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="@dimen/tamanho_perguntas"/>
+
+        <CheckBox
+            android:text="Família"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbfamilia"
+            android:textAppearance="@style/TextAppearance.AppCompat" />
+
+        <CheckBox
+            android:text="Dinheiro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbdinheiro"
+            android:textAppearance="@style/TextAppearance.AppCompat" />
+
+        <CheckBox
+            android:text="Saúde física"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbsfisica"
+            android:textAppearance="@style/TextAppearance.AppCompat" />
+
+        <CheckBox
+            android:text="Saúde emocional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbsemocional"
+            android:textAppearance="@style/TextAppearance.AppCompat" />
+
+        <CheckBox
+            android:text="Trabalho"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbtrabalho"
+            android:textAppearance="@style/TextAppearance.AppCompat" />
+
+        <CheckBox
+            android:text="Estudos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbestudos"
+            android:textAppearance="@style/TextAppearance.AppCompat" />
+
+        <CheckBox
+            android:text="Outras"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cboutros"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:onClick="outrasMotivacoes"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/edtxtoutramot"
+            android:hint="Especifique"
+            android:visibility="gone"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Próximo"
+            android:id="@+id/btproximo3"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

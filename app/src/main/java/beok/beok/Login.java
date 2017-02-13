@@ -13,6 +13,7 @@ import com.orm.SugarRecord;
 import java.io.IOException;
 
 import beok.beok.POJO.Usuario;
+import beok.beok.api.DB;
 import beok.beok.api.ServiceGenerator;
 import beok.beok.webservice.ServiceWS;
 import retrofit2.Call;
@@ -35,9 +36,6 @@ public class Login extends AppCompatActivity implements Callback<Usuario> {
 
         SugarContext.init(this);
 
-        Intent i=new Intent(this,Home.class);
-        startActivity(i);
-
     }
     public void loginClickLogin(View v){
         ServiceWS service= ServiceGenerator.createService(ServiceWS.class);
@@ -56,7 +54,7 @@ public class Login extends AppCompatActivity implements Callback<Usuario> {
             Usuario u=response.body();
             SugarRecord.save(u);
 
-            Intent i=new Intent(this,Home.class);
+            Intent i=new Intent(this,Main.class);
             startActivity(i);
         }else{
             int code=response.code();
