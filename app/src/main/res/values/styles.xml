@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:app="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -17,4 +17,7 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="TesteDiario" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@drawable/fundo_diario</item>
+    </style>
 </resources>
