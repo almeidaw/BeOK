@@ -21,7 +21,7 @@ public class Tela4 extends AppCompatActivity implements View.OnClickListener{
     private int cont3 = 3; // Intent contato 3
 
     Button btfimcadastro;
-    TextView txtcontato1, txtcontato2, txtcontato3;
+    EditText txtcontato1, txtcontato2, txtcontato3;
     EditText edtxtcontato1, edtxtcontato2, edtxtcontato3;
 
     @Override
@@ -32,9 +32,9 @@ public class Tela4 extends AppCompatActivity implements View.OnClickListener{
 
         btfimcadastro = (Button) findViewById(R.id.btfimcadastro);
 
-        txtcontato1 = (TextView) findViewById(R.id.txtcontato1);
-        txtcontato2 = (TextView) findViewById(R.id.txtcontato2);
-        txtcontato3 = (TextView) findViewById(R.id.txtcontato3);
+        txtcontato1 = (EditText) findViewById(R.id.txtcontato1);
+        txtcontato2 = (EditText) findViewById(R.id.txtcontato2);
+        txtcontato3 = (EditText) findViewById(R.id.txtcontato3);
 
         edtxtcontato1 = (EditText) findViewById(R.id.edtxtcontato1);
         edtxtcontato2 = (EditText) findViewById(R.id.edtxtcontato2);

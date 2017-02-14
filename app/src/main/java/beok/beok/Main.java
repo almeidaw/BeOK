@@ -64,6 +64,8 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
         tf = new TestFragment();
         colocaFragment(show_diary_fragment, R.id.main_fragment_container);
 
+
+        //ADICIONA RELATO DIÁRIO
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,11 +104,6 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
                             case R.id.goalsItem:
                                 Toast.makeText(Main.this, "metas", Toast.LENGTH_SHORT).show();
                                 Main.this.colocaFragment(tf, R.id.main_fragment_container);
-                                break;
-
-                            case R.id.homeItem:
-                                Toast.makeText(Main.this, "principal", Toast.LENGTH_SHORT).show();
-                                Main.this.colocaFragment(home_fragment, R.id.main_fragment_container);
                                 break;
 
                             case R.id.inspirationItem:

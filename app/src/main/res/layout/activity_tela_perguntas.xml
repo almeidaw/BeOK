@@ -70,20 +70,6 @@
                 android:id="@+id/sbqtd"/>
 
             <TextView
-                android:text="@string/ultimavez"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtultimavez"
-                android:textSize="@dimen/tamanho_perguntas"
-                android:textAppearance="@style/TextAppearance.AppCompat"/>
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/spultimavez"
-                android:entries="@array/ultima_vez"/>
-
-            <TextView
                 android:text="@string/gasto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -115,20 +101,6 @@
                     android:text="reais"/>
 
             </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/meta_droga"
-                android:textSize="@dimen/tamanho_perguntas"
-                android:textAppearance="@style/TextAppearance.AppCompat"/>
-
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:entries="@array/meta_final"
-                android:id="@+id/spmetafinal"></Spinner>
-
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

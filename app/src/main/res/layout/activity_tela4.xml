@@ -24,7 +24,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="@dimen/tamanho_perguntas"/>
 
-        <TextView
+        <EditText
             android:text="Contato 1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             android:id="@+id/btcontato1"
             android:onClick="selecionarContato1"/>
 
-        <TextView
+        <EditText
             android:text="Contato 2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
             android:id="@+id/btcontato2"
             android:onClick="selecionarContato2"/>
 
-        <TextView
+        <EditText
             android:text="Contato 3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

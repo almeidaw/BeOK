@@ -13,11 +13,6 @@
         android:title="Metas"
         />
 
-    <item
-        android:id="@+id/homeItem"
-        android:icon="@drawable/ic_home"
-        android:title="Principal"
-        />
 
     <item
         android:id="@+id/inspirationItem"
