@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:id="@+id/fragment_show_diary">
-    
-    <LinearLayout
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="8dp"
+    android:background="@drawable/fundo_diario"
+    tools:context="beok.beok.Main">
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:id="@+id/recycler_view">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button_write_diary"
-            android:text="Escreva seu diário"/>
-    </LinearLayout>
+    </android.support.v7.widget.RecyclerView>
 
-</ScrollView>
+
+</LinearLayout>
