@@ -29,7 +29,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.widget.Button;
 
 
-public class Main extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Main extends AppCompatActivity {
 
     Button btmenu;
 
@@ -45,6 +45,7 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
     Home home_fragment;
     TestFragment tf;
     ShowDiary show_diary_fragment;
+    NavigationView nv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,44 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
         tf = new TestFragment();
         colocaFragment(show_diary_fragment, R.id.main_fragment_container);
 
+        nv=(NavigationView)findViewById(R.id.nav_view);
+
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
+                                                 // This method will trigger on item Click of navigation menu
+                                                 @Override
+                                                 public boolean onNavigationItemSelected(MenuItem item) {
+                                                     // Handle navigation view item clicks here.
+                                                     int id = item.getItemId();
+                                                     Toast.makeText(Main.this,"teste",Toast.LENGTH_LONG).show();
+                                                     if (id == R.id.nav_acompanhamento) {
+                                                         // Handle the "acompanhamento" action
+
+                                                     } else if (id == R.id.nav_configuracoes) {
+
+            /*Intent intent = new Intent(Main.this, SettingsActivity.class);
+            startActivity(intent);*/
+
+                                                     } else if (id == R.id.nav_info) {
+
+                                                     } else if (id == R.id.nav_diario){
+
+                                                     } else if (id == R.id.nav_inspiracao){
+
+                                                     } else if (id == R.id.nav_metas){
+
+                                                     } else if (id == R.id.nav_terapia){
+
+                                                     } else if (id == R.id.nav_favoritos){
+
+                                                     }
+
+                                                     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                                                     drawer.closeDrawer(GravityCompat.START);
+                                                     return true;
+                                                 }
+                                             }
+                );
 
         //ADICIONA RELATO DIÁRIO
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -77,9 +116,6 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
 
         final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         btmenu = (Button) findViewById(R.id.btmenu);
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
         btmenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -178,9 +214,6 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
         }
     };
 
-
-
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -190,38 +223,5 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
             super.onBackPressed();
         }
     }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_acompanhamento) {
-            // Handle the "acompanhamento" action
-
-        } else if (id == R.id.nav_configuracoes) {
-            Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
-            startActivity(intent);
-
-        } else if (id == R.id.nav_info) {
-
-        } else if (id == R.id.nav_diario){
-
-        } else if (id == R.id.nav_inspiracao){
-
-        } else if (id == R.id.nav_metas){
-
-        } else if (id == R.id.nav_terapia){
-
-        } else if (id == R.id.nav_favoritos){
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
 
 }

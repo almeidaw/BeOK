@@ -27,6 +27,8 @@ public class Pergunta1 extends AppCompatActivity {
 
     UsoDroga ud;
 
+    int quantidade;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,19 +92,19 @@ public class Pergunta1 extends AppCompatActivity {
                 if (bundle.getInt("Droga escolhida") == 1){
                     sbqtd.setMax(14);
                     txtqtd.setText(Integer.toString(progress + 1) + " doses de " + spbebidas.getSelectedItem().toString());
-                    ud.setQuantidade(progress + 1);
+                    quantidade=progress + 1;
                 } else if (bundle.getInt("Droga escolhida") == 2){
                     sbqtd.setMax(19);
                     txtqtd.setText(Float.toString(((float)progress + 1)/2) + " baseados de maconha");
-                    ud.setQuantidade(progress + 1);
+                    quantidade = progress + 1;
                 } else if (bundle.getInt("Droga escolhida") == 3){
                     sbqtd.setMax(19);
                     txtqtd.setText(Float.toString(((float)progress + 1)/2) + " gramas cocaina");
-                    ud.setQuantidade(progress + 1);
+                    quantidade= progress + 1;
                 } else if (bundle.getInt("Droga escolhida") == 4){
                     sbqtd.setMax(9);
                     txtqtd.setText(Integer.toString(progress + 1) + " pedras de crack");
-                    ud.setQuantidade(progress + 1);
+                    quantidade = progress + 1;
                 }
                 btprox1.setVisibility(View.VISIBLE);
             }
@@ -124,7 +126,7 @@ public class Pergunta1 extends AppCompatActivity {
         //adicionar a quantidade de droga que ele usou
         Bundle bundle = new Bundle();
         bundle.putBooleanArray("checkbox", array);
-        bundle.putInt("qtd",ud.getQuantidade());
+        bundle.putInt("qtd",quantidade);
         bundle.putInt("tipo",ud.getTipo());
         Intent i = new Intent(this, Pergunta2.class);
         i.putExtras(bundle);
