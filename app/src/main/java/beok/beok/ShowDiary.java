@@ -182,7 +182,7 @@ class Droga { // Objeto droga e construtor
     boolean isVoid;
     List<DataPoint> dados;
 
-    Droga(int tipo, int quantidade, int frequencia, boolean manha, boolean tarde, boolean noite, boolean madrugada, boolean fimdesemana, List<DataPoint> dados) {
+    Droga(int tipo, float quantidade, int frequencia, boolean manha, boolean tarde, boolean noite, boolean madrugada, boolean fimdesemana, List<DataPoint> dados) {
         this.tipo = tipo;
         this.fimdesemana = fimdesemana;
         this.quantidade = quantidade + " baseados";

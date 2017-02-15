@@ -167,8 +167,13 @@ public class MetaGeral {
     /**
      * @return the quantidade
      */
-    public int getQuantidade() {
-        return quantidade;
+    public float getQuantidade() {
+        if(tipo==3 || tipo==4){
+            return ((float)(quantidade))/2;
+        }else{
+
+            return quantidade;
+        }
     }
 
     /**

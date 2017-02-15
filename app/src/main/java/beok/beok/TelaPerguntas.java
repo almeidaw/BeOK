@@ -33,11 +33,15 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
     ImageView ivlegenda;
     SeekBar sbqtd;
     Button btconfirma;
-    TextView txtunidade, txtlegenda;
+    TextView txtunidade, txtlegenda,txtqtddroga;
     Spinner spfreq, spultimavez, spmetafinal, spbebidas;
     EditText edtxtgasto;
 
     ConsumoAtual ca;
+
+    Bundle bundle;
+
+    int quantidade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,8 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
         txtunidade = (TextView) findViewById(R.id.txtunidade);
         txtlegenda = (TextView) findViewById(R.id.txtlegenda);
 
+        txtqtddroga = (TextView) findViewById(R.id.txtqtddroga);
+
         //spmetafinal = (Spinner) findViewById(R.id.spmetafinal);
         //spultimavez = (Spinner) findViewById(R.id.spultimavez);
         spfreq = (Spinner) findViewById(R.id.spfreq);
@@ -64,8 +70,9 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
         ivlegenda = (ImageView) findViewById(R.id.ivlegenda);
 
         btconfirma.setOnClickListener(this);
+        btconfirma.setVisibility(View.INVISIBLE);
 
-        Bundle bundle = getIntent().getExtras();
+        bundle = getIntent().getExtras();
         if (bundle.getInt("Droga escolhida") == 1){
             spbebidas.setVisibility(View.VISIBLE);
             txtunidade.setText("1 dose de alcool = ");
@@ -115,6 +122,41 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
         array = bundle.getBooleanArray("checkbox");
 
 
+        sbqtd.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (bundle.getInt("Droga escolhida") == 1){
+                    sbqtd.setMax(14);
+                    txtqtddroga.setText(Integer.toString(progress + 1) + " doses de " + spbebidas.getSelectedItem().toString());
+                    quantidade= progress+1;
+                } else if (bundle.getInt("Droga escolhida") == 2){
+                    sbqtd.setMax(19);
+                    txtqtddroga.setText(Float.toString(((float)progress + 1)/2) + " baseados de maconha");
+                    quantidade= progress+1;
+                } else if (bundle.getInt("Droga escolhida") == 3){
+                    sbqtd.setMax(19);
+                    txtqtddroga.setText(Float.toString(((float)progress + 1)/2) + " gramas cocaina");
+                    quantidade= progress+1;
+                } else if (bundle.getInt("Droga escolhida") == 4){
+                    sbqtd.setMax(9);
+                    txtqtddroga.setText(Integer.toString(progress + 1) + " pedras de crack");
+                    quantidade= progress+1;
+                }
+                btconfirma.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
     }
 
     public void onClick(View v) {
@@ -122,7 +164,6 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
         switch (v.getId()) {
             case R.id.btconfirma:
                 ca.setFreqSemanal(spfreq.getSelectedItemPosition());
-                ca.setQuantidade(sbqtd.getProgress());
                 if(!edtxtgasto.getText().toString().equals("")) {
                     try {
                         ca.setGasto(Integer.parseInt(edtxtgasto.getText().toString()));
@@ -130,6 +171,7 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
                         Toast.makeText(this, "Insira um número em gasto",Toast.LENGTH_LONG).show();
                     }
                 }
+                ca.setQuantidade(quantidade);
                 DB.save(ca);
                 Bundle bundle = new Bundle();
                 bundle.putBooleanArray("checkbox", array);
