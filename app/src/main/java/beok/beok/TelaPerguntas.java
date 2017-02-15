@@ -22,11 +22,13 @@ import org.w3c.dom.Text;
 import java.lang.reflect.Array;
 
 import beok.beok.POJO.ConsumoAtual;
+import beok.beok.POJO.MetaGeral;
 import beok.beok.api.DB;
 
 public class TelaPerguntas extends AppCompatActivity implements View.OnClickListener{
 
     boolean[] array;
+    int drogaescolhida;
 
     ImageView ivlegenda;
     SeekBar sbqtd;
@@ -173,7 +175,8 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
                 DB.save(ca);
                 Bundle bundle = new Bundle();
                 bundle.putBooleanArray("checkbox", array);
-                Intent nextActivity = new Intent(this, Tela2.class);
+                bundle.putInt("Droga escolhida", drogaescolhida);
+                Intent nextActivity = new Intent(this, MetaTratamento.class);
                 nextActivity.putExtras(bundle);
                 startActivity(nextActivity);
                 //slide from left to right
