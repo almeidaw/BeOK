@@ -69,18 +69,18 @@ public class MetaSemanal extends AppCompatActivity {
         txtqtd3 = (TextView) findViewById(R.id.txtqtd3);
         txtqtd4 = (TextView) findViewById(R.id.txtqtd4);
 
-        if (/* se ele usa alcool*/){
-            llalcool.setVisibility(View.VISIBLE);
-        }
-        if (/* se ele usa maconha*/){
-            llmaconha.setVisibility(View.VISIBLE);
-        }
-        if (/* se ele usa cocaina*/){
-            llcocaina.setVisibility(View.VISIBLE);
-        }
-        if (/* se ele usa crack*/){
-            llcrack.setVisibility(View.VISIBLE);
-        }*/
+        //if (/* se ele usa alcool*/){
+        //    llalcool.setVisibility(View.VISIBLE);
+        //}
+        //if (/* se ele usa maconha*/){
+        //    llmaconha.setVisibility(View.VISIBLE);
+        //}
+        //if (/* se ele usa cocaina*/){
+        //    llcocaina.setVisibility(View.VISIBLE);
+        //}
+        //if (/* se ele usa crack*/){
+        //    llcrack.setVisibility(View.VISIBLE);
+//        }*/
 
         sbqtd1.setMax(14);
         sbqtd2.setMax(29);

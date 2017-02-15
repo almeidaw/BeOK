@@ -67,5 +67,11 @@
     <array name="emptyArray">
     </array>
 
+    <array name="msg_motivacionais">
+        <item>Lembre do seu avanço no tratamento. Você já está a %1$d dias sem usar.</item>
+        <item>Lembra como você ficou da última vez que usou?</item>
+        <item>Respire fundo e tente relaxar. Tome um banho. </item>
+    </array>
+
 
 </resources>
