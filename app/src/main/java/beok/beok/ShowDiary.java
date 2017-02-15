@@ -15,9 +15,16 @@ import android.widget.TextView;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
+import com.orm.SugarContext;
+import com.orm.SugarRecord;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import beok.beok.POJO.MetaGeral;
+import beok.beok.POJO.MetaSemanal;
+import beok.beok.POJO.UsoDroga;
+import beok.beok.api.DB;
 
 /**
  * Created by william on 12/02/17.
@@ -30,33 +37,58 @@ public class ShowDiary extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_show_diary, container, false);
+        List<MetaGeral> metas = DB.listAll(MetaGeral.class);
+        View v;
+        if(metas.isEmpty()){
+            v = inflater.inflate(R.layout.fragment_show_diary_empty,container,false);
+        }else {
+            v = inflater.inflate(R.layout.fragment_show_diary, container, false);
 
-        rv = (RecyclerView)v.findViewById(R.id.recycler_view);
-        LinearLayoutManager llm = new LinearLayoutManager(v.getContext());
-        rv.setHasFixedSize(true);
-        rv.setLayoutManager(llm);
 
-        initializeData();
-        initializeAdapter();
+            rv = (RecyclerView) v.findViewById(R.id.recycler_view);
+            LinearLayoutManager llm = new LinearLayoutManager(v.getContext());
+            rv.setHasFixedSize(true);
+            rv.setLayoutManager(llm);
+
+            initializeData();
+            initializeAdapter();
+        }
         return v;
     }
 
     private void initializeData() { // Substituir por dados do servidor
         drogas = new ArrayList<>();
+
+        List<MetaSemanal> metas = DB.listAll(MetaSemanal.class);
+        for(MetaSemanal meta : metas){
+            drogas.add(new Droga(convertTipos(meta.getTipo()),meta.getQuantidade(),meta.getFreqSemanal(),meta.getManha(),meta.getTarde(),meta.getNoite(),meta.getMadrugada(),meta.getFimDeSem(),new ArrayList<DataPoint>()));
+        }
+
+        List<UsoDroga> uds = DB.listAll(UsoDroga.class);
+
+        for(UsoDroga ud:uds){
+            for(Droga droga:drogas){
+                if(droga.tipo==convertTipos(ud.getTipo())){
+                    droga.dados.add(new DataPoint(droga.dados.size(),ud.getQuantidade()));
+                }
+            }
+        }
+
         List<DataPoint> series = new ArrayList<DataPoint>();
-        series.add(new DataPoint(0,1));
-        series.add(new DataPoint(1,5));
-        series.add(new DataPoint(2,3));
-        series.add(new DataPoint(3,2));
-        series.add(new DataPoint(4,6));
-        drogas.add(new Droga("Maconha", 3, 2, "manhã\ntarde", 36,series));
-        drogas.add(new Droga("Crack", 2, 3, "manhã\nnoite", 58,series));
+        //drogas.add(new Droga("Maconha", 3, 2, "manhã\ntarde", 36,series));
+        //drogas.add(new Droga("Crack", 2, 3, "manhã\nnoite", 58,series));
     }
 
     private void initializeAdapter(){
         DiarioAdapter adapter = new DiarioAdapter(drogas);
         rv.setAdapter(adapter);
+    }
+    private int convertTipos(int tipo){
+        if(tipo==0 || tipo==1 || tipo==2){
+            return 0;
+        }else{
+            return tipo;
+        }
     }
 }
 
@@ -65,7 +97,7 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
     public static class CardViewHolder extends RecyclerView.ViewHolder {
 
         CardView cv;
-        TextView nomeDroga, quantidade, periodo, horario, economia;
+        TextView nomeDroga, quantidade, periodo, horario, economia,n_relato_diario;
         GraphView graph;
 
         CardViewHolder(View itemView) {
@@ -77,13 +109,15 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
             periodo = (TextView)itemView.findViewById(R.id.periodo);
             horario = (TextView)itemView.findViewById(R.id.horario);
             economia = (TextView)itemView.findViewById(R.id.economia);
+            n_relato_diario = (TextView)itemView.findViewById(R.id.texto_n_relato);
+
         }
     }
 
     List<Droga> drogas;
 
     DiarioAdapter(List<Droga> drogas){
-        this.drogas = drogas;
+            this.drogas = drogas;
     }
 
     @Override
@@ -100,34 +134,63 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
 
     @Override
     public void onBindViewHolder(CardViewHolder CardViewHolder, int i) {
-        CardViewHolder.nomeDroga.setText(drogas.get(i).nome);
-        CardViewHolder.quantidade.setText(drogas.get(i).quantidade);
-        CardViewHolder.periodo.setText(drogas.get(i).periodo);
-        CardViewHolder.horario.setText(drogas.get(i).horario);
-        CardViewHolder.economia.setText(drogas.get(i).economia);
-        LineGraphSeries<DataPoint> ln=new LineGraphSeries<>();
-        for(DataPoint dp : drogas.get(i).dados) {
-            ln.appendData(dp,true,drogas.get(i).dados.size());
-        }
-        CardViewHolder.graph.addSeries(ln);
+            Droga droga=drogas.get(i);
+            CardViewHolder.nomeDroga.setText(getNomeDroga(droga.tipo));
+            CardViewHolder.quantidade.setText(droga.quantidade+"");
+            CardViewHolder.periodo.setText(droga.frequencia);
+           // CardViewHolder.horario.setText(droga.horario);
+            //CardViewHolder.economia.setText(droga.economia);
+            if(droga.dados.isEmpty()){
+                CardViewHolder.graph.setVisibility(View.INVISIBLE);
+                CardViewHolder.n_relato_diario.setVisibility(View.VISIBLE);
+
+            }else{
+                CardViewHolder.n_relato_diario.setVisibility(View.INVISIBLE);
+                LineGraphSeries<DataPoint> ln = new LineGraphSeries<>();
+                for (DataPoint dp : droga.dados) {
+                    ln.appendData(dp, true, droga.dados.size());
+                }
+
+                CardViewHolder.graph.addSeries(ln);
+            }
     }
 
     @Override
     public int getItemCount() {
         return drogas.size();
     }
+
+    public String getNomeDroga(int tipo){
+        switch (tipo){
+            case 0:
+                return "Álcool";
+            case 3:
+                return "Maconha";
+            case 4:
+                return "Cocaína";
+            case 5:
+                return "Crack";
+        }
+        return "";
+    }
 }
 
 class Droga { // Objeto droga e construtor
-    String nome, quantidade, periodo, horario, economia;
+    String quantidade, frequencia, horario;
+    boolean fimdesemana, manha, tarde, noite, madrugada;
+    int tipo;
+    boolean isVoid;
     List<DataPoint> dados;
-    Droga(String nome, int quantidade, int periodo, String horario, int economia, List<DataPoint> dados) {
-        this.nome = nome;
-        this.quantidade = quantidade+" baseados";
-        this.periodo = periodo+" vezes\npor semana";
-        this.horario = horario;
-        this.economia = "R$"+economia+",00 economizados";
-        this.dados=dados;
 
+    Droga(int tipo, int quantidade, int frequencia, boolean manha, boolean tarde, boolean noite, boolean madrugada, boolean fimdesemana, List<DataPoint> dados) {
+        this.tipo = tipo;
+        this.fimdesemana = fimdesemana;
+        this.quantidade = quantidade + " baseados";
+        this.frequencia = frequencia + " vezes\npor semana";
+        this.manha = manha;
+        this.tarde = tarde;
+        this.noite = noite;
+        this.madrugada = madrugada;
+        this.dados = dados;
     }
 }

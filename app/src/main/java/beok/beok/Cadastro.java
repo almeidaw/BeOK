@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.orm.SugarRecord;
 
+import beok.beok.POJO.MetaGeral;
+import beok.beok.POJO.MetaSemanal;
 import beok.beok.POJO.Usuario;
 import beok.beok.api.App;
 import beok.beok.api.DB;
@@ -98,6 +100,28 @@ public class Cadastro extends AppCompatActivity implements View.OnClickListener,
                         ucall.enqueue(this);
                     }
                 }
+                MetaGeral mg=new MetaGeral();
+                mg.setFreqDia(3);
+                mg.setFreqSemanal(3);
+                mg.setManha(true);
+                mg.setNoite(false);
+                mg.setTarde(true);
+                mg.setMadrugada(false);
+                mg.setFimDeSem(true);
+                mg.setTipo(3);
+                DB.save(mg);
+
+                MetaSemanal ms=new MetaSemanal();
+                ms.setFreqDia(3);
+                ms.setFreqSemanal(3);
+                ms.setQuantidade(5);
+                ms.setManha(true);
+                ms.setNoite(false);
+                ms.setTarde(true);
+                ms.setMadrugada(false);
+                ms.setFimDeSem(true);
+                ms.setTipo(3);
+                DB.save(ms);
                 //slide from right to left
                 break;
         }
