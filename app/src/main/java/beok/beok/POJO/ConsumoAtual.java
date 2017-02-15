@@ -73,8 +73,12 @@ public class ConsumoAtual {
     /**
      * @return the quantidade
      */
-    public int getQuantidade() {
-        return quantidade;
+    public float getQuantidade() {
+        if(quantidade == 3 || quantidade==4){
+            return ((float)(quantidade))/2;
+        }else {
+            return quantidade;
+        }
     }
 
     /**
