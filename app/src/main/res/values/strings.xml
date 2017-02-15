@@ -87,4 +87,23 @@
         <item>55</item>
     </string-array>
 
+
+    <array name="pergunta">
+        <item>pergunta 1</item>
+        <item>pergunta 2</item>
+        <item>pergunta 3</item>
+    </array>
+
+    <array name="resposta">
+        <item>mito</item>
+        <item>verdade</item>
+        <item>mito</item>
+    </array>
+
+    <array name="explicacao">
+        <item>questão 1 - É mito pois......</item>
+        <item>questão 2 - É verdade pois......</item>
+        <item>questão 3 - É mito pois......</item>
+    </array>
+
 </resources>
