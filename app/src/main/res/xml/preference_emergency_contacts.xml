@@ -1,4 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <EditTextPreference
+        android:key="contact1Name"
+        android:title="Nome do contato 1"
+        android:defaultValue="none"
+        />
+
+    <EditTextPreference
+        android:key="contact1Number"
+        android:title="Número do contato 1"
+        android:summary="Adicione o número do contato com DDD"
+        android:inputType="number"
+        android:phoneNumber="true"
+        android:defaultValue="none"
+        />
+
+    <EditTextPreference
+        android:key="contact2Name"
+        android:title="Nome do contato 2"
+        android:defaultValue="none"
+        />
+
+    <EditTextPreference
+        android:key="contact2Number"
+        android:title="Número do contato 2"
+        android:summary="Adicione o número do contato com DDD"
+        android:inputType="number"
+        android:phoneNumber="true"
+        android:defaultValue="none"
+        />
+
+    <EditTextPreference
+        android:key="contact3Name"
+        android:title="Nome do contato 3"
+        android:defaultValue="none"
+        />
+
+    <EditTextPreference
+        android:key="contact3Number"
+        android:title="Número do contato 3"
+        android:summary="Adicione o número do contato com DDD"
+        android:inputType="number"
+        android:phoneNumber="true"
+        android:defaultValue="none"
+        />
+
 </PreferenceScreen>
