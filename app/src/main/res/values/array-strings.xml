@@ -54,7 +54,18 @@
 
     <array name="mensagens">
         <item>%1$s, não desista!</item>
-        <item>A dificuldade está aí, as você pode superar, %1$s </item>
+        <item>A dificuldade está aí, mas você pode superar, %1$s </item>
     </array>
+
+    <array name="drugsList">
+        <item>Alcool</item>
+        <item>Cocaína</item>
+        <item>Crack</item>
+        <item>Maconha</item>
+    </array>
+
+    <array name="emptyArray">
+    </array>
+
 
 </resources>

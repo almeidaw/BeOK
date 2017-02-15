@@ -201,6 +201,8 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
             // Handle the "acompanhamento" action
 
         } else if (id == R.id.nav_configuracoes) {
+            Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_info) {
 
