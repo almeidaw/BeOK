@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:key="name"
+        android:title="Nome"
+        />
+
+    <EditTextPreference
+        android:key="addres"
+        android:title="Endereço"
+        />
+
+    <EditTextPreference
+        android:key="phoneNumber"
+        android:title="Número de telefone"
+        android:summary="Número de telefone com DDD"
+        />
+
+</PreferenceScreen>

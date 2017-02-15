@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <MultiSelectListPreference
+        android:key="drogasTratadas"
+        android:title="Drogas tratadas"
+        android:entries="@array/drugsList"
+        android:defaultValue="@array/emptyArray"
+        android:dialogTitle="Selecione as drogas em tratamento"
+        android:summary=""
+        />
+
+
+
+</PreferenceScreen>

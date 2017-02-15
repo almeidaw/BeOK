@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preference-headers
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <header
+        android:fragment="beok.beok.SettingsActivity$PersonalInfoPreference"
+        android:title="Dados Pessoais" />
+
+<!--    <header
+        android:fragment="beok.beok.SettingsActivity$DrogasTratadas"
+        android:title="Drogas tratadas" />
+-->
+    <header
+        android:fragment="beok.beok.SettingsActivity$MotivationPreferences"
+        android:title="Motivação" />
+
+    <header
+        android:fragment="beok.beok.SettingsActivity$GoalsPreferences"
+        android:title="Metas" />
+
+    <header
+        android:fragment="beok.beok.SettingsActivity$EmergencyActionsPreferences"
+        android:title="Ações de Emergência"
+        android:summary="Escolha o que fazer em casos de emergência"/>
+
+    <header
+        android:fragment="beok.beok.SettingsActivity$EmergencyContactsPreferences"
+        android:title="Contatos de emergência" />
+
+
+
+</preference-headers>
