@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jjoe64.graphview.GraphView;
@@ -18,10 +19,13 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 import com.orm.SugarContext;
 import com.orm.SugarRecord;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import beok.beok.POJO.MetaGeral;
+import beok.beok.POJO.MetaSemGeral;
 import beok.beok.POJO.MetaSemanal;
 import beok.beok.POJO.UsoDroga;
 import beok.beok.api.DB;
@@ -32,7 +36,7 @@ import beok.beok.api.DB;
 
 public class MetasSemana extends Fragment {
     private RecyclerView rv;
-    private List<Metas> metas_semanal;
+    private List<Meta> metas_semanal;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,11 +55,21 @@ public class MetasSemana extends Fragment {
     }
 
     private void initializeData() { // Substituir por dados do servidor
-        metas_semanal = new ArrayList<>();
+        metas_semanal = new ArrayList<Meta>();
+
+        List<MetaGeral> metasGerais = DB.listAll(MetaGeral.class);
+        for(MetaGeral meta : metasGerais){
+            metas_semanal.add(new Meta(meta.getTipo(),meta.getQuantidade(),meta.getFreqSemanal(),meta.getManha(),meta.getTarde(),meta.getNoite(),meta.getMadrugada(),0,null));
+        }
 
         List<MetaSemanal> metas = DB.listAll(MetaSemanal.class);
         for(MetaSemanal meta : metas){
-            metas_semanal.add(new Metas(meta.getTipo(),meta.getQuantidade(),meta.getFreqSemanal(),meta.getManha(),meta.getTarde(),meta.getNoite(),meta.getMadrugada()));
+            metas_semanal.add(new Meta(meta.getTipo(),meta.getQuantidade(),meta.getFreqSemanal(),meta.getManha(),meta.getTarde(),meta.getNoite(),meta.getMadrugada(),1,null));
+        }
+
+        List<MetaSemGeral> metasg = DB.listAll(MetaSemGeral.class);
+        for(MetaSemGeral meta : metasg){
+            metas_semanal.add(new Meta(0,0,0,false,false,false,false,2,meta.getTexto()));
         }
 
     }
@@ -71,26 +85,28 @@ class MetaAdapter extends RecyclerView.Adapter<MetaAdapter.CardViewHolder>{
     public static class CardViewHolder extends RecyclerView.ViewHolder {
 
         CardView cv;
-        TextView nomeDroga, quantidade, frequencia, manha, tarde, noite, madrugada, tempo_restante;
+        TextView nomeTipoMeta, quantidade, meta_tratamento_metas, frequencia, horario,meta_texto_desc;
+        LinearLayout layout_tipo;
+        View box_metas;
 
         CardViewHolder(View itemView) {
             super(itemView);
             cv = (CardView)itemView.findViewById(R.id.card_view);
-            nomeDroga = (TextView)itemView.findViewById(R.id.nome_droga);
-            quantidade = (TextView)itemView.findViewById(R.id.quantidade);
-            frequencia = (TextView)itemView.findViewById(R.id.frequencia);
-            manha = (TextView)itemView.findViewById(R.id.manha);
-            tarde = (TextView)itemView.findViewById(R.id.tarde);
-            noite = (TextView)itemView.findViewById(R.id.noite);
-            madrugada = (TextView)itemView.findViewById(R.id.madrugada);
-            tempo_restante = (TextView) itemView.findViewById(R.id.tempo_restante);
+            nomeTipoMeta = (TextView)itemView.findViewById(R.id.nome_tipo_meta);
+            quantidade = (TextView)itemView.findViewById(R.id.quantidade_metas);
+            meta_tratamento_metas=(TextView)itemView.findViewById(R.id.meta_tratamento_metas);
+            frequencia = (TextView)itemView.findViewById(R.id.frequencia_metas);
+            horario = (TextView)itemView.findViewById(R.id.horario_metas);
+            layout_tipo=(LinearLayout)itemView.findViewById(R.id.layout_tipo01);
+            meta_texto_desc=(TextView)itemView.findViewById(R.id.txt_metas_desc);
+            box_metas=itemView.findViewById(R.id.view_box_metas);
 
         }
     }
 
-    List<Metas> metas_semanal;
+    List<Meta> metas_semanal;
 
-    MetaAdapter(List<Metas> metas){
+    MetaAdapter(List<Meta> metas){
         this.metas_semanal = metas;
     }
 
@@ -108,15 +124,41 @@ class MetaAdapter extends RecyclerView.Adapter<MetaAdapter.CardViewHolder>{
 
     @Override
     public void onBindViewHolder(CardViewHolder CardViewHolder, int i) {
-        Metas meta = metas_semanal.get(i);
-        CardViewHolder.nomeDroga.setText(getNomeDroga(meta.tipo));
-        CardViewHolder.quantidade.setText(meta.quantidade+"");
-        //CardViewHolder.frequencia.setText(meta.frequencia);
-       /* if (meta.manha){CardViewHolder.manha.setVisibility(View.VISIBLE);}
-        if (meta.manha){CardViewHolder.tarde.setVisibility(View.VISIBLE);}
-        if (meta.manha){CardViewHolder.noite.setVisibility(View.VISIBLE);}
-        if (meta.manha){CardViewHolder.madrugada.setVisibility(View.VISIBLE);}*/
-        //FALTA COLOCAR QUANTO TEMPO RESTA PARA META DA SEMANA
+        Meta meta = metas_semanal.get(i);
+        if(meta.tipo_meta==0) {
+            if (meta.abstinencia) {
+                CardViewHolder.nomeTipoMeta.setText("Meta do tratamento para " + getNomeDroga(meta.tipo));
+                CardViewHolder.meta_tratamento_metas.setText("Nessa semana, eu não consumirei mais");
+                CardViewHolder.layout_tipo.setVisibility(View.GONE);
+                CardViewHolder.meta_texto_desc.setText("Faltam 12 semanas para completar");
+            } else {
+                CardViewHolder.nomeTipoMeta.setText("Meta do tratamento para " + getNomeDroga(meta.tipo));
+                CardViewHolder.quantidade.setText(meta.quantidade);
+                CardViewHolder.frequencia.setText(meta.frequencia);
+                CardViewHolder.horario.setText(meta.horario);
+                CardViewHolder.meta_texto_desc.setText("Faltam 12 semanas para completar");
+            }
+        }else if(meta.tipo_meta==1){
+            if (meta.abstinencia) {
+                CardViewHolder.nomeTipoMeta.setText("Meta da semana para " + getNomeDroga(meta.tipo));
+                CardViewHolder.meta_tratamento_metas.setText("Nessa semana, eu não consumirei mais");
+                CardViewHolder.layout_tipo.setVisibility(View.GONE);
+                CardViewHolder.meta_texto_desc.setText("Faltam 7 dias para completar");
+            } else {
+                CardViewHolder.nomeTipoMeta.setText("Meta da semana para " + getNomeDroga(meta.tipo));
+                CardViewHolder.quantidade.setText(meta.quantidade);
+                CardViewHolder.frequencia.setText(meta.frequencia);
+                CardViewHolder.horario.setText(meta.horario);
+                CardViewHolder.meta_texto_desc.setText("Faltam 7 dias para completar");
+            }
+        }else{
+            CardViewHolder.nomeTipoMeta.setText("Meta pessoal da semana");
+            CardViewHolder.layout_tipo.setVisibility(View.GONE);
+            CardViewHolder.meta_tratamento_metas.setVisibility(View.GONE);
+            CardViewHolder.box_metas.setVisibility(View.GONE);
+            CardViewHolder.meta_texto_desc.setText(meta.mensagem);
+
+        }
     }
 
     @Override
@@ -139,19 +181,86 @@ class MetaAdapter extends RecyclerView.Adapter<MetaAdapter.CardViewHolder>{
     }
 }
 
-class Metas { // Objeto droga e construtor
-    String quantidade, frequencia;
-    boolean fimdesemana, manha, tarde, noite, madrugada;
-    int tipo;
+class Meta { // Objeto droga e construtor
+    String quantidade, frequencia, horario,unidade,mensagem;
+    int tipo, tipo_meta;
 
-    Metas(int tipo, float quantidade, int frequencia, boolean manha, boolean tarde, boolean noite, boolean madrugada) {
-        this.tipo = tipo;
-        this.fimdesemana = fimdesemana;
-        this.quantidade = quantidade + " baseados";
-        this.frequencia = frequencia + " vezes\npor semana";
-        this.manha = manha;
-        this.tarde = tarde;
-        this.noite = noite;
-        this.madrugada = madrugada;
+    boolean abstinencia;
+
+    Meta(int tipo, float quantidade, int frequencia, boolean manha, boolean tarde, boolean noite, boolean madrugada, int tipo_meta,String mensagem) {
+        this.tipo_meta=tipo_meta;
+        if(tipo_meta==0 || tipo_meta==1) {
+            this.tipo = tipo;
+            if (frequencia == 0) {
+                abstinencia = true;
+            } else {
+                abstinencia = false;
+            }
+            switch (tipo) {
+                case 0:
+                    this.quantidade = quantidade + " doses(cerveja)";
+                    this.unidade = "doses";
+                    break;
+                case 1:
+                    this.quantidade = quantidade + " doses(vinho)";
+                    this.unidade = "doses";
+                    break;
+                case 2:
+                    this.quantidade = quantidade + " doses(destilado)";
+                    this.unidade = "doses";
+                    break;
+                case 3:
+                    this.quantidade = quantidade + " baseados";
+                    this.unidade = "baseados";
+                    break;
+                case 4:
+                    this.quantidade = quantidade + " gramas";
+                    this.unidade = "gramas";
+                    break;
+                case 5:
+                    this.quantidade = quantidade + " pedras";
+                    this.unidade = "pedras";
+                    break;
+            }
+
+            switch (frequencia) {
+                case 1:
+                    this.frequencia = "1 dia\n por semana";
+                    break;
+                case 2:
+                    this.frequencia = "2 dias\n por semana";
+                    break;
+                case 3:
+                    this.frequencia = "3 a 5 dias\n por semana";
+                    break;
+                case 4:
+                    this.frequencia = "Todos os dias";
+                    break;
+                case 5:
+                    this.frequencia = "Só fins\n de semana";
+                    break;
+            }
+            if (manha && tarde && noite && madrugada) {
+                this.horario = "Qualquer horário";
+            } else if (manha && tarde && noite) {
+                this.horario = "O dia todo";
+            } else {
+                this.horario = "";
+                if (manha) {
+                    this.horario += "manha\n";
+                }
+                if (tarde) {
+                    this.horario += "tarde\n";
+                }
+                if (noite) {
+                    this.horario += "noite\n";
+                }
+                if (manha) {
+                    this.horario += "madrugada\n";
+                }
+            }
+        }else{
+            this.mensagem=mensagem;
+        }
     }
 }

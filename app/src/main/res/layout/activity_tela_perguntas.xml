@@ -27,12 +27,14 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtfreq"
                 android:textSize="@dimen/tamanho_perguntas"
+                android:layout_marginBottom="5dp"
                 android:textAppearance="@style/TextAppearance.AppCompat"/>
 
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/spfreq"
+                android:layout_marginBottom="10dp"
                 android:entries="@array/freq"/>
 
             <TextView
@@ -41,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtqtd"
                 android:textSize="@dimen/tamanho_perguntas"
+                android:layout_marginBottom="5dp"
                 android:textAppearance="@style/TextAppearance.AppCompat"/>
 
             <TextView
@@ -48,6 +51,8 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textSize="@dimen/tamanho_perguntas"
+                android:layout_marginBottom="5dp"
+                android:layout_gravity="center"
                 android:id="@+id/txtlegenda" />
 
             <ImageView
@@ -55,6 +60,7 @@
                 android:layout_height="100dp"
                 android:id="@+id/ivlegenda"
                 android:visibility="gone"
+                android:layout_marginBottom="5dp"
                 android:src="@drawable/bebidas" />
 
             <Spinner
@@ -62,16 +68,19 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/spbebidas"
                 android:entries="@array/bebidas"
+                android:layout_marginBottom="5dp"
                 android:visibility="gone"/>
 
             <SeekBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:id="@+id/sbqtd"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:id="@+id/txtqtddroga" />
 
             <TextView
@@ -85,6 +94,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
 
                 <TextView

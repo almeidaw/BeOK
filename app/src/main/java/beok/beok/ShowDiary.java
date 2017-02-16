@@ -45,7 +45,7 @@ public class ShowDiary extends Fragment {
             v = inflater.inflate(R.layout.fragment_show_diary, container, false);
 
 
-            rv = (RecyclerView) v.findViewById(R.id.recycler_view);
+            rv = (RecyclerView) v.findViewById(R.id.recycler_view_diary);
             LinearLayoutManager llm = new LinearLayoutManager(v.getContext());
             rv.setHasFixedSize(true);
             rv.setLayoutManager(llm);
@@ -103,7 +103,7 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
 
         CardViewHolder(View itemView) {
             super(itemView);
-            cv = (CardView)itemView.findViewById(R.id.card_view);
+            cv = (CardView)itemView.findViewById(R.id.card_view_diary);
             graph = (GraphView) itemView.findViewById(R.id.graph);
             nomeDroga = (TextView)itemView.findViewById(R.id.nome_droga);
             quantidade = (TextView)itemView.findViewById(R.id.quantidade);
@@ -130,7 +130,7 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
 
     @Override
     public CardViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cardview_layout, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_layout_show_diary, viewGroup, false);
         CardViewHolder cvh = new CardViewHolder(v);
         return cvh;
     }

@@ -46,7 +46,7 @@
         <activity android:name=".MetaSemanal" />
         <activity android:name=".MetaTratamento" />
         <activity android:name=".Atividade1" />
-        <activity android:name=".Atividade2" />
+        <activity android:name=".Terapia" />
 
         <meta-data
             android:name="DATABASE"
@@ -61,6 +61,7 @@
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="beok.beok.POJO" />
 
+        <activity android:name=".MetaSemanalGeral"></activity>
     </application>
 
 </manifest>

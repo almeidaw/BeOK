@@ -6,13 +6,13 @@
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
     android:paddingBottom="8dp"
-    android:background="@drawable/fundo_diario"
+    android:background="@drawable/bg_diario"
     tools:context="beok.beok.Main">
 
     <android.support.v7.widget.RecyclerView
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:id="@+id/recycler_view">
+        android:id="@+id/recycler_view_diary">
 
     </android.support.v7.widget.RecyclerView>
 

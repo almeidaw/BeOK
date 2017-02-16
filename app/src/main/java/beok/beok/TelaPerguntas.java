@@ -76,7 +76,7 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
         if (bundle.getInt("Droga escolhida") == 1){
             spbebidas.setVisibility(View.VISIBLE);
             txtunidade.setText("1 dose de alcool = ");
-            txtlegenda.setVisibility(View.GONE);
+            txtlegenda.setText("Uma dose é igual a");
             ivlegenda.setVisibility(View.VISIBLE);
             ca.setCerveja();
             sbqtd.setMax(15);

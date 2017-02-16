@@ -20,6 +20,7 @@ import java.util.List;
 
 import beok.beok.POJO.ConsumoAtual;
 import beok.beok.POJO.MetaGeral;
+import beok.beok.POJO.MetaSemGeral;
 import beok.beok.api.DB;
 
 public class MetaSemanal extends AppCompatActivity {
@@ -108,15 +109,21 @@ public class MetaSemanal extends AppCompatActivity {
         for(MetaGeral mg:mgs){
             switch (mg.getTipo()){
                 case 0:
-                usoalcool=true;
+                    usoalcool=true;
                     break;
                 case 1:
-                    usomaconha=true;
+                    usoalcool=true;
                     break;
                 case 2:
-                    usococaina=true;
+                    usoalcool=true;
                     break;
                 case 3:
+                    usomaconha=true;
+                    break;
+                case 4:
+                    usococaina=true;
+                    break;
+                case 5:
                     usocrack=true;
                     break;
             }
@@ -360,7 +367,7 @@ public class MetaSemanal extends AppCompatActivity {
             DB.save(meta4);
         }
 
-        Intent i = new Intent(this, Main.class); //Direcionar para home?
+        Intent i = new Intent(this, MetaSemanalGeral.class); //Direcionar para home?
         startActivity(i);
     }
 }
