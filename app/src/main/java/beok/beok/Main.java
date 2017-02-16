@@ -42,10 +42,10 @@ public class Main extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
 
 
-    Home home_fragment;
     TestFragment tf;
     ShowDiary show_diary_fragment;
     MetasSemana fragment_metas_semanal;
+    TherapyMenuFragment tmf;
     NavigationView nv;
 
     @Override
@@ -62,6 +62,7 @@ public class Main extends AppCompatActivity {
 
         show_diary_fragment = new ShowDiary();
         fragment_metas_semanal = new MetasSemana();
+        tmf=new TherapyMenuFragment();
 
         tf = new TestFragment();
         colocaFragment(show_diary_fragment, R.id.main_fragment_container);
@@ -149,7 +150,7 @@ public class Main extends AppCompatActivity {
 
                             case R.id.therapyItem:
                                 //Toast.makeText(Main.this, "terapia", Toast.LENGTH_SHORT).show();
-                                Main.this.colocaFragment(tf, R.id.main_fragment_container);
+                                Main.this.colocaFragment(tmf, R.id.main_fragment_container);
                                 break;
                         }
                         return true;
