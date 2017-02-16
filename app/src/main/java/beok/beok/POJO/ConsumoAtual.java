@@ -16,7 +16,6 @@ public class ConsumoAtual {
     private Long id;
 
     private int tipo;
-    private String outros;
     private int freqSemanal;
     private int quantidade;
     private int gasto;
@@ -47,12 +46,6 @@ public class ConsumoAtual {
         this.tipo = tipo;
     }
 
-    /**
-     * @return the outros
-     */
-    public String getOutros() {
-        return outros;
-    }
 
 
     /**
@@ -115,9 +108,5 @@ public class ConsumoAtual {
     }
     public void setCrack(){
         tipo=5;
-    }
-    public void setOutros(String outros){
-        this.outros=outros;
-        tipo=6;
     }
 }

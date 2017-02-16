@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card_view_diary"
+    android:id="@+id/card_view"
     android:layout_marginBottom="8dp"
     app:cardCornerRadius="5dp"
     android:layout_marginTop="8dp">
@@ -12,7 +12,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="8dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,12 +35,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/meta_texto"
+        android:id="@+id/meta"
         android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="#999999"
         android:layout_margin="8dp"
-        android:text="Nessa semana, eu reduzirei para:"
+        android:text="Minha meta nesta semana é:"
         />
 
     <LinearLayout
@@ -64,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/periodo"
+            android:id="@+id/frequencia"
             android:textSize="15sp"
             android:textStyle="bold"
             android:textColor="#666666"
@@ -72,17 +73,58 @@
             android:layout_gravity="center"
             />
 
-        <TextView
-            android:layout_height="wrap_content"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/horario"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#666666"
+            android:layout_height="wrap_content"
             android:gravity="right"
-            android:layout_gravity="center"
-            />
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/manha"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#666666"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/tarde"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#666666"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/noite"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#666666"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/madrugada"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#666666"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <View
@@ -95,42 +137,14 @@
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:id="@+id/economia"
-        android:textSize="16sp"
+        android:layout_weight="1"
+        android:id="@+id/tempo_restante"
+        android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="#666666"
+        android:gravity="center"
         android:layout_gravity="center"
-        android:layout_margin="8dp"
         />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#CCCCCC"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/gramas"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="#999999"
-        android:layout_margin="8dp"
-        android:text="quantidade em gramas:"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:id="@+id/texto_n_relato"
-        android:text="Não há relatos. Preencha o diário"/>
-    <com.jjoe64.graphview.GraphView
-        android:layout_width="match_parent"
-        android:layout_height="200dip"
-        android:id="@+id/graph" />
 
 </LinearLayout>
 

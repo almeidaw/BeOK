@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:key="notification_enabled"
+        android:title="Notificações ativas"
+        android:summary="Exibe as notificações do aplicativo"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:key="notification_vibration"
+        android:title="Vibrar ao notificar"
+        android:defaultValue="true" />
+
+    <ListPreference
+        android:key="notification_day_period"
+        android:title="Período da notificação"
+        android:summary="Define o período em que será notificado para realizar as atividades"
+        android:entries="@array/periodo_notificacao"
+        android:entryValues="@array/periodo_notificacao_valor"
+        android:defaultValue="1"
+        />
+
+</PreferenceScreen>

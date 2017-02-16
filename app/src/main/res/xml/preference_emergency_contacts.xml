@@ -4,7 +4,6 @@
     <EditTextPreference
         android:key="contact1Name"
         android:title="Nome do contato 1"
-        android:defaultValue="none"
         />
 
     <EditTextPreference
@@ -13,7 +12,6 @@
         android:summary="Adicione o número do contato com DDD"
         android:inputType="number"
         android:phoneNumber="true"
-        android:defaultValue="none"
         />
 
     <EditTextPreference

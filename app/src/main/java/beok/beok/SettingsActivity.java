@@ -54,18 +54,6 @@ public class SettingsActivity extends PreferenceActivity {
 
     }
 
-    public static class DrogasTratadasPreference extends PreferenceFragment{
-
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-
-            // Load the preferences from an XML resource
-            addPreferencesFromResource(R.xml.preference_drogas_tratadas);
-        }
-
-    }
-
     public static class MotivationPreferences extends PreferenceFragment{
 
         @Override
@@ -75,7 +63,6 @@ public class SettingsActivity extends PreferenceActivity {
             // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.preference_motivation);
         }
-
     }
 
     public static class GoalsPreferences extends PreferenceFragment{
@@ -114,4 +101,15 @@ public class SettingsActivity extends PreferenceActivity {
 
     }
 
+    public static class NotificationsPreferences extends PreferenceFragment{
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            // Load the preferences from an XML resource
+            addPreferencesFromResource(R.xml.preference_notifications);
+        }
+
+    }
 }
