@@ -18,7 +18,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/nome_droga"
+        android:id="@+id/nome_tipo_meta"
         android:textSize="20sp"
         android:layout_gravity="center"
         android:textStyle="bold"
@@ -30,30 +30,32 @@
         android:layout_height="1dp"
         android:background="#CCCCCC"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"/>
+        android:layout_marginBottom="8dp"
+        android:id="@+id/view_box_metas"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/meta"
+        android:id="@+id/meta_tratamento_metas"
         android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="#999999"
         android:layout_margin="8dp"
-        android:text="Minha meta nesta semana é:"
+        android:text="reduzir para"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="8dp">
+        android:layout_margin="8dp"
+        android:id="@+id/layout_tipo01">
 
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/quantidade"
+            android:id="@+id/quantidade_metas"
             android:textSize="15sp"
             android:textStyle="bold"
             android:textColor="#666666"
@@ -65,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/frequencia"
+            android:id="@+id/frequencia_metas"
             android:textSize="15sp"
             android:textStyle="bold"
             android:textColor="#666666"
@@ -73,57 +75,17 @@
             android:layout_gravity="center"
             />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <TextView
             android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/horario_metas"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#666666"
             android:gravity="right"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/manha"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:textColor="#666666"
-                android:layout_gravity="center"
-                android:visibility="gone"/>
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/tarde"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:textColor="#666666"
-                android:layout_gravity="center"
-                android:visibility="gone"/>
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/noite"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:textColor="#666666"
-                android:layout_gravity="center"
-                android:visibility="gone"/>
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/madrugada"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:textColor="#666666"
-                android:layout_gravity="center"
-                android:visibility="gone"/>
-
-        </LinearLayout>
+            android:layout_gravity="center"
+            />
 
     </LinearLayout>
 
@@ -138,7 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_weight="1"
-        android:id="@+id/tempo_restante"
+        android:id="@+id/txt_metas_desc"
         android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="#666666"

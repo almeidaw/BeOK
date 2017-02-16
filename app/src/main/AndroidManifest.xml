@@ -61,6 +61,7 @@
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="beok.beok.POJO" />
 
+        <activity android:name=".MetaSemanalGeral"></activity>
     </application>
 
 </manifest>
