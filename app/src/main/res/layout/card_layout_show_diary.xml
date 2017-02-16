@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card_view"
+    android:id="@+id/card_view_diary"
     android:layout_marginBottom="8dp"
     app:cardCornerRadius="5dp"
     android:layout_marginTop="8dp">
@@ -12,8 +12,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="8dp"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
