@@ -106,4 +106,9 @@
         <item>questão 3 - É mito pois......</item>
     </array>
 
+
+    <string name="tema1">Introdução ao aplicativo e metas</string>
+    <string name="Descricao1">\n No BeOK você vai ter a oportunidade de escolher qual droga (s) deseja mudar o uso, definir uma meta de tratamento que pode ser de parar de usar ou de reduzir o uso.\n Para definir a meta semanal é importante pensar em qual é sua meta de tratamento. Você lembra? A meta que definiu quando se cadastrou no app.
+Então a meta precisa ser algo que te desafie e que seja possível de ser atingida.\n Agora vamos definir sua meta desta próxima semana?</string>
+
 </resources>

@@ -5,21 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="beok.beok.Main">
+    tools:context="beok.beok.Main"
+    android:background="@drawable/fundo_diario">
 
     <include layout="@layout/content_main" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <ImageView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            app:srcCompat="@drawable/logo"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/im_logo" />
 
         <Button
             android:layout_width="36dp"
@@ -38,6 +31,37 @@
             android:layout_alignParentEnd="true"
             android:id="@+id/btpanico"
             android:background="@drawable/panico"/>
+
+        <android.support.design.widget.BottomNavigationView
+
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            app:menu="@menu/bottom_navigation"
+            android:background="@color/branco"
+            />
+
+        <LinearLayout
+            android:id="@+id/main_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="470dp"
+            android:layout_above="@id/bottom_navigation"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="vertical"
+            android:layout_below="@+id/btmenu"
+            />
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/bottom_navigation"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@android:drawable/ic_input_add" />
 
     </RelativeLayout>
 
