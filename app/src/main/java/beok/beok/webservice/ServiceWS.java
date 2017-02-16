@@ -14,15 +14,15 @@ import retrofit2.http.Path;
  */
 
 public interface ServiceWS {
-    @GET("ws/main/user/{email}/{senha}")
+    @GET("ws/ws/main/user/{email}/{senha}")
     Call<Usuario> getUsuario(@Path("email") String email, @Path("senha") String password);
 
-    @PUT("ws/main/user/cadastro")
+    @PUT("ws/ws/main/user/cadastro")
     Call<Usuario> cadastrar(@Body Usuario body);
 
-    @GET("ws/main/teste")
+    @GET("ws/ws/main/teste")
     Call<CreatedObjects> teste();
 
-    @PUT("ws/main/data/create/{id}")
+    @PUT("ws/ws/main/data/create/{id}")
     Call<CreatedObjects> create(@Body Object body,@Path("id") long idUsuario);
 }

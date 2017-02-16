@@ -13,6 +13,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.orm.SugarContext;
@@ -21,6 +23,7 @@ import java.util.Date;
 
 import beok.beok.POJO.BotaoAtivo;
 import beok.beok.api.App;
+import beok.beok.api.Conf;
 import beok.beok.api.DB;
 import beok.beok.api.ServiceSincronizer;
 
@@ -31,7 +34,7 @@ import android.widget.Button;
 
 public class Main extends AppCompatActivity {
 
-    Button btmenu;
+    Button btmenu, btpanico;
 
     static boolean b;
 
@@ -49,10 +52,17 @@ public class Main extends AppCompatActivity {
     Inspiracao fragment_inspiracao;
     NavigationView nv;
 
+    TextView texto_navbar;
+    RelativeLayout content_main;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        btpanico = (Button) findViewById(R.id.btpanico);
+
+        content_main = (RelativeLayout) findViewById(R.id.content_main);
 
         initialize();
 
@@ -69,6 +79,9 @@ public class Main extends AppCompatActivity {
         colocaFragment(show_diary_fragment, R.id.main_fragment_container);
 
         nv=(NavigationView)findViewById(R.id.nav_view);
+
+        texto_navbar=(TextView)findViewById(R.id.texto_navbar);
+        //texto_navbar.setText(Conf.getNomeUsuario());
 
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
@@ -106,12 +119,12 @@ public class Main extends AppCompatActivity {
                                              }
                 );
 
-        //ADICIONA RELATO DIÁRIO
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+
+
+        btpanico.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent i=new Intent(getApplicationContext(),Diary1.class);
+            public void onClick(View v) {
+                Intent i = new Intent(Main.this, BotaoPanico1.class);
                 startActivity(i);
             }
         });
@@ -137,21 +150,25 @@ public class Main extends AppCompatActivity {
                             case R.id.showDiaryItem:
                                 //Toast.makeText(Main.this, "diário", Toast.LENGTH_SHORT).show();
                                 Main.this.colocaFragment(show_diary_fragment, R.id.main_fragment_container);
+                                content_main.setBackgroundResource(R.drawable.bg_diario);
                                 break;
 
                             case R.id.goalsItem:
                                 //Toast.makeText(Main.this, "metas", Toast.LENGTH_SHORT).show();
                                 Main.this.colocaFragment(fragment_metas_semanal, R.id.main_fragment_container);
+                                content_main.setBackgroundResource(R.drawable.bg_metas);
                                 break;
 
                             case R.id.inspirationItem:
                                 //Toast.makeText(Main.this, "inspiração", Toast.LENGTH_SHORT).show();
                                 Main.this.colocaFragment(fragment_inspiracao, R.id.main_fragment_container);
+                                content_main.setBackgroundResource(R.drawable.bg_inspiracao);
                                 break;
 
                             case R.id.therapyItem:
                                 //Toast.makeText(Main.this, "terapia", Toast.LENGTH_SHORT).show();
                                 Main.this.colocaFragment(tf, R.id.main_fragment_container);
+                                content_main.setBackgroundResource(R.drawable.bg_terapia);
                                 break;
                         }
                         return true;

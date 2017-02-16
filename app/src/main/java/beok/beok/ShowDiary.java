@@ -1,8 +1,10 @@
 package beok.beok;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
@@ -53,6 +56,15 @@ public class ShowDiary extends Fragment {
             initializeData();
             initializeAdapter();
         }
+        //ADICIONA RELATO DIÁRIO
+        FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getActivity(),Diary1.class);
+                startActivity(i);
+            }
+        });
         return v;
     }
 
@@ -60,8 +72,10 @@ public class ShowDiary extends Fragment {
         drogas = new ArrayList<>();
 
         List<MetaSemanal> metas = DB.listAll(MetaSemanal.class);
+        String str="";
         for(MetaSemanal meta : metas){
-            int economia=12;
+            int economia=0;
+            str+=meta.getTipo();
             drogas.add(new Droga(convertTipos(meta.getTipo()),meta.getQuantidade(),meta.getFreqSemanal(),meta.getManha(),meta.getTarde(),meta.getNoite(),meta.getMadrugada(),economia,new ArrayList<DataPoint>()));
         }
 
@@ -139,8 +153,8 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
     public void onBindViewHolder(CardViewHolder CardViewHolder, int i) {
             Droga droga=drogas.get(i);
             if(droga.abstinencia) {
+                CardViewHolder.nomeDroga.setText(getNomeDroga(droga.tipo));
                 CardViewHolder.meta_texto.setText("Nessa semana, eu não consumirei mais");
-                CardViewHolder.nomeDroga.setVisibility(View.GONE);
                 CardViewHolder.quantidade.setVisibility(View.GONE);
                 CardViewHolder.periodo.setVisibility(View.GONE);
                 CardViewHolder.horario.setVisibility(View.GONE);
@@ -175,6 +189,10 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
     public String getNomeDroga(int tipo){
         switch (tipo){
             case 0:
+                return "Álcool";
+            case 1:
+                return "Álcool";
+            case 2:
                 return "Álcool";
             case 3:
                 return "Maconha";

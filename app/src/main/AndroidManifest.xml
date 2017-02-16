@@ -46,13 +46,16 @@
         <activity android:name=".MetaSemanal" />
         <activity android:name=".MetaTratamento" />
         <activity android:name=".Atividade1" />
+        <activity android:name=".Terapia" />
+        <activity android:name=".BotaoPanico1"/>
+        <activity android:name=".BotaoPanico2"/>
 
         <meta-data
             android:name="DATABASE"
             android:value="beok.db" />
         <meta-data
             android:name="VERSION"
-            android:value="3" />
+            android:value="2" />
         <meta-data
             android:name="QUERY_LOG"
             android:value="true" />

@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.orm.SugarContext;
 import com.orm.SugarRecord;
@@ -105,9 +106,11 @@ public class MetaSemanal extends AppCompatActivity {
 
         SugarContext.init(this);
 
-        List<MetaGeral> mgs=SugarRecord.listAll(MetaGeral.class);
-        for(MetaGeral mg:mgs){
-            switch (mg.getTipo()){
+        List<ConsumoAtual> cas=SugarRecord.listAll(ConsumoAtual.class);
+       String str="";
+        for(ConsumoAtual ca:cas){
+            str+=ca.getTipo();
+            switch (ca.getTipo()){
                 case 0:
                     usoalcool=true;
                     break;
@@ -132,15 +135,20 @@ public class MetaSemanal extends AppCompatActivity {
 
         if (usoalcool){
             llalcool.setVisibility(View.VISIBLE);
+            meta1.setTipo(0);
         }
         if (usomaconha){
             llmaconha.setVisibility(View.VISIBLE);
+            meta2.setTipo(3);
         }
         if (usococaina){
             llcocaina.setVisibility(View.VISIBLE);
+            meta3.setTipo(4);
+
         }
         if (usocrack){
             llcrack.setVisibility(View.VISIBLE);
+            meta4.setTipo(5);
         }
 
         sbqtd1.setMax(14);
