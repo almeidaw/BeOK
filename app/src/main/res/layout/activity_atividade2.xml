@@ -18,8 +18,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
-        android:textSize="100dp"
-        android:background="@drawable/borda" />
+        android:textSize="100dp"/>
+<!--        android:background="@drawable/borda" -->
 
     <TextView
         android:layout_width="match_parent"

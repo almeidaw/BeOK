@@ -80,8 +80,8 @@ public class Main extends AppCompatActivity {
 
                                                      } else if (id == R.id.nav_configuracoes) {
 
-            /*Intent intent = new Intent(Main.this, SettingsActivity.class);
-            startActivity(intent);*/
+                                                        Intent intent = new Intent(Main.this, SettingsActivity.class);
+                                                        startActivity(intent);
 
                                                      } else if (id == R.id.nav_info) {
 
