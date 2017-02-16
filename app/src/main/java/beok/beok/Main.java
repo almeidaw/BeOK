@@ -57,6 +57,8 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btpanico = (Button) findViewById(R.id.btpanico);
+
         content_main = (RelativeLayout) findViewById(R.id.content_main);
 
         initialize();
@@ -117,6 +119,14 @@ public class Main extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(getApplicationContext(),Diary1.class);
+                startActivity(i);
+            }
+        });
+
+        btpanico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Main.this, BotaoPanico1.class);
                 startActivity(i);
             }
         });
@@ -235,9 +245,5 @@ public class Main extends AppCompatActivity {
         }
     }
 
-    public void botaoPanico(View v){
-        Intent i = new Intent(this, BotaoPanico1.class);
-        startActivity(i);
-    }
 
 }
