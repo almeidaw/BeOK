@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="beok.beok.Main"
-    android:background="@drawable/fundo_diario">
+    android:background="@drawable/bg_diario">
 
     <include layout="@layout/content_main" />
 
