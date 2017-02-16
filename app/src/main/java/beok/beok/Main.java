@@ -161,7 +161,7 @@ public class Main extends AppCompatActivity {
 
                             case R.id.inspirationItem:
                                 //Toast.makeText(Main.this, "inspiração", Toast.LENGTH_SHORT).show();
-                                Main.this.colocaFragment(tf, R.id.main_fragment_container);
+                                Main.this.colocaFragment(fragment_inspiracao, R.id.main_fragment_container);
                                 content_main.setBackgroundResource(R.drawable.bg_inspiracao);
                                 break;
 
