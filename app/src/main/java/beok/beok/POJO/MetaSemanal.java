@@ -17,10 +17,7 @@ public class MetaSemanal {
 
     private Date semana;
     private int tipo;
-    private String outros;
     private int freqSemanal;
-    private boolean fimDeSem;
-    private int freqDia;
     private boolean manha;
     private boolean tarde;
     private boolean noite;
@@ -67,19 +64,7 @@ public class MetaSemanal {
         this.tipo = tipo;
     }
 
-    /**
-     * @return the outros
-     */
-    public String getOutros() {
-        return outros;
-    }
 
-    /**
-     * @param outros the outros to set
-     */
-    public void setOutros(String outros) {
-        this.outros = outros;
-    }
 
     /**
      * @return the freqSemanal
@@ -95,33 +80,6 @@ public class MetaSemanal {
         this.freqSemanal = freqSemanal;
     }
 
-    /**
-     * @return the fimDeSem
-     */
-    public boolean getFimDeSem() {
-        return fimDeSem;
-    }
-
-    /**
-     * @param fimDeSem the fimDeSem to set
-     */
-    public void setFimDeSem(boolean fimDeSem) {
-        this.fimDeSem = fimDeSem;
-    }
-
-    /**
-     * @return the freqDia
-     */
-    public int getFreqDia() {
-        return freqDia;
-    }
-
-    /**
-     * @param freqDia the freqDia to set
-     */
-    public void setFreqDia(int freqDia) {
-        this.freqDia = freqDia;
-    }
 
     /**
      * @return the manha

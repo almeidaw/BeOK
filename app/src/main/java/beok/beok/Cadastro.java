@@ -101,25 +101,21 @@ public class Cadastro extends AppCompatActivity implements View.OnClickListener,
                     }
                 }
                 MetaGeral mg=new MetaGeral();
-                mg.setFreqDia(3);
                 mg.setFreqSemanal(3);
                 mg.setManha(true);
                 mg.setNoite(false);
                 mg.setTarde(true);
                 mg.setMadrugada(false);
-                mg.setFimDeSem(true);
                 mg.setTipo(3);
                 DB.save(mg);
 
                 MetaSemanal ms=new MetaSemanal();
-                ms.setFreqDia(3);
                 ms.setFreqSemanal(3);
                 ms.setQuantidade(5);
                 ms.setManha(true);
                 ms.setNoite(false);
                 ms.setTarde(true);
                 ms.setMadrugada(false);
-                ms.setFimDeSem(true);
                 ms.setTipo(3);
                 DB.save(ms);
                 //slide from right to left

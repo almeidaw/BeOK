@@ -13,6 +13,14 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.orm.SugarContext;
+import com.orm.SugarRecord;
+
+import java.util.List;
+
+import beok.beok.POJO.ConsumoAtual;
+import beok.beok.POJO.MetaGeral;
+
 public class MetaSemanal extends AppCompatActivity {
 
     Button btproximo;
@@ -23,6 +31,11 @@ public class MetaSemanal extends AppCompatActivity {
     TextView txtqtd1, txtqtd2, txtqtd3, txtqtd4;
     LinearLayout llalcool, llmaconha, llcocaina, llcrack;
     SeekBar sbqtd1, sbqtd2, sbqtd3, sbqtd4;
+
+    boolean usoalcool;
+    boolean usomaconha;
+    boolean usococaina;
+    boolean usocrack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,18 +82,44 @@ public class MetaSemanal extends AppCompatActivity {
         txtqtd3 = (TextView) findViewById(R.id.txtqtd3);
         txtqtd4 = (TextView) findViewById(R.id.txtqtd4);
 
-        if (/* se ele usa alcool*/){
+        usoalcool=false;
+        usomaconha=false;
+        usococaina=false;
+        usocrack=false;
+
+        SugarContext.init(this);
+
+        List<MetaGeral> mgs=SugarRecord.listAll(MetaGeral.class);
+        for(MetaGeral mg:mgs){
+            switch (mg.getTipo()){
+                case 0:
+                usoalcool=true;
+                    break;
+                case 1:
+                    usomaconha=true;
+                    break;
+                case 2:
+                    usococaina=true;
+                    break;
+                case 3:
+                    usocrack=true;
+                    break;
+            }
+        }
+
+
+        if (usoalcool){
             llalcool.setVisibility(View.VISIBLE);
         }
-        if (/* se ele usa maconha*/){
+        if (usomaconha){
             llmaconha.setVisibility(View.VISIBLE);
         }
-        if (/* se ele usa cocaina*/){
+        if (usococaina){
             llcocaina.setVisibility(View.VISIBLE);
         }
-        if (/* se ele usa crack*/){
+        if (usocrack){
             llcrack.setVisibility(View.VISIBLE);
-        }*/
+        }
 
         sbqtd1.setMax(14);
         sbqtd2.setMax(29);

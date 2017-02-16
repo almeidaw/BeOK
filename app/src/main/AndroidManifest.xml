@@ -43,6 +43,8 @@
         <activity android:name=".VontadeUsa" />
         <activity android:name=".AlternativaUso" />
         <activity android:name=".SettingsActivity" />
+        <activity android:name=".MetaSemanal" />
+        <activity android:name=".MetaTratamento" />
 
         <meta-data
             android:name="DATABASE"

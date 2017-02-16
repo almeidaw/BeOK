@@ -11,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import beok.beok.POJO.MetaGeral;
 
 public class MetaTratamento extends AppCompatActivity {
 
@@ -23,10 +26,16 @@ public class MetaTratamento extends AppCompatActivity {
     Spinner sp1, sp2, spbebidas;
     ImageView ivbebidas;
 
+    MetaGeral meta;
+
+    Bundle bundle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meta_tratamento);
+
+        meta=new MetaGeral();
 
         btproximo = (Button) findViewById(R.id.btproximo);
         cbmanha = (CheckBox) findViewById(R.id.cbmanha);
@@ -41,7 +50,9 @@ public class MetaTratamento extends AppCompatActivity {
         spbebidas = (Spinner) findViewById(R.id.spbebidas);
         ivbebidas = (ImageView) findViewById(R.id.ivbebidas);
 
-        final Bundle bundle = getIntent().getExtras();
+        bundle=getIntent().getExtras();
+
+        Toast.makeText(this,bundle.getInt("Droga escolhida")+"",Toast.LENGTH_LONG).show();
 
         if (bundle.getInt("Droga escolhida") == 1){
             spbebidas.setVisibility(View.VISIBLE);
@@ -57,23 +68,30 @@ public class MetaTratamento extends AppCompatActivity {
             txtlegenda.setVisibility(View.GONE);
         }
 
+
         sbqtd.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (bundle.getInt("Droga escolhida") == 1){
                     sbqtd.setMax(14);
                     txtqtd.setText(Integer.toString(progress + 1) + " doses de " + spbebidas.getSelectedItem().toString());
+                    meta.setTipo(spbebidas.getSelectedItemPosition());
+                    meta.setQuantidade(progress+1);
                 }else if (bundle.getInt("Droga escolhida") == 2){
                     sbqtd.setMax(29);
                     txtqtd.setText(Float.toString(((float)progress + 1)/2) + " baseados de maconha");
-
+                    meta.setTipo(3);
+                    meta.setQuantidade(progress+1);
                 }else if (bundle.getInt("Droga escolhida") == 3){
                     sbqtd.setMax(19);
                     txtqtd.setText(Float.toString(((float)progress + 1)/2) + " gramas cocaina");
-
+                    meta.setTipo(4);
+                    meta.setQuantidade(progress+1);
                 }else if (bundle.getInt("Droga escolhida") == 4){
                     sbqtd.setMax(14);
                     txtqtd.setText(Integer.toString(progress + 1) + " pedras de crack");
+                    meta.setTipo(5);
+                    meta.setQuantidade(progress+1);
                 }
             }
 
@@ -97,7 +115,20 @@ public class MetaTratamento extends AppCompatActivity {
                     sp2.setVisibility(View.VISIBLE);
                 } else{
                     sp2.setVisibility(View.GONE);
+                    meta.setFreqSemanal(0);
                 }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        sp2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                meta.setFreqSemanal(position+1);
             }
 
             @Override
@@ -114,8 +145,10 @@ public class MetaTratamento extends AppCompatActivity {
         bundle.putBooleanArray("checkbox", array);
         Intent nextActivity = new Intent(this, Tela2.class);
         nextActivity.putExtras(bundle);
-        startActivity(nextActivity);
+
+        //startActivity(nextActivity);
         //slide from left to right
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+
     }
 }

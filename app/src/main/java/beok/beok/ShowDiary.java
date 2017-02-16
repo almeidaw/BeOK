@@ -61,7 +61,7 @@ public class ShowDiary extends Fragment {
 
         List<MetaSemanal> metas = DB.listAll(MetaSemanal.class);
         for(MetaSemanal meta : metas){
-            drogas.add(new Droga(convertTipos(meta.getTipo()),meta.getQuantidade(),meta.getFreqSemanal(),meta.getManha(),meta.getTarde(),meta.getNoite(),meta.getMadrugada(),meta.getFimDeSem(),new ArrayList<DataPoint>()));
+            drogas.add(new Droga(convertTipos(meta.getTipo()),meta.getQuantidade(),meta.getFreqSemanal(),meta.getManha(),meta.getTarde(),meta.getNoite(),meta.getMadrugada(),new ArrayList<DataPoint>()));
         }
 
         List<UsoDroga> uds = DB.listAll(UsoDroga.class);
@@ -176,15 +176,13 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
 }
 
 class Droga { // Objeto droga e construtor
-    String quantidade, frequencia, horario;
-    boolean fimdesemana, manha, tarde, noite, madrugada;
+    String quantidade, frequencia;
+    boolean manha, tarde, noite, madrugada;
     int tipo;
-    boolean isVoid;
     List<DataPoint> dados;
 
-    Droga(int tipo, float quantidade, int frequencia, boolean manha, boolean tarde, boolean noite, boolean madrugada, boolean fimdesemana, List<DataPoint> dados) {
+    Droga(int tipo, float quantidade, int frequencia, boolean manha, boolean tarde, boolean noite, boolean madrugada, List<DataPoint> dados) {
         this.tipo = tipo;
-        this.fimdesemana = fimdesemana;
         this.quantidade = quantidade + " baseados";
         this.frequencia = frequencia + " vezes\npor semana";
         this.manha = manha;
