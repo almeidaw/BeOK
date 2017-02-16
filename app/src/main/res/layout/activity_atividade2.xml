@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
     android:background="@drawable/bg_terapia"
-    tools:context="beok.beok.Terapia2"
+    tools:context="beok.beok.Terapia"
     android:orientation="vertical">
 
     <RelativeLayout
