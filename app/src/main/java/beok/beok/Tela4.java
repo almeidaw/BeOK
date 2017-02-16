@@ -1,6 +1,5 @@
 package beok.beok;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -12,7 +11,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import beok.beok.POJO.ContatoEmergencia;
 import beok.beok.api.DB;
@@ -88,7 +86,7 @@ public class Tela4 extends AppCompatActivity implements View.OnClickListener{
                     editor.putString("contact3Number", txtcontato3.getText().toString());
                     editor.putInt("contact3Priority", 2);
                 }
-                Intent nextActivity = new Intent(this, Atividade1.class);
+                Intent nextActivity = new Intent(this, Terapia.class);
                 startActivity(nextActivity);
                 //slide from right to left
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
