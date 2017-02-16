@@ -32,7 +32,7 @@ import android.widget.Button;
 
 public class Main extends AppCompatActivity {
 
-    Button btmenu;
+    Button btmenu, btpanico;
 
     static boolean b;
 
@@ -233,6 +233,11 @@ public class Main extends AppCompatActivity {
         } else {
             //super.onBackPressed();
         }
+    }
+
+    public void botaoPanico(View v){
+        Intent i = new Intent(this, BotaoPanico1.class);
+        startActivity(i);
     }
 
 }

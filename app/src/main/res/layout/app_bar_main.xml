@@ -32,6 +32,7 @@
             android:layout_alignParentEnd="true"
             android:id="@+id/btpanico"
             android:background="@drawable/panico"
+            android:onClick="botaoPanico"
             android:layout_marginRight="5dp"/>
 
         <android.support.design.widget.BottomNavigationView
