@@ -22,7 +22,6 @@ import org.w3c.dom.Text;
 import java.lang.reflect.Array;
 
 import beok.beok.POJO.ConsumoAtual;
-import beok.beok.POJO.MetaGeral;
 import beok.beok.api.DB;
 
 public class TelaPerguntas extends AppCompatActivity implements View.OnClickListener{
@@ -71,8 +70,9 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
 
         btconfirma.setOnClickListener(this);
         btconfirma.setVisibility(View.INVISIBLE);
-
         bundle = getIntent().getExtras();
+
+        drogaescolhida=bundle.getInt("Droga escolhida");
         if (bundle.getInt("Droga escolhida") == 1){
             spbebidas.setVisibility(View.VISIBLE);
             txtunidade.setText("1 dose de alcool = ");
@@ -163,7 +163,7 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
 
         switch (v.getId()) {
             case R.id.btconfirma:
-                ca.setFreqSemanal(spfreq.getSelectedItemPosition());
+                ca.setFreqSemanal(spfreq.getSelectedItemPosition()+1);
                 if(!edtxtgasto.getText().toString().equals("")) {
                     try {
                         ca.setGasto(Integer.parseInt(edtxtgasto.getText().toString()));

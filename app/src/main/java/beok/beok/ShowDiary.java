@@ -61,7 +61,7 @@ public class ShowDiary extends Fragment {
 
         List<MetaSemanal> metas = DB.listAll(MetaSemanal.class);
         for(MetaSemanal meta : metas){
-            drogas.add(new Droga(convertTipos(meta.getTipo()),meta.getQuantidade(),meta.getFreqSemanal(),meta.getManha(),meta.getTarde(),meta.getNoite(),meta.getMadrugada(),meta.getFimDeSem(),new ArrayList<DataPoint>()));
+            drogas.add(new Droga(convertTipos(meta.getTipo()),meta.getQuantidade(),meta.getFreqSemanal(),meta.getManha(),meta.getTarde(),meta.getNoite(),meta.getMadrugada(),new ArrayList<DataPoint>()));
         }
 
         List<UsoDroga> uds = DB.listAll(UsoDroga.class);
@@ -136,9 +136,9 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
     public void onBindViewHolder(CardViewHolder CardViewHolder, int i) {
             Droga droga=drogas.get(i);
             CardViewHolder.nomeDroga.setText(getNomeDroga(droga.tipo));
-            CardViewHolder.quantidade.setText(droga.quantidade+"");
+            CardViewHolder.quantidade.setText(droga.quantidade);
             CardViewHolder.periodo.setText(droga.frequencia);
-           // CardViewHolder.horario.setText(droga.horario);
+            CardViewHolder.horario.setText(droga.horario);
             //CardViewHolder.economia.setText(droga.economia);
             if(droga.dados.isEmpty()){
                 CardViewHolder.graph.setVisibility(View.INVISIBLE);
@@ -177,20 +177,68 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
 
 class Droga { // Objeto droga e construtor
     String quantidade, frequencia, horario;
-    boolean fimdesemana, manha, tarde, noite, madrugada;
     int tipo;
-    boolean isVoid;
     List<DataPoint> dados;
 
-    Droga(int tipo, float quantidade, int frequencia, boolean manha, boolean tarde, boolean noite, boolean madrugada, boolean fimdesemana, List<DataPoint> dados) {
+    Droga(int tipo, float quantidade, int frequencia, boolean manha, boolean tarde, boolean noite, boolean madrugada, List<DataPoint> dados) {
         this.tipo = tipo;
-        this.fimdesemana = fimdesemana;
-        this.quantidade = quantidade + " baseados";
-        this.frequencia = frequencia + " vezes\npor semana";
-        this.manha = manha;
-        this.tarde = tarde;
-        this.noite = noite;
-        this.madrugada = madrugada;
+        switch(tipo){
+            case 0:
+                this.quantidade = quantidade + " doses(cerveja)";
+                break;
+            case 1:
+                this.quantidade = quantidade + " doses(vinho)";
+                break;
+            case 2:
+                this.quantidade = quantidade + " doses(destilado)";
+                break;
+            case 3:
+                this.quantidade = quantidade + " baseados";
+                break;
+            case 4:
+                this.quantidade = quantidade + " gramas";
+                break;
+            case 5:
+                this.quantidade = quantidade + " pedras";
+                break;
+        }
+
+        switch(frequencia){
+            case 1:
+                this.frequencia = "1 dia\n por semana";
+                break;
+            case 2:
+                this.frequencia = "2 dias\n por semana";
+                break;
+            case 3:
+                this.frequencia = "3 a 5 dias\n por semana";
+                break;
+            case 4:
+                this.frequencia = "Todos os dias";
+                break;
+            case 5:
+                this.frequencia = "Só fins\n de semana";
+                break;
+        }
+        if(manha && tarde && noite && madrugada){
+            this.horario="Qualquer horário";
+        }else if(manha && tarde && noite){
+            this.horario="O dia todo";
+        }else{
+            this.horario="";
+            if(manha){
+                this.horario+="manha\n";
+            }
+            if(tarde){
+                this.horario+="tarde\n";
+            }
+            if(noite){
+                this.horario+="noite\n";
+            }
+            if(manha){
+                this.horario+="madrugada\n";
+            }
+        }
         this.dados = dados;
     }
 }

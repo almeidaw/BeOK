@@ -20,7 +20,7 @@
 
 
         <item
-            android:icon="@drawable/terapia"
+            android:icon="@drawable/fundo_terapia"
             android:id="@+id/nav_terapia"
             android:title="Terapia"/>
 

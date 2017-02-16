@@ -69,7 +69,7 @@ public class Tela4 extends AppCompatActivity implements View.OnClickListener{
                     ce.setPrioridade(2);
                     DB.save(ce);
                 }
-                Intent nextActivity = new Intent(this, Main.class);
+                Intent nextActivity = new Intent(this, Atividade1.class);
                 startActivity(nextActivity);
                 //slide from right to left
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
