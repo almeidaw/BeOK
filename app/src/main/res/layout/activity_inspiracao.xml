@@ -3,16 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="8dp"
-    android:paddingRight="8dp"
-    android:paddingBottom="8dp"
-    android:background="@drawable/bg_diario"
-    tools:context="beok.beok.Main">
+    android:background="@drawable/bg_inspiracao"
+    tools:context="beok.beok.Inspiracao"
+    android:fitsSystemWindows="true"
+    >
 
     <android.support.v7.widget.RecyclerView
+        android:layout_margin="10dp"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:id="@+id/recycler_view_diary">
+        android:id="@+id/recycler_view_inspiracao">
 
     </android.support.v7.widget.RecyclerView>
 

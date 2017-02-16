@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-public class Atividade2 extends AppCompatActivity {
+public class Terapia extends AppCompatActivity {
 
     FrameLayout layout;
     TextView txtpergunta, txtexplicacao;
@@ -17,7 +17,6 @@ public class Atividade2 extends AppCompatActivity {
 
     int pontos = 0;
     int contador = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +36,6 @@ public class Atividade2 extends AppCompatActivity {
         txtpergunta.setText(perguntas[contador]);
     }
 
-
     public void botaoMito(View v){
         Resources res = getResources();
         String[] respostas = res.getStringArray(R.array.resposta);
@@ -46,17 +44,12 @@ public class Atividade2 extends AppCompatActivity {
         //Essa parte é so pra mudar a cor do botao que estiver certo (verde = certo, vermelhor = errado)
         if (respostas[contador].equals("mito")){
             pontos++;
-            btmito.setBackgroundColor(res.getColor(R.color.verde));
-            btverdade.setBackgroundColor(res.getColor(R.color.vermelho));
-
-        } else{
-            btmito.setBackgroundColor(res.getColor(R.color.vermelho));
-            btverdade.setBackgroundColor(res.getColor(R.color.verde));
         }
         // -------------- // ---------------- //
         layout.setVisibility(View.VISIBLE);
         btmito.setEnabled(false);
         btmito.setEnabled(false);
+        btok.setVisibility(View.VISIBLE);
 
     }
 
@@ -67,11 +60,6 @@ public class Atividade2 extends AppCompatActivity {
         txtexplicacao.setText(explicacao[contador]);
         if (respostas[contador].equals("verdade")){
             pontos++;
-            btmito.setBackgroundColor(res.getColor(R.color.vermelho));
-            btverdade.setBackgroundColor(res.getColor(R.color.verde));
-        } else{
-            btmito.setBackgroundColor(res.getColor(R.color.verde));
-            btverdade.setBackgroundColor(res.getColor(R.color.vermelho));
         }
         layout.setVisibility(View.VISIBLE);
         btmito.setEnabled(false);
@@ -89,8 +77,6 @@ public class Atividade2 extends AppCompatActivity {
             contador++;
             txtpergunta.setText(perguntas[contador]);
             layout.setVisibility(View.INVISIBLE);
-            btmito.setBackgroundColor(res.getColor(R.color.branco));
-            btverdade.setBackgroundColor(res.getColor(R.color.branco));
             btmito.setEnabled(true);
             btmito.setEnabled(true);
         }

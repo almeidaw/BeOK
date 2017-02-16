@@ -8,16 +8,5 @@
             android:endColor="#FFe05557"
             android:type="linear" />
     </shape>
-
-    <shape>
-        <gradient
-            android:angle="360"
-            android:startColor="#FF18919e"
-            android:endColor="#FF0a686d"
-            android:type="linear" />
-    </shape>
-
-
-
 </item>
 </selector>
