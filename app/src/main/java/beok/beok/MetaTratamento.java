@@ -61,14 +61,18 @@ public class MetaTratamento extends AppCompatActivity {
             spbebidas.setVisibility(View.VISIBLE);
             ivbebidas.setVisibility(View.VISIBLE);
             txtlegenda.setVisibility(View.GONE);
+            meta.setTipo(0);
         }else if (bundle.getInt("Droga escolhida") == 2){
             txtlegenda.setText("1 baseado: fino=0,5 grama, normal = 1,2 gramas, bomba= 2 gramas");
+            meta.setTipo(3);
 
         }else if (bundle.getInt("Droga escolhida") == 3){
             txtlegenda.setText("1 papelote/pino= 1grama");
+            meta.setTipo(4);
 
         }else if (bundle.getInt("Droga escolhida") == 4){
             txtlegenda.setVisibility(View.GONE);
+            meta.setTipo(5);
         }
 
 
