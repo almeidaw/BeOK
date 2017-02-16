@@ -47,6 +47,7 @@ public class Main extends AppCompatActivity {
     TestFragment tf;
     ShowDiary show_diary_fragment;
     MetasSemana fragment_metas_semanal;
+    Inspiracao fragment_inspiracao;
     NavigationView nv;
 
     RelativeLayout content_main;
@@ -67,6 +68,7 @@ public class Main extends AppCompatActivity {
 
         show_diary_fragment = new ShowDiary();
         fragment_metas_semanal = new MetasSemana();
+        fragment_inspiracao = new Inspiracao();
 
         tf = new TestFragment();
         colocaFragment(show_diary_fragment, R.id.main_fragment_container);
