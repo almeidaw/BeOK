@@ -10,7 +10,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".PreLogIn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,7 @@
         <activity
             android:name=".Main"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+             />
         <activity android:name=".Cadastro" />
         <activity android:name=".Diary1" />
         <activity android:name=".FirstAccess" />
@@ -46,7 +46,7 @@
         <activity android:name=".MetaSemanal" />
         <activity android:name=".MetaTratamento" />
         <activity android:name=".Atividade1" />
-        <activity android:name=".Atividade2" />
+        <activity android:name=".Terapia" />
 
         <meta-data
             android:name="DATABASE"
