@@ -26,7 +26,7 @@ public class TherapyMenuFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         Toast.makeText(getActivity(), "lalalal", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent (getActivity(), Atividade2);
+                        Intent intent = new Intent (getActivity(), Terapia.class);
                         startActivity(intent);
                     }
                 }
