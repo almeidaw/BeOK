@@ -13,6 +13,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.orm.SugarContext;
@@ -46,12 +47,17 @@ public class Main extends AppCompatActivity {
     TestFragment tf;
     ShowDiary show_diary_fragment;
     MetasSemana fragment_metas_semanal;
+    Inspiracao fragment_inspiracao;
     NavigationView nv;
+
+    RelativeLayout content_main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        content_main = (RelativeLayout) findViewById(R.id.content_main);
 
         initialize();
 
@@ -62,6 +68,7 @@ public class Main extends AppCompatActivity {
 
         show_diary_fragment = new ShowDiary();
         fragment_metas_semanal = new MetasSemana();
+        fragment_inspiracao = new Inspiracao();
 
         tf = new TestFragment();
         colocaFragment(show_diary_fragment, R.id.main_fragment_container);
@@ -135,21 +142,25 @@ public class Main extends AppCompatActivity {
                             case R.id.showDiaryItem:
                                 //Toast.makeText(Main.this, "diário", Toast.LENGTH_SHORT).show();
                                 Main.this.colocaFragment(show_diary_fragment, R.id.main_fragment_container);
+                                content_main.setBackgroundResource(R.drawable.bg_diario);
                                 break;
 
                             case R.id.goalsItem:
                                 //Toast.makeText(Main.this, "metas", Toast.LENGTH_SHORT).show();
                                 Main.this.colocaFragment(fragment_metas_semanal, R.id.main_fragment_container);
+                                content_main.setBackgroundResource(R.drawable.bg_metas);
                                 break;
 
                             case R.id.inspirationItem:
                                 //Toast.makeText(Main.this, "inspiração", Toast.LENGTH_SHORT).show();
                                 Main.this.colocaFragment(tf, R.id.main_fragment_container);
+                                content_main.setBackgroundResource(R.drawable.bg_inspiracao);
                                 break;
 
                             case R.id.therapyItem:
                                 //Toast.makeText(Main.this, "terapia", Toast.LENGTH_SHORT).show();
                                 Main.this.colocaFragment(tf, R.id.main_fragment_container);
+                                content_main.setBackgroundResource(R.drawable.bg_terapia);
                                 break;
                         }
                         return true;

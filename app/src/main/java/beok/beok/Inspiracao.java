@@ -1,5 +1,6 @@
 package beok.beok;
 
+import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -18,23 +19,24 @@ import java.util.List;
  * Created by william on 16/02/17.
  */
 
-public class Inspiracao extends AppCompatActivity {
+public class Inspiracao extends Fragment {
 
     private RecyclerView rv;
     private List<Inspi> inspis;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inspiracao);
-
-        rv = (RecyclerView)findViewById(R.id.recycler_view_inspiracao);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v;
+        v = inflater.inflate(R.layout.fragment_inspiracao, container, false);
+        rv = (RecyclerView)v.findViewById(R.id.recycler_view_inspiracao);
+        LinearLayoutManager llm = new LinearLayoutManager(v.getContext());
         rv.setHasFixedSize(true);
         rv.setLayoutManager(llm);
 
         initializeData();
         initializeAdapter();
+
+        return v;
     }
 
     private void initializeData() {
