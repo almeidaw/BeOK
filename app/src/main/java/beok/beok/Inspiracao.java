@@ -41,9 +41,9 @@ public class Inspiracao extends Fragment {
 
     private void initializeData() {
         inspis = new ArrayList<>();
-        inspis.add(new Inspi(R.drawable.inspiracao1, "\"Viver é como andar de bicicleta: É preciso estar em constante movimento para manter o equilíbrio\"", "- Albert Einstein"));
-        inspis.add(new Inspi(R.drawable.inspiracao2, "\"E chegou o dia em que o risco de continuar espremido dentro do botão era mais doloroso que o de desabrochar\"", "- Anaïs Nin"));
-        inspis.add(new Inspi(R.drawable.inspiracao3, "\"Todo mundo tem dentro de si um fragmento de boas notícias. A boa notícia é que você não sabe quão extraordinário você pode ser! O quanto você pode amar! O que você pode executar! E qual é o seu potencial!\"", "- Anne Frank"));
+       // inspis.add(new Inspi(R.drawable.inspiracao1, "\"Viver é como andar de bicicleta: É preciso estar em constante movimento para manter o equilíbrio\"", "- Albert Einstein"));
+        //inspis.add(new Inspi(R.drawable.inspiracao2, "\"E chegou o dia em que o risco de continuar espremido dentro do botão era mais doloroso que o de desabrochar\"", "- Anaïs Nin"));
+        //inspis.add(new Inspi(R.drawable.inspiracao3, "\"Todo mundo tem dentro de si um fragmento de boas notícias. A boa notícia é que você não sabe quão extraordinário você pode ser! O quanto você pode amar! O que você pode executar! E qual é o seu potencial!\"", "- Anne Frank"));
     }
 
     private void initializeAdapter(){

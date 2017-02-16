@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView2"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:id="@+id/TextView3" />
 
     <TextView
@@ -33,7 +34,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView4"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/email_login"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true" />
 
     <EditText
@@ -41,7 +43,7 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="5dp"
         android:id="@+id/email_login"
         android:layout_below="@+id/TextView3"
         android:layout_centerHorizontal="true" />
@@ -53,7 +55,7 @@
         android:ems="10"
         android:layout_below="@+id/textView4"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="5dp"
         android:id="@+id/senha_login" />
 
     <Button
@@ -61,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button3"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="20dp"
         android:onClick="loginClickLogin"
         android:layout_below="@+id/senha_login"
         android:layout_centerHorizontal="true" />
@@ -70,9 +72,9 @@
         android:text="Cadastrar-se"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/button3"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="49dp"
+        android:layout_marginTop="20dp"
         android:onClick="cadastroClickLogin"
         android:id="@+id/btCadastro_log" />
 

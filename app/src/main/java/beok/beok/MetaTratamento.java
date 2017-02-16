@@ -62,6 +62,7 @@ public class MetaTratamento extends AppCompatActivity {
             ivbebidas.setVisibility(View.VISIBLE);
             txtlegenda.setVisibility(View.GONE);
             meta.setTipo(0);
+            txtlegenda.setText("Uma dose é igual a");
         }else if (bundle.getInt("Droga escolhida") == 2){
             txtlegenda.setText("1 baseado: fino=0,5 grama, normal = 1,2 gramas, bomba= 2 gramas");
             meta.setTipo(3);
