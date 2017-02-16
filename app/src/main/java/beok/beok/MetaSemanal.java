@@ -20,6 +20,7 @@ import java.util.List;
 
 import beok.beok.POJO.ConsumoAtual;
 import beok.beok.POJO.MetaGeral;
+import beok.beok.api.DB;
 
 public class MetaSemanal extends AppCompatActivity {
 
@@ -36,6 +37,11 @@ public class MetaSemanal extends AppCompatActivity {
     boolean usomaconha;
     boolean usococaina;
     boolean usocrack;
+
+    beok.beok.POJO.MetaSemanal meta1;
+    beok.beok.POJO.MetaSemanal meta2;
+    beok.beok.POJO.MetaSemanal meta3;
+    beok.beok.POJO.MetaSemanal meta4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +93,15 @@ public class MetaSemanal extends AppCompatActivity {
         usococaina=false;
         usocrack=false;
 
+
+        meta1=new beok.beok.POJO.MetaSemanal();
+
+        meta2=new beok.beok.POJO.MetaSemanal();
+
+        meta3=new beok.beok.POJO.MetaSemanal();
+
+        meta4=new beok.beok.POJO.MetaSemanal();
+
         SugarContext.init(this);
 
         List<MetaGeral> mgs=SugarRecord.listAll(MetaGeral.class);
@@ -122,7 +137,7 @@ public class MetaSemanal extends AppCompatActivity {
         }
 
         sbqtd1.setMax(14);
-        sbqtd2.setMax(29);
+        sbqtd2.setMax(19);
         sbqtd3.setMax(19);
         sbqtd4.setMax(14);
 
@@ -130,6 +145,8 @@ public class MetaSemanal extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 txtqtd1.setText(Integer.toString(progress + 1) + " doses de " + spbebidas.getSelectedItem().toString());
+                meta1.setTipo(spbebidas.getSelectedItemPosition());
+                meta1.setQuantidade(progress+1);
             }
 
             @Override
@@ -146,6 +163,8 @@ public class MetaSemanal extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 txtqtd2.setText(Float.toString(((float)progress + 1)/2) + " baseados de maconha");
+                meta2.setTipo(3);
+                meta2.setQuantidade(progress+1);
             }
 
             @Override
@@ -162,6 +181,8 @@ public class MetaSemanal extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 txtqtd3.setText(Float.toString(((float)progress + 1)/2) + " gramas cocaina");
+                meta3.setTipo(4);
+                meta3.setQuantidade(progress+1);
             }
 
             @Override
@@ -178,6 +199,8 @@ public class MetaSemanal extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 txtqtd4.setText(Integer.toString(progress + 1) + " pedras de crack");
+                meta4.setTipo(5);
+                meta4.setQuantidade(progress+1);
             }
 
             @Override
@@ -198,6 +221,7 @@ public class MetaSemanal extends AppCompatActivity {
                     spfreq1.setVisibility(View.VISIBLE);
                 }else{
                     spfreq1.setVisibility(View.GONE);
+                    meta1.setFreqSemanal(0);
                 }
             }
 
@@ -213,6 +237,7 @@ public class MetaSemanal extends AppCompatActivity {
                     spfreq2.setVisibility(View.VISIBLE);
                 }else{
                     spfreq2.setVisibility(View.GONE);
+                    meta2.setFreqSemanal(0);
                 }
             }
 
@@ -228,6 +253,7 @@ public class MetaSemanal extends AppCompatActivity {
                     spfreq3.setVisibility(View.VISIBLE);
                 }else{
                     spfreq3.setVisibility(View.GONE);
+                    meta3.setFreqSemanal(0);
                 }
             }
 
@@ -243,7 +269,53 @@ public class MetaSemanal extends AppCompatActivity {
                     spfreq4.setVisibility(View.VISIBLE);
                 }else{
                     spfreq4.setVisibility(View.GONE);
+                    meta4.setFreqSemanal(0);
                 }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spfreq1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                meta1.setFreqSemanal(position+1);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        spfreq2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                meta2.setFreqSemanal(position+1);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        spfreq3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                meta3.setFreqSemanal(position+1);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        spfreq4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                meta4.setFreqSemanal(position+1);
             }
 
             @Override
@@ -255,7 +327,40 @@ public class MetaSemanal extends AppCompatActivity {
     }
 
     public void botaoProximo(View v){
-        Intent i = new Intent(this, Fim.class); //Direcionar para home?
+        meta1.setManha(cbmanha1.isChecked());
+        meta1.setTarde(cbtarde1.isChecked());
+        meta1.setNoite(cbnoite1.isChecked());
+        meta1.setMadrugada(cbmadrugada1.isChecked());
+
+        meta2.setManha(cbmanha2.isChecked());
+        meta2.setTarde(cbtarde2.isChecked());
+        meta2.setNoite(cbnoite2.isChecked());
+        meta2.setMadrugada(cbmadrugada2.isChecked());
+
+        meta3.setManha(cbmanha3.isChecked());
+        meta3.setTarde(cbtarde3.isChecked());
+        meta3.setNoite(cbnoite3.isChecked());
+        meta3.setMadrugada(cbmadrugada3.isChecked());
+
+        meta4.setManha(cbmanha4.isChecked());
+        meta4.setTarde(cbtarde4.isChecked());
+        meta4.setNoite(cbnoite4.isChecked());
+        meta4.setMadrugada(cbmadrugada4.isChecked());
+
+        if (usoalcool){
+            DB.save(meta1);
+        }
+        if (usomaconha){
+            DB.save(meta2);
+        }
+        if (usococaina){
+            DB.save(meta3);
+        }
+        if (usocrack){
+            DB.save(meta4);
+        }
+
+        Intent i = new Intent(this, Main.class); //Direcionar para home?
         startActivity(i);
     }
 }

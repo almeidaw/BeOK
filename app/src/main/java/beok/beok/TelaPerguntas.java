@@ -70,8 +70,9 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
 
         btconfirma.setOnClickListener(this);
         btconfirma.setVisibility(View.INVISIBLE);
-
         bundle = getIntent().getExtras();
+
+        drogaescolhida=bundle.getInt("Droga escolhida");
         if (bundle.getInt("Droga escolhida") == 1){
             spbebidas.setVisibility(View.VISIBLE);
             txtunidade.setText("1 dose de alcool = ");

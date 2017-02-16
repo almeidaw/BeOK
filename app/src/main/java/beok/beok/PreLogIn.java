@@ -19,6 +19,7 @@ import beok.beok.POJO.BotaoAtivo;
 import beok.beok.POJO.DataTeste;
 import beok.beok.POJO.Usuario;
 import beok.beok.POJO.Wrapper;
+import beok.beok.api.App;
 import beok.beok.api.DB;
 import beok.beok.api.ServiceSincronizer;
 
@@ -26,6 +27,8 @@ public class PreLogIn extends AppCompatActivity {
 
 
     TextView t;
+
+    final Handler handler=new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +44,12 @@ public class PreLogIn extends AppCompatActivity {
 
         if(!us.isEmpty()){
             //redireciona para a home
+
             Intent i=new Intent(this,Main.class);
             startActivity(i);
         }else{
-            //vai para a página de login/cadastro
-            Intent i=new Intent(this,FirstAccess.class);
-            startActivity(i);
+            handler.postDelayed(mainStart, 3000);
+            //vai para página de cadastro
         }
     }
     private void initialize(){
@@ -62,4 +65,14 @@ public class PreLogIn extends AppCompatActivity {
 
         DB.save(dteste);
     }
+
+    private Runnable mainStart = new Runnable() {
+
+        @Override
+        public void run() {
+            Intent i=new Intent(PreLogIn.this,FirstAccess.class);
+            startActivity(i);
+        }
+    };
+
 }

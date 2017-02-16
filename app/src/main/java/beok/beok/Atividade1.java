@@ -10,7 +10,7 @@ public class Atividade1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_atividade1);
     }
 
     public void iniciarAtividade1(View v){

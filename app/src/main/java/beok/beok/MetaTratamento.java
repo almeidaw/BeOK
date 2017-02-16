@@ -13,7 +13,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.orm.SugarContext;
+
 import beok.beok.POJO.MetaGeral;
+import beok.beok.api.DB;
 
 public class MetaTratamento extends AppCompatActivity {
 
@@ -37,6 +40,8 @@ public class MetaTratamento extends AppCompatActivity {
 
         meta=new MetaGeral();
 
+        SugarContext.init(this);
+
         btproximo = (Button) findViewById(R.id.btproximo);
         cbmanha = (CheckBox) findViewById(R.id.cbmanha);
         cbtarde = (CheckBox) findViewById(R.id.cbtarde);
@@ -51,8 +56,6 @@ public class MetaTratamento extends AppCompatActivity {
         ivbebidas = (ImageView) findViewById(R.id.ivbebidas);
 
         bundle=getIntent().getExtras();
-
-        Toast.makeText(this,bundle.getInt("Droga escolhida")+"",Toast.LENGTH_LONG).show();
 
         if (bundle.getInt("Droga escolhida") == 1){
             spbebidas.setVisibility(View.VISIBLE);
@@ -143,10 +146,17 @@ public class MetaTratamento extends AppCompatActivity {
     public void botaoProximo(View v){
         Bundle bundle = new Bundle();
         bundle.putBooleanArray("checkbox", array);
+
+        meta.setManha(cbmanha.isChecked());
+        meta.setTarde(cbtarde.isChecked());
+        meta.setNoite(cbnoite.isChecked());
+        meta.setMadrugada(cbmadrugada.isChecked());
+
+        DB.save(meta);
+
         Intent nextActivity = new Intent(this, Tela2.class);
         nextActivity.putExtras(bundle);
-
-        //startActivity(nextActivity);
+        startActivity(nextActivity);
         //slide from left to right
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
