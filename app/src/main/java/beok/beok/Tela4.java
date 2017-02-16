@@ -61,20 +61,20 @@ public class Tela4 extends AppCompatActivity implements View.OnClickListener{
                     ce.setPrioridade(0);
                     DB.save(ce);
 
-                    editor.putString("contact1Name", edtxtcontato1.getText().toString());
-                    editor.putString("contact1Number", txtcontato1.getText().toString());
+                    editor.putString("contact1Name", txtcontato1.getText().toString());
+                    editor.putString("contact1Number", edtxtcontato1.getText().toString());
                     editor.putInt("contact1Priority", 0);
 
                 }
                 if(!edtxtcontato2.getText().toString().equals("")){
                     ContatoEmergencia ce=new ContatoEmergencia();
-                    ce.setNome(txtcontato2.getText().toString());
-                    ce.setTelefone(edtxtcontato2.getText().toString());
+                    ce.setNome(edtxtcontato2.getText().toString());
+                    ce.setTelefone(txtcontato2.getText().toString());
                     ce.setPrioridade(1);
                     DB.save(ce);
 
-                    editor.putString("contact2Name", edtxtcontato2.getText().toString());
-                    editor.putString("contact2Number", txtcontato2.getText().toString());
+                    editor.putString("contact2Name", txtcontato2.getText().toString());
+                    editor.putString("contact2Number", edtxtcontato2.getText().toString());
                     editor.putInt("contact2Priority", 1);
                 }
                 if(!edtxtcontato3.getText().toString().equals("")){
@@ -84,14 +84,16 @@ public class Tela4 extends AppCompatActivity implements View.OnClickListener{
                     ce.setPrioridade(2);
                     DB.save(ce);
 
-                    editor.putString("contact3Name", edtxtcontato3.getText().toString());
-                    editor.putString("contact3Number", txtcontato3.getText().toString());
+                    editor.putString("contact3Name", txtcontato3.getText().toString());
+                    editor.putString("contact3Number", edtxtcontato3.getText().toString());
                     editor.putInt("contact3Priority", 2);
                 }
                 Intent nextActivity = new Intent(this, Atividade1.class);
                 startActivity(nextActivity);
                 //slide from right to left
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+                editor.commit();
                 break;
         }
     }
