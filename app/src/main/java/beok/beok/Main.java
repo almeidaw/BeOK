@@ -13,6 +13,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ import java.util.Date;
 
 import beok.beok.POJO.BotaoAtivo;
 import beok.beok.api.App;
+import beok.beok.api.Conf;
 import beok.beok.api.DB;
 import beok.beok.api.ServiceSincronizer;
 
@@ -50,12 +52,15 @@ public class Main extends AppCompatActivity {
     Inspiracao fragment_inspiracao;
     NavigationView nv;
 
+    TextView texto_navbar;
     RelativeLayout content_main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        btpanico = (Button) findViewById(R.id.btpanico);
 
         content_main = (RelativeLayout) findViewById(R.id.content_main);
 
@@ -74,6 +79,9 @@ public class Main extends AppCompatActivity {
         colocaFragment(show_diary_fragment, R.id.main_fragment_container);
 
         nv=(NavigationView)findViewById(R.id.nav_view);
+
+        texto_navbar=(TextView)findViewById(R.id.texto_navbar);
+        //texto_navbar.setText(Conf.getNomeUsuario());
 
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
@@ -111,12 +119,12 @@ public class Main extends AppCompatActivity {
                                              }
                 );
 
-        //ADICIONA RELATO DIÁRIO
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+
+
+        btpanico.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent i=new Intent(getApplicationContext(),Diary1.class);
+            public void onClick(View v) {
+                Intent i = new Intent(Main.this, BotaoPanico1.class);
                 startActivity(i);
             }
         });
@@ -233,11 +241,6 @@ public class Main extends AppCompatActivity {
         } else {
             //super.onBackPressed();
         }
-    }
-
-    public void botaoPanico(View v){
-        Intent i = new Intent(this, BotaoPanico1.class);
-        startActivity(i);
     }
 
 }
