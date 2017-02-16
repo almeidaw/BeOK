@@ -27,7 +27,7 @@
     </style>
 
     <style name="TherapyTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@drawable/fundo_terapia</item>
+        <item name="colorPrimary">@drawable/bg_terapia</item>
     </style>
 
 </resources>
