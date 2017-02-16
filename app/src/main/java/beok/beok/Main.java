@@ -45,6 +45,7 @@ public class Main extends AppCompatActivity {
     Home home_fragment;
     TestFragment tf;
     ShowDiary show_diary_fragment;
+    MetasSemana fragment_metas_semanal;
     NavigationView nv;
 
     @Override
@@ -59,8 +60,8 @@ public class Main extends AppCompatActivity {
 
         b=false;
 
-        home_fragment = new Home();
         show_diary_fragment = new ShowDiary();
+        fragment_metas_semanal = new MetasSemana();
 
         tf = new TestFragment();
         colocaFragment(show_diary_fragment, R.id.main_fragment_container);
@@ -74,7 +75,6 @@ public class Main extends AppCompatActivity {
                                                  public boolean onNavigationItemSelected(MenuItem item) {
                                                      // Handle navigation view item clicks here.
                                                      int id = item.getItemId();
-                                                     Toast.makeText(Main.this,"teste",Toast.LENGTH_LONG).show();
                                                      if (id == R.id.nav_acompanhamento) {
                                                          // Handle the "acompanhamento" action
 
@@ -133,22 +133,22 @@ public class Main extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.showDiaryItem:
-                                Toast.makeText(Main.this, "diário", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Main.this, "diário", Toast.LENGTH_SHORT).show();
                                 Main.this.colocaFragment(show_diary_fragment, R.id.main_fragment_container);
                                 break;
 
                             case R.id.goalsItem:
-                                Toast.makeText(Main.this, "metas", Toast.LENGTH_SHORT).show();
-                                Main.this.colocaFragment(tf, R.id.main_fragment_container);
+                                //Toast.makeText(Main.this, "metas", Toast.LENGTH_SHORT).show();
+                                Main.this.colocaFragment(fragment_metas_semanal, R.id.main_fragment_container);
                                 break;
 
                             case R.id.inspirationItem:
-                                Toast.makeText(Main.this, "inspiração", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Main.this, "inspiração", Toast.LENGTH_SHORT).show();
                                 Main.this.colocaFragment(tf, R.id.main_fragment_container);
                                 break;
 
                             case R.id.therapyItem:
-                                Toast.makeText(Main.this, "terapia", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Main.this, "terapia", Toast.LENGTH_SHORT).show();
                                 Main.this.colocaFragment(tf, R.id.main_fragment_container);
                                 break;
                         }
@@ -220,7 +220,7 @@ public class Main extends AppCompatActivity {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            //super.onBackPressed();
         }
     }
 

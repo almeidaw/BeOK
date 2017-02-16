@@ -13,6 +13,14 @@ import java.util.Random;
 public class BotaoPanico2 extends AppCompatActivity {
 
     String telefone;
+
+    String tel_prof;
+    String tel_1;
+    String tel_2;
+    String tel_3;
+    boolean tel_2e;
+    boolean tel_3e;
+
     TextView txtmsgmotivacional;
 
     @Override
@@ -29,11 +37,13 @@ public class BotaoPanico2 extends AppCompatActivity {
         if (posicao == 0) {
             txtmsgmotivacional.setText(String.format(msg[posicao], 7));
         }else {txtmsgmotivacional.setText(msg[posicao]);}
-        telefone = "3333";
+
+
+
     }
 
     public void ligarProfissional(View v){
-        Uri uri = Uri.parse("tel:"+telefone); // "telefone" sera o contato salvo de algum profissional
+        Uri uri = Uri.parse("tel:"+tel_prof); // "telefone" sera o contato salvo de algum profissional
         Intent i = new Intent(Intent.ACTION_DIAL, uri);
         startActivity(i);
     }
@@ -50,18 +60,18 @@ public class BotaoPanico2 extends AppCompatActivity {
         startActivity(i);
     }
     public void ligarContato1(View v){
-        Uri uri = Uri.parse("tel:"+telefone); // "telefone" sera o numero do contato1
+        Uri uri = Uri.parse("tel:"+tel_1); // "telefone" sera o numero do contato1
         Intent i = new Intent(Intent.ACTION_DIAL, uri);
         startActivity(i);
 
     }
     public void ligarContato2(View v){
-        Uri uri = Uri.parse("tel:"+telefone); // "telefone" sera o numero do contato2
+        Uri uri = Uri.parse("tel:"+tel_2); // "telefone" sera o numero do contato2
         Intent i = new Intent(Intent.ACTION_DIAL, uri);
         startActivity(i);
     }
     public void ligarContato3(View v){
-        Uri uri = Uri.parse("tel:"+telefone); // "telefone" sera o numero do contato3
+        Uri uri = Uri.parse("tel:"+tel_3); // "telefone" sera o numero do contato3
         Intent i = new Intent(Intent.ACTION_DIAL, uri);
         startActivity(i);
     }

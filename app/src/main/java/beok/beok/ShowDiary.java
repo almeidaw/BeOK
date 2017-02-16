@@ -61,7 +61,8 @@ public class ShowDiary extends Fragment {
 
         List<MetaSemanal> metas = DB.listAll(MetaSemanal.class);
         for(MetaSemanal meta : metas){
-            drogas.add(new Droga(convertTipos(meta.getTipo()),meta.getQuantidade(),meta.getFreqSemanal(),meta.getManha(),meta.getTarde(),meta.getNoite(),meta.getMadrugada(),new ArrayList<DataPoint>()));
+            int economia=12;
+            drogas.add(new Droga(convertTipos(meta.getTipo()),meta.getQuantidade(),meta.getFreqSemanal(),meta.getManha(),meta.getTarde(),meta.getNoite(),meta.getMadrugada(),economia,new ArrayList<DataPoint>()));
         }
 
         List<UsoDroga> uds = DB.listAll(UsoDroga.class);
@@ -97,7 +98,7 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
     public static class CardViewHolder extends RecyclerView.ViewHolder {
 
         CardView cv;
-        TextView nomeDroga, quantidade, periodo, horario, economia,n_relato_diario;
+        TextView nomeDroga, quantidade, periodo, horario, economia,n_relato_diario,quantidade_unidade,meta_texto;
         GraphView graph;
 
         CardViewHolder(View itemView) {
@@ -109,7 +110,9 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
             periodo = (TextView)itemView.findViewById(R.id.periodo);
             horario = (TextView)itemView.findViewById(R.id.horario);
             economia = (TextView)itemView.findViewById(R.id.economia);
+            quantidade_unidade = (TextView)itemView.findViewById(R.id.gramas);
             n_relato_diario = (TextView)itemView.findViewById(R.id.texto_n_relato);
+            meta_texto=(TextView)itemView.findViewById(R.id.meta_texto);
 
         }
     }
@@ -135,11 +138,20 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
     @Override
     public void onBindViewHolder(CardViewHolder CardViewHolder, int i) {
             Droga droga=drogas.get(i);
-            CardViewHolder.nomeDroga.setText(getNomeDroga(droga.tipo));
-            CardViewHolder.quantidade.setText(droga.quantidade);
-            CardViewHolder.periodo.setText(droga.frequencia);
-            CardViewHolder.horario.setText(droga.horario);
-            //CardViewHolder.economia.setText(droga.economia);
+            if(droga.abstinencia) {
+                CardViewHolder.meta_texto.setText("Nessa semana, eu não consumirei mais");
+                CardViewHolder.nomeDroga.setVisibility(View.GONE);
+                CardViewHolder.quantidade.setVisibility(View.GONE);
+                CardViewHolder.periodo.setVisibility(View.GONE);
+                CardViewHolder.horario.setVisibility(View.GONE);
+            }else {
+                CardViewHolder.nomeDroga.setText(getNomeDroga(droga.tipo));
+                CardViewHolder.quantidade.setText(droga.quantidade);
+                CardViewHolder.periodo.setText(droga.frequencia);
+                CardViewHolder.horario.setText(droga.horario);
+            }
+            CardViewHolder.economia.setText(droga.economia);
+            CardViewHolder.quantidade_unidade.setText("Quantidade em "+droga.unidade);
             if(droga.dados.isEmpty()){
                 CardViewHolder.graph.setVisibility(View.INVISIBLE);
                 CardViewHolder.n_relato_diario.setVisibility(View.VISIBLE);
@@ -176,30 +188,43 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
 }
 
 class Droga { // Objeto droga e construtor
-    String quantidade, frequencia, horario;
+    String quantidade, frequencia, horario, economia,unidade;
     int tipo;
     List<DataPoint> dados;
 
-    Droga(int tipo, float quantidade, int frequencia, boolean manha, boolean tarde, boolean noite, boolean madrugada, List<DataPoint> dados) {
+    boolean abstinencia;
+
+    Droga(int tipo, float quantidade, int frequencia, boolean manha, boolean tarde, boolean noite, boolean madrugada,int economia, List<DataPoint> dados) {
         this.tipo = tipo;
+        if(frequencia==0){
+            abstinencia=true;
+        }else{
+            abstinencia=false;
+        }
         switch(tipo){
             case 0:
                 this.quantidade = quantidade + " doses(cerveja)";
+                this.unidade="doses";
                 break;
             case 1:
                 this.quantidade = quantidade + " doses(vinho)";
+                this.unidade="doses";
                 break;
             case 2:
                 this.quantidade = quantidade + " doses(destilado)";
+                this.unidade="doses";
                 break;
             case 3:
                 this.quantidade = quantidade + " baseados";
+                this.unidade="baseados";
                 break;
             case 4:
                 this.quantidade = quantidade + " gramas";
+                this.unidade="gramas";
                 break;
             case 5:
                 this.quantidade = quantidade + " pedras";
+                this.unidade="pedras";
                 break;
         }
 
@@ -239,6 +264,7 @@ class Droga { // Objeto droga e construtor
                 this.horario+="madrugada\n";
             }
         }
+        this.economia = "Cerca de R$"+economia+",00 economizados esta semana";
         this.dados = dados;
     }
 }

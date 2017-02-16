@@ -30,7 +30,7 @@ import beok.beok.api.DB;
  * Created by erick on 16/02/17.
  */
 
-public class MetasSemanal extends Fragment {
+public class MetasSemana extends Fragment {
     private RecyclerView rv;
     private List<Metas> metas_semanal;
 
@@ -55,18 +55,18 @@ public class MetasSemanal extends Fragment {
 
         List<MetaSemanal> metas = DB.listAll(MetaSemanal.class);
         for(MetaSemanal meta : metas){
-            metas_semanal.add(new Metas(meta.getTipo(),meta.getQuantidade(),meta.getFreqSemanal(),meta.getManha(),meta.getTarde(),meta.getNoite(),meta.getMadrugada(),meta.getFimDeSem()));
+            metas_semanal.add(new Metas(meta.getTipo(),meta.getQuantidade(),meta.getFreqSemanal(),meta.getManha(),meta.getTarde(),meta.getNoite(),meta.getMadrugada()));
         }
 
     }
 
     private void initializeAdapter(){
-        DiarioAdapter adapter = new DiarioAdapter(metas_semanal);
+        MetaAdapter adapter = new MetaAdapter(metas_semanal);
         rv.setAdapter(adapter);
     }
 }
 
-class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
+class MetaAdapter extends RecyclerView.Adapter<MetaAdapter.CardViewHolder>{
 
     public static class CardViewHolder extends RecyclerView.ViewHolder {
 
@@ -90,7 +90,7 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
 
     List<Metas> metas_semanal;
 
-    DiarioAdapter(List<Metas> metas){
+    MetaAdapter(List<Metas> metas){
         this.metas_semanal = metas;
     }
 
@@ -111,11 +111,11 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
         Metas meta = metas_semanal.get(i);
         CardViewHolder.nomeDroga.setText(getNomeDroga(meta.tipo));
         CardViewHolder.quantidade.setText(meta.quantidade+"");
-        CardViewHolder.frequencia.setText(meta.frequencia);
-        if (meta.manha){CardViewHolder.manha.setVisibility(View.VISIBLE);}
+        //CardViewHolder.frequencia.setText(meta.frequencia);
+       /* if (meta.manha){CardViewHolder.manha.setVisibility(View.VISIBLE);}
         if (meta.manha){CardViewHolder.tarde.setVisibility(View.VISIBLE);}
         if (meta.manha){CardViewHolder.noite.setVisibility(View.VISIBLE);}
-        if (meta.manha){CardViewHolder.madrugada.setVisibility(View.VISIBLE);}
+        if (meta.manha){CardViewHolder.madrugada.setVisibility(View.VISIBLE);}*/
         //FALTA COLOCAR QUANTO TEMPO RESTA PARA META DA SEMANA
     }
 
@@ -144,7 +144,7 @@ class Metas { // Objeto droga e construtor
     boolean fimdesemana, manha, tarde, noite, madrugada;
     int tipo;
 
-    Metas(int tipo, float quantidade, int frequencia, boolean manha, boolean tarde, boolean noite, boolean madrugada, boolean fimdesemana) {
+    Metas(int tipo, float quantidade, int frequencia, boolean manha, boolean tarde, boolean noite, boolean madrugada) {
         this.tipo = tipo;
         this.fimdesemana = fimdesemana;
         this.quantidade = quantidade + " baseados";
