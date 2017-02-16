@@ -46,6 +46,7 @@ public class Main extends AppCompatActivity {
     TestFragment tf;
     ShowDiary show_diary_fragment;
     MetasSemana fragment_metas_semanal;
+    Inspiracao fragment_inspiracao;
     NavigationView nv;
 
     @Override
@@ -62,6 +63,7 @@ public class Main extends AppCompatActivity {
 
         show_diary_fragment = new ShowDiary();
         fragment_metas_semanal = new MetasSemana();
+        fragment_inspiracao = new Inspiracao();
 
         tf = new TestFragment();
         colocaFragment(show_diary_fragment, R.id.main_fragment_container);
@@ -144,7 +146,7 @@ public class Main extends AppCompatActivity {
 
                             case R.id.inspirationItem:
                                 //Toast.makeText(Main.this, "inspiração", Toast.LENGTH_SHORT).show();
-                                Main.this.colocaFragment(tf, R.id.main_fragment_container);
+                                Main.this.colocaFragment(fragment_inspiracao, R.id.main_fragment_container);
                                 break;
 
                             case R.id.therapyItem:
