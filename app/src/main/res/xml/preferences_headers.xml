@@ -6,10 +6,6 @@
         android:fragment="beok.beok.SettingsActivity$PersonalInfoPreference"
         android:title="Dados Pessoais" />
 
-<!--    <header
-        android:fragment="beok.beok.SettingsActivity$DrogasTratadas"
-        android:title="Drogas tratadas" />
--->
     <header
         android:fragment="beok.beok.SettingsActivity$MotivationPreferences"
         android:title="Motivação" />
@@ -27,6 +23,8 @@
         android:fragment="beok.beok.SettingsActivity$EmergencyContactsPreferences"
         android:title="Contatos de emergência" />
 
-
+    <header
+        android:fragment="beok.beok.SettingsActivity$NotificationsPreferences"
+        android:title="Notificações" />
 
 </preference-headers>

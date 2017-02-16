@@ -20,4 +20,9 @@
     <style name="TesteDiario" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@drawable/fundo_diario</item>
     </style>
+
+    <style name="TherapyTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@drawable/fundo_terapia</item>
+    </style>
+
 </resources>

@@ -73,5 +73,19 @@
         <item>Respire fundo e tente relaxar. Tome um banho. </item>
     </array>
 
+    <array name="periodo_notificacao">
+        <item>Manhã</item>
+        <item>Tarde</item>
+        <item>Noite</item>
+        <item>Madrugada</item>
+    </array>
+
+    <array name="periodo_notificacao_valor">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </array>
+
 
 </resources>
