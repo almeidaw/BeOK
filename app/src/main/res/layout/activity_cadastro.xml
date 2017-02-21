@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="beok.beok.Cadastro">
+    tools:context="beok.beok.Cadastro"
+    android:theme="@style/MyTheme"
+    android:background="@drawable/bg_registro"
+    android:gravity="center_horizontal"
+    android:layout_alignParentBottom="true">
 
 
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:focusable="true"
-        android:focusableInTouchMode="true">
+        android:layout_weight="1"
+        android:gravity="center_horizontal">
 
         <TextView
             android:text="Nome"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/scrollView2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:id="@+id/txtnome"
             android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="@dimen/tamanho_perguntas" />
+            android:textSize="@dimen/tamanho_perguntas"
+            android:textStyle="bold"/>
 
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
@@ -37,75 +36,110 @@
             android:hint="Digite seu nome"
             />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center_horizontal">
+
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Gênero"
             android:id="@+id/txtgenero"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="@dimen/tamanho_perguntas"/>
+            android:textSize="@dimen/tamanho_perguntas"
+            android:textStyle="bold"/>
 
         <Spinner
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spgenero"
-            android:entries="@array/genero" />
+            android:entries="@array/genero"/>
 
-        <TextView
-            android:text="Idade"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtidade"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="@dimen/tamanho_perguntas" />
+    </LinearLayout>
 
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spidade"
-            android:entries="@array/idade" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center_horizontal">
+
+            <TextView
+                android:text="Idade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtidade"
+                android:textSize="@dimen/tamanho_perguntas"
+                android:textStyle="bold"/>
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spidade"
+                android:entries="@array/idade" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center_horizontal">
 
         <TextView
             android:text="Email"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
             android:id="@+id/txtemail"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="@dimen/tamanho_perguntas"/>
+            android:textSize="@dimen/tamanho_perguntas"
+            android:textStyle="bold"/>
 
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:ems="10"
             android:id="@+id/edtxtemail"
             android:hint="Digite seu email"
             />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center_horizontal">
 
         <TextView
             android:text="Senha"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtsenha"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="@dimen/tamanho_perguntas"/>
+            android:textSize="@dimen/tamanho_perguntas"
+            android:textStyle="bold"/>
 
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/edtxtsenha"
             android:hint="Insira uma senha"
             />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Próximo"
-            android:id="@+id/btproximo1"
-            />
-
     </LinearLayout>
-</RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Próximo"
+        android:id="@+id/btproximo1"
+        android:background="@drawable/bordered_button_shape"
+        android:layout_weight="1"
+        android:textStyle="bold"/>
+
+</LinearLayout>

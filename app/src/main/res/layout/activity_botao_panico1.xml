@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="beok.beok.BotaoPanico2">
+    tools:context="beok.beok.BotaoPanico2"
+    android:theme="@style/MyTheme"
+    android:background="@drawable/bg_panico">
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,6 +23,7 @@
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/textView"
         android:layout_alignStart="@+id/textView"
+        android:background="@drawable/bordered_button_shape"
         android:onClick="botaoFissura"
         />
 
@@ -32,5 +35,6 @@
         android:layout_alignTop="@+id/btfissura"
         android:layout_alignRight="@+id/textView"
         android:layout_alignEnd="@+id/textView"
+        android:background="@drawable/bordered_button_shape"
         android:onClick="botaoUsei"/>
 </RelativeLayout>

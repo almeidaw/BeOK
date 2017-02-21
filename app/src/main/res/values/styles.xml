@@ -30,4 +30,35 @@
         <item name="colorPrimary">@drawable/bg_terapia</item>
     </style>
 
+
+    <style name="MyTheme" parent="android:Theme.Holo">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/branco</item>
+        <item name="android:textColorHint">@color/cinzinha</item>
+        <item name="android:buttonStyle">@style/myButton</item>
+        <item name="android:editTextStyle">@style/MyEditText</item>
+        <item name="android:spinnerStyle">@style/MySpinner</item>
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <style name="myButton" parent="Base.Widget.AppCompat.Button">
+        <item name="background">@android:color/transparent</item>
+    </style>
+
+    <style name="MyEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="MySpinner" parent="Base.Widget.AppCompat.Spinner">
+    </style>
+
+    <style name="MyActionBar" parent="Base.Widget.AppCompat.ActionBar">
+        <item name="background">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+<!--    <style name="SignUpTheme" parent="@style/MyTheme">
+        <item name="android:background">@drawable/bg_registro</item>
+    </style>
+-->
 </resources>

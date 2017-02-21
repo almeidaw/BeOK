@@ -157,7 +157,7 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_arrow_forward_black_24dp"
+                    android:src="@drawable/ic_forward_black_24dp"
                     android:id="@+id/btok"
                     android:onClick="botaoOk"
                     android:visibility="invisible"/>
