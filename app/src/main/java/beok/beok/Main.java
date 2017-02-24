@@ -11,6 +11,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -83,41 +84,52 @@ public class Main extends AppCompatActivity {
         texto_navbar=(TextView)findViewById(R.id.texto_navbar);
         //texto_navbar.setText(Conf.getNomeUsuario());
 
+
+        bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottom_navigation);
+
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+                 // This method will trigger on item Click of navigation menu
+                 @Override
+                 public boolean onNavigationItemSelected(MenuItem item) {
+                     // Handle navigation view item clicks here.
+                     int id = item.getItemId();
+                     if (id == R.id.nav_diario) {
+                         Main.this.colocaFragment (show_diary_fragment, R.id.main_fragment_container);
+                         content_main.setBackgroundResource(R.drawable.bg_diario);
+                         bottomNavigationView.getMenu().getItem(0).setChecked(true);
 
-                                                 // This method will trigger on item Click of navigation menu
-                                                 @Override
-                                                 public boolean onNavigationItemSelected(MenuItem item) {
-                                                     // Handle navigation view item clicks here.
-                                                     int id = item.getItemId();
-                                                     if (id == R.id.nav_acompanhamento) {
-                                                         // Handle the "acompanhamento" action
+                     } else if (id == R.id.nav_metas){
+                         Main.this.colocaFragment(fragment_metas_semanal, R.id.main_fragment_container);
+                         content_main.setBackgroundResource(R.drawable.bg_metas);
+                         bottomNavigationView.getMenu().getItem(1).setChecked(true);
 
-                                                     } else if (id == R.id.nav_configuracoes) {
 
-                                                        Intent intent = new Intent(Main.this, SettingsActivity.class);
-                                                        startActivity(intent);
+                     } else if (id == R.id.nav_inspiracao){
+                         Main.this.colocaFragment(fragment_inspiracao, R.id.main_fragment_container);
+                         content_main.setBackgroundResource(R.drawable.bg_inspiracao);
+                         bottomNavigationView.getMenu().getItem(2).setChecked(true);
 
-                                                     } else if (id == R.id.nav_info) {
 
-                                                     } else if (id == R.id.nav_diario){
+                     } else if (id == R.id.nav_terapia){
+                         Main.this.colocaFragment(tf, R.id.main_fragment_container);
+                         content_main.setBackgroundResource(R.drawable.bg_terapia);
+                         bottomNavigationView.getMenu().getItem(3).setChecked(true);
 
-                                                     } else if (id == R.id.nav_inspiracao){
+                     } else if (id == R.id.nav_configuracoes) {
+                         Intent intent = new Intent(Main.this, SettingsActivity.class);
+                         startActivity(intent);
 
-                                                     } else if (id == R.id.nav_metas){
+                     } else if (id == R.id.nav_info) {
 
-                                                     } else if (id == R.id.nav_terapia){
+                     }
 
-                                                     } else if (id == R.id.nav_favoritos){
 
-                                                     }
-
-                                                     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-                                                     drawer.closeDrawer(GravityCompat.START);
-                                                     return true;
-                                                 }
-                                             }
-                );
+                     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                     drawer.closeDrawer(GravityCompat.START);
+                     return true;
+                 }
+             }
+        );
 
 
 
@@ -141,7 +153,6 @@ public class Main extends AppCompatActivity {
             }
         });
 
-        bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -151,24 +162,28 @@ public class Main extends AppCompatActivity {
                                 //Toast.makeText(Main.this, "diário", Toast.LENGTH_SHORT).show();
                                 Main.this.colocaFragment(show_diary_fragment, R.id.main_fragment_container);
                                 content_main.setBackgroundResource(R.drawable.bg_diario);
+                                nv.getMenu().getItem(0).setChecked(true);
                                 break;
 
                             case R.id.goalsItem:
                                 //Toast.makeText(Main.this, "metas", Toast.LENGTH_SHORT).show();
                                 Main.this.colocaFragment(fragment_metas_semanal, R.id.main_fragment_container);
                                 content_main.setBackgroundResource(R.drawable.bg_metas);
+                                nv.getMenu().getItem(1).setChecked(true);
                                 break;
 
                             case R.id.inspirationItem:
                                 //Toast.makeText(Main.this, "inspiração", Toast.LENGTH_SHORT).show();
                                 Main.this.colocaFragment(fragment_inspiracao, R.id.main_fragment_container);
                                 content_main.setBackgroundResource(R.drawable.bg_inspiracao);
+                                nv.getMenu().getItem(2).setChecked(true);
                                 break;
 
                             case R.id.therapyItem:
                                 //Toast.makeText(Main.this, "terapia", Toast.LENGTH_SHORT).show();
                                 Main.this.colocaFragment(tf, R.id.main_fragment_container);
                                 content_main.setBackgroundResource(R.drawable.bg_terapia);
+                                nv.getMenu().getItem(3).setChecked(true);
                                 break;
                         }
                         return true;
