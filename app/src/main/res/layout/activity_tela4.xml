@@ -7,7 +7,12 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="beok.beok.Tela4">
+    tools:context="beok.beok.Tela4"
+    android:theme="@style/MyTheme"
+    android:background="@drawable/bg_registro"
+    android:gravity="center_horizontal"
+    >
+
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -25,7 +30,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtcontatos"
             android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="@dimen/tamanho_perguntas"/>
+            android:textSize="@dimen/tamanho_perguntas"
+            android:layout_gravity="center_horizontal"/>
 
         <EditText
             android:text="Contato 1"
@@ -48,7 +54,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btcontato1"
-            android:onClick="selecionarContato1"/>
+            android:onClick="selecionarContato1"
+            android:background="@drawable/bordered_button_shape"/>
 
         <EditText
             android:text="Contato 2"
@@ -71,7 +78,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btcontato2"
-            android:onClick="selecionarContato2"/>
+            android:onClick="selecionarContato2"
+            android:background="@drawable/bordered_button_shape"/>
 
         <EditText
             android:text="Contato 3"
@@ -94,7 +102,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btcontato3"
-            android:onClick="selecionarContato3"/>
+            android:onClick="selecionarContato3"
+            android:background="@drawable/bordered_button_shape"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -103,7 +112,8 @@
             android:layout_gravity="center_horizontal"
             android:text="Finalizar o cadastro"
             android:id="@+id/btfimcadastro"
-            android:onClick="FinalizarCadastro"/>
+            android:onClick="FinalizarCadastro"
+            android:background="@drawable/bordered_button_shape"/>
 
     </LinearLayout>
 

@@ -24,13 +24,14 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal">
 
         <CheckBox
             android:text="Álcool"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_alignParentLeft="true"
             android:id="@+id/cbparaalcool"
             android:onClick="paraAlcool"/>
 
@@ -40,7 +41,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/cbparamaconha"
             android:layout_below="@+id/cbparaalcool"
-            android:layout_alignLeft="@+id/cbparaalcool"
+            android:layout_alignParentLeft="true"
             android:onClick="paraMaconha"
             />
 
@@ -50,7 +51,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/cbparacocaina"
             android:layout_below="@+id/cbparamaconha"
-            android:layout_alignLeft="@+id/cbparaalcool"
+            android:layout_alignParentLeft="true"
             android:onClick="paraCocaina"/>
 
         <CheckBox
@@ -59,7 +60,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/cbparacrack"
             android:layout_below="@+id/cbparacocaina"
-            android:layout_alignLeft="@+id/cbparaalcool"
+            android:layout_alignParentLeft="true"
             android:onClick="paraCrack"/>
 
     </RelativeLayout>
