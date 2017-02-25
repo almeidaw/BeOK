@@ -22,12 +22,14 @@ import com.orm.SugarRecord;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import beok.beok.POJO.MetaGeral;
 import beok.beok.POJO.MetaSemGeral;
 import beok.beok.POJO.MetaSemanal;
 import beok.beok.POJO.UsoDroga;
+import beok.beok.POJO.Usuario;
 import beok.beok.api.DB;
 
 /**
@@ -51,11 +53,44 @@ public class MetasSemana extends Fragment {
         initializeData();
         initializeAdapter();
 
+
         return v;
     }
 
     private void initializeData() { // Substituir por dados do servidor
         metas_semanal = new ArrayList<Meta>();
+
+      /*  Usuario u=new Usuario();
+        u.setNome("jasdj");
+
+        DB.save(u);
+
+        List<UsoDroga> usoDrogas=DB.listAll(UsoDroga.class);
+
+        DataTeste dt=new DataTeste();
+        dt.setNameTeste("nomeee");
+
+        Calendar c = Calendar.getInstance();
+        c.set(2017, 1, 3, 20, 30,0);
+        dt.setDataHora(c.getTime());
+        dt.setBoolTeste(true);
+
+
+        c.set(2017, 1, 3, 20, 29,59);
+        Date minDate=c.getTime();
+
+        c.set(2017, 1, 3, 20, 20,01);
+        Date maxDate=c.getTime();
+
+        Date data=new Date();
+
+        data.setTime(System.currentTimeMillis());
+
+
+        List<DataTeste> result = SugarRecord.findWithQuery(DataTeste.class,
+                "SELECT * FROM data_teste WHERE data_hora >= ?",
+                minDate.getTime() + "");*/
+
 
         List<MetaGeral> metasGerais = DB.listAll(MetaGeral.class);
         for(MetaGeral meta : metasGerais){
