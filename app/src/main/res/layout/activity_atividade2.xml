@@ -95,23 +95,27 @@
 
             </LinearLayout>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:text="IMAGEM"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:textAlignment="center"
-                android:textSize="100dp"
-                android:background="@drawable/terapia_button_style"
-                android:layout_marginBottom="30dp"
-                android:layout_marginTop="30dp"/>
+                android:layout_height="match_parent"
+                android:id="@+id/layout1"
+                android:orientation="vertical">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingRight="30dp"
-                android:paddingLeft="30dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:id="@+id/terapia1"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/terapia1"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="30dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="30dp"
+                    android:paddingLeft="30dp">
 
                 <Button
                     android:layout_width="100dp"
@@ -133,31 +137,32 @@
                     android:textColor="#FF18919e"
                     android:paddingRight="20dp"
                     android:paddingLeft="20dp"/>
+                </RelativeLayout>
 
-            </RelativeLayout>
+            </LinearLayout>
 
-            <FrameLayout
-                android:id="@+id/layout"
+            <LinearLayout
+                android:id="@+id/layout2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/btverdade">
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ok"
-                    android:id="@+id/btok"
-                    android:layout_gravity="center_horizontal|bottom"
-                    android:onClick="botaoOk"
-                    android:visibility="invisible"/>
+                android:orientation="vertical">
 
                 <TextView
+                    android:layout_marginTop="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtexplicacao"
                     android:layout_gravity="center_horizontal|top" />
-            </FrameLayout>
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_forward_black_24dp"
+                    android:id="@+id/btok"
+                    android:onClick="botaoOk"
+                    android:visibility="invisible"/>
+
+            </LinearLayout>
 
 
         </LinearLayout>
