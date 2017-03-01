@@ -21,6 +21,7 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="windowActionBarOverlay">true</item>
         <item name="colorPrimary">@android:color/transparent</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
@@ -29,5 +30,6 @@
     <style name="TherapyTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@drawable/bg_terapia</item>
     </style>
+
 
 </resources>
