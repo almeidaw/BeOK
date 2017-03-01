@@ -1,7 +1,10 @@
 package beok.beok.webservice;
 
+import java.util.List;
+
 import beok.beok.POJO.CreatedObjects;
 import beok.beok.POJO.DataTeste;
+import beok.beok.POJO.InspServ;
 import beok.beok.POJO.Usuario;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -25,4 +28,7 @@ public interface ServiceWS {
 
     @PUT("ws/ws/main/data/create/{id}")
     Call<CreatedObjects> create(@Body Object body,@Path("id") long idUsuario);
+
+    @PUT("ws/ws/main/data/inspiracao")
+    Call<List<InspServ>> checkInsp(@Body Object body);
 }
