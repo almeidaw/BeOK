@@ -7,7 +7,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="beok.beok.UsouDroga">
+    tools:context="beok.beok.UsouDroga"
+    android:theme="@style/MyTheme"
+    android:background="@drawable/bg_registro">
 
 
     <TextView
@@ -17,44 +19,46 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:id="@+id/textView" />
+        android:id="@+id/textView"
+        android:gravity="center_horizontal"/>
 
-    <CheckBox
-        android:layout_width="100dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Álcool"
-        android:id="@+id/cbalcool"
-        android:onClick="botaoAlcool"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp" />
+        android:layout_centerHorizontal="true">
 
-    <CheckBox
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="Maconha"
-        android:id="@+id/cbmaconha"
-        android:onClick="botaoMaconha"
-        android:layout_below="@+id/cbalcool"
-        android:layout_centerHorizontal="true" />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Álcool"
+            android:id="@+id/cbalcool"
+            android:onClick="botaoAlcool"/>
 
-    <CheckBox
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="Cocaina"
-        android:id="@+id/cbcocaina"
-        android:onClick="botaoCocaina"
-        android:layout_below="@+id/cbmaconha"
-        android:layout_centerHorizontal="true" />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maconha"
+            android:id="@+id/cbmaconha"
+            android:onClick="botaoMaconha"/>
 
-    <CheckBox
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="Crack"
-        android:id="@+id/cbcrack"
-        android:onClick="botaoCrack"
-        android:layout_below="@+id/cbcocaina"
-        android:layout_centerHorizontal="true" />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cocaina"
+            android:id="@+id/cbcocaina"
+            android:onClick="botaoCocaina"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crack"
+            android:id="@+id/cbcrack"
+            android:layout_below="@+id/cbcocaina"
+            android:onClick="botaoCrack"/>
+    </LinearLayout>
 
 
 </RelativeLayout>

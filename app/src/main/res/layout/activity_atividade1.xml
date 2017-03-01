@@ -8,80 +8,99 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="beok.beok.Atividade1">
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+    tools:context="beok.beok.Atividade1"    android:theme="@style/MyTheme"
+    android:background="@drawable/bg_terapia"
+    android:gravity="center_horizontal"
+    >
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
-            <TextView
-                android:text="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtnumero"
-                android:textAppearance="@style/TextAppearance.AppCompat"
-                android:textSize="25sp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:text="/12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txttotal"
-                android:layout_weight="1.68" />
+                <TextView
+                    android:text="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtnumero"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:textSize="30sp"
+                    android:textStyle="bold"/>
 
-            <TextView
-                android:text="Tema da semana"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:text="/12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txttotal"
+                    android:layout_weight="1.68" />
+
+                <TextView
+                    android:text="TEMA DA SEMANA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txttema"
+                    android:layout_gravity="bottom"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:text="@string/tema1"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txttemasemanal"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:layout_gravity="end"
+                    android:layout_width="match_parent"
+                    android:textAlignment="viewEnd"
+                    android:gravity="right"/>
+
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txttema"
-                android:layout_gravity="bottom"/>
+                android:layout_marginTop="20dp"
+                >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Descricao1"
+                    android:textSize="@dimen/answer_txt_size"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"/>
+
+                <Button
+                    android:text="Definir metas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btmeta"
+                    android:layout_gravity="center"
+                    android:onClick="iniciarAtividade1"
+                    android:layout_marginTop="20sp"
+                    android:background="@drawable/bordered_button_shape"/>
+
+            </LinearLayout>
+            </ScrollView>
+
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:text="na terapia"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtterapia"
-                android:layout_weight="0.07" />
-
-            <TextView
-                android:text="@string/tema1"
-                android:layout_height="wrap_content"
-                android:id="@+id/txttemasemanal"
-                android:textAppearance="@style/TextAppearance.AppCompat"
-                android:layout_gravity="end"
-                android:layout_width="235dp"
-                android:textAlignment="viewEnd" />
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Descricao1"
-            android:layout_marginTop="60dp"/>
-        <Button
-            android:text="Definir metas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btmeta"
-            android:layout_gravity="center"
-            android:layout_marginTop="80dp"
-            android:onClick="iniciarAtividade1"/>
-
-    </LinearLayout>
 </RelativeLayout>

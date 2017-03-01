@@ -20,9 +20,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtmotivacao"
+        android:layout_marginTop="20dp"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="@dimen/tamanho_perguntas"
-        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
         android:layout_weight="1"/>
 
     <LinearLayout

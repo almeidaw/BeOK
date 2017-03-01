@@ -15,6 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginTop="30dp"
         android:layout_weight="1"
         android:gravity="center_horizontal">
 
@@ -133,13 +134,20 @@
             />
     </LinearLayout>
 
-    <Button
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Próximo"
-        android:id="@+id/btproximo1"
-        android:background="@drawable/bordered_button_shape"
-        android:layout_weight="1"
-        android:textStyle="bold"/>
+        android:gravity="center"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Próximo"
+            android:id="@+id/btproximo1"
+            android:background="@drawable/bordered_button_shape"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
 
 </LinearLayout>

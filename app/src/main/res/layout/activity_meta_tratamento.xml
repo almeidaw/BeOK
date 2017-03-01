@@ -31,6 +31,7 @@
                 android:text="Qual será sua meta de tratamento com essa droga?"
                 android:layout_marginBottom="5dp"
                 android:id="@+id/textView"
+                android:gravity="center"
                 />
 
             <LinearLayout
@@ -62,7 +63,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/tamanho_perguntas"
                 android:layout_marginBottom="5dp"
-                android:text="Qual quantidade por dia você pretende usar?" />
+                android:text="Qual quantidade por dia você pretende usar?"
+                android:gravity="center"/>
 
             <ImageView
                 android:layout_width="match_parent"
