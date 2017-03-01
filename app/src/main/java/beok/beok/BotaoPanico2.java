@@ -1,14 +1,19 @@
 package beok.beok;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Random;
+
+import beok.beok.api.Conf;
 
 public class BotaoPanico2 extends AppCompatActivity {
 
@@ -23,22 +28,39 @@ public class BotaoPanico2 extends AppCompatActivity {
 
     TextView txtmsgmotivacional;
 
+    Button bt2,bt3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_botao_panico2);
 
+        bt2=(Button)findViewById(R.id.btcontato2);
+        bt3=(Button)findViewById(R.id.btcontato3);
+
         txtmsgmotivacional = (TextView) findViewById(R.id.txtmsgmotivacional);
+        tel_2e=false;
+        tel_3e=false;
+        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(this);
+        tel_1=SP.getString("contact1Number","");
+        tel_2=SP.getString("contact2Number","");
+        tel_3=SP.getString("contact2Number","");
+
+        if(!tel_2.equals(""))
+            tel_2e=true;
+        if(!tel_3.equals(""))
+            tel_3e=true;
+
+        if(!tel_2e)
+            bt2.setVisibility(View.GONE);
+        if(!tel_3e)
+            bt3.setVisibility(View.GONE);
 
         Random r = new Random();
         Resources res = getResources();
-        String[] msg = res.getStringArray(R.array.msg_motivacionais);
-        int posicao = r.nextInt(3);
-        if (posicao == 0) {
-            txtmsgmotivacional.setText(String.format(msg[posicao], 7));
-        }else {txtmsgmotivacional.setText(msg[posicao]);}
-
-
+        String[] msg = res.getStringArray(R.array.msg_continue_tentando);
+        String mensagem = String.format(msg[r.nextInt(9)], Conf.getNomeUsuario());
+        txtmsgmotivacional.setText(mensagem);
 
     }
 

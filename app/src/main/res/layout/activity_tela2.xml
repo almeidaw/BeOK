@@ -1,72 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="beok.beok.Tela2">
+    android:orientation="vertical"
+    tools:context="beok.beok.Tela2"
+    android:theme="@style/MyTheme"
+    android:background="@drawable/bg_registro"
+    android:gravity="center_horizontal"
+    >
 
     <TextView
         android:text="Quais drogas você pretende tratar com o uso do aplicativo?"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtdrogasparar"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="@dimen/tamanho_perguntas"/>
-
-    <CheckBox
-        android:text="Álcool"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cbparaalcool"
-        android:onClick="paraAlcool"
-        android:layout_below="@+id/txtdrogasparar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
-
-    <CheckBox
-        android:text="Maconha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cbparamaconha"
-        android:layout_below="@+id/cbparaalcool"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="paraMaconha"
-        />
-
-    <CheckBox
-        android:text="Cocaína"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cbparacocaina"
-        android:layout_below="@+id/cbparamaconha"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="paraCocaina"/>
-
-    <CheckBox
-        android:text="Crack"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cbparacrack"
-        android:layout_below="@+id/cbparacocaina"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="paraCrack"/>
-
-
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Próximo"
-        android:id="@+id/btproximo2"
-        android:layout_below="@+id/cbparacrack"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:id="@+id/txtdrogasparar"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="@dimen/question_txt_size"
         />
 
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal">
+
+        <CheckBox
+            android:text="Álcool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/cbparaalcool"
+            android:onClick="paraAlcool"/>
+
+        <CheckBox
+            android:text="Maconha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbparamaconha"
+            android:layout_below="@+id/cbparaalcool"
+            android:layout_alignParentLeft="true"
+            android:onClick="paraMaconha"
+            />
+
+        <CheckBox
+            android:text="Cocaína"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbparacocaina"
+            android:layout_below="@+id/cbparamaconha"
+            android:layout_alignParentLeft="true"
+            android:onClick="paraCocaina"/>
+
+        <CheckBox
+            android:text="Crack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbparacrack"
+            android:layout_below="@+id/cbparacocaina"
+            android:layout_alignParentLeft="true"
+            android:onClick="paraCrack"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Próximo"
+            android:id="@+id/btproximo2"
+            android:background="@drawable/bordered_button_shape"/>
+    </LinearLayout>
+
+</LinearLayout>

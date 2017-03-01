@@ -52,11 +52,6 @@
     </array>
 
 
-    <array name="mensagens">
-        <item>%1$s, não desista!</item>
-        <item>A dificuldade está aí, mas você pode superar, %1$s </item>
-    </array>
-
     <array name="drugsList">
         <item>Alcool</item>
         <item>Cocaína</item>
@@ -65,12 +60,6 @@
     </array>
 
     <array name="emptyArray">
-    </array>
-
-    <array name="msg_motivacionais">
-        <item>Lembre do seu avanço no tratamento. Você já está a %1$d dias sem usar.</item>
-        <item>Lembra como você ficou da última vez que usou?</item>
-        <item>Respire fundo e tente relaxar. Tome um banho. </item>
     </array>
 
     <array name="periodo_notificacao">
@@ -87,5 +76,48 @@
         <item>4</item>
     </array>
 
+    <array name="msg_continue_tentando">
+        <item>%1$s, não desista!</item>
+        <item>A dificuldade está aí, mas você pode superar, %1$s </item>
+        <item>Você está chegando lá, %1$s!</item>
+        <item>Valeu o esforço, %1$s!</item>
+        <item>Você irá conseguir ainda, %1$s!</item>
+        <item>Você está no caminho, %1$s!</item>
+        <item>Você é maior do que isso! Continue, %1$s!</item>
+        <item>Você é mais que isso! Você consegue superar, %1$s!</item>
+        <item>Você pode alcançar o almejado, %1$s! Continue!</item>
+    </array>
+
+    <array name="msg_nao_usou">
+        <item>Que legal, %1$s, você conseguiu driblar sua vontade!</item>
+        <item>Parabéns, %1$s, você teve vontade e conseguiu não usar!</item>
+        <item>Você superou sua própria vontade, %1$s!</item>
+        <item>Você é maior que sua vontade! Parabéns, %1$s!</item>
+        <item>Você é maior que sua fissura, %1$s! Que felicidade!</item>
+    </array>
+
+    <array name="msg_atingiu_meta">
+        <item>Viu?! Você conseguiu, %1$s!</item>
+        <item>Você atingiu sua meta! Parabéns, %1$s!</item>
+        <item>Que legal, %1$s! Que felicidade!</item>
+        <item>Conquista alcançada, %1$s! Sua meta foi atingida!</item>
+        <item>Grande comemoração, %1$s! Seu objetivo foi alcançado!</item>
+        <item>Comemore, %1$s! Você cumoriu sua própria meta! Parabéns!</item>
+    </array>
+
+    <array name="msg_tema_completo">
+        <item>Parabens, %1$s, você agora está mais preparado para lidar com sua questão da droga!</item>
+        <item>O assunto das drogas está sendo cada vez mais compreendido por você, %1$s! Comemore!</item>
+        <item>Parabéns, %1$s, agora você compreende mais sobre o assunto das drogas!</item>
+        <item>Você está entendendo mais e mais sobre o assunto! Parabéns, %1$s!</item>
+        <item>Legal! A compreensão do tema está cada vez maior, %1$s! </item>
+        <item>Você está mais próximo da superação, %1$s!</item>
+    </array>
+
+    <array name="msg_motivacionais">
+        <item>Lembre do seu avanço no tratamento. Você já está a %1$d dias sem usar.</item>
+        <item>Lembra como você ficou da última vez que usou?</item>
+        <item>Respire fundo e tente relaxar. Tome um banho. </item>
+    </array>
 
 </resources>

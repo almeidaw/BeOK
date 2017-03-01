@@ -11,7 +11,7 @@ import java.util.Date;
 @Table
 public class FraseMot {
 
-
+    //TODO excluir
 
     private Long id;
     private String mensagem;

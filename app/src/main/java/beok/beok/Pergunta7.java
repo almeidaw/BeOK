@@ -90,8 +90,11 @@ public class Pergunta7 extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
     public void botaoNao(View v){
+        Bundle bundle = new Bundle();
+        bundle.putInt("se_usou",0);
         //Registra no diario
         Intent i = new Intent(this, Fim.class);
+        i.putExtras(bundle);
         startActivity(i);
         //slide from right to left
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

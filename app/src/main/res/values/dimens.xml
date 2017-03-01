@@ -11,5 +11,10 @@
     <dimen name="nav_header_height">160dp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="question_txt_size">22sp</dimen>
+    <dimen name="answer_txt_size">20sp</dimen>
+    <dimen name="coments_txt_size">18sp</dimen>
+    <dimen name="button_txt_size">23sp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
 </resources>

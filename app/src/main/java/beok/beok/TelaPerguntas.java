@@ -103,8 +103,8 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
 
             });
         }else if (bundle.getInt("Droga escolhida") == 2){
-            txtunidade.setText("1 baseado de maconha = ");
-            txtlegenda.setText("1 baseado: fino=0,5 grama, normal = 1,2 gramas, bomba= 2 gramas");
+            //txtunidade.setText("1 baseado de maconha = ");
+            txtlegenda.setText("baseado fino = 0,5 grama \nbaseado normal = 1,2 grama\nbomba = 2 grama");
             ca.setMaconha();
             sbqtd.setMax(10);
         }else if (bundle.getInt("Droga escolhida") == 3){

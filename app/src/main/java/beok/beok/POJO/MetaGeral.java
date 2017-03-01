@@ -11,7 +11,9 @@ import java.util.Date;
 @Table
 public class MetaGeral {
 
-
+    //Tipo 0=cerveja, 1=vinho, 2=destilado, 3=maconha, 4=cocaina 5=crack
+    //FreqSemanal 0=abstinencia 1=1 dia por semana, 2=2 dias por semana 3=3 a 5 dias por semana 4=todos os dias 5=finais de semana
+    //
 
     private Long id;
 
@@ -22,6 +24,7 @@ public class MetaGeral {
     private boolean noite;
     private boolean madrugada;
     private int quantidade;
+    private Date dataInicio;
 
 
     /**
@@ -138,5 +141,13 @@ public class MetaGeral {
      */
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public Date getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(Date dataInicio) {
+        this.dataInicio = dataInicio;
     }
 }

@@ -7,35 +7,50 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="beok.beok.TelaPerguntas">
+    tools:context="beok.beok.TelaPerguntas"
+    android:theme="@style/MyTheme"
+    android:background="@drawable/bg_registro"
+    android:gravity="center_horizontal"
+    >
 
-    <ScrollView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/scrollView" >
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:focusable="true"
-            android:focusableInTouchMode="true">
-
+            android:layout_weight="1"
+            android:gravity="center"
+            >
             <TextView
                 android:text="@string/freq90dias"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtfreq"
                 android:textSize="@dimen/tamanho_perguntas"
                 android:layout_marginBottom="5dp"
-                android:textAppearance="@style/TextAppearance.AppCompat"/>
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:gravity="center"/>
 
             <Spinner
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/spfreq"
                 android:layout_marginBottom="10dp"
                 android:entries="@array/freq"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
 
             <TextView
                 android:text="@string/qtd90dias"
@@ -44,7 +59,8 @@
                 android:id="@+id/txtqtd"
                 android:textSize="@dimen/tamanho_perguntas"
                 android:layout_marginBottom="5dp"
-                android:textAppearance="@style/TextAppearance.AppCompat"/>
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:gravity="center"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -52,8 +68,9 @@
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textSize="@dimen/tamanho_perguntas"
                 android:layout_marginBottom="5dp"
-                android:layout_gravity="center"
-                android:id="@+id/txtlegenda" />
+                android:gravity="center"
+                android:id="@+id/txtlegenda"
+                android:textColor="@color/cinzinha"/>
 
             <ImageView
                 android:layout_width="match_parent"
@@ -64,7 +81,7 @@
                 android:src="@drawable/bebidas" />
 
             <Spinner
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/spbebidas"
                 android:entries="@array/bebidas"
@@ -81,7 +98,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:id="@+id/txtqtddroga" />
+                android:textSize="@dimen/coments_txt_size"
+                android:id="@+id/txtqtddroga"
+                android:textColor="@color/cinzinha"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
 
             <TextView
                 android:text="@string/gasto"
@@ -89,43 +116,56 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtgasto"
                 android:textSize="@dimen/tamanho_perguntas"
-                android:textAppearance="@style/TextAppearance.AppCompat"/>
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:gravity="center_horizontal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat"
-                    android:id="@+id/txtunidade"/>
+                    android:id="@+id/txtunidade"
+                    android:textColor="@color/cinzinha"/>
 
                 <EditText
-                    android:layout_width="30dp"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat"
-                    android:id="@+id/edtxtgasto" />
+                    android:id="@+id/edtxtgasto"
+                    android:inputType="number"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat"
-                    android:text="reais"/>
+                    android:text="reais"
+                    android:textColor="@color/cinzinha"/>
 
             </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Confirmar"
                 android:id="@+id/btconfirma"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
-
+                android:background="@drawable/bordered_button_shape"/>
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
 </RelativeLayout>

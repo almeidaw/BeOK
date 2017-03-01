@@ -36,6 +36,9 @@ public class NaoUsouDroga extends AppCompatActivity {
     }
 
     public void botaoNao(View v){
+        Bundle bundle = new Bundle();
+        bundle.putInt("se_usou",1);
+
         RelatoDiario rd=new RelatoDiario();
 
         Date dtnow=new Date();
@@ -48,6 +51,7 @@ public class NaoUsouDroga extends AppCompatActivity {
         DB.save(rd);
 
         Intent i = new Intent(this, Fim.class);
+        i.putExtras(bundle);
         startActivity(i);
     }
 }

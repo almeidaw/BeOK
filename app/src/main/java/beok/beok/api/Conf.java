@@ -32,4 +32,5 @@ public class Conf {
     public static boolean getTratamentoCocaina(){
 
     }*/
+
 }
