@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="beok.beok.MetaTratamentoReducao"
+    app:theme="@style/MyTheme"
+    android:background="@drawable/bg_registro">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView2" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/tamanho_perguntas"
+                android:layout_marginBottom="5dp"
+                android:text="Qual quantidade por dia você pretende usar?"
+                android:gravity="center"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:id="@+id/ivbebidas"
+                android:src="@drawable/bebidas"
+                android:layout_marginBottom="5dp"
+                android:visibility="gone"/>
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/spbebidas"
+                android:layout_marginBottom="5dp"
+                android:entries="@array/bebidas">
+            </Spinner>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/tamanho_perguntas"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/txtlegenda" />
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/sbqtd"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/txtqtd"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/tamanho_perguntas"
+                android:layout_marginBottom="5dp"
+                android:text="Em qual período do dia?"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Manhã(das 6h às 12h)"
+                    android:id="@+id/cbmanha" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tarde(das 12h às 18h)"
+                    android:id="@+id/cbtarde"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Noite(das 18h às 24h)"
+                    android:id="@+id/cbnoite"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Madrugada(das 24h às 6h)"
+                    android:id="@+id/cbmadrugada"
+                    android:layout_marginBottom="5dp"/>
+                </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btproximo"
+                android:text="Próximo"
+                android:onClick="botaoProximo"
+                android:background="@drawable/bordered_button_shape"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

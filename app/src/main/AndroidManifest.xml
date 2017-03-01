@@ -45,7 +45,8 @@
         <activity android:name=".AlternativaUso" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".MetaSemanal" />
-        <activity android:name=".MetaTratamento" />
+        <activity android:name=".MetaTratamento"/>
+        <activity android:name=".MetaTratamentoReducao" />
         <activity android:name=".Atividade1" />
         <activity android:name=".Terapia" />
         <activity android:name=".BotaoPanico1"/>
