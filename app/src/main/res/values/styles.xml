@@ -43,8 +43,8 @@
     </style>
 
     <style name="myButton" parent="Base.Widget.AppCompat.Button">
-        <item name="background">@android:color/transparent</item>
         <item name="android:textSize">@dimen/button_txt_size</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="MyEditText" parent="Widget.AppCompat.EditText">

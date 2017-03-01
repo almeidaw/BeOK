@@ -42,7 +42,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtlegenda"/>
+            android:id="@+id/txtlegenda"
+            android:textSize="@dimen/coments_txt_size"
+            android:textColor="@color/cinzinha"
+            android:layout_gravity="center_horizontal"/>
 
         <Spinner
             android:layout_width="match_parent"
@@ -61,7 +64,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtqtd"/>
+            android:id="@+id/txtqtd"
+            android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>
 
@@ -73,8 +77,8 @@
         android:onClick="botaoProximo1"
         android:visibility="gone"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bordered_button_shape"/>
 
 
 </RelativeLayout>

@@ -7,7 +7,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="beok.beok.Pergunta3">
+    tools:context="beok.beok.Pergunta3"
+    android:theme="@style/MyTheme"
+    android:background="@drawable/bg_registro">
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,51 +20,63 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp" />
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="Amigos"
-        android:id="@+id/btamigos"
-        android:onClick="usouComAmigos"
-        android:layout_below="@+id/textView2"
-        android:layout_alignLeft="@+id/btparceiro"
-        android:layout_alignStart="@+id/btparceiro"
-        android:layout_marginTop="50dp" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/textView2"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp">
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="Parceiro"
-        android:id="@+id/btparceiro"
-        android:onClick="usouComParceiro"
-        android:layout_below="@+id/btamigos"
-        android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amigos"
+            android:id="@+id/btamigos"
+            android:onClick="usouComAmigos"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textSize="@dimen/answer_txt_size"/>
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="Familiares"
-        android:id="@+id/btfamiliares"
-        android:onClick="usouComFamiliares"
-        android:layout_below="@+id/btparceiro"
-        android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Parceiro"
+            android:id="@+id/btparceiro"
+            android:onClick="usouComParceiro"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textSize="@dimen/answer_txt_size"/>
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="Sozinho"
-        android:id="@+id/btsozinho"
-        android:onClick="usouSozinho"
-        android:layout_below="@+id/btfamiliares"
-        android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Familiares"
+            android:id="@+id/btfamiliares"
+            android:onClick="usouComFamiliares"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textSize="@dimen/answer_txt_size"/>
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="Desconhecidos"
-        android:onClick="usouComDesconhecidos"
-        android:id="@+id/btdesconhecidos"
-        android:layout_below="@+id/btsozinho"
-        android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sozinho"
+            android:id="@+id/btsozinho"
+            android:onClick="usouSozinho"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textSize="@dimen/answer_txt_size"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Desconhecidos"
+            android:onClick="usouComDesconhecidos"
+            android:id="@+id/btdesconhecidos"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textSize="@dimen/answer_txt_size"/>
+    </LinearLayout>
 </RelativeLayout>

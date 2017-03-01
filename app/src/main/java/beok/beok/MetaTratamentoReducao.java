@@ -66,11 +66,11 @@ public class MetaTratamentoReducao extends AppCompatActivity {
             meta.setTipo(0);
             txtlegenda.setText("Uma dose é igual a");
         } else if (bundle.getInt("Droga escolhida") == 2) {
-            txtlegenda.setText("baseado fino=0,5 grama\nbaseado normal = 1,2 gramas\nbomba= 2 gramas");
+            txtlegenda.setText(getResources().getString(R.string.peso_baseado));
             meta.setTipo(3);
 
         } else if (bundle.getInt("Droga escolhida") == 3) {
-            txtlegenda.setText("1 papelote/pino= 1grama");
+            txtlegenda.setText(getResources().getString(R.string.peso_pedra));
             meta.setTipo(4);
 
         } else if (bundle.getInt("Droga escolhida") == 4) {

@@ -7,7 +7,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="beok.beok.VontadeUsa">
+    tools:context="beok.beok.VontadeUsa"
+    android:background="@drawable/bg_registro_nao_usou_droga"
+    android:theme="@style/MyTheme">
 
     <TextView
         android:layout_width="wrap_content"
