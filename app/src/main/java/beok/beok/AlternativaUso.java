@@ -20,6 +20,7 @@ import beok.beok.api.DB;
 
 public class AlternativaUso extends AppCompatActivity {
 
+
     Button btprox;
     RadioButton cbalegria, cbsolidao, cbexcitacao, cbtedio, cbfrustracao, cbraiva, cbcomemorar, cbprobfamilia,
             cbprobtrabesc, cbrelaxar, cboutrosmotivos,
@@ -116,7 +117,11 @@ public class AlternativaUso extends AppCompatActivity {
 
         DB.save(vd);
 
+        Bundle bundle = new Bundle();
+        bundle.putInt("se_usou",1);
+
         Intent i = new Intent(this, Fim.class);
+        i.putExtras(bundle);
         startActivity(i);
     }
 

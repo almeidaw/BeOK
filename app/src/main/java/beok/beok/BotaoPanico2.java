@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import java.util.Random;
 
+import beok.beok.api.Conf;
+
 public class BotaoPanico2 extends AppCompatActivity {
 
     String telefone;
@@ -27,6 +29,7 @@ public class BotaoPanico2 extends AppCompatActivity {
     TextView txtmsgmotivacional;
 
     Button bt2,bt3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,13 +58,9 @@ public class BotaoPanico2 extends AppCompatActivity {
 
         Random r = new Random();
         Resources res = getResources();
-        String[] msg = res.getStringArray(R.array.msg_motivacionais);
-        int posicao = r.nextInt(3);
-        if (posicao == 0) {
-            txtmsgmotivacional.setText(String.format(msg[posicao], 7));
-        }else {txtmsgmotivacional.setText(msg[posicao]);}
-
-
+        String[] msg = res.getStringArray(R.array.msg_continue_tentando);
+        String mensagem = String.format(msg[r.nextInt(9)], Conf.getNomeUsuario());
+        txtmsgmotivacional.setText(mensagem);
 
     }
 

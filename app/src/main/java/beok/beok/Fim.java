@@ -20,7 +20,7 @@ public class Fim extends AppCompatActivity {
 
     TextView txtmsg;
 
-    int period = 3000;
+    int period = 3000, se_usou;
     final Handler handler=new Handler();
 
     @Override
@@ -30,13 +30,25 @@ public class Fim extends AppCompatActivity {
 
         txtmsg = (TextView) findViewById(R.id.txtmsg);
 
+        Bundle bundle = getIntent().getExtras();
+        se_usou = bundle.getInt("se_usou");
+
         Random r = new Random();
         Resources res = getResources();
 
-        String[] msg = res.getStringArray(R.array.mensagens);
-        String mensagem = String.format(msg[r.nextInt(2)], Conf.getNomeUsuario()); //Inserir o nome do usuario segundo parametro
+        if (se_usou==0){
+            String[] msg = res.getStringArray(R.array.msg_continue_tentando);
+            String mensagem = String.format(msg[r.nextInt(9)], Conf.getNomeUsuario()); //Inserir o nome do usuario segundo parametro
+            txtmsg.setText(mensagem);
+        }
+        else if (se_usou==1){
+            String[] msg = res.getStringArray(R.array.msg_nao_usou);
+            String mensagem = String.format(msg[r.nextInt(5)], Conf.getNomeUsuario()); //Inserir o nome do usuario segundo parametro
+            txtmsg.setText(mensagem);
+        }
 
-        txtmsg.setText(mensagem);
+
+
 
         handler.postDelayed(runnable, period);
         
