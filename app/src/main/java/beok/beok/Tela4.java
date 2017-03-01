@@ -1,11 +1,15 @@
 package beok.beok;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,9 +21,9 @@ import beok.beok.api.DB;
 
 public class Tela4 extends AppCompatActivity implements View.OnClickListener{
 
-    private int cont1 = 1; // Intent contato 1
-    private int cont2 = 2; // Intent contato 2
-    private int cont3 = 3; // Intent contato 3
+    private final int cont1 = 1; // Intent contato 1
+    private final int cont2 = 2; // Intent contato 2
+    private final int cont3 = 3; // Intent contato 3
 
     Button btfimcadastro;
     EditText txtcontato1, txtcontato2, txtcontato3;
@@ -97,16 +101,69 @@ public class Tela4 extends AppCompatActivity implements View.OnClickListener{
     }
 
     public void selecionarContato1(View v) {
-        Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-        startActivityForResult(i, cont1);
+         // Verifica se a permissao para acessar o Contacts foi concedida e so permite o acesso se for true
+        if ((ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS))
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS},cont1);
+        }
+        else {
+            Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+            startActivityForResult(i, cont1);
+        }
     }
     public void selecionarContato2(View v) {
-        Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-        startActivityForResult(i, cont2);
+        if ((ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS))
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS},cont2);
+        }
+        else {
+            Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+            startActivityForResult(i, cont2);
+        }
     }
     public void selecionarContato3(View v) {
-        Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-        startActivityForResult(i, cont3);
+        if ((ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS))
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS},cont3);
+        }
+        else {
+            Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+            startActivityForResult(i, cont3);
+        }
+    }
+
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case cont1: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+                    startActivityForResult(i, cont1);
+                }
+            }
+            case cont2: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+                    startActivityForResult(i, cont2);
+                }
+            }
+            case cont3: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+                    startActivityForResult(i, cont3);
+                }
+            }
+            return;
+        }
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent i) {
