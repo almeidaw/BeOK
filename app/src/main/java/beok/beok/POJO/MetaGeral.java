@@ -24,6 +24,7 @@ public class MetaGeral {
     private boolean noite;
     private boolean madrugada;
     private int quantidade;
+    private Date dataInicio;
 
 
     /**
@@ -140,5 +141,13 @@ public class MetaGeral {
      */
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public Date getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(Date dataInicio) {
+        this.dataInicio = dataInicio;
     }
 }

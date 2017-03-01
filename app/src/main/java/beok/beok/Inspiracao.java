@@ -61,8 +61,8 @@ public class Inspiracao extends Fragment implements Callback<List<InspServ>> {
         rv.setLayoutManager(llm);
 
         service = ServiceGenerator.createService(ServiceWS.class);
-
-        callWs();
+        if(!App.DEBUG)
+            callWs();
 
         initializeData();
         initializeAdapter();
@@ -124,7 +124,6 @@ public class Inspiracao extends Fragment implements Callback<List<InspServ>> {
                     }
 
                 } catch (Exception e) {
-                    Toast.makeText(tContext,"merda r",Toast.LENGTH_LONG).show();
                 } finally {
                     if (fos != null) {
                         fos = null;
@@ -139,7 +138,6 @@ public class Inspiracao extends Fragment implements Callback<List<InspServ>> {
     @Override
     public void onFailure(Call<List<InspServ>> call, Throwable throwable) {
         throwable.printStackTrace();
-        Toast.makeText(tContext,"merda f",Toast.LENGTH_LONG).show();
     }
 }
 
