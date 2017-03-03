@@ -1,0 +1,117 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="@dimen/card_padding"
+    android:paddingLeft="@dimen/card_padding"
+    android:paddingRight="@dimen/card_padding"
+    android:paddingTop="@dimen/card_padding"
+    android:orientation="vertical"
+    tools:context="beok.beok.Atividade2$PlaceholderFragment">
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:cardCornerRadius="5dp"
+        android:layout_marginTop="20dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:gravity="center_horizontal"
+                        android:id="@+id/txtpergunta1" />
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/layout1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:id="@+id/terapia1"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/mito1"
+                        android:layout_marginBottom="30dp"
+                        android:layout_marginTop="30dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="30dp"
+                        android:paddingLeft="30dp">
+
+                        <Button
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="VERDADE"
+                            android:id="@+id/btverdade"
+                            android:onClick="botaoVerdade"
+                            android:background="@drawable/terapia_button_style"
+                            android:layout_alignParentRight="true"
+                            android:textColor="#FF18919e" />
+
+                        <Button
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="MITO"
+                            android:id="@+id/btmito"
+                            android:onClick="botaoMito"
+                            android:background="@drawable/terapia_button_style"
+                            android:textColor="#FF18919e"
+                            android:paddingRight="20dp"
+                            android:paddingLeft="20dp"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtexplicacao"
+                        android:layout_gravity="center_horizontal|top" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_arrow_forward_black_24dp"
+                        android:id="@+id/btok"
+                        android:onClick="botaoOk"
+                        android:visibility="invisible"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

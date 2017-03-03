@@ -63,6 +63,9 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent i = new Intent(Main.this, Notificacao.class);
+        startService(i);
+
         btpanico = (Button) findViewById(R.id.btpanico);
 
         content_main = (RelativeLayout) findViewById(R.id.content_main);
