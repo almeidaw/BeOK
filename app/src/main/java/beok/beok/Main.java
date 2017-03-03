@@ -3,8 +3,10 @@ package beok.beok;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
@@ -39,7 +41,7 @@ public class Main extends AppCompatActivity {
 
     static boolean b;
 
-    int period = 10000;
+    int period = 10000, iniciar_inspiracao;
     final Handler handler=new Handler();
     ServiceSincronizer sc;
 
@@ -83,7 +85,6 @@ public class Main extends AppCompatActivity {
 
         texto_navbar=(TextView)findViewById(R.id.texto_navbar);
         //texto_navbar.setText(Conf.getNomeUsuario());
-
 
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottom_navigation);
 
