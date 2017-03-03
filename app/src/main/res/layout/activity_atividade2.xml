@@ -107,7 +107,7 @@
                     android:id="@+id/terapia1"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/terapia1"
+                    android:src="@drawable/bg_terapia"
                     android:layout_marginBottom="30dp"
                     android:layout_marginTop="30dp"/>
 
@@ -157,7 +157,7 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_forward_black_24dp"
+                    android:src="@drawable/ic_diary"
                     android:id="@+id/btok"
                     android:onClick="botaoOk"
                     android:visibility="invisible"/>

@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.orm.SugarContext;
 
+import java.util.Date;
+
 import beok.beok.POJO.MetaGeral;
 import beok.beok.api.DB;
 
@@ -156,7 +158,9 @@ public class MetaTratamento extends AppCompatActivity {
         meta.setTarde(cbtarde.isChecked());
         meta.setNoite(cbnoite.isChecked());
         meta.setMadrugada(cbmadrugada.isChecked());
-
+        Date now=new Date();
+        now.setTime(System.currentTimeMillis());
+        meta.setDataInicio(now);
         DB.save(meta);
 
         Intent nextActivity = new Intent(this, Tela2.class);

@@ -22,7 +22,8 @@ import com.orm.SugarContext;
 
 import java.util.Date;
 
-import beok.beok.POJO.BotaoAtivo;
+import beok.beok.POJO.*;
+import beok.beok.POJO.MetaSemanal;
 import beok.beok.api.App;
 import beok.beok.api.Conf;
 import beok.beok.api.DB;
@@ -116,6 +117,18 @@ public class Main extends AppCompatActivity {
                          bottomNavigationView.getMenu().getItem(3).setChecked(true);
 
                      } else if (id == R.id.nav_configuracoes) {
+                         beok.beok.POJO.MetaSemanal ms=new MetaSemanal();
+                         ms.setTipo(0);
+                         ms.setQuantidade(23);
+                         ms.setFreqSemanal(2);
+                         ms.setManha(true);
+                         ms.setMadrugada(false);
+                         ms.setNoite(false);
+                         ms.setTarde(false);
+                         Date now=new Date();
+                         now.setTime(System.currentTimeMillis());
+                         ms.setSemana(now);
+                         DB.save(ms);
                          Intent intent = new Intent(Main.this, SettingsActivity.class);
                          startActivity(intent);
 
@@ -157,12 +170,17 @@ public class Main extends AppCompatActivity {
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        UsoTela ut=new UsoTela();
+                        Date now=new Date();
+                        now.setTime(System.currentTimeMillis());
+                        ut.setLastClicked(now);
                         switch (item.getItemId()) {
                             case R.id.showDiaryItem:
                                 //Toast.makeText(Main.this, "diário", Toast.LENGTH_SHORT).show();
                                 Main.this.colocaFragment(show_diary_fragment, R.id.main_fragment_container);
                                 content_main.setBackgroundResource(R.drawable.bg_diario);
                                 nv.getMenu().getItem(0).setChecked(true);
+                                ut.setTela(0);
                                 break;
 
                             case R.id.goalsItem:
@@ -170,6 +188,7 @@ public class Main extends AppCompatActivity {
                                 Main.this.colocaFragment(fragment_metas_semanal, R.id.main_fragment_container);
                                 content_main.setBackgroundResource(R.drawable.bg_metas);
                                 nv.getMenu().getItem(1).setChecked(true);
+                                ut.setTela(1);
                                 break;
 
                             case R.id.inspirationItem:
@@ -177,6 +196,7 @@ public class Main extends AppCompatActivity {
                                 Main.this.colocaFragment(fragment_inspiracao, R.id.main_fragment_container);
                                 content_main.setBackgroundResource(R.drawable.bg_inspiracao);
                                 nv.getMenu().getItem(2).setChecked(true);
+                                ut.setTela(2);
                                 break;
 
                             case R.id.therapyItem:
@@ -184,8 +204,10 @@ public class Main extends AppCompatActivity {
                                 Main.this.colocaFragment(tf, R.id.main_fragment_container);
                                 content_main.setBackgroundResource(R.drawable.bg_terapia);
                                 nv.getMenu().getItem(3).setChecked(true);
+                                ut.setTela(3);
                                 break;
                         }
+                        DB.save(ut);
                         return true;
                     }
                 });

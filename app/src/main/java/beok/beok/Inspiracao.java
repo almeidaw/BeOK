@@ -116,7 +116,7 @@ public class Inspiracao extends Fragment implements Callback<List<InspServ>> {
                         inspiracao.setId(insp.getId());
                         inspiracao.setTexto(insp.getTexto());
                         SugarRecord.save(inspiracao);
-                        Toast.makeText(tContext,"ok!",Toast.LENGTH_LONG).show();
+                        //Toast.makeText(tContext,"ok!",Toast.LENGTH_LONG).show();
                         FileInputStream in = tContext.openFileInput(inspiracao.getId()+".jpg");
                         Bitmap bMap = BitmapFactory.decodeStream(in);
                         inspis.add(new Inspi(bMap, inspiracao.getTexto()));
