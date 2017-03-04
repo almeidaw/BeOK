@@ -11,75 +11,91 @@
     tools:context="beok.beok.BotaoPanico1"
     android:theme="@style/MyTheme"
     android:background="@drawable/bg_panico">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="O que você deseja fazer?"
         android:id="@+id/textView2"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"/>
+        android:layout_gravity="center"
+        android:layout_weight="1"/>
 
-    <Button
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ligar para contato 1"
-        android:id="@+id/btcontato1"
-        android:onClick="ligarContato1"
-        android:background="@drawable/bordered_button_shape"
-        android:layout_marginTop="15dp"/>
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center_horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Falar com um profissional"
+            android:id="@+id/btprofissinal"
+            android:onClick="ligarProfissional"
+            android:textSize="@dimen/answer_txt_size"
+            android:layout_weight="1"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ligar para contato 2"
-        android:id="@+id/btcontato2"
-        android:onClick="ligarContato2"
-        android:background="@drawable/bordered_button_shape"
-        android:layout_marginTop="20dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver fotos"
+            android:id="@+id/btfotos"
+            android:onClick="mostrarFotos"
+            android:textSize="@dimen/answer_txt_size"
+            android:layout_weight="1"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ligar para contato 3"
-        android:id="@+id/btcontato3"
-        android:onClick="ligarContato3"
-        android:background="@drawable/bordered_button_shape"
-        android:layout_marginTop="20dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver dicas ou frases motivacionais"
+            android:id="@+id/btdicasfrases"
+            android:onClick="mostrarDicasFrases"
+            android:visibility="gone"
+            android:textSize="@dimen/answer_txt_size"
+            android:layout_weight="1"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Procurar algum grupo de anonimos"
+            android:id="@+id/btgrupoanonimos"
+            android:onClick="mostrarGruposAnonimos"
+            android:textSize="@dimen/answer_txt_size"
+            android:layout_weight="1"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Falar com um profissional"
-        android:id="@+id/btprofissinal"
-        android:onClick="ligarProfissional"
-        android:background="@drawable/bordered_button_shape"
-        android:layout_marginTop="20dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ligar para contato 1"
+            android:id="@+id/btcontato1"
+            android:onClick="ligarContato1"
+            android:textSize="@dimen/answer_txt_size"
+            android:layout_weight="1"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ver frases motivacionais"
-        android:id="@+id/btdicasfrases"
-        android:onClick="mostrarDicasFrases"
-        android:background="@drawable/bordered_button_shape"
-        android:layout_marginTop="20dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ligar para contato 2"
+            android:id="@+id/btcontato2"
+            android:onClick="ligarContato2"
+            android:textSize="@dimen/answer_txt_size"
+            android:layout_weight="1"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Procurar algum grupo de anonimos"
-        android:id="@+id/btgrupoanonimos"
-        android:onClick="mostrarGruposAnonimos"
-        android:background="@drawable/bordered_button_shape"
-        android:layout_marginTop="20dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ligar para contato 3"
+            android:id="@+id/btcontato3"
+            android:onClick="ligarContato3"
+            android:textSize="@dimen/answer_txt_size"
+            android:layout_weight="1"/>
+    </LinearLayout>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/txtmsgmotivacional"
-        android:layout_marginTop="20dp"
-        android:textAlignment="center"
-        android:textSize="20sp"/>
+        android:layout_weight="1"
+        android:gravity="center"/>
 
 </LinearLayout>

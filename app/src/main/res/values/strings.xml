@@ -6,8 +6,8 @@
 
     <string name="action_settings">Settings</string>
 
-    <string name="freq90dias">Com que frequência você utlizou nos últimos 90 dias?</string>
-    <string name="qtd90dias">Em que quantidade usou nos últimos 90 dias?</string>
+    <string name="freq90dias">Com que frequência semanal você utilizou em média nos últimos 90 dias?</string>
+    <string name="qtd90dias">Qual foi a dose média dos seus consumos nesse período?</string>
     <string name="gasto">Qual seu gasto com a droga por unidade?</string>
 
     <string name="meta_droga">Qual sua meta final em relação a essa droga?</string>
@@ -232,5 +232,10 @@ Então a meta precisa ser algo que te desafie e que seja possível de ser atingi
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_terapia2">terapia2</string>
 
+
+    <string name="responda_aqui">Responda aqui</string>
+
+    <string name="peso_baseado">baseado fino = 0,5 grama\nbaseado normal = 1,2 gramas\nbomba = 2 gramas</string>
+    <string name="peso_pedra">1 papelote/pino = 1grama</string>
 
 </resources>

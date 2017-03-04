@@ -1,59 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="beok.beok.BotaoPanico2"
     android:theme="@style/MyTheme"
-    android:background="@drawable/bg_panico">
+    android:background="@drawable/bg_panico"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Por que você está apertando o botão?"
+        android:id="@+id/textView"
+        android:layout_weight="1"
+        android:gravity="center"/>
 
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_weight="2">
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Por que você está apertando o botão?"
-            android:id="@+id/textView"
-            android:layout_marginTop="100dp"
-            android:layout_centerHorizontal="true"
-            android:textAlignment="center" />
+            android:text="Fissura"
+            android:id="@+id/btfissura"
+            android:background="@drawable/bordered_button_shape"
+            android:onClick="botaoFissura"/>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="150dp">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fissura"
-                android:id="@+id/btfissura"
-                android:layout_centerVertical="true"
-                android:layout_alignLeft="@+id/textView"
-                android:layout_alignStart="@+id/textView"
-                android:background="@drawable/bordered_button_shape"
-                android:onClick="botaoFissura"
-                android:layout_marginRight="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_weight="1" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Usei"
-                android:id="@+id/btusei"
-                android:layout_alignTop="@+id/btfissura"
-                android:layout_alignRight="@+id/textView"
-                android:layout_alignEnd="@+id/textView"
-                android:background="@drawable/bordered_button_shape"
-                android:onClick="botaoUsei"
-                android:layout_marginRight="30dp"
-                android:layout_weight="1" />
-        </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usei"
+            android:id="@+id/btusei"
+            android:background="@drawable/bordered_button_shape"
+            android:onClick="botaoUsei"
+            android:layout_marginTop="40dp"/>
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

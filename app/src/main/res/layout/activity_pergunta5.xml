@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,53 +7,63 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="beok.beok.Pergunta5">
+    tools:context="beok.beok.Pergunta5"
+    android:background="@drawable/bg_registro"
+    android:theme="@style/MyTheme"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Por que você usou?"
         android:id="@+id/textView4"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Senti-me sozinho"
-        android:id="@+id/btsentiso"
-        android:onClick="motivoSentiSo"
         android:layout_marginTop="50dp"
-        android:layout_below="@+id/textView4"
-        android:layout_alignLeft="@+id/btestavafesta"
-        android:layout_alignStart="@+id/btestavafesta" />
+        />
 
-    <Button
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Estava numa festa"
-        android:id="@+id/btestavafesta"
-        android:onClick="motivoEstavaFesta"
-        android:layout_below="@+id/btsentiso"
-        android:layout_centerHorizontal="true" />
+        android:orientation="vertical"
+        android:layout_marginTop="100dp"
+        >
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/answer_txt_size"
+            android:text="Senti-me sozinho"
+            android:id="@+id/btsentiso"
+            android:onClick="motivoSentiSo"
+            android:layout_weight="1"
+            />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Meus amigos estavam usando"
-        android:id="@+id/btamigosusando"
-        android:onClick="motivoAmigosUsando"
-        android:layout_below="@+id/btestavafesta"
-        android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/answer_txt_size"
+            android:text="Estava numa festa"
+            android:id="@+id/btestavafesta"
+            android:onClick="motivoEstavaFesta"
+            android:layout_weight="1"
+            />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Briguei com alguém"
-        android:id="@+id/btbriguei"
-        android:onClick="motivoBriguei"
-        android:layout_below="@+id/btamigosusando"
-        android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/answer_txt_size"
+            android:text="Meus amigos estavam usando"
+            android:id="@+id/btamigosusando"
+            android:onClick="motivoAmigosUsando"
+            android:layout_weight="1"/>
 
-</RelativeLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/answer_txt_size"
+            android:text="Briguei com alguém"
+            android:id="@+id/btbriguei"
+            android:onClick="motivoBriguei"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+</LinearLayout>

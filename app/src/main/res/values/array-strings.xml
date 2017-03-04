@@ -52,6 +52,11 @@
     </array>
 
 
+    <array name="mensagens">
+        <item>%1$s, não desista!</item>
+        <item>A dificuldade está aí, mas você pode superar, %1$s </item>
+    </array>
+
     <array name="drugsList">
         <item>Alcool</item>
         <item>Cocaína</item>
@@ -62,20 +67,45 @@
     <array name="emptyArray">
     </array>
 
-    <array name="periodo_notificacao">
+    <array name="msg_motivacionais">
+        <item>Lembre do seu avanço no tratamento. Você já está a %1$d dias sem usar.</item>
+        <item>Lembra como você ficou da última vez que usou?</item>
+        <item>Respire fundo e tente relaxar. Tome um banho. </item>
+    </array>
+
+    <string-array name="periodo_notificacao">
         <item>Manhã</item>
         <item>Tarde</item>
         <item>Noite</item>
         <item>Madrugada</item>
-    </array>
+    </string-array>
 
-    <array name="periodo_notificacao_valor">
+    <string-array name="periodo_notificacao_valor">
         <item>1</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
-    </array>
+    </string-array>
 
+    <string-array name="dia_notificacao_semanal">
+        <item>Domingo</item>
+        <item>Segunda-feira</item>
+        <item>Terça-feira</item>
+        <item>Quarta-feira</item>
+        <item>Quinta-feira</item>
+        <item>Sexta-feira</item>
+        <item>Sábado</item>
+    </string-array>
+
+    <string-array name="dia_notificacao_semanal_valor">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
     <array name="msg_continue_tentando">
         <item>%1$s, não desista!</item>
         <item>A dificuldade está aí, mas você pode superar, %1$s </item>

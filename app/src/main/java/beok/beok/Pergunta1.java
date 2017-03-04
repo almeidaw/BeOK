@@ -74,11 +74,11 @@ public class Pergunta1 extends AppCompatActivity {
 
             });
         }else if (bundle.getInt("Droga escolhida") == 2){
-            txtlegenda.setText("1 baseado: fino=0,5 grama, normal = 1,2 gramas, bomba= 2 gramas");
+            txtlegenda.setText(getResources().getString(R.string.peso_baseado));
             ud.setMaconha();
 
         }else if (bundle.getInt("Droga escolhida") == 3){
-            txtlegenda.setText("1 papelote/pino= 1grama");
+            txtlegenda.setText(getResources().getString(R.string.peso_pedra));
             ud.setCocaina();
         }else if (bundle.getInt("Droga escolhida") == 4){
             txtlegenda.setVisibility(View.GONE);
@@ -128,7 +128,7 @@ public class Pergunta1 extends AppCompatActivity {
         bundle.putBooleanArray("checkbox", array);
         bundle.putInt("qtd",quantidade);
         bundle.putInt("tipo",ud.getTipo());
-        Intent i = new Intent(this, Pergunta2.class);
+        Intent i = new Intent(this, Pergunta3.class); //"Pergunta2" é a activity que possuí um mapa
         i.putExtras(bundle);
         startActivity(i);
         //slide from right to left
