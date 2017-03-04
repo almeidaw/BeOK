@@ -32,6 +32,8 @@
         <activity android:name=".Tela2" />
         <activity android:name=".Tela3" />
         <activity android:name=".Tela4" />
+        <activity android:name=".Tela5" />
+        <activity android:name=".Tela" />
         <activity android:name=".TelaPerguntas" />
         <activity android:name=".UsouDroga" />
         <activity android:name=".NaoUsouDroga" />
