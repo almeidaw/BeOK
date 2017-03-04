@@ -170,7 +170,7 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
     List<Droga> drogas;
 
     DiarioAdapter(List<Droga> drogas){
-            this.drogas = drogas;
+        this.drogas = drogas;
     }
 
     @Override
@@ -187,34 +187,34 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
 
     @Override
     public void onBindViewHolder(CardViewHolder CardViewHolder, int i) {
-            Droga droga=drogas.get(i);
-            if(droga.abstinencia) {
-                CardViewHolder.nomeDroga.setText(getNomeDroga(droga.tipo));
-                CardViewHolder.meta_texto.setText("Nessa semana, eu não consumirei mais");
-                CardViewHolder.quantidade.setVisibility(View.GONE);
-                CardViewHolder.periodo.setVisibility(View.GONE);
-                CardViewHolder.horario.setVisibility(View.GONE);
-            }else {
-                CardViewHolder.nomeDroga.setText(getNomeDroga(droga.tipo));
-                CardViewHolder.quantidade.setText(droga.quantidade);
-                CardViewHolder.periodo.setText(droga.frequencia);
-                CardViewHolder.horario.setText(droga.horario);
-            }
-            CardViewHolder.economia.setText(droga.economia);
-            CardViewHolder.quantidade_unidade.setText("Quantidade em "+droga.unidade);
-            if(droga.dados.isEmpty()){
-                CardViewHolder.graph.setVisibility(View.INVISIBLE);
-                CardViewHolder.n_relato_diario.setVisibility(View.VISIBLE);
+        Droga droga=drogas.get(i);
+        if(droga.abstinencia) {
+            CardViewHolder.nomeDroga.setText(getNomeDroga(droga.tipo));
+            CardViewHolder.meta_texto.setText("Nessa semana, eu não consumirei mais");
+            CardViewHolder.quantidade.setVisibility(View.GONE);
+            CardViewHolder.periodo.setVisibility(View.GONE);
+            CardViewHolder.horario.setVisibility(View.GONE);
+        }else {
+            CardViewHolder.nomeDroga.setText(getNomeDroga(droga.tipo));
+            CardViewHolder.quantidade.setText(droga.quantidade);
+            CardViewHolder.periodo.setText(droga.frequencia);
+            CardViewHolder.horario.setText(droga.horario);
+        }
+        CardViewHolder.economia.setText(droga.economia);
+        CardViewHolder.quantidade_unidade.setText("Quantidade em "+droga.unidade);
+        if(droga.dados.isEmpty()){
+            CardViewHolder.graph.setVisibility(View.INVISIBLE);
+            CardViewHolder.n_relato_diario.setVisibility(View.VISIBLE);
 
-            }else{
-                CardViewHolder.n_relato_diario.setVisibility(View.INVISIBLE);
-                LineGraphSeries<DataPoint> ln = new LineGraphSeries<>();
-                for (DataPoint dp : droga.dados) {
-                    ln.appendData(dp, true, droga.dados.size());
-                }
-
-                CardViewHolder.graph.addSeries(ln);
+        }else{
+            CardViewHolder.n_relato_diario.setVisibility(View.INVISIBLE);
+            LineGraphSeries<DataPoint> ln = new LineGraphSeries<>();
+            for (DataPoint dp : droga.dados) {
+                ln.appendData(dp, true, droga.dados.size());
             }
+
+            CardViewHolder.graph.addSeries(ln);
+        }
     }
 
     @Override
@@ -318,7 +318,10 @@ class Droga { // Objeto droga e construtor
                 this.horario+="madrugada\n";
             }
         }
-        this.economia = "Cerca de R$"+economia+",00 economizados no total";
+        if(economia>0)
+            this.economia = "Cerca de R$"+economia+",00 economizados no total";
+        else
+            this.economia = "Cerca de R$"+(-economia)+",00 gastos a mais no total";
         this.dados = dados;
     }
 }

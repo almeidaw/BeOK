@@ -107,20 +107,21 @@ public class Inspiracao extends Fragment implements Callback<List<InspServ>> {
                 FileOutputStream fos = null;
                 try {
                     if (insp.getImagem() != null) {
-                        fos = tContext.openFileOutput(insp.getId()+".jpg", Context.MODE_PRIVATE);
-                        byte[] decodedString = android.util.Base64.decode(insp.getImagem(), android.util.Base64.DEFAULT);
-                        fos.write(decodedString);
-                        fos.flush();
-                        fos.close();
-                        Insp inspiracao=new Insp();
-                        inspiracao.setId(insp.getId());
-                        inspiracao.setTexto(insp.getTexto());
-                        SugarRecord.save(inspiracao);
-                        //Toast.makeText(tContext,"ok!",Toast.LENGTH_LONG).show();
-                        FileInputStream in = tContext.openFileInput(inspiracao.getId()+".jpg");
-                        Bitmap bMap = BitmapFactory.decodeStream(in);
-                        inspis.add(new Inspi(bMap, inspiracao.getTexto()));
-                        initializeAdapter();
+                        if(insp.getTexto().equals("")){
+                            SugarRecord.delete(SugarRecord.findById(Insp.class,insp.getId()));
+                            tContext.deleteFile(insp.getId() + ".jpg");
+                        }else {
+                            fos = tContext.openFileOutput(insp.getId() + ".jpg", Context.MODE_PRIVATE);
+                            byte[] decodedString = android.util.Base64.decode(insp.getImagem(), android.util.Base64.DEFAULT);
+                            fos.write(decodedString);
+                            fos.flush();
+                            fos.close();
+                            Insp inspiracao = new Insp();
+                            inspiracao.setId(insp.getId());
+                            inspiracao.setTexto(insp.getTexto());
+                            SugarRecord.save(inspiracao);
+                            //Toast.makeText(tContext,"ok!",Toast.LENGTH_LONG).show();
+                        }
                     }
 
                 } catch (Exception e) {
@@ -129,6 +130,10 @@ public class Inspiracao extends Fragment implements Callback<List<InspServ>> {
                         fos = null;
                     }
                 }
+            }
+            if(insps.size()!=0) {
+                initializeData();
+                initializeAdapter();
             }
         }else {
 
