@@ -18,7 +18,15 @@
         android:summary="Define o período em que será notificado para realizar as atividades"
         android:entries="@array/periodo_notificacao"
         android:entryValues="@array/periodo_notificacao_valor"
-        android:defaultValue="1"
+        android:defaultValue="1"/>
+
+    <ListPreference
+        android:key="notification_week_day"
+        android:title="Dia da notificação semanal"
+        android:summary="Define o dia em que será notificado para realizar as atividades"
+        android:entries="@array/dia_notificacao_semanal"
+        android:entryValues="@array/dia_notificacao_semanal_valor"
+        android:defaultValue="2"
         />
 
 </PreferenceScreen>
