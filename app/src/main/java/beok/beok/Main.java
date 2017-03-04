@@ -36,7 +36,7 @@ public class Main extends AppCompatActivity {
 
     static boolean b;
 
-    int period = 10000, iniciar_inspiracao;
+    int period = 10000, inicia_insp;
     final Handler handler=new Handler();
     ServiceSincronizer sc;
 
@@ -209,6 +209,13 @@ public class Main extends AppCompatActivity {
                         return true;
                     }
                 });
+
+        if (getIntent().getExtras() != null) {
+            Main.this.colocaFragment(fragment_inspiracao, R.id.main_fragment_container);
+            content_main.setBackgroundResource(R.drawable.bg_inspiracao);
+            bottomNavigationView.getMenu().getItem(2).setChecked(true);
+            nv.getMenu().getItem(2).setChecked(true);
+        };
 
     }
 

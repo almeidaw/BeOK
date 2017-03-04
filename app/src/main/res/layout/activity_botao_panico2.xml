@@ -21,47 +21,11 @@
         android:layout_weight="1"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_weight="1"
         android:gravity="center_horizontal">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Falar com um profissional"
-            android:id="@+id/btprofissinal"
-            android:onClick="ligarProfissional"
-            android:textSize="@dimen/answer_txt_size"
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ver fotos"
-            android:id="@+id/btfotos"
-            android:onClick="mostrarFotos"
-            android:textSize="@dimen/answer_txt_size"
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ver dicas ou frases motivacionais"
-            android:id="@+id/btdicasfrases"
-            android:onClick="mostrarDicasFrases"
-            android:visibility="gone"
-            android:textSize="@dimen/answer_txt_size"
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Procurar algum grupo de anonimos"
-            android:id="@+id/btgrupoanonimos"
-            android:onClick="mostrarGruposAnonimos"
-            android:textSize="@dimen/answer_txt_size"
-            android:layout_weight="1"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -89,6 +53,36 @@
             android:onClick="ligarContato3"
             android:textSize="@dimen/answer_txt_size"
             android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Falar com um profissional"
+            android:id="@+id/btprofissinal"
+            android:onClick="ligarProfissional"
+            android:textSize="@dimen/answer_txt_size"
+            android:layout_weight="1"/>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver dicas ou frases motivacionais"
+            android:id="@+id/btdicasfrases"
+            android:onClick="mostrarDicasFrases"
+            android:textSize="@dimen/answer_txt_size"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Procurar algum grupo de anonimos"
+            android:id="@+id/btgrupoanonimos"
+            android:onClick="mostrarGruposAnonimos"
+            android:textSize="@dimen/answer_txt_size"
+            android:layout_weight="1"/>
+
+
     </LinearLayout>
 
     <TextView
@@ -96,6 +90,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/txtmsgmotivacional"
         android:layout_weight="1"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:textAlignment="center" />
 
 </LinearLayout>
