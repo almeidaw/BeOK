@@ -1,6 +1,8 @@
 package beok.beok;
 
 import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.support.v4.app.Fragment;
@@ -12,37 +14,21 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import static beok.beok.R.id.center;
 
-import static beok.beok.R.array.pergunta;
+
 
 public class Atividade2 extends AppCompatActivity {
 
-    TextView txtpergunta2, txtexplicacao, txtnumpergunta2, txtnumtela;
-    Button btverdade, btmito, btresposta;
-    ImageButton btok;
-    ImageView imagem;
+    static int pontos = 0;
+    static int contador = 0;
+    static int indice = 0;
+    static String mito;
 
-    int pontos = 0;
-    static final int contador = 0;
-
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     private ViewPager mViewPager;
 
     @Override
@@ -52,83 +38,40 @@ public class Atividade2 extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-        // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        mViewPager = (ViewPager) findViewById(R.id.view_pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        btmito = (Button) findViewById(R.id.btmito);
-        btverdade = (Button) findViewById(R.id.btverdade);
-        btok = (ImageButton) findViewById(R.id.btok);
-        txtpergunta2 = (TextView) findViewById(R.id.txtpergunta2);
-        txtnumpergunta2 = (TextView) findViewById(R.id.txtnumpergunta2);
-        txtnumtela = (TextView) findViewById(R.id.txtnumtela);
-        txtexplicacao = (TextView) findViewById(R.id.txtexplicacao);
-        btresposta = (Button) findViewById(R.id.btresposta);
-
-        imagem = (ImageView)findViewById(R.id.terapia1);
     }
 
-    public void botaoMito(View v){
 
+    public void botaoMito(View v){
+        mito = "MITO!";
+        contador++;
+        mViewPager.setCurrentItem(contador);
     }
 
     public void botaoVerdade(View v){
-        //Resources res = getResources();
-       // String[] respostas = res.getStringArray(R.array.resposta);
-       // String[] explicacao = res.getStringArray(R.array.explicacao);
-        //txtexplicacao.setText(explicacao[contador]);
+        mito = "VERDADE!";
+        contador++;
+        mViewPager.setCurrentItem(contador);
 
     }
 
     public void botaoOk(View v){
-
+        contador++;
+        mViewPager.setCurrentItem(contador);
     }
 
-
-   /* @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_terapia2, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }*/
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
     public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
+
         private static final String ARG_SECTION_NUMBER = "section_number";
 
         public PlaceholderFragment() {
         }
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
         public static PlaceholderFragment newInstance(int sectionNumber) {
+            //Cria as cada uma das abas (cards)
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
@@ -140,27 +83,87 @@ public class Atividade2 extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             Resources res = getResources();
-            String[] perguntas = res.getStringArray(pergunta);
+            String[] perguntas = res.getStringArray(R.array.perguntas);
             String[] respostas = res.getStringArray(R.array.resposta);
             String[] explicacao = res.getStringArray(R.array.explicacao);
+            TypedArray imagens = getResources().obtainTypedArray(R.array.imagens);
+            imagens.getResourceId(indice, -1);
 
 
-            View rootView = inflater.inflate(R.layout.fragment_atividade2_pergunta, container, false);
-            TextView txtpergunta1 = (TextView) rootView.findViewById(R.id.txtpergunta1);
+            View rootView;
 
-            String alala = perguntas[getArguments().getInt(ARG_SECTION_NUMBER)-1];
-            String text = String.format(res.getString(R.string.pergunta), getArguments().getInt(ARG_SECTION_NUMBER), alala);
-            CharSequence styledText = Html.fromHtml(text);
+             if (contador == perguntas.length*2-1) {
+                rootView = inflater.inflate(R.layout.fragment_atividade2_resposta, container, false);
 
-            txtpergunta1.setText(styledText);
+                TextView txtpergunta2 = (TextView) rootView.findViewById(R.id.txtpergunta2);
+                String text = String.format(res.getString(R.string.escore));
+                CharSequence styledText = Html.fromHtml(text);
+                txtpergunta2.setText(styledText);
+
+                Button btresposta = (Button) rootView.findViewById(R.id.btresposta);
+
+                String text2 = String.format(res.getString(R.string.pontos), pontos);
+                CharSequence styledText2 = Html.fromHtml(text2);
+                btresposta.setText(styledText2);
+                 btresposta.setTextSize(40);
+                 btresposta.setBackgroundColor(Color.parseColor("#00000000"));
+                 btresposta.setTextColor(Color.parseColor("#8cc63f"));
+
+                TextView txtexplicacao = (TextView) rootView.findViewById(R.id.txtexplicacao);
+                txtexplicacao.setText(res.getString(R.string.parabens));
+                 txtexplicacao.setGravity(center);
+            }
+
+            else if (getArguments().getInt(ARG_SECTION_NUMBER) % 2 != 0) {
+                //Tabs de numero impar sao perguntas
+                rootView = inflater.inflate(R.layout.fragment_atividade2_pergunta, container, false);
+
+                TextView txtpergunta1 = (TextView) rootView.findViewById(R.id.txtpergunta1);
+                String alala = perguntas[indice];
+                String text = String.format(res.getString(R.string.pergunta), indice+1, alala);
+                CharSequence styledText = Html.fromHtml(text);
+                txtpergunta1.setText(styledText);
+
+                ImageView imagem = (ImageView) rootView.findViewById(R.id.imagem_mito);
+                if(indice != 5) {
+                    imagem.setImageResource(imagens.getResourceId(indice, -1));
+                }
+                else {
+                    imagem.setVisibility(View.GONE);
+                }
+
+                imagens.recycle();
+            }
+            else {
+                rootView = inflater.inflate(R.layout.fragment_atividade2_resposta, container, false);
+
+                TextView txtpergunta2 = (TextView) rootView.findViewById(R.id.txtpergunta2);
+                String alala = perguntas[indice];
+                String text = String.format(res.getString(R.string.pergunta), indice+1, alala);
+                CharSequence styledText = Html.fromHtml(text);
+                txtpergunta2.setText(styledText);
+
+                TextView txtexplicacao = (TextView) rootView.findViewById(R.id.txtexplicacao);
+                txtexplicacao.setText(explicacao[indice]);
+
+                Button btresposta = (Button) rootView.findViewById(R.id.btresposta);
+                if (mito == "MITO!") {
+                    btresposta.setBackgroundColor(Color.parseColor("#8cc63f"));
+                    pontos++;
+                }
+                else if (mito == "VERDADE!"){
+                    btresposta.setBackgroundColor(Color.RED);
+                }
+
+                btresposta.setText(respostas[indice]);
+
+                indice++;
+            }
+
             return rootView;
         }
     }
 
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
@@ -169,28 +172,12 @@ public class Atividade2 extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
             return PlaceholderFragment.newInstance(position + 1);
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 8;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "SECTION 1";
-                case 1:
-                    return "SECTION 2";
-                case 2:
-                    return "SECTION 3";
-            }
-            return null;
+            return 17;
         }
     }
 }

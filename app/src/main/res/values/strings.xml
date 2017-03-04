@@ -82,7 +82,7 @@
 
 <!-- ***************************INICIO MITOS E VERDADES**************************** -->
 
-    <array name="pergunta">
+    <array name="perguntas">
         <item> \"A maconha não gera\ndependência.\"</item>
         <item>\"A maconha é a porta de entrada para o uso de outras drogas mais pesadas.\"</item>
         <item>\"A maconha é uma droga leve, e a cocaína uma droga pesada\"</item>
@@ -99,10 +99,21 @@
         <item>MITO!</item>
         <item>VERDADE!</item>
         <item>MITO!</item>
-        <item>MITO E VERDADE!!</item>
+        <item>MITO!</item>
         <item>MITO!</item>
         <item>MITO!</item>
     </array>
+
+    <integer-array name="imagens">
+        <item>@drawable/maconha1</item>
+        <item>@drawable/maconha2</item>
+        <item>@drawable/maconha3</item>
+        <item>@drawable/maconha4</item>
+        <item>@drawable/maconha5</item>
+        <item>@drawable/maconha6</item>
+        <item>@drawable/maconha7</item>
+        <item>@drawable/maconha8</item>
+    </integer-array>
 
     <array name="explicacao">
         <item>\"A maconha pode sim, gerar dependência. A maioria das pessoas que experimenta maconha
@@ -188,6 +199,9 @@
     </array>
 
     <string name="pergunta">&lt;b>%1$d.&lt;/b> &lt;i>%2$s&lt;/i></string>
+    <string name="escore">&lt;b>ESCORE FINAL&lt;/b> &lt;br/>&lt;p>Parte do tratamento é aber sobre o que você usa.&lt;/p></string>
+    <string name="pontos">&lt;b>%1$d&lt;/b></string>
+    <string name="parabens">Parabéns, você está be atualizado sobre a Maconha. Continue se informando. É importante saber sobre o que você usa! E ter diferentes pontos de vista.</string>
 
 <!-- *******************************FIM MITOS E VERDADES***************************** -->
 
