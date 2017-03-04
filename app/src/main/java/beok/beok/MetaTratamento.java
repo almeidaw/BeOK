@@ -11,12 +11,10 @@ import android.widget.Spinner;
 
 import com.orm.SugarContext;
 
+import java.util.Date;
+
 import beok.beok.POJO.MetaGeral;
 import beok.beok.api.DB;
-
-/**
- * Created by arthur on 01/03/2017.
- */
 
 public class MetaTratamento extends AppCompatActivity {
     Button buttonNext;
@@ -113,11 +111,8 @@ public class MetaTratamento extends AppCompatActivity {
 
         }
         intent.putExtras(tempBundle);
-
         startActivity(intent);
-
         finish();
     }
-
 
 }

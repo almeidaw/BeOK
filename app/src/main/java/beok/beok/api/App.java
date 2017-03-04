@@ -8,6 +8,6 @@ public class App {
     public static boolean DEBUG=true;
     public static boolean VERB=false;
     public static boolean SHOW_DATA=false;
-    public static String URL="http://192.168.1.111:8080/";
+    public static String URL="http://192.168.0.21:8080/";
     //public static String URL="http://192.168.100.93:8080/";
 }

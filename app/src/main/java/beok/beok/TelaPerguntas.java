@@ -15,6 +15,11 @@ import android.widget.Toast;
 
 import com.orm.SugarContext;
 
+import org.w3c.dom.Text;
+
+import java.lang.reflect.Array;
+import java.util.Date;
+
 import beok.beok.POJO.ConsumoAtual;
 import beok.beok.api.DB;
 
@@ -166,6 +171,9 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
                     }
                 }
                 ca.setQuantidade(quantidade);
+                Date now=new Date();
+                now.setTime(System.currentTimeMillis());
+                ca.setDataInicio(now);
                 DB.save(ca);
                 Bundle bundle = new Bundle();
                 bundle.putBooleanArray("checkbox", array);
