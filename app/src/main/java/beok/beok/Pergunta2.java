@@ -26,11 +26,11 @@ public class Pergunta2 extends AppCompatActivity {
         SugarContext.init(this);
 
         btprox2 = (Button) findViewById(R.id.btprox2);
-        btpularpergunta = (Button) findViewById(R.id.btpularpergunta);
+       // btpularpergunta = (Button) findViewById(R.id.btpularpergunta);
 
-        cboutrolugar = (CheckBox) findViewById(R.id.cboutrolugar);
+        //cboutrolugar = (CheckBox) findViewById(R.id.cboutrolugar);
 
-        edtxtoutrolugar = (EditText) findViewById(R.id.edtxtoutrolugar);
+        //edtxtoutrolugar = (EditText) findViewById(R.id.edtxtoutrolugar);
 
         bundle = getIntent().getExtras();
 

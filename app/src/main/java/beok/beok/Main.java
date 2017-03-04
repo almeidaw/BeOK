@@ -54,6 +54,7 @@ public class Main extends AppCompatActivity {
     ShowDiary show_diary_fragment;
     MetasSemana fragment_metas_semanal;
     Inspiracao fragment_inspiracao;
+    TherapyMenuFragment fragment_terapia;
     NavigationView nv;
 
     TextView texto_navbar;
@@ -81,6 +82,7 @@ public class Main extends AppCompatActivity {
         show_diary_fragment = new ShowDiary();
         fragment_metas_semanal = new MetasSemana();
         fragment_inspiracao = new Inspiracao();
+        fragment_terapia = new TherapyMenuFragment();
 
         tf = new TestFragment();
         colocaFragment(show_diary_fragment, R.id.main_fragment_container);
@@ -121,23 +123,12 @@ public class Main extends AppCompatActivity {
                          bottomNavigationView.getMenu().getItem(3).setChecked(true);
 
                      } else if (id == R.id.nav_configuracoes) {
-                         beok.beok.POJO.MetaSemanal ms=new MetaSemanal();
-                         ms.setTipo(0);
-                         ms.setQuantidade(23);
-                         ms.setFreqSemanal(2);
-                         ms.setManha(true);
-                         ms.setMadrugada(false);
-                         ms.setNoite(false);
-                         ms.setTarde(false);
-                         Date now=new Date();
-                         now.setTime(System.currentTimeMillis());
-                         ms.setSemana(now);
-                         DB.save(ms);
                          Intent intent = new Intent(Main.this, SettingsActivity.class);
                          startActivity(intent);
 
                      } else if (id == R.id.nav_info) {
-
+                         Intent intent = new Intent(Main.this, Informacoes.class);
+                         startActivity(intent);
                      }
 
 
@@ -205,7 +196,7 @@ public class Main extends AppCompatActivity {
 
                             case R.id.therapyItem:
                                 //Toast.makeText(Main.this, "terapia", Toast.LENGTH_SHORT).show();
-                                Main.this.colocaFragment(tf, R.id.main_fragment_container);
+                                Main.this.colocaFragment(fragment_terapia, R.id.main_fragment_container);
                                 content_main.setBackgroundResource(R.drawable.bg_terapia);
                                 nv.getMenu().getItem(3).setChecked(true);
                                 ut.setTela(3);

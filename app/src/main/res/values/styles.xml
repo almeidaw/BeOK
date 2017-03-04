@@ -66,7 +66,11 @@
         <item name="android:textSize">@dimen/answer_txt_size</item>
     </style>
 
-<!--    <style name="SignUpTheme" parent="@style/MyTheme">
+    <style name="AppTheme.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--    <style name="SignUpTheme" parent="@style/MyTheme">
         <item name="android:background">@drawable/bg_registro</item>
     </style>
 -->

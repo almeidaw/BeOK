@@ -37,6 +37,6 @@ public interface ServiceWS {
     @GET("ws/ws/main/data/contato")
     Call<List<ContatoProf>> getContato();
 
-    @GET("ws/ws/main/data/gruposa")
-    Call<List<GrupoA>> getGrupos();
+    @GET("ws/ws/main/data/gruposa/{tipo}/{zona}")
+    Call<List<GrupoA>> getGrupos(@Path("tipo") String tipo, @Path("zona") String zona);
 }

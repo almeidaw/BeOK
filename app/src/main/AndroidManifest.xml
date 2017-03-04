@@ -4,9 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />.
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    .
     <uses-permission android:name="android.permission.VIBRATE" />
-
 
     <application
         android:allowBackup="false"
@@ -32,6 +32,8 @@
         <activity android:name=".Tela2" />
         <activity android:name=".Tela3" />
         <activity android:name=".Tela4" />
+        <activity android:name=".Tela5" />
+        <activity android:name=".Tela6" />
         <activity android:name=".TelaPerguntas" />
         <activity android:name=".UsouDroga" />
         <activity android:name=".NaoUsouDroga" />
@@ -47,12 +49,12 @@
         <activity android:name=".AlternativaUso" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".MetaSemanal" />
-        <activity android:name=".MetaTratamento"/>
+        <activity android:name=".MetaTratamento" />
         <activity android:name=".MetaTratamentoReducao" />
         <activity android:name=".Atividade1" />
-        <activity android:name=".Terapia" />
-        <activity android:name=".BotaoPanico1"/>
-        <activity android:name=".BotaoPanico2"/>
+        <activity android:name=".Atividade2" />
+        <activity android:name=".BotaoPanico1" />
+        <activity android:name=".BotaoPanico2" />
 
         <meta-data
             android:name="DATABASE"
@@ -67,9 +69,16 @@
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="beok.beok.POJO" />
 
-        <activity android:name=".MetaSemanalGeral"></activity>
+        <activity android:name=".MetaSemanalGeral" />
 
         <service android:name=".Notificacao" />
+
+        <activity android:name=".Informacoes" />
+        <activity
+            android:name=".GruposZona"
+            android:label="@string/title_activity_grupos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Grupos"></activity>
     </application>
 
 </manifest>
