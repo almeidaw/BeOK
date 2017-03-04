@@ -9,48 +9,85 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="beok.beok.Pergunta2">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Em que lugar você usou? (Opcional)"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pular pergunta"
-        android:id="@+id/btpularpergunta"
-        android:onClick="pularPergunta"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
-
-    <FrameLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/btpularpergunta"
-        android:layout_centerHorizontal="true">
+        android:layout_height="match_parent">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="MAPA AQUI"
-            android:textSize="50dp"
-            android:textAlignment="center"/>
+            android:layout_height="wrap_content"
+            android:text="Em que lugar você usou?"
+            android:id="@+id/textView"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp" />
 
-    </FrameLayout>
+        <CheckBox
+            android:text="Em casa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbcasa" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Próximo"
-        android:id="@+id/btprox2"
-        android:onClick="botaoProximo2"
-        android:visibility="invisible"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        <CheckBox
+            android:text="Casa de amigos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbcasaamigos" />
+
+        <CheckBox
+            android:text="Na rua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbrua" />
+
+        <CheckBox
+            android:text="Balada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbbalada" />
+
+        <CheckBox
+            android:text="Bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbbar" />
+
+        <CheckBox
+            android:text="Restaurante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbrestaurante" />
+
+        <CheckBox
+            android:text="Local público (parque, praça, etc)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbpraca" />
+
+        <CheckBox
+            android:text="Outros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cboutrolugar" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Onde?"
+            android:ems="10"
+            android:id="@+id/edtxtoutrolugar"
+            android:visibility="gone"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Próximo"
+            android:id="@+id/btprox2"
+            android:onClick="botaoProximo2"
+            android:layout_gravity="right"
+            />
+    </LinearLayout>
 
 </RelativeLayout>

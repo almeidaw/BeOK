@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 
 import com.orm.SugarContext;
 
@@ -12,6 +14,8 @@ public class Pergunta2 extends AppCompatActivity {
 
 
     Button btprox2, btpularpergunta;
+    CheckBox cboutrolugar;
+    EditText edtxtoutrolugar;
     Bundle bundle;
 
     @Override
@@ -24,7 +28,15 @@ public class Pergunta2 extends AppCompatActivity {
         btprox2 = (Button) findViewById(R.id.btprox2);
         btpularpergunta = (Button) findViewById(R.id.btpularpergunta);
 
+        cboutrolugar = (CheckBox) findViewById(R.id.cboutrolugar);
+
+        edtxtoutrolugar = (EditText) findViewById(R.id.edtxtoutrolugar);
+
         bundle = getIntent().getExtras();
+
+        if (cboutrolugar.isChecked()){
+            edtxtoutrolugar.setVisibility(View.VISIBLE);
+        }
     }
 
     public void botaoProximo2(View v){
