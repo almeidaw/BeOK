@@ -11,9 +11,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import java.util.List;
 import java.util.Random;
 
+import beok.beok.POJO.BotaoAtivo;
 import beok.beok.POJO.ContatoEmergencia;
 import beok.beok.api.Conf;
 import beok.beok.api.DB;
@@ -32,6 +35,8 @@ public class BotaoPanico2 extends AppCompatActivity {
     TextView txtmsgmotivacional;
 
     Button  btcontato1, btcontato2, btcontato3;
+    Bundle b;
+    BotaoAtivo bta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,33 +86,49 @@ public class BotaoPanico2 extends AppCompatActivity {
         String mensagem = String.format(msg[r.nextInt(9)], Conf.getNomeUsuario());
         txtmsgmotivacional.setText(mensagem);
 
+        b=getIntent().getExtras();
+        Gson g=new Gson();
+        bta=g.fromJson(b.getString("bta"),BotaoAtivo.class);
+
     }
 
     public void ligarProfissional(View v){
+        bta.setOQueFez(0);
+        DB.save(bta);
         Uri uri = Uri.parse("tel:"+tel_prof); // "telefone" sera o contato salvo de algum profissional
         Intent i = new Intent(Intent.ACTION_DIAL, uri);
         startActivity(i);
     }
     public void mostrarDicasFrases(View v){
+        bta.setOQueFez(1);
+        DB.save(bta);
         Intent i = new Intent(this,  Fim.class); // Direcionar para tela de dicas efrases motivacionais
         startActivity(i);
     }
 
     public void mostrarGruposAnonimos(View v){
+        bta.setOQueFez(2);
+        DB.save(bta);
         Intent i = new Intent(this,  Fim.class); // Direcionar para tela de contatos GRUPOS DE ANONIMOS
         startActivity(i);
     }
     public void ligarContato1(View v){
+        bta.setOQueFez(3);
+        DB.save(bta);
         Uri uri = Uri.parse("tel:"+tel_1); // "telefone" sera o numero do contato1
         Intent i = new Intent(Intent.ACTION_DIAL, uri);
         startActivity(i);
     }
     public void ligarContato2(View v){
+        bta.setOQueFez(3);
+        DB.save(bta);
         Uri uri = Uri.parse("tel:"+tel_2); // "telefone" sera o numero do contato2
         Intent i = new Intent(Intent.ACTION_DIAL, uri);
         startActivity(i);
     }
     public void ligarContato3(View v){
+        bta.setOQueFez(3);
+        DB.save(bta);
         Uri uri = Uri.parse("tel:"+tel_3); // "telefone" sera o numero do contato3
         Intent i = new Intent(Intent.ACTION_DIAL, uri);
         startActivity(i);

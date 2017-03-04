@@ -2,8 +2,10 @@ package beok.beok.webservice;
 
 import java.util.List;
 
+import beok.beok.POJO.ContatoProf;
 import beok.beok.POJO.CreatedObjects;
 import beok.beok.POJO.DataTeste;
+import beok.beok.POJO.GrupoA;
 import beok.beok.POJO.InspServ;
 import beok.beok.POJO.Usuario;
 import retrofit2.Call;
@@ -31,4 +33,10 @@ public interface ServiceWS {
 
     @PUT("ws/ws/main/data/inspiracao")
     Call<List<InspServ>> checkInsp(@Body Object body);
+
+    @GET("ws/ws/main/data/contato")
+    Call<List<ContatoProf>> getContato();
+
+    @GET("ws/ws/main/data/gruposa")
+    Call<List<GrupoA>> getGrupos();
 }
