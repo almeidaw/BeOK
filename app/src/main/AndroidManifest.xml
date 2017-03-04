@@ -50,7 +50,7 @@
         <activity android:name=".MetaTratamento"/>
         <activity android:name=".MetaTratamentoReducao" />
         <activity android:name=".Atividade1" />
-        <activity android:name=".Terapia" />
+        <activity android:name=".Atividade2" />
         <activity android:name=".BotaoPanico1"/>
         <activity android:name=".BotaoPanico2"/>
 
@@ -69,7 +69,10 @@
 
         <activity android:name=".MetaSemanalGeral"></activity>
 
-        <service android:name=".Notificacao" />
+        <service android:name=".NotificacaoDiario" />
+        <service android:name=".NotificacaoMetaSemanal"/>
+        <service android:name=".NotificacaoTerapia"/>
+
     </application>
 
 </manifest>
