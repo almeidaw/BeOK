@@ -12,52 +12,27 @@
 
     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="match_parent"
         app:cardCornerRadius="5dp"
         android:layout_marginTop="20dp">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:overScrollMode="never">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="match_parent"
+                android:padding="20dp"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1. "
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical|right"
-                        android:id="@+id/txtnumpergunta2" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtpergunta2"
-                        android:textSize="18sp"
-                        android:textStyle="italic"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/layout1"
-                    android:orientation="vertical">
+                    android:textSize="18sp"
+                    android:gravity="center_horizontal"
+                    android:id="@+id/txtpergunta2"/>
 
                     <Button
                         android:layout_width="120dp"
@@ -65,35 +40,33 @@
                         android:id="@+id/btresposta"
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
-                        android:background="#8cc63f"
                         android:layout_marginBottom="15dp"
                         android:layout_marginTop="15dp"
                         android:layout_gravity="center_horizontal"
                         android:clickable="false"
-                        android:text="MITO"
                         android:textSize="18sp"
                         android:textColor="@color/branco"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="A maconha pode sim, gerar dependência. A maioria das pessoas que experimenta maconha não se torna usuário regular e destes: um entre 10 usuários se torna dependente. A frequência ou quantidade de maconha que leva a pessoa a se tornar dependente não é fixa, mas quanto mais e mais freqüentemente for usada, maior a chance de se tornar um dependente. A dependência de uma droga é diagnosticada por alguns sintomas que fazem parte da síndrome da dependência onde prevalece, entre outros , a dificuldade de diminuir ou cessar o consumo da droga e se isto é feito, a sua falta que é sentida no corpo, gerando o que se denominam os sintomas de abstinência. No caso da maconha, muitos dos usuários que relatam a dificuldade em parar o consumo, experimentam este desconforto. Nós já enumeramos quais são os sintomas de abstinência mais freqüentes. Há também evidências de que o uso da maconha altera o grau de tolerância à droga, isto é, a pessoa tem de aumentar as doses após certo tempo para que a droga continue a fazer efeito. Hoje em dia, a dependência da maconha é vista da mesma forma que a de outras drogas."
                         android:gravity="left"
                         android:textSize="16sp"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"/>
+                        android:layout_marginRight="10dp"
+                        android:id="@+id/txtexplicacao" />
+
 
                     <ImageButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_arrow_forward_black_24dp"
-                        android:id="@+id/btok"
                         android:onClick="botaoOk"
-                        android:visibility="visible"
-                        android:backgroundTint="#FF00CC"
-                        android:layout_gravity="right"/>
-
-                </LinearLayout>
+                        android:layout_marginTop="10dp"
+                        android:background="#00000000"
+                        android:tint="#FF00CC"
+                        android:layout_gravity="right"
+                        />
 
             </LinearLayout>
 

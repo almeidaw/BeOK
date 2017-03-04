@@ -90,7 +90,7 @@ public class Tela4 extends AppCompatActivity implements View.OnClickListener{
                     editor.putString("contact3Number", edtxtcontato3.getText().toString());
                     editor.putInt("contact3Priority", 2);
                 }
-                Intent nextActivity = new Intent(this, Atividade1.class);
+                Intent nextActivity = new Intent(this, Tela5.class);
                 startActivity(nextActivity);
                 //slide from right to left
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
