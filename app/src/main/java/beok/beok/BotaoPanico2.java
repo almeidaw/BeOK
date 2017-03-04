@@ -102,7 +102,10 @@ public class BotaoPanico2 extends AppCompatActivity {
     public void mostrarDicasFrases(View v){
         bta.setOQueFez(1);
         DB.save(bta);
+        Bundle bundle = new Bundle();
+        bundle.putInt("inicia_insp", 1);
         Intent i = new Intent(this,  Fim.class); // Direcionar para tela de dicas efrases motivacionais
+        i.putExtras(bundle);
         startActivity(i);
     }
 

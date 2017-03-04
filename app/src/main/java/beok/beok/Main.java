@@ -3,17 +3,12 @@ package beok.beok;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -27,7 +22,6 @@ import java.util.Date;
 import beok.beok.POJO.*;
 import beok.beok.POJO.MetaSemanal;
 import beok.beok.api.App;
-import beok.beok.api.Conf;
 import beok.beok.api.DB;
 import beok.beok.api.ServiceSincronizer;
 
@@ -42,7 +36,7 @@ public class Main extends AppCompatActivity {
 
     static boolean b;
 
-    int period = 10000, iniciar_inspiracao;
+    int period = 10000, inicia_insp;
     final Handler handler=new Handler();
     ServiceSincronizer sc;
 
@@ -65,7 +59,7 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent i = new Intent(Main.this, Notificacao.class);
+        Intent i = new Intent(Main.this, NotificacaoDiario.class);
         startService(i);
 
         btpanico = (Button) findViewById(R.id.btpanico);
@@ -206,6 +200,13 @@ public class Main extends AppCompatActivity {
                         return true;
                     }
                 });
+
+        if (getIntent().getExtras() != null) {
+            Main.this.colocaFragment(fragment_inspiracao, R.id.main_fragment_container);
+            content_main.setBackgroundResource(R.drawable.bg_inspiracao);
+            bottomNavigationView.getMenu().getItem(2).setChecked(true);
+            nv.getMenu().getItem(2).setChecked(true);
+        };
 
     }
 

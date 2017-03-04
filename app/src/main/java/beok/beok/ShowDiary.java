@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 import com.orm.SugarContext;
@@ -120,7 +121,7 @@ public class ShowDiary extends Fragment {
         for(UsoDroga ud:uds){
             for(Droga droga:drogas){
                 if(droga.tipo==convertTipos(ud.getTipo())){
-                    droga.dados.add(new DataPoint(droga.dados.size(),ud.getQuantidade()));
+                    droga.dados.add(new DataPoint(ud.getQuando(),ud.getQuantidade()));
                 }
             }
         }
@@ -214,6 +215,34 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
             }
 
             CardViewHolder.graph.addSeries(ln);
+
+            List<UsoDroga> usoDrogaList = DB.listAll(UsoDroga.class);
+            List<Date> datas = new ArrayList<>();
+            for (UsoDroga ud : usoDrogaList){
+                datas.add(ud.getQuando());
+            }
+
+            // ------------- Formatacao do grafico -----------------
+            CardViewHolder.graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(CardViewHolder.graph.getContext()));
+            CardViewHolder.graph.getGridLabelRenderer().setNumHorizontalLabels(3);
+
+            CardViewHolder.graph.getViewport().setMinY(0);
+            CardViewHolder.graph.getViewport().setYAxisBoundsManual(true);
+
+            if (datas.size() > 2){
+                CardViewHolder.graph.getViewport().setMinX(datas.get(datas.size() - 3).getTime());
+                CardViewHolder.graph.getViewport().setMaxX(datas.get(datas.size() - 1).getTime());
+            } else {
+                CardViewHolder.graph.getViewport().setMinX(datas.get(0).getTime());
+                CardViewHolder.graph.getViewport().setMaxX(datas.get(1).getTime());
+            }
+            CardViewHolder.graph.getViewport().setXAxisBoundsManual(true);
+
+            CardViewHolder.graph.getGridLabelRenderer().setTextSize(25);
+
+            CardViewHolder.graph.getViewport().setScrollable(true);
+            CardViewHolder.graph.getGridLabelRenderer().setHumanRounding(false); //Não sei o que isso faz nem sei se é necessário
+            //-------------- // -----------------------------------------
         }
     }
 

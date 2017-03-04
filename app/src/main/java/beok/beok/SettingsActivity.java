@@ -3,9 +3,12 @@ package beok.beok;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
+import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.widget.Button;
+
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -106,6 +109,10 @@ public class SettingsActivity extends PreferenceActivity {
 
     public static class NotificationsPreferences extends PreferenceFragment{
 
+        CheckBoxPreference notificationEnabled, notificationVibrates;
+        ListPreference notificationDay, notificationTime;
+
+
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -113,19 +120,63 @@ public class SettingsActivity extends PreferenceActivity {
             // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.preference_notifications);
 
-            SharedPreferences.OnSharedPreferenceChangeListener myPrefListner = new SharedPreferences.OnSharedPreferenceChangeListener()
-            {
-                public void onSharedPreferenceChanged(SharedPreferences prefs, String key)
-                {
-                    if(key.equals("notification_enabled"))
-                        if (prefs.getClass().equals(CheckBoxPreference.class))
-                            Toast.makeText(getActivity(), "Você acabou de mudar o status de uma CheckBoxPreference", Toast.LENGTH_LONG).show();
-                    //check if alarm key is set as wanted and if so launch notification
+            //atribuindo valores as preferencias
+            notificationEnabled = (CheckBoxPreference) findPreference("notification_enabled");
+            notificationVibrates = (CheckBoxPreference) findPreference("notification_enabled");
+            notificationDay = (ListPreference) findPreference("notification_week_day");
+            notificationTime = (ListPreference) findPreference("notification_day_period");
+
+
+            //definindo ações quando as preferencias têm seus valores alterados
+            notificationEnabled.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+
+                    if (notificationEnabled.isChecked()){
+                        Toast.makeText(getActivity(), "notificações serão enviadas", Toast.LENGTH_LONG).show();
+                    } else{
+                        Toast.makeText(getActivity(), "notificações não serão enviadas", Toast.LENGTH_LONG).show();
+
+                    }
+                    return true;
                 }
-            };
+            });
+
+            notificationVibrates.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+
+                    if (notificationVibrates.isChecked()){
+                        Toast.makeText(getActivity(), "notificações devem vibrar", Toast.LENGTH_LONG).show();
+                    } else{
+                        Toast.makeText(getActivity(), "notificações não devem vibrar", Toast.LENGTH_LONG).show();
+                    }
+                    return true;
+                }
+            });
+
+            notificationDay.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+
+                    String diaValor = notificationDay.getValue();
+                    String diaEscolhido = notificationDay.getEntry().toString();
+                    Toast.makeText(getActivity(), "você escolheu " + diaEscolhido + ", de valor" + diaValor, Toast.LENGTH_SHORT).show();
+                return true;
+                }
+            });
+
+            notificationTime.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+
+                    return true;
+                }
+            });
+
+            //fim das definições dos listener para essas preferências
         }
 
-
-
     }
+
 }
