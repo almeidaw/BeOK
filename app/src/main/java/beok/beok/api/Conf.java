@@ -4,6 +4,7 @@ import com.orm.SugarRecord;
 
 import java.util.List;
 
+import beok.beok.POJO.ContatoEmergencia;
 import beok.beok.POJO.MetaGeral;
 import beok.beok.POJO.Usuario;
 

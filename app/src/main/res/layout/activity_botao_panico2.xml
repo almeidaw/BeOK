@@ -16,61 +16,70 @@
         android:layout_height="wrap_content"
         android:text="O que você deseja fazer?"
         android:id="@+id/textView2"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Falar com um profissional"
-        android:id="@+id/btprofissinal"
-        android:onClick="ligarProfissional"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ver fotos"
-        android:id="@+id/btfotos"
-        android:onClick="mostrarFotos"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ver dicas ou frases motivacionais"
-        android:id="@+id/btdicasfrases"
-        android:onClick="mostrarDicasFrases"
-        android:visibility="gone"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Procurar algum grupo de anonimos"
-        android:id="@+id/btgrupoanonimos"
-        android:onClick="mostrarGruposAnonimos"/>
-
-    <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ligar para contato 1"
         android:id="@+id/btcontato1"
-        android:onClick="ligarContato1"/>
+        android:onClick="ligarContato1"
+        android:background="@drawable/bordered_button_shape"
+        android:layout_marginTop="15dp"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ligar para contato 2"
         android:id="@+id/btcontato2"
-        android:onClick="ligarContato2"/>
+        android:onClick="ligarContato2"
+        android:background="@drawable/bordered_button_shape"
+        android:layout_marginTop="20dp"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ligar para contato 3"
         android:id="@+id/btcontato3"
-        android:onClick="ligarContato3"/>
+        android:onClick="ligarContato3"
+        android:background="@drawable/bordered_button_shape"
+        android:layout_marginTop="20dp"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Falar com um profissional"
+        android:id="@+id/btprofissinal"
+        android:onClick="ligarProfissional"
+        android:background="@drawable/bordered_button_shape"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver frases motivacionais"
+        android:id="@+id/btdicasfrases"
+        android:onClick="mostrarDicasFrases"
+        android:background="@drawable/bordered_button_shape"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Procurar algum grupo de anonimos"
+        android:id="@+id/btgrupoanonimos"
+        android:onClick="mostrarGruposAnonimos"
+        android:background="@drawable/bordered_button_shape"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/txtmsgmotivacional"/>
+        android:id="@+id/txtmsgmotivacional"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
+        android:textSize="20sp"/>
 
 </LinearLayout>

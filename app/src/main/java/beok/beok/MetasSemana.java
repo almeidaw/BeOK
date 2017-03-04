@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import beok.beok.POJO.ConsumoAtual;
 import beok.beok.POJO.MetaGeral;
 import beok.beok.POJO.MetaSemGeral;
 import beok.beok.POJO.MetaSemanal;
@@ -91,21 +92,23 @@ public class MetasSemana extends Fragment {
                 "SELECT * FROM data_teste WHERE data_hora >= ?",
                 minDate.getTime() + "");*/
 
+        //Calculo do gasto
+        int nDrogas=DB.listAll(ConsumoAtual.class).size();
 
-        List<MetaGeral> metasGerais = DB.listAll(MetaGeral.class);
-        for(MetaGeral meta : metasGerais){
-            metas_semanal.add(new Meta(meta.getTipo(),meta.getQuantidade(),meta.getFreqSemanal(),meta.getManha(),meta.getTarde(),meta.getNoite(),meta.getMadrugada(),0,null));
-        }
 
-        List<MetaSemanal> metas = DB.listAll(MetaSemanal.class);
-        for(MetaSemanal meta : metas){
-            metas_semanal.add(new Meta(meta.getTipo(),meta.getQuantidade(),meta.getFreqSemanal(),meta.getManha(),meta.getTarde(),meta.getNoite(),meta.getMadrugada(),1,null));
-        }
 
-        List<MetaSemGeral> metasg = DB.listAll(MetaSemGeral.class);
-        for(MetaSemGeral meta : metasg){
-            metas_semanal.add(new Meta(0,0,0,false,false,false,false,2,meta.getTexto()));
-        }
+        List<MetaGeral> metasGerais = DB.listAll(MetaGeral.class,"id Desc");
+        List<MetaSemanal> metas = DB.listAll(MetaSemanal.class, "id Desc");
+       for(int i=0;i<nDrogas;i++) {
+           MetaGeral meta1 = metasGerais.get(i);
+           metas_semanal.add(new Meta(meta1.getTipo(), meta1.getQuantidade(), meta1.getFreqSemanal(), meta1.getManha(), meta1.getTarde(), meta1.getNoite(), meta1.getMadrugada(), 0, null));
+           MetaSemanal meta2 = metas.get(i);
+           metas_semanal.add(new Meta(meta2.getTipo(), meta2.getQuantidade(), meta2.getFreqSemanal(), meta2.getManha(), meta2.getTarde(), meta2.getNoite(), meta2.getMadrugada(), 1, null));
+       }
+
+        List<MetaSemGeral> metasg = DB.listAll(MetaSemGeral.class,"id Desc");
+        MetaSemGeral meta3=metasg.get(0);
+        metas_semanal.add(new Meta(0,0,0,false,false,false,false,2,meta3.getTexto()));
 
     }
 

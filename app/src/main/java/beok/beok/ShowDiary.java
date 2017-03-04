@@ -22,8 +22,10 @@ import com.orm.SugarContext;
 import com.orm.SugarRecord;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import beok.beok.POJO.ConsumoAtual;
 import beok.beok.POJO.MetaGeral;
 import beok.beok.POJO.MetaSemanal;
 import beok.beok.POJO.UsoDroga;
@@ -71,11 +73,45 @@ public class ShowDiary extends Fragment {
     private void initializeData() { // Substituir por dados do servidor
         drogas = new ArrayList<>();
 
-        List<MetaSemanal> metas = DB.listAll(MetaSemanal.class);
-        String str="";
-        for(MetaSemanal meta : metas){
-            int economia=0;
-            str+=meta.getTipo();
+        List<MetaSemanal> metas = DB.listAll(MetaSemanal.class,"id Desc");
+
+        int nDrogas=DB.listAll(ConsumoAtual.class).size();
+
+        int gastoOriginal[]=new int[nDrogas];
+        int gastoReal[]=new int[nDrogas];
+        int j=0;
+        for(ConsumoAtual ca:DB.listAll(ConsumoAtual.class)){
+            int diasPorSemana=0;
+            switch (ca.getFreqSemanal()){
+                case 3:
+                    diasPorSemana=4;
+                    break;
+                case 4:
+                    diasPorSemana=7;
+                    break;
+                case 5:
+                    diasPorSemana=2;
+                    break;
+                default:
+                    diasPorSemana=ca.getFreqSemanal();
+                    break;
+            }
+            Date now=new Date();
+            now.setTime(System.currentTimeMillis());
+            Date then=ca.getDataInicio();
+            float delta_t=(now.getTime()-then.getTime())/(7*24*60*60*1000);
+            gastoOriginal[j]=(int)(diasPorSemana*ca.getQuantidade()*ca.getGasto()*delta_t);
+            List<UsoDroga> ud=DB.listAll(UsoDroga.class);
+            for(UsoDroga u:ud){
+                if(convertTipos(u.getTipo())==convertTipos(ca.getTipo())){
+                    gastoReal[j]+=(int)(u.getQuantidade()*ca.getGasto());
+                }
+            }
+            j++;
+        }
+        for(int i=0;i<nDrogas;i++) {
+            MetaSemanal meta=metas.get(i);
+            int economia=gastoOriginal[i]-gastoReal[i];
             drogas.add(new Droga(convertTipos(meta.getTipo()),meta.getQuantidade(),meta.getFreqSemanal(),meta.getManha(),meta.getTarde(),meta.getNoite(),meta.getMadrugada(),economia,new ArrayList<DataPoint>()));
         }
 
@@ -282,7 +318,7 @@ class Droga { // Objeto droga e construtor
                 this.horario+="madrugada\n";
             }
         }
-        this.economia = "Cerca de R$"+economia+",00 economizados esta semana";
+        this.economia = "Cerca de R$"+economia+",00 economizados no total";
         this.dados = dados;
     }
 }

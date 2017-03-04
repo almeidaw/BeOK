@@ -19,6 +19,7 @@ public class ConsumoAtual {
     private int freqSemanal;
     private int quantidade;
     private int gasto;
+    private Date dataInicio;
 
 
     /**
@@ -108,5 +109,13 @@ public class ConsumoAtual {
     }
     public void setCrack(){
         tipo=5;
+    }
+
+    public Date getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(Date dataInicio) {
+        this.dataInicio = dataInicio;
     }
 }
