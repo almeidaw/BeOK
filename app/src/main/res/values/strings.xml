@@ -80,10 +80,10 @@
         <item>55</item>
     </string-array>
 
-<!-- ***************************INICIO MITOS E VERDADES**************************** -->
+    <!-- ***************************INICIO MITOS E VERDADES**************************** -->
 
     <array name="perguntas">
-        <item> \"A maconha não gera\ndependência.\"</item>
+        <item>\"A maconha não gera\ndependência.\"</item>
         <item>\"A maconha é a porta de entrada para o uso de outras drogas mais pesadas.\"</item>
         <item>\"A maconha é uma droga leve, e a cocaína uma droga pesada\"</item>
         <item>\"A maconha pode deixar o usuário louco, isto é, psicótico ou esquizofrênico.\"</item>
@@ -137,43 +137,59 @@
             O que se sabe é que um sujeito que já usou maconha está mais propenso a experimentar
             drogas ditas mais ‘pesadas’ do que o sujeito que nunca sequer experimentou maconha.
             E isto se deve não apenas aos efeitos da maconha em si, isto é, à sua fisiologia e
-            ao funcionamento do chamado sistema de recompensa do cérebro, mas também às circunstâncias:
+            ao funcionamento do chamado sistema de recompensa do cérebro, mas também às
+            circunstâncias:
             o indivíduo que usa maconha tem contato com pessoas que usam drogas e geralmente,
             que usam outras drogas, além de fazer programas onde o ato de consumir droga faz parte.
             Portanto, o ciclo de amizades e os locais que freqüenta bem como os programas,
-            podem influenciar o início do uso de outras drogas.  Sabe-se também que adolescentes que
+            podem influenciar o início do uso de outras drogas. Sabe-se também que adolescentes que
             começam a fumar maconha muito cedo têm mais chance de progredir para um uso crônico
             de maconha e também maior risco de usar outras drogas mais pesadas.\"
         </item>
         <item>\"Será que realmente se pode classificar as drogas entre leves (incluindo o álcool,
-            o cigarro e a maconha) e pesadas (a cocaína e o crack)? A resposta é: depende do referencial.
-            Para um dependente de qualquer uma dessas drogas, a sua droga de consumo será o seu maior problema
+            o cigarro e a maconha) e pesadas (a cocaína e o crack)? A resposta é: depende do
+            referencial.
+            Para um dependente de qualquer uma dessas drogas, a sua droga de consumo será o seu
+            maior problema
             (por exemplo, para um alcoolista, a cocaína não é um risco,
-            e as consequências do uso crônico do álcool são por demais severas para considerar esta droga como leve).
+            e as consequências do uso crônico do álcool são por demais severas para considerar esta
+            droga como leve).
             Quando se fala nesta classificação, deve-se levar em consideração dois aspectos:
             A- o poder de uma droga em gerar dependência no usuário. Neste sentido,
-            o crack é a mais pesada das drogas pois a grande maioria dos consumidores ficam dependentes
+            o crack é a mais pesada das drogas pois a grande maioria dos consumidores ficam
+            dependentes
             em um curtíssimo espaço tempo desde a primeira fumada. B- O outro aspecto seria as
-            reações adversas que a droga pode gerar: seja o de consumo da droga impura ou de overdose.
-            Por exemplo, para um usuário de cocaína, basta uma carreira mal cheirada, e a pessoa pode morrer.
-            Até por este motivo que a maconha é uma droga perigosa no sentido em que as suas conseqüências
-            negativas não ficam tão evidentes ou demoram a aparecer e a pessoa continua usando, sem se dar conta dos danos.
+            reações adversas que a droga pode gerar: seja o de consumo da droga impura ou de
+            overdose.
+            Por exemplo, para um usuário de cocaína, basta uma carreira mal cheirada, e a pessoa
+            pode morrer.
+            Até por este motivo que a maconha é uma droga perigosa no sentido em que as suas
+            conseqüências
+            negativas não ficam tão evidentes ou demoram a aparecer e a pessoa continua usando, sem
+            se dar conta dos danos.
             Tudo isto para explicar que se deve levar em conta os vários aspectos das situações:
-            quem usa a droga, qual droga é usada, em que circunstância, quantidade e qualidade da droga,
+            quem usa a droga, qual droga é usada, em que circunstância, quantidade e qualidade da
+            droga,
             ficando muito difícil generalizar e categorizar as drogas entre leves e pesadas.\"
         </item>
         <item>\"Existem evidências suficientes de que a maconha possa produzir uma psicose aguda
-            (desorganização mental grave) com os seguintes sintomas: confusão mental, perda da memória,
-            delírio, alucinações, ansiedade, agitação. Este quadro estaria muito associado ao período de intoxicação.
-            Hoje está comprovado que o uso de maconha pode precipitar o aparecimento de um quadro psicótico
-            como a esquizofrenia em pessoas vulneráveis, isto é, com predisposição a apresentar tal quadro.
+            (desorganização mental grave) com os seguintes sintomas: confusão mental, perda da
+            memória,
+            delírio, alucinações, ansiedade, agitação. Este quadro estaria muito associado ao
+            período de intoxicação.
+            Hoje está comprovado que o uso de maconha pode precipitar o aparecimento de um quadro
+            psicótico
+            como a esquizofrenia em pessoas vulneráveis, isto é, com predisposição a apresentar tal
+            quadro.
             Há também dados sugerindo que o uso de maconha exacerba os sintomas naquelas pessoas que
             já apresentam alguma doença mental como a esquizofrenia ou depressão.\"
         </item>
-        <item>\"Para cada pessoa, a maconha vai ter um efeito. Isto depende de vários fatores individuais
+        <item>\"Para cada pessoa, a maconha vai ter um efeito. Isto depende de vários fatores
+            individuais
             e também da quantidade de droga consumida.
             Além das grávidas e das pessoas com algum distúrbio pré-existente
-            (desde pessoas com problemas cardíacos, respiratórios, esquizofrenia, dependentes de outra drogas),
+            (desde pessoas com problemas cardíacos, respiratórios, esquizofrenia, dependentes de
+            outra drogas),
             os adolescentes em geral correm mais risco ao usar maconha, pois estão em fase
             de formação neuronal e o uso da maconha pode desviar seu desenvolvimento normal.
             Adolescentes, em geral, é uma fase de mudanças, já têm uma tendência a ter dificuldades
@@ -184,16 +200,19 @@
             em quem essas dificuldades já existiam.\"
         </item>
         <item>\"Não existem casos de morte por overdose de maconha, descritos na literatura,
-            isto porque das duas razões mais comuns que levam à morte por uso de drogas (overdose e impuridade),
+            isto porque das duas razões mais comuns que levam à morte por uso de drogas (overdose e
+            impuridade),
             a pessoa deveria fumar muito até chegar a uma dose letal. Os casos descritos de morte
             por intoxicação são devidos a acidentes decorrentes da desorganização mental produzida
             pela maconha e não são poucos!\"
         </item>
         <item>\"Mesmo sendo natural a maconha pode causar prejuízo.\"
         </item>
-        <item>\"Algumas pessoas têm tanto dificuldade de parar de fumar que muitas vezes pedem ajuda e cada vez mais,
+        <item>\"Algumas pessoas têm tanto dificuldade de parar de fumar que muitas vezes pedem ajuda
+            e cada vez mais,
             as pesquisas mostram pessoas usuárias exclusivas de maconha chegando nos tratamentos.
-            E a maconha é uma droga perniciosa pois muitas vezes seus prejuízos demoram a aparecer e a
+            E a maconha é uma droga perniciosa pois muitas vezes seus prejuízos demoram a aparecer e
+            a
             pessoa continua usando até um ponto de não conseguir mais controlar.\"
         </item>
     </array>
@@ -203,7 +222,7 @@
     <string name="pontos">&lt;b>%1$d&lt;/b></string>
     <string name="parabens">Parabéns, você está be atualizado sobre a Maconha. Continue se informando. É importante saber sobre o que você usa! E ter diferentes pontos de vista.</string>
 
-<!-- *******************************FIM MITOS E VERDADES***************************** -->
+    <!-- *******************************FIM MITOS E VERDADES***************************** -->
 
     <string name="tema1">Introdução ao aplicativo e metas</string>
     <string name="Descricao1">\n No BeOK você vai ter a oportunidade de escolher qual droga (s) deseja mudar o uso, definir uma meta de tratamento que pode ser de parar de usar ou de reduzir o uso.\n Para definir a meta semanal é importante pensar em qual é sua meta de tratamento. Você lembra? A meta que definiu quando se cadastrou no app.
