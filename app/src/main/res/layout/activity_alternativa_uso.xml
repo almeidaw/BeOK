@@ -7,169 +7,170 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="beok.beok.AlternativaUso">
+    tools:context="beok.beok.AlternativaUso"
+    android:theme="@style/MyTheme"
+    android:background="@drawable/bg_registro_nao_usou_droga">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView" >
+
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center">
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="O que te fez ter vontade? O que você sentiu na hora?"
-            android:id="@+id/textView13"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
-
-        <RadioGroup
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <RadioButton
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alegria"
-                android:id="@+id/cbalegria"
-                android:checked="false" />
+                android:text="O que te fez ter vontade? O que você sentiu na hora?"
+                android:id="@+id/textView13"
+                android:gravity="center"/>
 
-            <RadioButton
+            <RadioGroup
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Excitação"
-                android:id="@+id/cbexcitacao"
-                android:checked="false" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Solidão"
-                android:id="@+id/cbsolidao"
-                android:checked="false" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tédio"
-                android:id="@+id/cbtedio"
-                android:checked="false" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Frustração"
-                android:id="@+id/cbfrustracao"
-                android:checked="false" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Raiva"
-                android:id="@+id/cbraiva"
-                android:checked="false" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Comemorar algo"
-                android:id="@+id/cbcomemorar"
-                android:checked="false" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Problemas familiares"
-                android:id="@+id/cbprobfamilia"
-                android:checked="false" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Problemas no trabalho/escola"
-                android:id="@+id/cbprobtrabesc"
-                android:checked="false" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Queria relaxar"
-                android:id="@+id/cbrelaxar"
-                android:checked="false" />
+                android:layout_height="match_parent">
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Outros"
-                    android:onClick="outrosMotivos"
-                    android:id="@+id/cboutrosmotivos" />
+                    android:text="Alegria"
+                    android:id="@+id/cbalegria"
+                    android:checked="false" />
 
-                <EditText
+                <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="invisible"
-                    android:id="@+id/edtxtoutrosmotivos"/>
-        </RadioGroup>
+                    android:text="Excitação"
+                    android:id="@+id/cbexcitacao"
+                    android:checked="false" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Solidão"
+                    android:id="@+id/cbsolidao"
+                    android:checked="false" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tédio"
+                    android:id="@+id/cbtedio"
+                    android:checked="false" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Frustração"
+                    android:id="@+id/cbfrustracao"
+                    android:checked="false" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Raiva"
+                    android:id="@+id/cbraiva"
+                    android:checked="false" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Comemorar algo"
+                    android:id="@+id/cbcomemorar"
+                    android:checked="false" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Problemas familiares"
+                    android:id="@+id/cbprobfamilia"
+                    android:checked="false" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Problemas no trabalho/escola"
+                    android:id="@+id/cbprobtrabesc"
+                    android:checked="false" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Queria relaxar"
+                    android:id="@+id/cbrelaxar"
+                    android:checked="false" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Outros"
+                        android:onClick="outrosMotivos"
+                        android:id="@+id/cboutrosmotivos" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible"
+                        android:id="@+id/edtxtoutrosmotivos"/>
+            </RadioGroup>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="O que fez no lugar de usar a droga?"
-                android:id="@+id/textView14"
-                android:layout_below="@+id/linearLayout5"
-                android:layout_centerHorizontal="true" />
+                android:id="@+id/textView14"/>
 
-        <RadioGroup
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            <RadioGroup
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Liguei para alguém"
-                android:id="@+id/cbliguei" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Liguei para alguém"
+                    android:id="@+id/cbliguei" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Conversei pessoalmente com alguém(amigo, familiar)"
-                android:id="@+id/cbpessoalmente1" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Conversei pessoalmente com alguém(amigo, familiar)"
+                    android:id="@+id/cbpessoalmente1" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fui conversa pessoalmente com um profissional"
-                android:id="@+id/cbpessoalmente2" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fui conversa pessoalmente com um profissional"
+                    android:id="@+id/cbpessoalmente2" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fui em um grupo de auto-ajuda"
-                android:id="@+id/cbauto_ajuda" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fui em um grupo de auto-ajuda"
+                    android:id="@+id/cbauto_ajuda" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tomei um banho"
-                android:id="@+id/cbbanho" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tomei um banho"
+                    android:id="@+id/cbbanho" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fui comer"
-                android:id="@+id/cbcomi" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fui comer"
+                    android:id="@+id/cbcomi" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pensei em pessoas queridas"
-                android:id="@+id/cbpessoasqueridas" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pensei em pessoas queridas"
+                    android:id="@+id/cbpessoasqueridas" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -183,6 +184,7 @@
                     android:layout_height="wrap_content"
                     android:visibility="invisible"
                     android:id="@+id/edtxtoutrasalternativas" />
+            </RadioGroup>
 
             <Button
                 android:layout_width="wrap_content"
@@ -190,10 +192,7 @@
                 android:text="Próximo"
                 android:id="@+id/btprox"
                 android:onClick="botaoProximo"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
-        </RadioGroup>
+                android:background="@drawable/bordered_button_shape"/>
         </LinearLayout>
     </ScrollView>
 

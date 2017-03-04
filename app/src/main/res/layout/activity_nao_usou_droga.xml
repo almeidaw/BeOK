@@ -7,21 +7,38 @@
     tools:context="beok.beok.NaoUsouDroga"
     android:theme="@style/MyTheme"
     android:background="@drawable/bg_registro_nao_usou_droga"
-    android:gravity="center_horizontal">
+    android:gravity="center">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Parabéns!\n E você teve vontade de usar?"
-        android:id="@+id/textView8"
-        android:gravity="center_horizontal"
-        android:layout_gravity="center"
-        android:layout_weight="1"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Parabéns!"
+            android:id="@+id/textView8.1"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E você teve vontade de usar?"
+            android:id="@+id/textView8"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
 
         <Button
             android:layout_width="wrap_content"

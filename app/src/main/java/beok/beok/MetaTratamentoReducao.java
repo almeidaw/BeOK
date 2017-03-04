@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.orm.SugarContext;
 
@@ -76,7 +77,8 @@ public class MetaTratamentoReducao extends AppCompatActivity {
         } else if (bundle.getInt("Droga escolhida") == 4) {
             txtlegenda.setVisibility(View.GONE);
             meta.setTipo(5);
-        }
+        } else
+            Toast.makeText(this, "ops... não achei uma variável e por isso não vou mostrar a legenda", Toast.LENGTH_SHORT).show();
 
 
         sbqtd.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {

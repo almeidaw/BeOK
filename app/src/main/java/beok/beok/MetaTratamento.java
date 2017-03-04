@@ -107,7 +107,7 @@ public class MetaTratamento extends AppCompatActivity {
         else{
             intent =  new Intent (this, MetaTratamentoReducao.class);
 
-            tempBundle.putInt("Droga escolhida", this.bundle.getInt("DrogaEscolhida"));
+            tempBundle.putInt("Droga escolhida", this.bundle.getInt("Droga escolhida"));
             int freqSemanal = this.metaFreq.getSelectedItemPosition();
             tempBundle.putInt("freqSemanal", freqSemanal);
 
@@ -115,5 +115,9 @@ public class MetaTratamento extends AppCompatActivity {
         intent.putExtras(tempBundle);
 
         startActivity(intent);
+
+        finish();
     }
+
+
 }
