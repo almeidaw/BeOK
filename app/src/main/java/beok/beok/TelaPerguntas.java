@@ -78,7 +78,9 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
             txtlegenda.setText("Uma dose é igual a");
             ivlegenda.setVisibility(View.VISIBLE);
             ca.setCerveja();
-            sbqtd.setMax(15);
+            sbqtd.setMax(14);
+            sbqtd.setProgress(6);
+            txtqtddroga.setText("7 doses");
             spbebidas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -105,18 +107,26 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
             //txtunidade.setText("1 baseado de maconha = ");
             txtlegenda.setText("baseado fino = 0,5 grama \nbaseado normal = 1,2 grama\nbomba = 2 grama");
             ca.setMaconha();
-            sbqtd.setMax(10);
+            sbqtd.setMax(19);
+            sbqtd.setProgress(9);
+            txtqtddroga.setText("10 baseados");
         }else if (bundle.getInt("Droga escolhida") == 3){
             txtunidade.setText("1 grama de cocaina = ");
             txtlegenda.setText("1 papelote/pino= 1grama");
             ca.setCocaina();
-            sbqtd.setMax(10);
+            sbqtd.setMax(19);
+            sbqtd.setProgress(9);
+            txtqtddroga.setText("10 gramas");
+
         }else if (bundle.getInt("Droga escolhida") == 4){
             txtunidade.setText("1 pedra de crack = ");
-            txtlegenda.setText("LEGENDA ALCOOL");
+            //txtlegenda.setText("LEGENDA ALCOOL");
             txtlegenda.setVisibility(View.GONE);
             ca.setCrack();
-            sbqtd.setMax(10);
+            sbqtd.setMax(14);
+            sbqtd.setProgress(6);
+            txtqtddroga.setText("7 pedras");
+
         }
         array = bundle.getBooleanArray("checkbox");
 
@@ -125,20 +135,16 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (bundle.getInt("Droga escolhida") == 1){
-                    sbqtd.setMax(14);
-                    txtqtddroga.setText(Integer.toString(progress + 1) + " doses de " + spbebidas.getSelectedItem().toString());
+                    txtqtddroga.setText(Integer.toString(progress + 1) + " doses");
                     quantidade= progress+1;
                 } else if (bundle.getInt("Droga escolhida") == 2){
-                    sbqtd.setMax(19);
-                    txtqtddroga.setText(Float.toString(((float)progress + 1)/2) + " baseados de maconha");
+                    txtqtddroga.setText(Float.toString(((float)progress + 1)/2) + " baseados");
                     quantidade= progress+1;
                 } else if (bundle.getInt("Droga escolhida") == 3){
-                    sbqtd.setMax(19);
-                    txtqtddroga.setText(Float.toString(((float)progress + 1)/2) + " gramas cocaina");
+                    txtqtddroga.setText(Float.toString(((float)progress + 1)/2) + " gramas");
                     quantidade= progress+1;
                 } else if (bundle.getInt("Droga escolhida") == 4){
-                    sbqtd.setMax(9);
-                    txtqtddroga.setText(Integer.toString(progress + 1) + " pedras de crack");
+                    txtqtddroga.setText(Integer.toString(progress + 1) + " pedras");
                     quantidade= progress+1;
                 }
                 btconfirma.setVisibility(View.VISIBLE);
