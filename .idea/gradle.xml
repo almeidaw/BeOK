@@ -8,8 +8,8 @@
         <option name="gradleHome" value="C:\Program Files\Android\Android Studio\gradle\gradle-2.14.1" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="/media/storage/Libraries/Documents/Poli/BeOK/BeOK" />
+            <option value="/media/storage/Libraries/Documents/Poli/BeOK/BeOK/app" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
