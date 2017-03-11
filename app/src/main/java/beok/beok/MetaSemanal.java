@@ -28,13 +28,14 @@ import beok.beok.api.DB;
 public class MetaSemanal extends AppCompatActivity {
 
     Button btproximo;
-    Spinner spmeta1, spmeta2, spmeta3, spmeta4, spfreq1, spfreq2, spfreq3, spfreq4, spbebidas;
+    Spinner spmeta1, spmeta2, spmeta3, spmeta4, spfreq1, spfreq2, spfreq3, spfreq4, spbebidas, spbaseado_medio;
     CheckBox cbmanha1, cbtarde1, cbnoite1, cbmadrugada1, cbmanha2, cbtarde2, cbnoite2, cbmadrugada2,
             cbmanha3, cbtarde3, cbnoite3, cbmadrugada3, cbmanha4, cbtarde4, cbnoite4, cbmadrugada4;
     ImageView ivbebidas;
     TextView txtqtd1, txtqtd2, txtqtd3, txtqtd4;
     LinearLayout llalcool, llmaconha, llcocaina, llcrack;
     SeekBar sbqtd1, sbqtd2, sbqtd3, sbqtd4;
+    LinearLayout defineUsoMetaAlcool,defineUsoMetaMaconha,defineUsoMetaCrack,defineUsoMetaCocaina;
 
     boolean usoalcool;
     boolean usomaconha;
