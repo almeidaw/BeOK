@@ -1,5 +1,6 @@
 package beok.beok;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -179,5 +180,9 @@ public class Atividade2 extends AppCompatActivity {
         public int getCount() {
             return 17;
         }
+    }
+    @Override
+    public void onBackPressed() {
+
     }
 }

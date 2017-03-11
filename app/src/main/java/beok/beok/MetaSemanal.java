@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.orm.SugarContext;
 import com.orm.SugarRecord;
 
+import java.util.Date;
 import java.util.List;
 
 import beok.beok.POJO.ConsumoAtual;
@@ -352,6 +353,8 @@ public class MetaSemanal extends AppCompatActivity {
     }
 
     public void botaoProximo(View v){
+        Date now=new Date();
+        now.setTime(System.currentTimeMillis());
         meta1.setManha(cbmanha1.isChecked());
         meta1.setTarde(cbtarde1.isChecked());
         meta1.setNoite(cbnoite1.isChecked());
@@ -373,19 +376,27 @@ public class MetaSemanal extends AppCompatActivity {
         meta4.setMadrugada(cbmadrugada4.isChecked());
 
         if (usoalcool){
+            meta1.setSemana(now);
             DB.save(meta1);
         }
         if (usomaconha){
+            meta2.setSemana(now);
             DB.save(meta2);
         }
         if (usococaina){
+            meta3.setSemana(now);
             DB.save(meta3);
         }
         if (usocrack){
+            meta4.setSemana(now);
             DB.save(meta4);
         }
 
         Intent i = new Intent(this, MetaSemanalGeral.class); //Direcionar para home?
         startActivity(i);
+    }
+    @Override
+    public void onBackPressed() {
+
     }
 }

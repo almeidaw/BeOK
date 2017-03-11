@@ -60,4 +60,8 @@ public class Atividade3 extends AppCompatActivity {
             // salvar as 4 Strings no banco de dados
         }
     }
+    @Override
+    public void onBackPressed() {
+
+    }
 }

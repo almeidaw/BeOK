@@ -67,4 +67,8 @@ public class Fim extends AppCompatActivity {
         Intent i = new Intent(this, Main.class);
         startActivity(i);
     }
+    @Override
+    public void onBackPressed() {
+
+    }
 }

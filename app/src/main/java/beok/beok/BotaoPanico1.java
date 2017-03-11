@@ -54,5 +54,8 @@ public class BotaoPanico1 extends AppCompatActivity {
         i.putExtras(b);
         startActivity(i);
     }
+    @Override
+    public void onBackPressed() {
 
+    }
 }

@@ -51,4 +51,8 @@ public class Tela6 extends AppCompatActivity {
 
         }
     }
+    @Override
+    public void onBackPressed() {
+
+    }
 }

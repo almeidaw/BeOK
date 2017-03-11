@@ -17,4 +17,8 @@ public class Atividade1 extends AppCompatActivity {
         Intent i = new Intent(this, MetaSemanal.class);
         startActivity(i);
     }
+    @Override
+    public void onBackPressed() {
+
+    }
 }

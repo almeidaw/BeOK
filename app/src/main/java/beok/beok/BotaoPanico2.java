@@ -136,4 +136,8 @@ public class BotaoPanico2 extends AppCompatActivity {
         Intent i = new Intent(Intent.ACTION_DIAL, uri);
         startActivity(i);
     }
+    @Override
+    public void onBackPressed() {
+
+    }
 }

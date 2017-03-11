@@ -77,4 +77,8 @@ public class Tela5 extends AppCompatActivity {
         }
 
     }
+    @Override
+    public void onBackPressed() {
+
+    }
 }

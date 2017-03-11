@@ -45,5 +45,9 @@ public class Diary1 extends AppCompatActivity {
         //slide from right to left
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
+    @Override
+    public void onBackPressed() {
+
+    }
 
 }

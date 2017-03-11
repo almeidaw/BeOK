@@ -190,4 +190,8 @@ public class Tela4 extends AppCompatActivity implements View.OnClickListener{
             txtcontato3.setText(c.getString(nome));
         }
     }
+    @Override
+    public void onBackPressed() {
+
+    }
 }
