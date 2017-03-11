@@ -224,6 +224,23 @@
                     android:id="@+id/txtqtd2"/>
 
                 <TextView
+                    android:text="@string/baseado_tamanho_meta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txttamanho"
+                    android:textSize="@dimen/tamanho_perguntas"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:gravity="center"/>
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spbaseado_medio"
+                    android:entries="@array/baseado_tamanho_medio"
+                    android:layout_marginBottom="5dp"/>
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Em qual período do dia?"/>

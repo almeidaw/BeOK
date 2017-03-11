@@ -23,6 +23,7 @@ public class MetaSemanal {
     private boolean noite;
     private boolean madrugada;
     private int quantidade;
+    private int tamMedBaseado; // "tamMedBaseado" = 0 caso "tipo" não for maconha
 
 
     /**
@@ -154,4 +155,19 @@ public class MetaSemanal {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
+
+    /**
+     * @return the tamMedBaseado
+     */
+    public int getTamMedBaseado() {
+        return tamMedBaseado;
+    }
+
+    /**
+     * @param tamMedBaseado the tamMedBaseado to set
+     */
+    public void setTamMedBaseado(int tamMedBaseado) {
+        this.tamMedBaseado = tamMedBaseado;
+    }
+
 }

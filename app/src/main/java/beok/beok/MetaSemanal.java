@@ -27,7 +27,7 @@ import beok.beok.api.DB;
 public class MetaSemanal extends AppCompatActivity {
 
     Button btproximo;
-    Spinner spmeta1, spmeta2, spmeta3, spmeta4, spfreq1, spfreq2, spfreq3, spfreq4, spbebidas;
+    Spinner spmeta1, spmeta2, spmeta3, spmeta4, spfreq1, spfreq2, spfreq3, spfreq4, spbebidas, spbaseado_medio;
     CheckBox cbmanha1, cbtarde1, cbnoite1, cbmadrugada1, cbmanha2, cbtarde2, cbnoite2, cbmadrugada2,
             cbmanha3, cbtarde3, cbnoite3, cbmadrugada3, cbmanha4, cbtarde4, cbnoite4, cbmadrugada4;
     ImageView ivbebidas;
@@ -60,6 +60,7 @@ public class MetaSemanal extends AppCompatActivity {
         spfreq3 = (Spinner) findViewById(R.id.spfreq3);
         spfreq4 = (Spinner) findViewById(R.id.spfreq4);
         spbebidas = (Spinner) findViewById(R.id.spbebidas);
+        spbaseado_medio = (Spinner) findViewById(R.id.spbaseado_medio);
         cbmanha1 = (CheckBox) findViewById(R.id.cbmanha1);
         cbmanha2 = (CheckBox) findViewById(R.id.cbmanha2);
         cbmanha3 = (CheckBox) findViewById(R.id.cbmanha3);
@@ -373,15 +374,19 @@ public class MetaSemanal extends AppCompatActivity {
         meta4.setMadrugada(cbmadrugada4.isChecked());
 
         if (usoalcool){
+            meta1.setTamMedBaseado(0);
             DB.save(meta1);
         }
         if (usomaconha){
+            meta2.setTamMedBaseado(spbaseado_medio.getSelectedItemPosition() + 1);
             DB.save(meta2);
         }
         if (usococaina){
+            meta3.setTamMedBaseado(0);
             DB.save(meta3);
         }
         if (usocrack){
+            meta4.setTamMedBaseado(0);
             DB.save(meta4);
         }
 
