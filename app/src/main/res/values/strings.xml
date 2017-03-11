@@ -237,5 +237,6 @@ Então a meta precisa ser algo que te desafie e que seja possível de ser atingi
 
     <string name="peso_baseado">baseado fino = 0,5 grama\nbaseado normal = 1,2 gramas\nbomba = 2 gramas</string>
     <string name="peso_pedra">1 papelote/pino = 1grama</string>
+    <string name="title_activity_grupos">Grupos</string>
 
 </resources>

@@ -13,7 +13,7 @@ import com.orm.SugarContext;
 public class Pergunta2 extends AppCompatActivity {
 
 
-    Button btprox2, btpularpergunta;
+    Button btprox2;
     CheckBox cboutrolugar;
     EditText edtxtoutrolugar;
     Bundle bundle;
@@ -26,7 +26,6 @@ public class Pergunta2 extends AppCompatActivity {
         SugarContext.init(this);
 
         btprox2 = (Button) findViewById(R.id.btprox2);
-        btpularpergunta = new Button(this);//(Button) findViewById(R.id.btpularpergunta);
 
         cboutrolugar = (CheckBox) findViewById(R.id.cboutrolugar);
 

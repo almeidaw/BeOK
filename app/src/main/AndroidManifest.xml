@@ -49,12 +49,14 @@
         <activity android:name=".AlternativaUso" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".MetaSemanal" />
-        <activity android:name=".MetaTratamento"/>
+        <activity android:name=".MetaTratamento" />
         <activity android:name=".MetaTratamentoReducao" />
+        <activity android:name=".Atividades" />
         <activity android:name=".Atividade1" />
         <activity android:name=".Atividade2" />
-        <activity android:name=".BotaoPanico1"/>
-        <activity android:name=".BotaoPanico2"/>
+        <activity android:name=".Atividade3" />
+        <activity android:name=".BotaoPanico1" />
+        <activity android:name=".BotaoPanico2" />
 
         <meta-data
             android:name="DATABASE"
@@ -72,9 +74,15 @@
         <activity android:name=".MetaSemanalGeral"></activity>
 
         <service android:name=".NotificacaoDiario" />
-        <service android:name=".NotificacaoMetaSemanal"/>
-        <service android:name=".NotificacaoTerapia"/>
+        <service android:name=".NotificacaoMetaSemanal" />
+        <service android:name=".NotificacaoTerapia" />
 
+        <activity android:name=".Informacoes" />
+        <activity
+            android:name=".GruposZona"
+            android:label="@string/title_activity_grupos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Grupos"></activity>
     </application>
 
 </manifest>

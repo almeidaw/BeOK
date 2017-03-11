@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_grupos"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="beok.beok.GruposZona">
+    <TextView
+        android:text="Zona na cidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="44dp"
+        android:id="@+id/textView19" />
+
+    <Button
+        android:text="Zona sul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button6"
+        android:layout_marginTop="47dp"
+        android:onClick="zs"
+        android:layout_below="@+id/textView19"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Zona Norte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button7"
+        android:layout_marginTop="24dp"
+        android:onClick="zn"
+        android:layout_below="@+id/button6"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Zona Leste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button8"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/button7"
+        android:layout_centerHorizontal="true"
+        android:onClick="zl" />
+
+    <Button
+        android:text="Zona Oeste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button9"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/button8"
+        android:layout_alignLeft="@+id/button7"
+        android:layout_alignStart="@+id/button7"
+        android:onClick="zo" />
+
+    <Button
+        android:text="Zona Central"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button4"
+        android:layout_marginTop="23dp"
+        android:onClick="zc"
+        android:layout_below="@+id/button9"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

@@ -18,6 +18,8 @@ public class GrupoA {
     private String telefone;
     private String descricao;
     private String endereco;
+    private int zona;
+    private int tipo;
 
 
     /**
@@ -84,5 +86,21 @@ public class GrupoA {
      */
     public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+
+    public int getZona() {
+        return zona;
+    }
+
+    public void setZona(int zona) {
+        this.zona = zona;
+    }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
     }
 }
