@@ -112,6 +112,23 @@
         <item>Você pode alcançar o almejado, %1$s! Continue!</item>
     </array>
 
+    <array name="msg_fissura">
+        <item>%1$s, não desista!</item>
+        <item>A dificuldade está aí, mas você pode superar, %1$s </item>
+        <item>Você irá conseguir ainda, %1$s!</item>
+        <item>Você está no caminho, %1$s!</item>
+        <item>Você é maior do que isso! Continue, %1$s!</item>
+        <item>Você é mais que isso! Você consegue superar, %1$s!</item>
+        <item>Você pode alcançar o almejado, %1$s! Continue!</item>
+    </array>
+
+    <array name="msg_usou">
+        <item>%1$s, não desista!</item>
+        <item>Isto pode se só um lapso %1$s, você pode recuar</item>
+        <item>%1$s isso acontece, levante a poeira e siga em frente</item>
+        <item>%1$s, isto não é o fim. Acontece. O importante é reagir</item>
+    </array>
+
     <array name="msg_nao_usou">
         <item>Que legal, %1$s, você conseguiu driblar sua vontade!</item>
         <item>Parabéns, %1$s, você teve vontade e conseguiu não usar!</item>
