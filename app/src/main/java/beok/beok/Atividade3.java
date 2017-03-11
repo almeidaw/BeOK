@@ -32,6 +32,7 @@ public class Atividade3 extends AppCompatActivity {
 
     }
 
+
     public void botaoAnterior(View v){
         if (tela == 2){
             txt_titulo1.setText("Quando você NÃO está usando a droga...");

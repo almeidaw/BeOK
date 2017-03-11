@@ -18,6 +18,7 @@ import java.util.Random;
 
 import beok.beok.POJO.BotaoAtivo;
 import beok.beok.POJO.ContatoEmergencia;
+import beok.beok.api.App;
 import beok.beok.api.Conf;
 import beok.beok.api.DB;
 
@@ -52,6 +53,7 @@ public class BotaoPanico2 extends AppCompatActivity {
         txtmsgmotivacional = (TextView) findViewById(R.id.txtmsgmotivacional);
         tel_2e=false;
         tel_3e=false;
+
 
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -106,7 +108,7 @@ public class BotaoPanico2 extends AppCompatActivity {
     public void ligarProfissional(View v){
         bta.setOQueFez(0);
         DB.save(bta);
-        Uri uri = Uri.parse("tel:"+tel_prof); // "telefone" sera o contato salvo de algum profissional
+        Uri uri = Uri.parse("tel:"+ App.TEL_PROF); // "telefone" sera o contato salvo de algum profissional
         Intent i = new Intent(Intent.ACTION_DIAL, uri);
         startActivity(i);
     }
