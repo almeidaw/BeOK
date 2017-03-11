@@ -51,6 +51,11 @@
         <item>Mais de 3 baseados</item>
     </array>
 
+    <array name="baseado_tamanho_medio">
+        <item>Baseado fino = 0,5 grama</item>
+        <item>Baseado normal = 1,2 grama</item>
+        <item>Baseado grande = 2 gramas</item>
+    </array>
 
     <array name="mensagens">
         <item>%1$s, não desista!</item>
