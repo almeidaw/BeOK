@@ -32,7 +32,7 @@ public class MetaSemanal extends AppCompatActivity {
             cbmanha3, cbtarde3, cbnoite3, cbmadrugada3, cbmanha4, cbtarde4, cbnoite4, cbmadrugada4;
     ImageView ivbebidas;
     TextView txtqtd1, txtqtd2, txtqtd3, txtqtd4;
-    LinearLayout llalcool, llmaconha, llcocaina, llcrack;
+    LinearLayout llalcool, llmaconha, llcocaina, llcrack, defineUsoMetaAlcool, defineUsoMetaCocaina, defineUsoMetaCrack, defineUsoMetaMaconha;
     SeekBar sbqtd1, sbqtd2, sbqtd3, sbqtd4;
 
     boolean usoalcool;
@@ -81,6 +81,10 @@ public class MetaSemanal extends AppCompatActivity {
         llmaconha = (LinearLayout) findViewById(R.id.llmaconha);
         llcocaina = (LinearLayout) findViewById(R.id.llcocaina);
         llcrack = (LinearLayout) findViewById(R.id.llcrack);
+        defineUsoMetaAlcool = (LinearLayout) findViewById(R.id.meta_semanal_alcool_usando);
+        defineUsoMetaCocaina = (LinearLayout) findViewById(R.id.meta_semanal_cocaina_usando);
+        defineUsoMetaCrack = (LinearLayout) findViewById(R.id.meta_semanal_crack_usando);
+        defineUsoMetaMaconha = (LinearLayout) findViewById(R.id.meta_semanal_maconha_usando);
         sbqtd1 = (SeekBar) findViewById(R.id.sbqtd1);
         sbqtd2 = (SeekBar) findViewById(R.id.sbqtd2);
         sbqtd3 = (SeekBar) findViewById(R.id.sbqtd3);
@@ -244,8 +248,10 @@ public class MetaSemanal extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (spmeta1.getItemAtPosition(position).equals("Reduzir o uso")){
                     spfreq1.setVisibility(View.VISIBLE);
+                    defineUsoMetaAlcool.setVisibility(View.VISIBLE);
                 }else{
                     spfreq1.setVisibility(View.GONE);
+                    defineUsoMetaAlcool.setVisibility(View.GONE);
                     meta1.setFreqSemanal(0);
                 }
             }
@@ -260,8 +266,10 @@ public class MetaSemanal extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (spmeta2.getItemAtPosition(position).equals("Reduzir o uso")){
                     spfreq2.setVisibility(View.VISIBLE);
+                    defineUsoMetaMaconha.setVisibility(View.VISIBLE);
                 }else{
                     spfreq2.setVisibility(View.GONE);
+                    defineUsoMetaMaconha.setVisibility(View.GONE);
                     meta2.setFreqSemanal(0);
                 }
             }
@@ -276,8 +284,10 @@ public class MetaSemanal extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (spmeta3.getItemAtPosition(position).equals("Reduzir o uso")){
                     spfreq3.setVisibility(View.VISIBLE);
+                    defineUsoMetaCocaina.setVisibility(View.VISIBLE);
                 }else{
                     spfreq3.setVisibility(View.GONE);
+                    defineUsoMetaCocaina.setVisibility(View.GONE);
                     meta3.setFreqSemanal(0);
                 }
             }
@@ -292,8 +302,10 @@ public class MetaSemanal extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (spmeta4.getItemAtPosition(position).equals("Reduzir o uso")){
                     spfreq4.setVisibility(View.VISIBLE);
+                    defineUsoMetaCrack.setVisibility(View.VISIBLE);
                 }else{
                     spfreq4.setVisibility(View.GONE);
+                    defineUsoMetaCrack.setVisibility(View.GONE);
                     meta4.setFreqSemanal(0);
                 }
             }
@@ -387,5 +399,9 @@ public class MetaSemanal extends AppCompatActivity {
 
         Intent i = new Intent(this, MetaSemanalGeral.class); //Direcionar para home?
         startActivity(i);
+    }
+
+    public void onCilckAbstinencia(){
+
     }
 }

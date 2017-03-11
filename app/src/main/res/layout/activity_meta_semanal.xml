@@ -49,9 +49,10 @@
                     android:text="Qual será sua meta desta semana \n com o álcool?"/>
 
                 <LinearLayout
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
 
                     <Spinner
                         android:layout_width="wrap_content"
@@ -70,56 +71,56 @@
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Qual quantidade por dia você \npretende usar?"
-                    android:gravity="center"
-                    android:layout_marginTop="20dp"/>
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:id="@+id/ivbebidas"
-                    android:src="@drawable/bebidas"
-                    android:layout_marginTop="20dp"/>
-
-                <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/spbebidas"
-                    android:entries="@array/bebidas">
-
-                </Spinner>
-
-                <SeekBar
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="20dp"
-                    android:id="@+id/sbqtd1"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txtqtd1"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Em qual período do dia?"/>
-
                 <LinearLayout
+                    android:id="@+id/meta_semanal_alcool_usando"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Qual quantidade por dia você \npretende usar?"
+                        android:gravity="center"
+                        android:layout_marginTop="20dp"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/ivbebidas"
+                        android:src="@drawable/bebidas"
+                        android:layout_marginTop="20dp"/>
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spbebidas"
+                        android:entries="@array/bebidas">
+
+                    </Spinner>
+
+                    <SeekBar
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="20dp"
+                        android:id="@+id/sbqtd1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtqtd1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Em qual período do dia?"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginLeft="0dp">
+                        android:orientation="vertical">
+
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -194,67 +195,75 @@
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Qual quantidade por dia \nvocê pretende usar?"
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="baseado fino=0,5 grama\nbaeado normal = 1,2 gramas\nbomba= 2 gramas"
-                    android:id="@+id/txtlegenda2"
-                    android:textColor="@color/cinzinha"/>
-
-                <SeekBar
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="20dp"
-                    android:id="@+id/sbqtd2"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txtqtd2"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Em qual período do dia?"/>
-
                 <LinearLayout
+                    android:id="@+id/meta_semanal_maconha_usando"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Manhã(das 6h às 12h)"
-                        android:id="@+id/cbmanha2" />
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
-                    <CheckBox
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tarde(das 12h às 18h)"
-                        android:id="@+id/cbtarde2"/>
+                        android:text="Qual quantidade por dia \nvocê pretende usar?"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        />
 
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Noite(das 18h às 24h)"
-                        android:id="@+id/cbnoite2"/>
 
-                    <CheckBox
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Madrugada(das 24h às 6h)"
-                        android:id="@+id/cbmadrugada2"/>
+                        android:layout_gravity="center"
+                        android:text="baseado fino=0,5 grama\nbaeado normal = 1,2 gramas\nbomba= 2 gramas"
+                        android:id="@+id/txtlegenda2"
+                        android:textColor="@color/cinzinha"/>
+
+                    <SeekBar
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="20dp"
+                        android:id="@+id/sbqtd2"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtqtd2"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Em qual período do dia?"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Manhã(das 6h às 12h)"
+                            android:id="@+id/cbmanha2" />
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tarde(das 12h às 18h)"
+                            android:id="@+id/cbtarde2"/>
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Noite(das 18h às 24h)"
+                            android:id="@+id/cbnoite2"/>
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Madrugada(das 24h às 6h)"
+                            android:id="@+id/cbmadrugada2"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -263,7 +272,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
+                android:gravity="center_horizontal"
                 android:visibility="gone">
 
                 <TextView
@@ -285,7 +294,7 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center">
+                    android:gravity="center_horizontal">
 
                     <Spinner
                         android:layout_width="wrap_content"
@@ -306,66 +315,74 @@
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:gravity="center"
-                    android:text="Qual quantidade por dia \nvocê pretende usar?" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1 papelote/pino= 1grama"
-                    android:id="@+id/txtlegenda3"
-                    android:textColor="@color/cinzinha"
-                    android:textSize="@dimen/coments_txt_size"/>
-
-                <SeekBar
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="20dp"
-                    android:id="@+id/sbqtd3"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txtqtd3"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Em qual período do dia?"/>
-
                 <LinearLayout
+                    android:id="@+id/meta_semanal_cocaina_usando"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    >
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Manhã(das 6h às 12h)"
-                        android:id="@+id/cbmanha3" />
+                    android:visibility="gone">
 
-                    <CheckBox
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tarde(das 12h às 18h)"
-                        android:id="@+id/cbtarde3"/>
+                        android:layout_marginTop="15dp"
+                        android:gravity="center"
+                        android:text="Qual quantidade por dia \nvocê pretende usar?" />
 
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Noite(das 18h às 24h)"
-                        android:id="@+id/cbnoite3"/>
 
-                    <CheckBox
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Madrugada(das 24h às 6h)"
-                        android:id="@+id/cbmadrugada3"/>
+                        android:text="1 papelote/pino= 1grama"
+                        android:id="@+id/txtlegenda3"
+                        android:textColor="@color/cinzinha"
+                        android:textSize="@dimen/coments_txt_size"/>
+
+                    <SeekBar
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="20dp"
+                        android:id="@+id/sbqtd3"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtqtd3"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Em qual período do dia?"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Manhã(das 6h às 12h)"
+                            android:id="@+id/cbmanha3" />
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tarde(das 12h às 18h)"
+                            android:id="@+id/cbtarde3"/>
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Noite(das 18h às 24h)"
+                            android:id="@+id/cbnoite3"/>
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Madrugada(das 24h às 6h)"
+                            android:id="@+id/cbmadrugada3"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -395,7 +412,8 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
 
                     <Spinner
                         android:layout_width="wrap_content"
@@ -414,63 +432,71 @@
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Qual quantidade por dia \nvocê pretende usar?" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txtlegenda4" />
-
-                <SeekBar
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="20dp"
-                    android:id="@+id/sbqtd4"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txtqtd4"
-                    android:textSize="@dimen/coments_txt_size"
-                    android:textColor="@color/cinzinha"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Em qual período do dia?"/>
-
                 <LinearLayout
+                    android:id="@+id/meta_semanal_crack_usando"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Manhã(das 6h às 12h)"
-                        android:id="@+id/cbmanha4" />
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
-                    <CheckBox
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tarde(das 12h às 18h)"
-                        android:id="@+id/cbtarde4"/>
+                        android:gravity="center"
+                        android:text="Qual quantidade por dia \nvocê pretende usar?" />
 
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Noite(das 18h às 24h)"
-                        android:id="@+id/cbnoite4"/>
 
-                    <CheckBox
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Madrugada(das 24h às 6h)"
-                        android:id="@+id/cbmadrugada4"/>
+                        android:id="@+id/txtlegenda4" />
+
+                    <SeekBar
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="20dp"
+                        android:id="@+id/sbqtd4"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtqtd4"
+                        android:textSize="@dimen/coments_txt_size"
+                        android:textColor="@color/cinzinha"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Em qual período do dia?"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Manhã(das 6h às 12h)"
+                            android:id="@+id/cbmanha4" />
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tarde(das 12h às 18h)"
+                            android:id="@+id/cbtarde4"/>
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Noite(das 18h às 24h)"
+                            android:id="@+id/cbnoite4"/>
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Madrugada(das 24h às 6h)"
+                            android:id="@+id/cbmadrugada4"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
