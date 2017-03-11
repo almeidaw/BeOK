@@ -44,39 +44,37 @@ public class Tela5 extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.btproximo3:
 
+                switch (rg.getCheckedRadioButtonId()) {
+                    case R.id.domingo:
+                        editor.putString("notifications_week_day", "1");
+                        break;
+                    case R.id.segunda:
+                        editor.putString("notifications_week_day", "2");
+                        break;
+                    case R.id.terca:
+                        editor.putString("notifications_week_day", "3");
+                        break;
+                    case R.id.quarta:
+                        editor.putString("notifications_week_day", "4");
+                        break;
+                    case R.id.quinta:
+                        editor.putString("notifications_week_day", "5");
+                        break;
+                    case R.id.sexta:
+                        editor.putString("notifications_week_day", "6");
+                        break;
+                    case R.id.sabado:
+                        editor.putString("notifications_week_day", "7");
+                        break;
+                }
 
-        switch (rg.getCheckedRadioButtonId()) {
-            case R.id.domingo:
-                editor.putInt("diaNotificacao", 1);
-                break;
-            case R.id.segunda:
-                editor.putInt("diaNotificacao", 2);
-                break;
-            case R.id.terca:
-                editor.putInt("diaNotificacao", 3);
-                break;
-            case R.id.quarta:
-                editor.putInt("diaNotificacao", 4);
-                break;
-            case R.id.quinta:
-                editor.putInt("diaNotificacao", 5);
-                break;
-            case R.id.sexta:
-                editor.putInt("diaNotificacao", 6);
-                break;
-            case R.id.sabado:
-                editor.putInt("diaNotificacao", 7);
-                break;
+                Intent nextActivity = new Intent(this, Tela6.class);
+                startActivity(nextActivity);
+                //slide from right to left
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+                editor.commit();
         }
 
-        Intent nextActivity = new Intent(this, Tela6.class);
-        startActivity(nextActivity);
-        //slide from right to left
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
-        editor.commit();
-        break;
-
-        }
     }
 }

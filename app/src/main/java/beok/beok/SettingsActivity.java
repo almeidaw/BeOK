@@ -3,20 +3,18 @@ package beok.beok;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.widget.Button;
 
+import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Created by arthur on 14/02/2017.
- */
 
 public class SettingsActivity extends PreferenceActivity {
     private static List<String> fragments = new ArrayList<String>();
@@ -110,7 +108,8 @@ public class SettingsActivity extends PreferenceActivity {
     public static class NotificationsPreferences extends PreferenceFragment{
 
         CheckBoxPreference notificationEnabled, notificationVibrates;
-        ListPreference notificationDay, notificationTime;
+        ListPreference notificationDay;
+        EditTextPreference notificationTime;
 
 
         @Override
@@ -122,9 +121,9 @@ public class SettingsActivity extends PreferenceActivity {
 
             //atribuindo valores as preferencias
             notificationEnabled = (CheckBoxPreference) findPreference("notification_enabled");
-            notificationVibrates = (CheckBoxPreference) findPreference("notification_enabled");
+            notificationVibrates = (CheckBoxPreference) findPreference("notification_vibration");
             notificationDay = (ListPreference) findPreference("notification_week_day");
-            notificationTime = (ListPreference) findPreference("notification_day_period");
+            notificationTime = (EditTextPreference) findPreference("notification_time");
 
 
             //definindo ações quando as preferencias têm seus valores alterados
@@ -169,7 +168,9 @@ public class SettingsActivity extends PreferenceActivity {
             notificationTime.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    //String horario = notificationTime.getText();
 
+                    //Toast.makeText(getActivity(), "notificações será exibida às " + horario, Toast.LENGTH_LONG).show();
                     return true;
                 }
             });

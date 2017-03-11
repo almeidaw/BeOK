@@ -33,7 +33,7 @@
         <activity android:name=".Tela3" />
         <activity android:name=".Tela4" />
         <activity android:name=".Tela5" />
-        <activity android:name=".Tela" />
+        <activity android:name=".Tela6" />
         <activity android:name=".TelaPerguntas" />
         <activity android:name=".UsouDroga" />
         <activity android:name=".NaoUsouDroga" />
