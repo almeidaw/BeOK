@@ -126,7 +126,6 @@ public class ConsumoAtual {
         this.tamMedBaseado = tamMedBaseado;
     }
 
-
     public Date getDataInicio() {
         return dataInicio;
     }
