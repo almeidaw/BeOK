@@ -9,6 +9,9 @@
     <string name="freq90dias">Com que frequência semanal você utilizou em média nos últimos 90 dias?</string>
     <string name="qtd90dias">Qual foi a dose média dos seus consumos nesse período?</string>
     <string name="gasto">Qual seu gasto com a droga por unidade?</string>
+    <string name="baseado_tamanho_cadastro">Qual foi em média o tamanho do seu baseado?</string>
+    <string name="baseado_tamanho_meta">Qual será o tamanho do seu baseado em geral?</string>
+
 
     <string name="meta_droga">Qual sua meta final em relação a essa droga?</string>
 
