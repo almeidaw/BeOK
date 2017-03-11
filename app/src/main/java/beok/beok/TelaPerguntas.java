@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -32,9 +33,10 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
     ImageView ivlegenda;
     SeekBar sbqtd;
     Button btconfirma;
-    TextView txtunidade, txtlegenda,txtqtddroga;
-    Spinner spfreq, spultimavez, spmetafinal, spbebidas;
+    TextView txtunidade, txtlegenda,txtqtddroga, txttamanho;
+    Spinner spfreq, spultimavez, spmetafinal, spbebidas, spbaseado_medio;
     EditText edtxtgasto;
+    LinearLayout lltamanho;
 
     ConsumoAtual ca;
 
@@ -53,6 +55,10 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
         SugarContext.init(this);
 
         edtxtgasto = (EditText) findViewById(R.id.edtxtgasto);
+
+        txttamanho = (TextView) findViewById(R.id.txttamanho);
+        spbaseado_medio = (Spinner) findViewById(R.id.spbaseado_medio);
+        lltamanho = (LinearLayout) findViewById(R.id.lltamanho);
 
         btconfirma = (Button) findViewById(R.id.btconfirma);
         txtunidade = (TextView) findViewById(R.id.txtunidade);
@@ -113,6 +119,7 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
             sbqtd.setMax(19);
             sbqtd.setProgress(9);
             txtqtddroga.setText("10 baseados");
+            lltamanho.setVisibility(View.VISIBLE);
         }else if (bundle.getInt("Droga escolhida") == 3){
             txtunidade.setText("1 grama de cocaina = ");
             txtlegenda.setText("1 papelote/pino= 1grama");
@@ -189,6 +196,13 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
                     }
                 }
                 ca.setQuantidade(quantidade);
+
+                if (lltamanho.getVisibility() == View.VISIBLE){
+                    ca.setTamMedBaseado(spbaseado_medio.getSelectedItemPosition() + 1);
+                } else {
+                    ca.setTamMedBaseado(0);
+                }
+
                 Date now=new Date();
                 now.setTime(System.currentTimeMillis());
                 ca.setDataInicio(now);

@@ -18,7 +18,7 @@
         android:text="O que você deseja fazer?"
         android:id="@+id/textView2"
         android:layout_gravity="center"
-        android:layout_weight="1"/>
+        android:layout_marginTop="20dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,59 +28,82 @@
         android:gravity="center_horizontal">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ligar para contato 1"
             android:id="@+id/btcontato1"
             android:onClick="ligarContato1"
             android:textSize="@dimen/answer_txt_size"
-            android:layout_weight="1"/>
+            android:layout_marginTop="7dp"
+            android:background="@drawable/bordered_button_shape"
+            android:layout_weight="0.83" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ligar para contato 2"
             android:id="@+id/btcontato2"
             android:onClick="ligarContato2"
             android:textSize="@dimen/answer_txt_size"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:background="@drawable/bordered_button_shape"
+            android:layout_marginTop="7dp"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ligar para contato 3"
             android:id="@+id/btcontato3"
             android:onClick="ligarContato3"
             android:textSize="@dimen/answer_txt_size"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:background="@drawable/bordered_button_shape"
+            android:layout_marginTop="7dp"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Falar com um profissional"
             android:id="@+id/btprofissinal"
             android:onClick="ligarProfissional"
             android:textSize="@dimen/answer_txt_size"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:background="@drawable/bordered_button_shape"
+            android:layout_marginTop="7dp"/>
 
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ver dicas ou frases motivacionais"
-            android:id="@+id/btdicasfrases"
-            android:onClick="mostrarDicasFrases"
+            android:text="Ver frases inspiracionais"
+            android:id="@+id/btinspiracao"
+            android:onClick="mostrarInsp"
             android:textSize="@dimen/answer_txt_size"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:background="@drawable/bordered_button_shape"
+            android:layout_marginTop="7dp"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ver dicas"
+            android:id="@+id/btdicas"
+            android:onClick="mostrarDicas"
+            android:textSize="@dimen/answer_txt_size"
+            android:layout_weight="1"
+            android:background="@drawable/bordered_button_shape"
+            android:layout_marginTop="7dp"/>
+
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Procurar algum grupo de anonimos"
             android:id="@+id/btgrupoanonimos"
             android:onClick="mostrarGruposAnonimos"
             android:textSize="@dimen/answer_txt_size"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:background="@drawable/bordered_button_shape"
+            android:layout_marginTop="7dp"/>
 
 
     </LinearLayout>
@@ -91,6 +114,7 @@
         android:id="@+id/txtmsgmotivacional"
         android:layout_weight="1"
         android:gravity="center"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="20dp"/>
 
 </LinearLayout>
