@@ -156,10 +156,20 @@ public class MetaSemanal extends AppCompatActivity {
         sbqtd3.setMax(19);
         sbqtd4.setMax(14);
 
+        sbqtd1.setProgress(6);
+        sbqtd2.setProgress(9);
+        sbqtd3.setProgress(9);
+        sbqtd4.setProgress(6);
+
+        txtqtd1.setText("7 doses");
+        txtqtd2.setText("10 baseados");
+        txtqtd3.setText("10 gramas");
+        txtqtd4.setText("7 pedras");
+
         sbqtd1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                txtqtd1.setText(Integer.toString(progress + 1) + " doses de " + spbebidas.getSelectedItem().toString());
+                txtqtd1.setText(Integer.toString(progress + 1) + " doses");
                 meta1.setTipo(spbebidas.getSelectedItemPosition());
                 meta1.setQuantidade(progress+1);
             }
@@ -177,7 +187,7 @@ public class MetaSemanal extends AppCompatActivity {
         sbqtd2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                txtqtd2.setText(Float.toString(((float)progress + 1)/2) + " baseados de maconha");
+                txtqtd2.setText(Float.toString(((float)progress + 1)/2) + " baseados");
                 meta2.setTipo(3);
                 meta2.setQuantidade(progress+1);
             }
@@ -195,7 +205,7 @@ public class MetaSemanal extends AppCompatActivity {
         sbqtd3.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                txtqtd3.setText(Float.toString(((float)progress + 1)/2) + " gramas cocaina");
+                txtqtd3.setText(Float.toString(((float)progress + 1)/2) + " gramas");
                 meta3.setTipo(4);
                 meta3.setQuantidade(progress+1);
             }
@@ -213,7 +223,7 @@ public class MetaSemanal extends AppCompatActivity {
         sbqtd4.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                txtqtd4.setText(Integer.toString(progress + 1) + " pedras de crack");
+                txtqtd4.setText(Integer.toString(progress + 1) + " pedras");
                 meta4.setTipo(5);
                 meta4.setQuantidade(progress+1);
             }
