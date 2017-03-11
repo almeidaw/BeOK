@@ -20,4 +20,8 @@ public class FirstAccess extends AppCompatActivity {
         Intent i = new Intent(this, Cadastro.class);
         startActivity(i);
     }
+    @Override
+    public void onBackPressed() {
+
+    }
 }

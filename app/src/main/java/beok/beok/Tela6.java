@@ -43,6 +43,7 @@ public class Tela6 extends AppCompatActivity {
 
                 Intent nextActivity = new Intent(this, Atividade1.class);
                 startActivity(nextActivity);
+
                 //slide from right to left
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
@@ -50,5 +51,9 @@ public class Tela6 extends AppCompatActivity {
                 break;
 
         }
+    }
+    @Override
+    public void onBackPressed() {
+
     }
 }

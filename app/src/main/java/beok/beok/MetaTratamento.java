@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import com.google.gson.Gson;
 import com.orm.SugarContext;
 
 import java.util.Date;
@@ -24,6 +25,7 @@ public class MetaTratamento extends AppCompatActivity {
     boolean querAbstinencia;
     boolean[] array;
     Bundle bundle;
+    Bundle newBundle;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class MetaTratamento extends AppCompatActivity {
         metaFreq = (Spinner) findViewById(R.id.sp2);
 
         bundle = getIntent().getExtras();
+        newBundle = new Bundle();
 
         array = bundle.getBooleanArray("checkbox");
 
@@ -53,6 +56,16 @@ public class MetaTratamento extends AppCompatActivity {
 
         } else if (bundle.getInt("Droga escolhida") == 4) {
             meta.setTipo(5);
+        }
+        for(int i=0;i<6;i++){
+            String str=bundle.getString("tipoDroga"+i);
+            if(str!=null){
+                newBundle.putString("tipoDroga"+i,str);
+            }
+            str=bundle.getString("metaTipo"+i);
+            if(str!=null){
+                newBundle.putString("metaTipo"+i,str);
+            }
         }
 
 
@@ -89,8 +102,7 @@ public class MetaTratamento extends AppCompatActivity {
 
     public void botaoProximo(View v){
         Intent intent;
-        Bundle tempBundle = new Bundle();
-        tempBundle.putBooleanArray("checkbox", array);
+        newBundle.putBooleanArray("checkbox", array);
         if(querAbstinencia){
             intent  = new Intent (this, Tela2.class);
             meta.setFreqSemanal(0);
@@ -99,20 +111,27 @@ public class MetaTratamento extends AppCompatActivity {
             meta.setTarde(false);
             meta.setTarde(false);
             meta.setQuantidade(0);
-
-            DB.save(meta);
+            Gson g=new Gson();
+            newBundle.putString("metaTipo"+meta.getTipo(),g.toJson(meta));
         }
         else{
             intent =  new Intent (this, MetaTratamentoReducao.class);
 
-            tempBundle.putInt("Droga escolhida", this.bundle.getInt("Droga escolhida"));
+            newBundle.putInt("Droga escolhida", this.bundle.getInt("Droga escolhida"));
             int freqSemanal = this.metaFreq.getSelectedItemPosition();
-            tempBundle.putInt("freqSemanal", freqSemanal);
+            newBundle.putInt("freqSemanal", freqSemanal);
 
         }
-        intent.putExtras(tempBundle);
+        intent.putExtras(newBundle);
         startActivity(intent);
         finish();
     }
-
+    @Override
+    public void onBackPressed() {
+        Intent i=new Intent(this,Tela2.class);
+        array[bundle.getInt("Droga escolhida")-1]=false;
+        newBundle.putBooleanArray("checkbox", array);
+        i.putExtras(newBundle);
+        startActivity(i);
+    }
 }

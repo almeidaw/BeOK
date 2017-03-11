@@ -38,6 +38,8 @@ public class BotaoPanico2 extends AppCompatActivity {
     Bundle b;
     BotaoAtivo bta;
 
+    int usou_ou_fissura;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,9 +84,18 @@ public class BotaoPanico2 extends AppCompatActivity {
 
         Random r = new Random();
         Resources res = getResources();
-        String[] msg = res.getStringArray(R.array.msg_continue_tentando);
-        String mensagem = String.format(msg[r.nextInt(9)], Conf.getNomeUsuario());
+
+        Bundle bundle = getIntent().getExtras();
+        usou_ou_fissura = bundle.getInt("usou_ou_fissura");
+        if (usou_ou_fissura==1){
+        String[] msg = res.getStringArray(R.array.msg_fissura);
+        String mensagem = String.format(msg[r.nextInt(7)], Conf.getNomeUsuario());
         txtmsgmotivacional.setText(mensagem);
+        }else if(usou_ou_fissura==2){
+            String[] msg = res.getStringArray(R.array.msg_usou);
+            String mensagem = String.format(msg[r.nextInt(4)], Conf.getNomeUsuario());
+            txtmsgmotivacional.setText(mensagem);
+        }
 
         b=getIntent().getExtras();
         Gson g=new Gson();
@@ -99,12 +110,12 @@ public class BotaoPanico2 extends AppCompatActivity {
         Intent i = new Intent(Intent.ACTION_DIAL, uri);
         startActivity(i);
     }
-    public void mostrarDicasFrases(View v){
+    public void mostrarInsp(View v){
         bta.setOQueFez(1);
         DB.save(bta);
         Bundle bundle = new Bundle();
         bundle.putInt("inicia_insp", 1);
-        Intent i = new Intent(this,  Fim.class); // Direcionar para tela de dicas efrases motivacionais
+        Intent i = new Intent(this,  Main.class); // Direcionar para tela de dicas efrases motivacionais
         i.putExtras(bundle);
         startActivity(i);
     }
@@ -112,7 +123,7 @@ public class BotaoPanico2 extends AppCompatActivity {
     public void mostrarGruposAnonimos(View v){
         bta.setOQueFez(2);
         DB.save(bta);
-        Intent i = new Intent(this,  Fim.class); // Direcionar para tela de contatos GRUPOS DE ANONIMOS
+        Intent i = new Intent(this,  Informacoes.class); // Direcionar para tela de contatos GRUPOS DE ANONIMOS
         startActivity(i);
     }
     public void ligarContato1(View v){
@@ -135,5 +146,9 @@ public class BotaoPanico2 extends AppCompatActivity {
         Uri uri = Uri.parse("tel:"+tel_3); // "telefone" sera o numero do contato3
         Intent i = new Intent(Intent.ACTION_DIAL, uri);
         startActivity(i);
+    }
+    @Override
+    public void onBackPressed() {
+
     }
 }

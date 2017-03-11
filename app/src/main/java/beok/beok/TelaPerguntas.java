@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.orm.SugarContext;
 
 import org.w3c.dom.Text;
@@ -40,6 +41,7 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
     ConsumoAtual ca;
 
     Bundle bundle;
+    Bundle newBundle;
 
     int quantidade;
 
@@ -76,6 +78,7 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
         btconfirma.setOnClickListener(this);
         btconfirma.setVisibility(View.INVISIBLE);
         bundle = getIntent().getExtras();
+        newBundle = new Bundle();
 
         drogaescolhida=bundle.getInt("Droga escolhida");
         if (bundle.getInt("Droga escolhida") == 1){
@@ -136,7 +139,16 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
 
         }
         array = bundle.getBooleanArray("checkbox");
-
+        for(int i=0;i<6;i++){
+            String str=bundle.getString("tipoDroga"+i);
+            if(str!=null){
+                newBundle.putString("tipoDroga"+i,str);
+            }
+            str=bundle.getString("metaTipo"+i);
+            if(str!=null){
+                newBundle.putString("metaTipo"+i,str);
+            }
+        }
 
         sbqtd.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -194,16 +206,25 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
                 Date now=new Date();
                 now.setTime(System.currentTimeMillis());
                 ca.setDataInicio(now);
-                DB.save(ca);
-                Bundle bundle = new Bundle();
-                bundle.putBooleanArray("checkbox", array);
-                bundle.putInt("Droga escolhida", drogaescolhida);
+                Gson g=new Gson();
+
+                newBundle.putBooleanArray("checkbox", array);
+                newBundle.putInt("Droga escolhida", drogaescolhida);
+                newBundle.putString("tipoDroga"+ca.getTipo(),g.toJson(ca));
                 Intent nextActivity = new Intent(this, MetaTratamento.class);
-                nextActivity.putExtras(bundle);
+                nextActivity.putExtras(newBundle);
                 startActivity(nextActivity);
                 //slide from left to right
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 break;
         }
+    }
+    @Override
+    public void onBackPressed() {
+        Intent i=new Intent(this,Tela2.class);
+        array[bundle.getInt("Droga escolhida")-1]=false;
+        newBundle.putBooleanArray("checkbox", array);
+        i.putExtras(newBundle);
+        startActivity(i);
     }
 }

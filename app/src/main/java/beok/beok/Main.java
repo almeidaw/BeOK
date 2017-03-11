@@ -2,13 +2,16 @@ package beok.beok;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -24,6 +27,7 @@ import beok.beok.POJO.MetaSemanal;
 import beok.beok.api.App;
 import beok.beok.api.DB;
 import beok.beok.api.ServiceSincronizer;
+import beok.beok.api.Conf;
 
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -51,7 +55,7 @@ public class Main extends AppCompatActivity {
     TherapyMenuFragment fragment_terapia;
     NavigationView nv;
 
-    TextView texto_navbar;
+    TextView nome_navbar;
     RelativeLayout content_main;
 
     @Override
@@ -81,10 +85,12 @@ public class Main extends AppCompatActivity {
         tf = new TestFragment();
         colocaFragment(show_diary_fragment, R.id.main_fragment_container);
 
-        nv=(NavigationView)findViewById(R.id.nav_view);
+        View inflatedView = getLayoutInflater().inflate(R.layout.nav_header_main, null);
+        TextView nome_navbar = (TextView) inflatedView.findViewById(R.id.nome_navbar); //get a reference to the textview on the log.xml file.;
+        nome_navbar.setText("User");
 
-        texto_navbar=(TextView)findViewById(R.id.texto_navbar);
-        //texto_navbar.setText(Conf.getNomeUsuario());
+
+        nv=(NavigationView)findViewById(R.id.nav_view);
 
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottom_navigation);
 
