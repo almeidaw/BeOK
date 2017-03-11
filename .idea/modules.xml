@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BeOK.iml" filepath="$PROJECT_DIR$/BeOK.iml" />
       <module fileurl="file:///media/storage/Libraries/Documents/Poli/BeOK/BeOK/BeOK.iml" filepath="/media/storage/Libraries/Documents/Poli/BeOK/BeOK/BeOK.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file:///media/storage/Libraries/Documents/Poli/BeOK/BeOK/app/app.iml" filepath="/media/storage/Libraries/Documents/Poli/BeOK/BeOK/app/app.iml" />
     </modules>
   </component>
