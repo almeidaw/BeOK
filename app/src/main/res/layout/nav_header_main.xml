@@ -10,17 +10,21 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:id="@+id/nav_header_main"
+    android:background="@color/cinzinha">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:text="Usuário"
         android:id="@+id/nome_navbar"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@android:color/black"
-        android:textSize="24sp"
-        android:layout_weight="0.11" />
+        android:textSize="28sp"
+        android:layout_weight="0.11"
+        android:visibility="visible"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -42,8 +46,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/txt_qualsemana"
             android:layout_marginLeft="10dp"
-            android:textSize="24sp"
-            android:textColor="@android:color/background_dark" />
+            android:textSize="26sp"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="normal|bold" />
 
         <TextView
             android:text="/12"

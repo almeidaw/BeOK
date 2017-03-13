@@ -23,7 +23,7 @@
     <item
         android:id="@+id/therapyItem"
         android:icon="@drawable/ic_therapy"
-        android:title="Terapia"
+        android:title="Tema"
         />
 
 

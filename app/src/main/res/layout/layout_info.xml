@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_informacoes"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="beok.beok.Informacoes"
+    android:background="@drawable/bg_inspiracao">
+
+
+    <include layout="@layout/content_main" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/btmenu"
+            android:background="@drawable/menu"/>
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="2dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/btpanico"
+            android:background="@drawable/panico"
+            android:layout_marginRight="7dp"/>
+
+
+
+        <TextView
+            android:text="BeOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView18"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="22dp"
+            android:textColor="@color/branco"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/btmenu"
+            android:layout_toEndOf="@+id/btmenu" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:text="Informações úteis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="55dp"
+            android:id="@+id/infoss"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/branco"
+            android:textSize="20sp"/>
+
+        <Button
+            android:text="Grupos NA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:id="@+id/gruposna"
+            android:layout_below="@+id/button5"
+            android:layout_alignLeft="@+id/button5"
+            android:layout_alignStart="@+id/button5"
+            android:onClick="gruposNAClick"
+            android:background="@drawable/bordered_button_shape"
+            android:textColor="@color/branco"
+            />
+
+        <Button
+            android:text="Grupos AA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:id="@+id/button5"
+            android:onClick="gruposAAClick"
+            android:layout_below="@+id/infoss"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bordered_button_shape"
+            android:textColor="@color/branco"
+            />
+    </LinearLayout>
+
+</RelativeLayout>
