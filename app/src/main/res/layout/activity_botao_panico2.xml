@@ -10,7 +10,8 @@
     android:orientation="vertical"
     tools:context="beok.beok.BotaoPanico1"
     android:theme="@style/MyTheme"
-    android:background="@drawable/bg_panico">
+    android:background="@drawable/bg_panico"
+    android:weightSum="1">
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,7 +25,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="1"
         android:gravity="center_horizontal">
 
         <Button
@@ -35,8 +35,7 @@
             android:onClick="ligarContato1"
             android:textSize="@dimen/answer_txt_size"
             android:layout_marginTop="7dp"
-            android:background="@drawable/bordered_button_shape"
-            android:layout_weight="0.83" />
+            android:background="@drawable/bordered_button_shape" />
 
         <Button
             android:layout_width="match_parent"
@@ -45,7 +44,6 @@
             android:id="@+id/btcontato2"
             android:onClick="ligarContato2"
             android:textSize="@dimen/answer_txt_size"
-            android:layout_weight="1"
             android:background="@drawable/bordered_button_shape"
             android:layout_marginTop="7dp"/>
 
@@ -56,7 +54,6 @@
             android:id="@+id/btcontato3"
             android:onClick="ligarContato3"
             android:textSize="@dimen/answer_txt_size"
-            android:layout_weight="1"
             android:background="@drawable/bordered_button_shape"
             android:layout_marginTop="7dp"/>
 
@@ -67,7 +64,6 @@
             android:id="@+id/btprofissinal"
             android:onClick="ligarProfissional"
             android:textSize="@dimen/answer_txt_size"
-            android:layout_weight="1"
             android:background="@drawable/bordered_button_shape"
             android:layout_marginTop="7dp"/>
 
@@ -79,7 +75,6 @@
             android:id="@+id/btinspiracao"
             android:onClick="mostrarInsp"
             android:textSize="@dimen/answer_txt_size"
-            android:layout_weight="1"
             android:background="@drawable/bordered_button_shape"
             android:layout_marginTop="7dp"/>
 
@@ -90,7 +85,6 @@
             android:id="@+id/btdicas"
             android:onClick="mostrarDicas"
             android:textSize="@dimen/answer_txt_size"
-            android:layout_weight="1"
             android:background="@drawable/bordered_button_shape"
             android:layout_marginTop="7dp"/>
 
@@ -101,10 +95,8 @@
             android:id="@+id/btgrupoanonimos"
             android:onClick="mostrarGruposAnonimos"
             android:textSize="@dimen/answer_txt_size"
-            android:layout_weight="1"
             android:background="@drawable/bordered_button_shape"
             android:layout_marginTop="7dp"/>
-
 
     </LinearLayout>
 
@@ -112,9 +104,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txtmsgmotivacional"
-        android:layout_weight="1"
+        android:layout_weight="0.35"
         android:gravity="center"
         android:textAlignment="center"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:layout_marginTop="15dp"/>
 
 </LinearLayout>
