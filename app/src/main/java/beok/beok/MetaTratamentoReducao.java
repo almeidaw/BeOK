@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.orm.SugarContext;
 
 import beok.beok.POJO.MetaGeral;
@@ -32,6 +33,7 @@ public class MetaTratamentoReducao extends AppCompatActivity {
     MetaGeral meta;
 
     Bundle bundle;
+    Bundle newBundle;
     int freqSemanal;
 
     @Override
@@ -57,6 +59,7 @@ public class MetaTratamentoReducao extends AppCompatActivity {
         ivbebidas = (ImageView) findViewById(R.id.ivbebidas);
 
         bundle = getIntent().getExtras();
+        newBundle = new Bundle();
 
         freqSemanal = bundle.getInt("freqSemanal");
 
@@ -72,45 +75,53 @@ public class MetaTratamentoReducao extends AppCompatActivity {
 
         } else if (bundle.getInt("Droga escolhida") == 2) {
             txtlegenda.setText(getResources().getString(R.string.peso_baseado));
+            sbqtd.setMax(19);
             sbqtd.setProgress(9);
-            txtqtd.setText("10 baseados");
+            txtqtd.setText("5 baseados");
             meta.setTipo(3);
 
         } else if (bundle.getInt("Droga escolhida") == 3) {
             txtlegenda.setText(getResources().getString(R.string.peso_pedra));
+            sbqtd.setMax(19);
             sbqtd.setProgress(9);
-            txtqtd.setText("10 gramas");
+            txtqtd.setText("5 gramas");
             meta.setTipo(4);
 
         } else if (bundle.getInt("Droga escolhida") == 4) {
             txtlegenda.setVisibility(View.GONE);
+            sbqtd.setMax(14);
             sbqtd.setProgress(6);
             txtqtd.setText("7 pedras");
             meta.setTipo(5);
-        } else
-            Toast.makeText(this, "ops... não achei uma variável e por isso não vou mostrar a legenda", Toast.LENGTH_SHORT).show();
+        }
 
+        for(int i=0;i<6;i++){
+            String str=bundle.getString("tipoDroga"+i);
+            if(str!=null){
+                newBundle.putString("tipoDroga"+i,str);
+            }
+            str=bundle.getString("metaTipo"+i);
+            if(str!=null){
+                newBundle.putString("metaTipo"+i,str);
+            }
+        }
 
         sbqtd.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (bundle.getInt("Droga escolhida") == 1) {
-                    sbqtd.setMax(14);
                     txtqtd.setText(Integer.toString(progress + 1) + " doses");
                     meta.setTipo(spbebidas.getSelectedItemPosition());
                     meta.setQuantidade(progress + 1);
                 } else if (bundle.getInt("Droga escolhida") == 2) {
-                    sbqtd.setMax(29);
                     txtqtd.setText(Float.toString(((float) progress + 1) / 2) + " baseados");
                     meta.setTipo(3);
                     meta.setQuantidade(progress + 1);
                 } else if (bundle.getInt("Droga escolhida") == 3) {
-                    sbqtd.setMax(19);
                     txtqtd.setText(Float.toString(((float) progress + 1) / 2) + " gramas");
                     meta.setTipo(4);
                     meta.setQuantidade(progress + 1);
                 } else if (bundle.getInt("Droga escolhida") == 4) {
-                    sbqtd.setMax(14);
                     txtqtd.setText(Integer.toString(progress + 1) + " pedras");
                     meta.setTipo(5);
                     meta.setQuantidade(progress + 1);
@@ -134,8 +145,7 @@ public class MetaTratamentoReducao extends AppCompatActivity {
 
 
     public void botaoProximo(View v){
-        Bundle bundle = new Bundle();
-        bundle.putBooleanArray("checkbox", array);
+        newBundle.putBooleanArray("checkbox", array);
 
         meta.setManha(cbmanha.isChecked());
         meta.setTarde(cbtarde.isChecked());
@@ -143,13 +153,22 @@ public class MetaTratamentoReducao extends AppCompatActivity {
         meta.setMadrugada(cbmadrugada.isChecked());
         meta.setFreqSemanal(freqSemanal);
 
-        DB.save(meta);
+        Gson g = new Gson();
+        newBundle.putString("metaTipo"+meta.getTipo(),g.toJson(meta));
 
         Intent nextActivity = new Intent(this, Tela2.class);
-        nextActivity.putExtras(bundle);
+        nextActivity.putExtras(newBundle);
         startActivity(nextActivity);
         //slide from left to right
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
+    }
+    @Override
+    public void onBackPressed() {
+        Intent i=new Intent(this,Tela2.class);
+        array[bundle.getInt("Droga escolhida")-1]=false;
+        newBundle.putBooleanArray("checkbox", array);
+        i.putExtras(newBundle);
+        startActivity(i);
     }
 }

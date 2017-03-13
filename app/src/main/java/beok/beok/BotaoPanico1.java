@@ -41,8 +41,11 @@ public class BotaoPanico1 extends AppCompatActivity {
         b=new Bundle();
         Gson g=new Gson();
         b.putString("bta",g.toJson(bta));
+        Bundle bundle = new Bundle();
+        bundle.putInt("usou_ou_fissura", 1);
         Intent i = new Intent(this, BotaoPanico2.class);
         i.putExtras(b);
+        i.putExtras(bundle);
         startActivity(i);
     }
     public void botaoUsei(View v){
@@ -50,9 +53,15 @@ public class BotaoPanico1 extends AppCompatActivity {
         b=new Bundle();
         Gson g=new Gson();
         b.putString("bta",g.toJson(bta));
+        Bundle bundle = new Bundle();
+        bundle.putInt("usou_ou_fissura", 2);
         Intent i = new Intent(this, BotaoPanico2.class);
         i.putExtras(b);
+        i.putExtras(bundle);
         startActivity(i);
     }
+    @Override
+    public void onBackPressed() {
 
+    }
 }

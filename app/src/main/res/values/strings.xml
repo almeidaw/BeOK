@@ -223,13 +223,20 @@
     <string name="pergunta">&lt;b>%1$d.&lt;/b> &lt;i>%2$s&lt;/i></string>
     <string name="escore">&lt;b>ESCORE FINAL&lt;/b> &lt;br/>&lt;p>Parte do tratamento é aber sobre o que você usa.&lt;/p></string>
     <string name="pontos">&lt;b>%1$d&lt;/b></string>
-    <string name="parabens">Parabéns, você está be atualizado sobre a Maconha. Continue se informando. É importante saber sobre o que você usa! E ter diferentes pontos de vista.</string>
+    <string name="parabens">Parabéns, você está bem atualizado sobre a Maconha. Continue se informando. É importante saber sobre o que você usa! E ter diferentes pontos de vista.</string>
 
     <!-- *******************************FIM MITOS E VERDADES***************************** -->
 
     <string name="tema1">Introdução ao aplicativo e metas</string>
-    <string name="Descricao1">\n No BeOK você vai ter a oportunidade de escolher qual droga (s) deseja mudar o uso, definir uma meta de tratamento que pode ser de parar de usar ou de reduzir o uso.\n Para definir a meta semanal é importante pensar em qual é sua meta de tratamento. Você lembra? A meta que definiu quando se cadastrou no app.
-Então a meta precisa ser algo que te desafie e que seja possível de ser atingida.\n Agora vamos definir sua meta desta próxima semana?</string>
+
+    <string name="Descricao1">No BeOK você vai ter a oportunidade de escolher qual droga (s) deseja mudar o uso, definir uma meta de tratamento que pode ser de parar de usar ou de reduzir o uso.\n Para definir a meta semanal é importante pensar em qual é sua meta de tratamento. Você lembra? A meta que definiu quando se cadastrou no app.
+        Então a meta precisa ser algo que te desafie e que seja possível de ser atingida.\n Agora vamos definir sua meta desta próxima semana?</string>
+    <string name="Descricao2">É importante conhecer o que você utiliza, inclusive para poder decidir com mais propriedade se quer continuar consumindo a substância com as vantagens e desvantagens que ela apresenta. Muitas vezes buscamos informações nas mesmas fontes. Então te convidamos a se abrir para conhecer diferentes pontos de vista
+        e rever (ou reforçar) suas concepções sobre sua droga de escolha! </string>
+    <string name="Descricao3">Sabemos o quanto lhe é custoso lidar com o uso da substância e do quanto você pode se sentir dividido sobre o parar.
+        A ambivalência é muito comum, todos nós em algum momento a vivenciamos: por exemplo, eu gosto de chocolate mas quero emagrecer.
+        Com a droga é a mesma coisa. Imagino que você tenha ganhos ao usar, seja pelo ‘barato’ ou porque te ajuda a esquecer os problemas mas também deve te fazer mal, seja físico ou de relacionamento.
+        Nessa atividade, convidamos você a pensar nas vantagens e desvantagens de usar ou não a droga.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -241,5 +248,9 @@ Então a meta precisa ser algo que te desafie e que seja possível de ser atingi
     <string name="peso_baseado">baseado fino = 0,5 grama\nbaseado normal = 1,2 grama\baseado grande = 2 gramas</string>
     <string name="peso_pedra">1 papelote/pino = 1grama</string>
     <string name="title_activity_grupos">Grupos</string>
+
+    <string name="atividade1">1 - Tutorial</string>
+    <string name="atividade2">2 - Mitos e verdades: álcool, maconha, cocaína e crack</string>
+    <string name="atividade3">3 - Motivação: prós e contras de consumir a substância</string>
 
 </resources>

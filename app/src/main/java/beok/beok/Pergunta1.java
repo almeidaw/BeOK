@@ -80,14 +80,14 @@ public class Pergunta1 extends AppCompatActivity {
             txtlegenda.setText(getResources().getString(R.string.peso_baseado));
             sbqtd.setMax(19);
             sbqtd.setProgress(9);
-            txtqtd.setText("10 baseados");
+            txtqtd.setText("5 baseados");
             ud.setMaconha();
 
         }else if (bundle.getInt("Droga escolhida") == 3){
             txtlegenda.setText(getResources().getString(R.string.peso_pedra));
             sbqtd.setMax(19);
             sbqtd.setProgress(9);
-            txtqtd.setText("10 gramas");
+            txtqtd.setText("5 gramas");
             ud.setCocaina();
         }else if (bundle.getInt("Droga escolhida") == 4){
             txtlegenda.setVisibility(View.GONE);

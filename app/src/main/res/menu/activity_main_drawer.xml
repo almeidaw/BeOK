@@ -23,7 +23,7 @@
         <item
             android:icon="@drawable/ic_therapy"
             android:id="@+id/nav_terapia"
-            android:title="Terapia"/>
+            android:title="Tema da semana"/>
 
         <item
             android:id="@+id/nav_info"

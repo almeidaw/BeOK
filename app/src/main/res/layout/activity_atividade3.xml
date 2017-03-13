@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_atividade3"
     android:layout_width="match_parent"
@@ -9,15 +10,16 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="beok.beok.Atividade3"
-    android:orientation="vertical">
+    android:background="@drawable/bg_terapia">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp">
+        android:id="@+id/relativeLayout"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -58,7 +60,8 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:layout_below="@id/relativeLayout">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -72,8 +75,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:id="@+id/txt_titulo1"
-                android:layout_toRightOf="@+id/txtgosto"
-                android:layout_toEndOf="@+id/txtgosto" />
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"/>
 
             <TextView
                 android:text="Gosto em mim"
@@ -98,11 +101,12 @@
                 android:gravity="center" />
 
             <FrameLayout
-                android:layout_width="270dp"
+                android:layout_width="match_parent"
                 android:layout_height="130dp"
                 android:layout_toRightOf="@+id/txtgosto"
                 android:layout_below="@+id/txt_titulo1"
                 android:background="@drawable/borda"
+                android:layout_marginRight="30dp"
                 android:layout_marginTop="5dp">
 
                 <EditText
@@ -114,12 +118,13 @@
             </FrameLayout>
 
             <FrameLayout
-                android:layout_width="270dp"
+                android:layout_width="match_parent"
                 android:layout_height="130dp"
                 android:layout_toRightOf="@+id/txtnao_gosto"
                 android:layout_below="@+id/txt_titulo1"
                 android:background="@drawable/borda"
                 android:id="@+id/frameLayout5"
+                android:layout_marginRight="30dp"
                 android:layout_marginTop="155dp">
 
                 <EditText
@@ -130,34 +135,49 @@
                     android:id="@+id/edtxtnao_gosto" />
             </FrameLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/frameLayout5"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_centerHorizontal="true">
 
                 <ImageButton
+                    android:id="@+id/btanterior"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/btanterior"
                     android:onClick="botaoAnterior"
                     android:rotation="180"
-                    android:visibility="invisible"/>
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
+                    android:background="@null"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
 
                 <ImageButton
+                    android:id="@+id/btproximo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/btproximo"
-                    android:onClick="botaoProximo"/>
+                    android:onClick="botaoProximo"
+                    app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
+                    android:background="@null"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginEnd="50dp" />
 
 
-            </LinearLayout>
+            </RelativeLayout>
 
 
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
 
-</LinearLayout>
+</RelativeLayout>
+
+

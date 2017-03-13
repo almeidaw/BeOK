@@ -99,6 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:textSize="@dimen/coments_txt_size"
+                android:gravity="center_horizontal"
                 android:id="@+id/txtqtddroga"
                 android:textColor="@color/cinzinha"
                 android:gravity="center"/>

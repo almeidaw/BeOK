@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.orm.SugarContext;
 import com.orm.SugarRecord;
 
+import java.util.Date;
 import java.util.List;
 
 import beok.beok.POJO.ConsumoAtual;
@@ -32,8 +33,9 @@ public class MetaSemanal extends AppCompatActivity {
             cbmanha3, cbtarde3, cbnoite3, cbmadrugada3, cbmanha4, cbtarde4, cbnoite4, cbmadrugada4;
     ImageView ivbebidas;
     TextView txtqtd1, txtqtd2, txtqtd3, txtqtd4;
-    LinearLayout llalcool, llmaconha, llcocaina, llcrack, defineUsoMetaAlcool, defineUsoMetaCocaina, defineUsoMetaCrack, defineUsoMetaMaconha;
+    LinearLayout llalcool, llmaconha, llcocaina, llcrack;
     SeekBar sbqtd1, sbqtd2, sbqtd3, sbqtd4;
+    LinearLayout defineUsoMetaAlcool,defineUsoMetaMaconha,defineUsoMetaCrack,defineUsoMetaCocaina;
 
     boolean usoalcool;
     boolean usomaconha;
@@ -365,6 +367,8 @@ public class MetaSemanal extends AppCompatActivity {
     }
 
     public void botaoProximo(View v){
+        Date now=new Date();
+        now.setTime(System.currentTimeMillis());
         meta1.setManha(cbmanha1.isChecked());
         meta1.setTarde(cbtarde1.isChecked());
         meta1.setNoite(cbnoite1.isChecked());
@@ -386,24 +390,32 @@ public class MetaSemanal extends AppCompatActivity {
         meta4.setMadrugada(cbmadrugada4.isChecked());
 
         if (usoalcool){
+            meta1.setSemana(now);
             meta1.setTamMedBaseado(0);
             DB.save(meta1);
         }
         if (usomaconha){
+            meta2.setSemana(now);
             meta2.setTamMedBaseado(spbaseado_medio.getSelectedItemPosition() + 1);
             DB.save(meta2);
         }
         if (usococaina){
+            meta3.setSemana(now);
             meta3.setTamMedBaseado(0);
             DB.save(meta3);
         }
         if (usocrack){
+            meta4.setSemana(now);
             meta4.setTamMedBaseado(0);
             DB.save(meta4);
         }
 
         Intent i = new Intent(this, MetaSemanalGeral.class); //Direcionar para home?
         startActivity(i);
+    }
+    @Override
+    public void onBackPressed() {
+
     }
 
     public void onCilckAbstinencia(){

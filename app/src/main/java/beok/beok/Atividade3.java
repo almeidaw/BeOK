@@ -32,6 +32,7 @@ public class Atividade3 extends AppCompatActivity {
 
     }
 
+
     public void botaoAnterior(View v){
         if (tela == 2){
             txt_titulo1.setText("Quando você NÃO está usando a droga...");
@@ -52,12 +53,16 @@ public class Atividade3 extends AppCompatActivity {
             nao_usa_naogosto = edtxtnao_gosto.getText().toString();
             tela = 2;
         } else if (tela == 2){
-            Intent i = new Intent(this, Fim.class);
+            Intent i = new Intent(this, Main.class);
             startActivity(i);
             tela = 3;
             usa_gosto = edtxtgosto.getText().toString();
             usa_naogosto = edtxtnao_gosto.getText().toString();
             // salvar as 4 Strings no banco de dados
         }
+    }
+    @Override
+    public void onBackPressed() {
+
     }
 }

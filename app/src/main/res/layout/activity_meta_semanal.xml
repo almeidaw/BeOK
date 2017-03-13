@@ -173,7 +173,7 @@
                     android:gravity="center"/>
 
                 <LinearLayout
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
@@ -313,7 +313,7 @@
                     android:text="Qual será sua meta desta semana\n com a cocaína?"/>
 
                 <LinearLayout
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal">
@@ -432,7 +432,7 @@
                     android:layout_marginTop="20dp"/>
 
                 <LinearLayout
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal">
