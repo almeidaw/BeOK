@@ -75,18 +75,21 @@ public class MetaTratamentoReducao extends AppCompatActivity {
 
         } else if (bundle.getInt("Droga escolhida") == 2) {
             txtlegenda.setText(getResources().getString(R.string.peso_baseado));
+            sbqtd.setMax(19);
             sbqtd.setProgress(9);
-            txtqtd.setText("10 baseados");
+            txtqtd.setText("5 baseados");
             meta.setTipo(3);
 
         } else if (bundle.getInt("Droga escolhida") == 3) {
             txtlegenda.setText(getResources().getString(R.string.peso_pedra));
+            sbqtd.setMax(19);
             sbqtd.setProgress(9);
-            txtqtd.setText("10 gramas");
+            txtqtd.setText("5 gramas");
             meta.setTipo(4);
 
         } else if (bundle.getInt("Droga escolhida") == 4) {
             txtlegenda.setVisibility(View.GONE);
+            sbqtd.setMax(14);
             sbqtd.setProgress(6);
             txtqtd.setText("7 pedras");
             meta.setTipo(5);
@@ -107,22 +110,18 @@ public class MetaTratamentoReducao extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (bundle.getInt("Droga escolhida") == 1) {
-                    sbqtd.setMax(14);
                     txtqtd.setText(Integer.toString(progress + 1) + " doses");
                     meta.setTipo(spbebidas.getSelectedItemPosition());
                     meta.setQuantidade(progress + 1);
                 } else if (bundle.getInt("Droga escolhida") == 2) {
-                    sbqtd.setMax(29);
                     txtqtd.setText(Float.toString(((float) progress + 1) / 2) + " baseados");
                     meta.setTipo(3);
                     meta.setQuantidade(progress + 1);
                 } else if (bundle.getInt("Droga escolhida") == 3) {
-                    sbqtd.setMax(19);
                     txtqtd.setText(Float.toString(((float) progress + 1) / 2) + " gramas");
                     meta.setTipo(4);
                     meta.setQuantidade(progress + 1);
                 } else if (bundle.getInt("Droga escolhida") == 4) {
-                    sbqtd.setMax(14);
                     txtqtd.setText(Integer.toString(progress + 1) + " pedras");
                     meta.setTipo(5);
                     meta.setQuantidade(progress + 1);

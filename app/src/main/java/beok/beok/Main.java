@@ -118,7 +118,7 @@ public class Main extends AppCompatActivity {
 
 
                      } else if (id == R.id.nav_terapia){
-                         Main.this.colocaFragment(tf, R.id.main_fragment_container);
+                         Main.this.colocaFragment(fragment_terapia, R.id.main_fragment_container);
                          content_main.setBackgroundResource(R.drawable.bg_terapia);
                          bottomNavigationView.getMenu().getItem(3).setChecked(true);
 

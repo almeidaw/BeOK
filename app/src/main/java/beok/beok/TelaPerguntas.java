@@ -118,7 +118,7 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
             ca.setMaconha();
             sbqtd.setMax(19);
             sbqtd.setProgress(9);
-            txtqtddroga.setText("10 baseados");
+            txtqtddroga.setText("5 baseados");
             lltamanho.setVisibility(View.VISIBLE);
         }else if (bundle.getInt("Droga escolhida") == 3){
             txtunidade.setText("1 grama de cocaina = ");
@@ -126,7 +126,7 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
             ca.setCocaina();
             sbqtd.setMax(19);
             sbqtd.setProgress(9);
-            txtqtddroga.setText("10 gramas");
+            txtqtddroga.setText("5 gramas");
 
         }else if (bundle.getInt("Droga escolhida") == 4){
             txtunidade.setText("1 pedra de crack = ");
