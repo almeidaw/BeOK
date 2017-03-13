@@ -216,8 +216,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="baseado fino=0,5 grama\nbaeado normal = 1,2 gramas\nbomba= 2 gramas"
+                        android:text="baseado fino=0,5 grama\nbaeado normal = 1,2 grama\nbaseado grande= 2 gramas"
                         android:id="@+id/txtlegenda2"
+                        android:textSize="@dimen/coments_txt_size"
                         android:textColor="@color/cinzinha"/>
 
                     <SeekBar

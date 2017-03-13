@@ -16,7 +16,7 @@
 
 
     <TextView
-        android:text="Quais são suas motivações para a mudança?"
+        android:text="Quais são suas motivações para mudar o seu consumo de droga?"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtmotivacao"
