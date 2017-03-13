@@ -18,8 +18,32 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/nome_tipo_meta"
+        android:id="@+id/nome_droga_metas"
         android:textSize="20sp"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textColor="#666666"
+        android:text="Maconha"
+        />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/container_metas"
+    android:orientation="vertical"
+    >
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CCCCCC"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:id="@+id/view_box_1_metas"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Meta do tratamento"
         android:layout_gravity="center"
         android:textStyle="bold"
         android:textColor="#666666"
@@ -30,18 +54,17 @@
         android:layout_height="1dp"
         android:background="#CCCCCC"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:id="@+id/view_box_metas"/>
+        android:layout_marginBottom="8dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/meta_tratamento_metas"
+        android:id="@+id/reduzir_ou_abst_geral"
         android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="#999999"
         android:layout_margin="8dp"
-        android:text="reduzir para"
+        android:text="Reduzir para"
         />
 
     <LinearLayout
@@ -49,13 +72,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_margin="8dp"
-        android:id="@+id/layout_tipo01">
+        android:id="@+id/layout_metas_geral">
 
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/quantidade_metas"
+            android:id="@+id/quantidade_metas_geral"
             android:textSize="15sp"
             android:textStyle="bold"
             android:textColor="#666666"
@@ -67,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/frequencia_metas"
+            android:id="@+id/frequencia_metas_geral"
             android:textSize="15sp"
             android:textStyle="bold"
             android:textColor="#666666"
@@ -79,7 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/horario_metas"
+            android:id="@+id/horario_metas_geral"
             android:textSize="15sp"
             android:textStyle="bold"
             android:textColor="#666666"
@@ -100,13 +123,118 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_weight="1"
-        android:id="@+id/txt_metas_desc"
+        android:id="@+id/txt_metas_left_geral"
         android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="#666666"
         android:gravity="center"
         android:layout_gravity="center"
         />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CCCCCC"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Meta semanal"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textColor="#666666"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CCCCCC"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reduzir_ou_abst_sem"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="#999999"
+        android:layout_margin="8dp"
+        android:text="Reduzir para"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="8dp"
+        android:id="@+id/layout_metas_sem">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/quantidade_metas_sem"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#666666"
+            android:gravity="left"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/frequencia_metas_sem"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#666666"
+            android:gravity="center"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/horario_metas_sem"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#666666"
+            android:gravity="right"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+</LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CCCCCC"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/txt_metas_left_sem"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="#666666"
+        android:gravity="center"
+        android:layout_gravity="center"
+        />
+
+
 
 </LinearLayout>
 

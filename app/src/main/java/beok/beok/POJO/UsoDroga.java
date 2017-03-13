@@ -29,7 +29,7 @@ public class UsoDroga {
     private int comQuem;
     private String comQuemOutros;
     private int motivo;
-
+    private String outroMotivo;
 
     /**
      * @return the id
@@ -248,5 +248,9 @@ public class UsoDroga {
 
     public void setMotivo(int motivo) {
         this.motivo = motivo;
+    }
+
+    public void setOutrosMotivos(String string){
+        this.outroMotivo = string;
     }
 }

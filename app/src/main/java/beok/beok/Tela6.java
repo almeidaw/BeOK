@@ -41,7 +41,10 @@ public class Tela6 extends AppCompatActivity {
                 editor.putInt("horaNotificacao", hora);
                 editor.putInt("minutoNotificacao", minuto);
 
-                Intent nextActivity = new Intent(this, Atividade1.class);
+                Intent nextActivity = new Intent(this, Atividades.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("atividade", 1);
+                nextActivity.putExtras(bundle);
                 startActivity(nextActivity);
 
                 //slide from right to left
@@ -51,5 +54,9 @@ public class Tela6 extends AppCompatActivity {
                 break;
 
         }
+    }
+    @Override
+    public void onBackPressed() {
+
     }
 }

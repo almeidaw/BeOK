@@ -74,5 +74,9 @@ public class PreLogIn extends AppCompatActivity {
             startActivity(i);
         }
     };
+    @Override
+    public void onBackPressed() {
+
+    }
 
 }

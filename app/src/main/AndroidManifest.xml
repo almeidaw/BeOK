@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".PreLogIn">
+        <activity android:name=".PreLogIn" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,38 +25,37 @@
             android:name=".Main"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Cadastro" />
-        <activity android:name=".Diary1" />
-        <activity android:name=".FirstAccess" />
-        <activity android:name=".Login" />
-        <activity android:name=".Tela2" />
-        <activity android:name=".Tela3" />
-        <activity android:name=".Tela4" />
-        <activity android:name=".Tela5" />
-        <activity android:name=".Tela6" />
-        <activity android:name=".TelaPerguntas" />
-        <activity android:name=".UsouDroga" />
-        <activity android:name=".NaoUsouDroga" />
-        <activity android:name=".Fim" />
-        <activity android:name=".Pergunta1" />
-        <activity android:name=".Pergunta2" />
-        <activity android:name=".Pergunta3" />
-        <activity android:name=".Pergunta4" />
-        <activity android:name=".Pergunta5" />
-        <activity android:name=".Pergunta6" />
-        <activity android:name=".Pergunta7" />
-        <activity android:name=".VontadeUsa" />
-        <activity android:name=".AlternativaUso" />
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".MetaSemanal" />
-        <activity android:name=".MetaTratamento" />
-        <activity android:name=".MetaTratamentoReducao" />
-        <activity android:name=".Atividades" />
-        <activity android:name=".Atividade1" />
-        <activity android:name=".Atividade2" />
-        <activity android:name=".Atividade3" />
-        <activity android:name=".BotaoPanico1" />
-        <activity android:name=".BotaoPanico2" />
+        <activity android:name=".Cadastro" android:screenOrientation="portrait" />
+        <activity android:name=".Diary1" android:screenOrientation="portrait"/>
+        <activity android:name=".FirstAccess" android:screenOrientation="portrait" />
+        <activity android:name=".Login" android:screenOrientation="portrait" />
+        <activity android:name=".Tela2" android:screenOrientation="portrait" />
+        <activity android:name=".Tela3"  android:screenOrientation="portrait"/>
+        <activity android:name=".Tela4"  android:screenOrientation="portrait"/>
+        <activity android:name=".Tela5" android:screenOrientation="portrait"/>
+        <activity android:name=".Tela6"  android:screenOrientation="portrait"/>
+        <activity android:name=".TelaPerguntas" android:screenOrientation="portrait"  />
+        <activity android:name=".UsouDroga" android:screenOrientation="portrait"/>
+        <activity android:name=".NaoUsouDroga" android:screenOrientation="portrait" />
+        <activity android:name=".Fim" android:screenOrientation="portrait"/>
+        <activity android:name=".Pergunta1" android:screenOrientation="portrait"/>
+        <activity android:name=".Pergunta2" android:screenOrientation="portrait"/>
+        <activity android:name=".Pergunta3" android:screenOrientation="portrait"/>
+        <activity android:name=".Pergunta4" android:screenOrientation="portrait"/>
+        <activity android:name=".Pergunta5" android:screenOrientation="portrait"/>
+        <activity android:name=".Pergunta6" android:screenOrientation="portrait"/>
+        <activity android:name=".Pergunta7" android:screenOrientation="portrait"/>
+        <activity android:name=".VontadeUsa" android:screenOrientation="portrait"/>
+        <activity android:name=".AlternativaUso" android:screenOrientation="portrait"/>
+        <activity android:name=".SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".MetaSemanal" android:screenOrientation="portrait"/>
+        <activity android:name=".MetaTratamento" android:screenOrientation="portrait"/>
+        <activity android:name=".MetaTratamentoReducao" android:screenOrientation="portrait"/>
+        <activity android:name=".Atividades" android:screenOrientation="portrait"/>
+        <activity android:name=".Atividade2" android:screenOrientation="portrait"/>
+        <activity android:name=".Atividade3" android:screenOrientation="portrait"/>
+        <activity android:name=".BotaoPanico1" android:screenOrientation="portrait"/>
+        <activity android:name=".BotaoPanico2" android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="DATABASE"
@@ -71,18 +70,18 @@
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="beok.beok.POJO" />
 
-        <activity android:name=".MetaSemanalGeral"></activity>
+        <activity android:name=".MetaSemanalGeral" android:screenOrientation="portrait"></activity>
 
         <service android:name=".NotificacaoDiario" />
         <service android:name=".NotificacaoMetaSemanal" />
         <service android:name=".NotificacaoTerapia" />
 
-        <activity android:name=".Informacoes" />
+        <activity android:name=".Informacoes" android:screenOrientation="portrait"/>
         <activity
             android:name=".GruposZona"
             android:label="@string/title_activity_grupos"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Grupos"></activity>
+            android:theme="@style/AppTheme.NoActionBar" android:screenOrientation="portrait"/>
+        <activity android:name=".Grupos" android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

@@ -23,8 +23,9 @@ public class Atividades extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_atividades);
 
-        Random r = new Random();
-        atividade = r.nextInt(3) + 1;
+        Bundle bundle = new Bundle();
+        bundle = getIntent().getExtras();
+        atividade = bundle.getInt("atividade");
 
         txtnum_atividade = (TextView) findViewById(R.id.txtnum_atividade);
         txttema_atividade = (TextView) findViewById(R.id.txttema_atividade);
@@ -37,20 +38,27 @@ public class Atividades extends AppCompatActivity {
             case 1:
                 txtnum_atividade.setText("1");
                 txttema_atividade.setText("METAS DA SEMANA");
-                videoView.setVisibility(View.VISIBLE);
+                //videoView.setVisibility(View.VISIBLE);
+                txtatividade_descricao.setVisibility(View.VISIBLE);
+                txtatividade_descricao.setText(getResources().getString(R.string.Descricao1));
+                btatividade.setText("Definir meta da semana");
                 break;
 
             case 2:
                 txtnum_atividade.setText("2");
                 txttema_atividade.setText("MITOS E VERDADES");
-                txtatividade_descricao.setText("descricao");
+                txtatividade_descricao.setText(getResources().getString(R.string.Descricao2));
                 txtatividade_descricao.setVisibility(View.VISIBLE);
+                btatividade.setText("Ir para atividade");
                 break;
 
             case 3:
                 txtnum_atividade.setText("3");
                 txttema_atividade.setText("MOTIVAÇÃO");
-                videoView.setVisibility(View.VISIBLE);
+                //videoView.setVisibility(View.VISIBLE);
+                txtatividade_descricao.setVisibility(View.VISIBLE);
+                txtatividade_descricao.setText(getResources().getString(R.string.Descricao3));
+                btatividade.setText("Ir para atividade");
                 break;
 
         }
@@ -61,7 +69,7 @@ public class Atividades extends AppCompatActivity {
         Intent i = null;
         switch (atividade){
             case 1:
-                i = new Intent(this, Atividade1.class);
+                i = new Intent(this, MetaSemanal.class);
                 break;
 
             case 2:
