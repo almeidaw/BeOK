@@ -24,100 +24,341 @@
 
 
             <TextView
+                android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="O que te fez ter vontade? O que você sentiu na hora?"
-                android:id="@+id/textView13"
-                android:gravity="center"/>
+                android:padding="5dp"
+                android:gravity="center"
+                android:text="O que te fez ter vontade? O que você sentiu na hora?" />
 
-            <RadioGroup
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="10dp"
+                android:orientation="vertical">
 
-                <RadioButton
-                    android:layout_width="wrap_content"
+                <CheckBox
+                    android:id="@+id/cbemocoes"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Alegria"
-                    android:id="@+id/cbalegria"
-                    android:checked="false" />
+                    android:onClick="checkEmocoes"
+                    android:text="Emoções: prazeirosas e desprazeirosas" />
 
-                <RadioButton
-                    android:layout_width="wrap_content"
+                <TableLayout
+                    android:id="@+id/tlopcao1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Excitação"
-                    android:id="@+id/cbexcitacao"
-                    android:checked="false" />
+                    android:paddingLeft="20dp"
+                    android:visibility="gone">
 
-                <RadioButton
-                    android:layout_width="wrap_content"
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/cb1_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ansiedade" />
+
+                        <CheckBox
+                            android:id="@+id/cb1_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Frustração" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/cb1_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Solidão" />
+
+                        <CheckBox
+                            android:id="@+id/cb1_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tédio" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/cb1_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tristeza" />
+
+                        <CheckBox
+                            android:id="@+id/cb1_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Raiva" />
+
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/cb1_7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Desespero" />
+
+                        <CheckBox
+                            android:id="@+id/cb1_8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Estresse" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/cb1_9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Angustia" />
+
+                        <CheckBox
+                            android:id="@+id/cb1_10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Alegria" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/cb1_11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Euforia" />
+
+                        <CheckBox
+                            android:id="@+id/cb1_12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Satisfação" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/cb1_13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Paz" />
+
+                        <CheckBox
+                            android:id="@+id/cb1_14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Para relaxar" />
+
+                    </TableRow>
+
+                </TableLayout>
+
+                <CheckBox
+                    android:id="@+id/cbsituacoes"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Solidão"
-                    android:id="@+id/cbsolidao"
-                    android:checked="false" />
+                    android:onClick="checkSituacoes"
+                    android:text="Situações sociais:" />
 
-                <RadioButton
-                    android:layout_width="wrap_content"
+                <TableLayout
+                    android:id="@+id/tlopcao2"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tédio"
-                    android:id="@+id/cbtedio"
-                    android:checked="false" />
+                    android:paddingLeft="20dp"
+                    android:visibility="gone">
 
-                <RadioButton
-                    android:layout_width="wrap_content"
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/cb2_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Comemorações" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/cb2_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Para estar com as pessoas" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/cb2_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pressão social" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/cb2_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Brigas com familiares ou amigos" />
+
+                    </TableRow>
+
+                </TableLayout>
+
+                <CheckBox
+                    android:id="@+id/cbestadofisico"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Frustração"
-                    android:id="@+id/cbfrustracao"
-                    android:checked="false" />
+                    android:onClick="checkEstadoFisico"
+                    android:text="Quando quero alterar meu estado físico (melhorar ou aliviar) devido a:" />
 
-                <RadioButton
-                    android:layout_width="wrap_content"
+                <TableLayout
+                    android:id="@+id/tlopcao3"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Raiva"
-                    android:id="@+id/cbraiva"
-                    android:checked="false" />
+                    android:paddingLeft="20dp"
+                    android:visibility="gone">
 
-                <RadioButton
-                    android:layout_width="wrap_content"
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/cb3_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sintomas de abstinência" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/cb3_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fissura/vontade de usar" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/cb3_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Para me sentir mais potente" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/cb3_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Para me dar mais energia" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/cb3_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Para me concentrar" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/cb3_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dor" />
+
+                    </TableRow>
+
+                </TableLayout>
+
+                <CheckBox
+                    android:id="@+id/cbproblemas"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Comemorar algo"
-                    android:id="@+id/cbcomemorar"
-                    android:checked="false" />
+                    android:text="Por problemas no trbalho ou nos estudos (escola ou faculdade)" />
 
-                <RadioButton
-                    android:layout_width="wrap_content"
+                <CheckBox
+                    android:id="@+id/cbtestarcontrole"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Problemas familiares"
-                    android:id="@+id/cbprobfamilia"
-                    android:checked="false" />
+                    android:text="Para testar meu controle pessoal, isto é, enfrentar uma situação de risco para ver se sou capaz de me manter abstinente" />
 
-                <RadioButton
-                    android:layout_width="wrap_content"
+                <CheckBox
+                    android:id="@+id/cboutros"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Problemas no trabalho/escola"
-                    android:id="@+id/cbprobtrabesc"
-                    android:checked="false" />
+                    android:onClick="checkOutros"
+                    android:text="Outros" />
 
-                <RadioButton
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/edtxtoutros"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Queria relaxar"
-                    android:id="@+id/cbrelaxar"
-                    android:checked="false" />
+                    android:hint="Qual foi o motivo?"
+                    android:visibility="gone" />
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Outros"
-                        android:onClick="outrosMotivos"
-                        android:id="@+id/cboutrosmotivos" />
-
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:visibility="invisible"
-                        android:id="@+id/edtxtoutrosmotivos"/>
-            </RadioGroup>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
