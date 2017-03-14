@@ -100,7 +100,7 @@ public class MetasSemana extends Fragment {
        for(int i=0;i<nDrogas;i++) {
            MetaGeral m1 = metasGerais.get(i);
            for(int j=0;j<nDrogas;j++){
-               MetaSemanal m2=metas.get(i);
+               MetaSemanal m2=metas.get(j);
                if(convertTipos(m2.getTipo())==convertTipos(m1.getTipo())){
                    metas_semanal.add(new Meta(m1.getTipo(), m2.getQuantidade(),m1.getQuantidade(), m2.getFreqSemanal(),m1.getFreqSemanal(), m2.getManha(), m2.getTarde(), m2.getNoite(), m2.getMadrugada(),m1.getManha(), m1.getTarde(), m1.getNoite(), m1.getMadrugada(), 0, null));
                }
