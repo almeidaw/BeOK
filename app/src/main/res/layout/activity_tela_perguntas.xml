@@ -66,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat"
-                android:textSize="@dimen/tamanho_perguntas"
+                android:textSize="@dimen/coments_txt_size"
                 android:layout_marginBottom="5dp"
                 android:gravity="center"
                 android:id="@+id/txtlegenda"
@@ -95,12 +95,42 @@
                 android:id="@+id/sbqtd"/>
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:textSize="@dimen/coments_txt_size"
+                android:gravity="center_horizontal"
                 android:id="@+id/txtqtddroga"
-                android:textColor="@color/cinzinha"/>
+                android:textColor="@color/cinzinha"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/lltamanho"
+            android:visibility="gone">
+
+            <TextView
+                android:text="@string/baseado_tamanho_cadastro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txttamanho"
+                android:textSize="@dimen/tamanho_perguntas"
+                android:layout_marginBottom="5dp"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:gravity="center"/>
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spbaseado_medio"
+                android:entries="@array/baseado_tamanho_medio"
+                android:layout_marginBottom="5dp"/>
+
         </LinearLayout>
 
         <LinearLayout

@@ -231,4 +231,8 @@ public class Atividade2 extends AppCompatActivity {
             return 17;
         }
     }
+    @Override
+    public void onBackPressed() {
+
+    }
 }

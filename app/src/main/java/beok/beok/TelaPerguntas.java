@@ -8,11 +8,13 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.orm.SugarContext;
 
 import org.w3c.dom.Text;
@@ -31,13 +33,15 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
     ImageView ivlegenda;
     SeekBar sbqtd;
     Button btconfirma;
-    TextView txtunidade, txtlegenda,txtqtddroga;
-    Spinner spfreq, spultimavez, spmetafinal, spbebidas;
+    TextView txtunidade, txtlegenda,txtqtddroga, txttamanho;
+    Spinner spfreq, spultimavez, spmetafinal, spbebidas, spbaseado_medio;
     EditText edtxtgasto;
+    LinearLayout lltamanho;
 
     ConsumoAtual ca;
 
     Bundle bundle;
+    Bundle newBundle;
 
     int quantidade;
 
@@ -51,6 +55,10 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
         SugarContext.init(this);
 
         edtxtgasto = (EditText) findViewById(R.id.edtxtgasto);
+
+        txttamanho = (TextView) findViewById(R.id.txttamanho);
+        spbaseado_medio = (Spinner) findViewById(R.id.spbaseado_medio);
+        lltamanho = (LinearLayout) findViewById(R.id.lltamanho);
 
         btconfirma = (Button) findViewById(R.id.btconfirma);
         txtunidade = (TextView) findViewById(R.id.txtunidade);
@@ -70,6 +78,7 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
         btconfirma.setOnClickListener(this);
         btconfirma.setVisibility(View.INVISIBLE);
         bundle = getIntent().getExtras();
+        newBundle = new Bundle();
 
         drogaescolhida=bundle.getInt("Droga escolhida");
         if (bundle.getInt("Droga escolhida") == 1){
@@ -78,7 +87,9 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
             txtlegenda.setText("Uma dose é igual a");
             ivlegenda.setVisibility(View.VISIBLE);
             ca.setCerveja();
-            sbqtd.setMax(15);
+            sbqtd.setMax(14);
+            sbqtd.setProgress(6);
+            txtqtddroga.setText("7 doses");
             spbebidas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -103,42 +114,56 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
             });
         }else if (bundle.getInt("Droga escolhida") == 2){
             //txtunidade.setText("1 baseado de maconha = ");
-            txtlegenda.setText("baseado fino = 0,5 grama \nbaseado normal = 1,2 grama\nbomba = 2 grama");
+            txtlegenda.setText("baseado fino = 0,5 grama \nbaseado normal = 1,2 grama\nbaseado grande = 2 grama");
             ca.setMaconha();
-            sbqtd.setMax(10);
+            sbqtd.setMax(19);
+            sbqtd.setProgress(9);
+            txtqtddroga.setText("5 baseados");
+            lltamanho.setVisibility(View.VISIBLE);
         }else if (bundle.getInt("Droga escolhida") == 3){
             txtunidade.setText("1 grama de cocaina = ");
             txtlegenda.setText("1 papelote/pino= 1grama");
             ca.setCocaina();
-            sbqtd.setMax(10);
+            sbqtd.setMax(19);
+            sbqtd.setProgress(9);
+            txtqtddroga.setText("5 gramas");
+
         }else if (bundle.getInt("Droga escolhida") == 4){
             txtunidade.setText("1 pedra de crack = ");
-            txtlegenda.setText("LEGENDA ALCOOL");
+            //txtlegenda.setText("LEGENDA ALCOOL");
             txtlegenda.setVisibility(View.GONE);
             ca.setCrack();
-            sbqtd.setMax(10);
+            sbqtd.setMax(14);
+            sbqtd.setProgress(6);
+            txtqtddroga.setText("7 pedras");
+
         }
         array = bundle.getBooleanArray("checkbox");
-
+        for(int i=0;i<6;i++){
+            String str=bundle.getString("tipoDroga"+i);
+            if(str!=null){
+                newBundle.putString("tipoDroga"+i,str);
+            }
+            str=bundle.getString("metaTipo"+i);
+            if(str!=null){
+                newBundle.putString("metaTipo"+i,str);
+            }
+        }
 
         sbqtd.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (bundle.getInt("Droga escolhida") == 1){
-                    sbqtd.setMax(14);
-                    txtqtddroga.setText(Integer.toString(progress + 1) + " doses de " + spbebidas.getSelectedItem().toString());
+                    txtqtddroga.setText(Integer.toString(progress + 1) + " doses");
                     quantidade= progress+1;
                 } else if (bundle.getInt("Droga escolhida") == 2){
-                    sbqtd.setMax(19);
-                    txtqtddroga.setText(Float.toString(((float)progress + 1)/2) + " baseados de maconha");
+                    txtqtddroga.setText(Float.toString(((float)progress + 1)/2) + " baseados");
                     quantidade= progress+1;
                 } else if (bundle.getInt("Droga escolhida") == 3){
-                    sbqtd.setMax(19);
-                    txtqtddroga.setText(Float.toString(((float)progress + 1)/2) + " gramas cocaina");
+                    txtqtddroga.setText(Float.toString(((float)progress + 1)/2) + " gramas");
                     quantidade= progress+1;
                 } else if (bundle.getInt("Droga escolhida") == 4){
-                    sbqtd.setMax(9);
-                    txtqtddroga.setText(Integer.toString(progress + 1) + " pedras de crack");
+                    txtqtddroga.setText(Integer.toString(progress + 1) + " pedras");
                     quantidade= progress+1;
                 }
                 btconfirma.setVisibility(View.VISIBLE);
@@ -171,19 +196,35 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
                     }
                 }
                 ca.setQuantidade(quantidade);
+
+                if (lltamanho.getVisibility() == View.VISIBLE){
+                    ca.setTamMedBaseado(spbaseado_medio.getSelectedItemPosition() + 1);
+                } else {
+                    ca.setTamMedBaseado(0);
+                }
+
                 Date now=new Date();
                 now.setTime(System.currentTimeMillis());
                 ca.setDataInicio(now);
-                DB.save(ca);
-                Bundle bundle = new Bundle();
-                bundle.putBooleanArray("checkbox", array);
-                bundle.putInt("Droga escolhida", drogaescolhida);
+                Gson g=new Gson();
+
+                newBundle.putBooleanArray("checkbox", array);
+                newBundle.putInt("Droga escolhida", drogaescolhida);
+                newBundle.putString("tipoDroga"+ca.getTipo(),g.toJson(ca));
                 Intent nextActivity = new Intent(this, MetaTratamento.class);
-                nextActivity.putExtras(bundle);
+                nextActivity.putExtras(newBundle);
                 startActivity(nextActivity);
                 //slide from left to right
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 break;
         }
+    }
+    @Override
+    public void onBackPressed() {
+        Intent i=new Intent(this,Tela2.class);
+        array[bundle.getInt("Droga escolhida")-1]=false;
+        newBundle.putBooleanArray("checkbox", array);
+        i.putExtras(newBundle);
+        startActivity(i);
     }
 }

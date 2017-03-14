@@ -49,6 +49,8 @@ public class VontadeUsa extends AppCompatActivity {
 
         txtvontade = (TextView) findViewById(R.id.txtvontade);
         sbvontade.setMax(9);
+        sbvontade.setProgress(4);
+        txtvontade.setText("5");
         sbvontade.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {

@@ -43,7 +43,7 @@ public class NotificacaoTerapia extends Service{
             mBuilder.setContentText("Terapia!");
             mBuilder.setVibrate(new long[] { 100, 250});
             mBuilder.setAutoCancel(true);
-            PendingIntent p = PendingIntent.getActivity(this, 3, new Intent(this, Atividade1.class), 0); //Direcionar para alguma tela
+            PendingIntent p = PendingIntent.getActivity(this, 3, new Intent(this, Main.class), 0); //Direcionar para alguma tela
             mBuilder.setContentIntent(p);
 
             NotificationManager mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);

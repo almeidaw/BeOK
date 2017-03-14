@@ -127,4 +127,8 @@ public class Cadastro extends AppCompatActivity implements View.OnClickListener,
         Toast.makeText(this,"Erro na rede, tente novamente",Toast.LENGTH_SHORT).show();
         t.printStackTrace();
     }
+    @Override
+    public void onBackPressed() {
+
+    }
 }

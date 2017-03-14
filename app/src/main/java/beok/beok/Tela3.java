@@ -87,4 +87,8 @@ public class Tela3 extends AppCompatActivity implements View.OnClickListener{
             edtxtoutramot.setVisibility(View.GONE);
         }
     }
+    @Override
+    public void onBackPressed() {
+
+    }
 }

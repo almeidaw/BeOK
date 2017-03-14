@@ -19,6 +19,7 @@ public class ConsumoAtual {
     private int freqSemanal;
     private int quantidade;
     private int gasto;
+    private int tamMedBaseado; // "tamMedBaseado" = 0 caso "tipo" não for maconha
     private Date dataInicio;
 
 
@@ -109,6 +110,20 @@ public class ConsumoAtual {
     }
     public void setCrack(){
         tipo=5;
+    }
+
+    /**
+     * @return the tamMedBaseado
+     */
+    public int getTamMedBaseado() {
+        return tamMedBaseado;
+    }
+
+    /**
+     * @param tamMedBaseado the tamMedBaseado to set
+     */
+    public void setTamMedBaseado(int tamMedBaseado) {
+        this.tamMedBaseado = tamMedBaseado;
     }
 
     public Date getDataInicio() {
