@@ -56,7 +56,7 @@
                             android:text="VERDADE"
                             android:id="@+id/btverdade"
                             android:onClick="botaoVerdade"
-                            android:background="@drawable/terapia_button_style"
+                            android:background="@drawable/atividade2_button_style2"
                             android:layout_alignParentRight="true"
                             android:textColor="#FF18919e" />
 
@@ -66,7 +66,7 @@
                             android:text="MITO"
                             android:id="@+id/btmito"
                             android:onClick="botaoMito"
-                            android:background="@drawable/terapia_button_style"
+                            android:background="@drawable/atividade2_button_style2"
                             android:textColor="#FF18919e"
                             android:paddingRight="20dp"
                             android:paddingLeft="20dp"/>

@@ -34,7 +34,7 @@ public class Tela6 extends AppCompatActivity {
             case R.id.btproximo4:
 
                 hora = timePicker1.getCurrentHour();
-                minuto = timePicker1.getCurrentHour();
+                minuto = timePicker1.getMinute();
 
                 editor.putString("notification_time", hora + ":" + minuto);
 

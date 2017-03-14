@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.EditText;
+import android.widget.TableLayout;
 
 import com.google.gson.Gson;
 import com.orm.SugarContext;
@@ -22,10 +23,21 @@ public class AlternativaUso extends AppCompatActivity {
 
 
     Button btprox;
-    RadioButton cbalegria, cbsolidao, cbexcitacao, cbtedio, cbfrustracao, cbraiva, cbcomemorar, cbprobfamilia,
-            cbprobtrabesc, cbrelaxar, cboutrosmotivos,
-            cbliguei, cbpessoalmente1, cbpessoalmente2, cbauto_ajuda, cbbanho, cbcomi, cbpessoasqueridas, cboutrasalternativas;
+
+    CheckBox cbemocoes, cbsituacoes, cbestadofisico, cbproblemas, cbtestarcontrole, cboutros,
+            cb1_1, cb1_2, cb1_3, cb1_4, cb1_5, cb1_6, cb1_7, cb1_8, cb1_9, cb1_10, cb1_11, cb1_12,
+            cb1_13, cb1_14, cb2_1, cb2_2, cb2_3, cb2_4, cb3_1, cb3_2, cb3_3, cb3_4,
+            cb3_5, cb3_6;
+    TableLayout tlopcao1 , tlopcao2, tlopcao3;
+    EditText edtxtoutros;
+
+    RadioButton cbliguei, cbpessoalmente1, cbpessoalmente2, cbauto_ajuda, cbbanho, cbcomi, cbpessoasqueridas, cboutrasalternativas;
     EditText edtxtoutrosmotivos, edtxtoutrasalternativas;
+
+    int motivouso;
+    CheckBox[] checkBoxes = {cb1_1, cb1_2, cb1_3, cb1_4, cb1_5, cb1_6, cb1_7, cb1_8, cb1_9, cb1_10, cb1_11, cb1_12,
+            cb1_13, cb1_14, cb2_1, cb2_2, cb2_3, cb2_4, cb3_1, cb3_2, cb3_3, cb3_4,
+            cb3_5, cb3_6, cbproblemas, cbtestarcontrole, cboutros};
 
     Bundle bundle;
     VontadeDroga vd;
@@ -41,18 +53,44 @@ public class AlternativaUso extends AppCompatActivity {
 
         SugarContext.init(this);
 
+        cbemocoes = (CheckBox) findViewById(R.id.cbemocoes);
+        cbsituacoes = (CheckBox) findViewById(R.id.cbsituacoes);
+        cbestadofisico = (CheckBox) findViewById(R.id.cbestadofisico);
+        cbproblemas = (CheckBox) findViewById(R.id.cbproblemas);
+        cbtestarcontrole = (CheckBox) findViewById(R.id.cbtestarcontrole);
+        cboutros = (CheckBox) findViewById(R.id.cboutros);
 
-        cbalegria = (RadioButton) findViewById(R.id.cbalegria);
-        cbsolidao = (RadioButton) findViewById(R.id.cbsolidao);
-        cbexcitacao = (RadioButton) findViewById(R.id.cbexcitacao);
-        cbtedio = (RadioButton) findViewById(R.id.cbtedio);
-        cbfrustracao = (RadioButton) findViewById(R.id.cbfrustracao);
-        cbraiva = (RadioButton) findViewById(R.id.cbraiva);
-        cbcomemorar = (RadioButton) findViewById(R.id.cbcomemorar);
-        cbprobfamilia = (RadioButton) findViewById(R.id.cbprobfamilia);
-        cbprobtrabesc = (RadioButton) findViewById(R.id.cbprobtrabesc);
-        cbrelaxar = (RadioButton) findViewById(R.id.cbrelaxar);
-        cboutrosmotivos = (RadioButton) findViewById(R.id.cboutrosmotivos);
+        cb1_1 = (CheckBox) findViewById(R.id.cb1_1);
+        cb1_2 = (CheckBox) findViewById(R.id.cb1_2);
+        cb1_3 = (CheckBox) findViewById(R.id.cb1_3);
+        cb1_4 = (CheckBox) findViewById(R.id.cb1_4);
+        cb1_5 = (CheckBox) findViewById(R.id.cb1_5);
+        cb1_6 = (CheckBox) findViewById(R.id.cb1_6);
+        cb1_7 = (CheckBox) findViewById(R.id.cb1_7);
+        cb1_8 = (CheckBox) findViewById(R.id.cb1_8);
+        cb1_9 = (CheckBox) findViewById(R.id.cb1_9);
+        cb1_10 = (CheckBox) findViewById(R.id.cb1_10);
+        cb1_11 = (CheckBox) findViewById(R.id.cb1_11);
+        cb1_12 = (CheckBox) findViewById(R.id.cb1_12);
+        cb1_13 = (CheckBox) findViewById(R.id.cb1_13);
+        cb1_14 = (CheckBox) findViewById(R.id.cb1_14);
+        cb2_1 = (CheckBox) findViewById(R.id.cb2_1);
+        cb2_2 = (CheckBox) findViewById(R.id.cb2_2);
+        cb2_3 = (CheckBox) findViewById(R.id.cb2_3);
+        cb2_4 = (CheckBox) findViewById(R.id.cb2_4);
+        cb3_1 = (CheckBox) findViewById(R.id.cb3_1);
+        cb3_2 = (CheckBox) findViewById(R.id.cb3_2);
+        cb3_3 = (CheckBox) findViewById(R.id.cb3_3);
+        cb3_4 = (CheckBox) findViewById(R.id.cb3_4);
+        cb3_5 = (CheckBox) findViewById(R.id.cb3_5);
+        cb3_6 = (CheckBox) findViewById(R.id.cb3_6);
+
+        tlopcao1 = (TableLayout) findViewById(R.id.tlopcao1);
+        tlopcao2 = (TableLayout) findViewById(R.id.tlopcao2);
+        tlopcao3 = (TableLayout) findViewById(R.id.tlopcao3);
+
+        edtxtoutros = (EditText) findViewById(R.id.edtxtoutros);
+
         cbliguei = (RadioButton) findViewById(R.id.cbliguei);
         cbpessoalmente1 = (RadioButton) findViewById(R.id.cbpessoalmente1);
         cbpessoalmente2 = (RadioButton) findViewById(R.id.cbpessoalmente2);
@@ -62,7 +100,6 @@ public class AlternativaUso extends AppCompatActivity {
         cbpessoasqueridas = (RadioButton) findViewById(R.id.cbpessoasqueridas);
         cboutrasalternativas = (RadioButton) findViewById(R.id.cboutrasalternativas);
 
-        edtxtoutrosmotivos = (EditText) findViewById(R.id.edtxtoutrosmotivos);
         edtxtoutrasalternativas = (EditText) findViewById(R.id.edtxtoutrasalternativas);
 
         btprox = (Button) findViewById(R.id.btprox);
@@ -70,24 +107,25 @@ public class AlternativaUso extends AppCompatActivity {
     }
 
     public void botaoProximo(View v){
-        int m=0;
-        m+=0*rb(cbalegria);
-        m+=1*rb(cbexcitacao);
-        m+=2*rb(cbsolidao);
-        m+=3*rb(cbtedio);
-        m+=4*rb(cbfrustracao);
-        m+=5*rb(cbraiva);
-        m+=6*rb(cbcomemorar);
-        m+=7*rb(cbprobfamilia);
-        m+=8*rb(cbprobtrabesc);
-        m+=9*rb(cbrelaxar);
-        m+=10*rb(cboutrosmotivos);
-        vd.setMotivo(m);
-        if(m==10){
-            vd.setMotivoOutros(edtxtoutrosmotivos.getText().toString());
+        int contador = 1;
+        motivouso = 0;
+
+        for (CheckBox cb : checkBoxes){
+            if (cb == null){
+                contador = contador*2;
+            } else {
+                motivouso = motivouso + ch(cb) * contador;
+                contador = contador * 2;
+            }
         }
 
-        int a=0;
+        vd.setMotivo(contador);
+
+        if (checkBoxes[26] != null) {
+            vd.setMotivoOutros(edtxtoutros.getText().toString());
+        }
+
+        int a = 0;
         a+=0*rb(cbliguei);
         a+=1*rb(cbpessoalmente1);
         a+=2*rb(cbpessoalmente2);
@@ -125,6 +163,14 @@ public class AlternativaUso extends AppCompatActivity {
         startActivity(i);
     }
 
+    public int ch(CheckBox checkBox){
+        if (checkBox.isChecked()){
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
     private int rb(RadioButton r){
         if(r.isChecked()){
             return 1;
@@ -133,20 +179,43 @@ public class AlternativaUso extends AppCompatActivity {
         }
     }
 
-
-    public void outrosMotivos(View v){
-        if (cboutrosmotivos.isChecked()){
-            edtxtoutrosmotivos.setVisibility(View.VISIBLE);
-        }else {
-            edtxtoutrosmotivos.setVisibility(View.INVISIBLE);
-        }
-    }
-
     public void outrasAlternativas(View v){
         if (cboutrasalternativas.isChecked()){
             edtxtoutrasalternativas.setVisibility(View.VISIBLE);
         }else {
             edtxtoutrasalternativas.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    public void checkEmocoes (View v){
+        if (tlopcao1.getVisibility() == View.GONE){
+            tlopcao1.setVisibility(View.VISIBLE);
+        } else{
+            tlopcao1.setVisibility(View.GONE);
+        }
+    }
+
+    public void checkSituacoes (View v){
+        if (tlopcao2.getVisibility() == View.GONE){
+            tlopcao2.setVisibility(View.VISIBLE);
+        } else{
+            tlopcao2.setVisibility(View.GONE);
+        }
+    }
+
+    public void checkEstadoFisico (View v){
+        if (tlopcao3.getVisibility() == View.GONE){
+            tlopcao3.setVisibility(View.VISIBLE);
+        } else{
+            tlopcao3.setVisibility(View.GONE);
+        }
+    }
+
+    public void checkOutros (View v){
+        if (edtxtoutros.getVisibility() == View.GONE){
+            edtxtoutros.setVisibility(View.VISIBLE);
+        } else {
+            edtxtoutros.setVisibility(View.GONE);
         }
     }
 

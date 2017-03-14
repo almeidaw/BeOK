@@ -4,9 +4,12 @@ import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 
 import java.util.Calendar;
@@ -17,7 +20,8 @@ import java.util.Calendar;
 
 public class NotificacaoDiario extends Service {
 
-    private int hora_notificacao = 16; // horario que deseja receber notificacao do regitro diario
+    private int hora_notificacao; // horario que deseja receber notificacao do regitro diario
+    private int minuto_notificacao;
 
     @Override
     public void onCreate() {
@@ -31,12 +35,18 @@ public class NotificacaoDiario extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        hora_notificacao = pref.getInt("horaNotificacao", 12);
+        minuto_notificacao = pref.getInt("minutoNotificacao", 0);
+
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, hora_notificacao);
+        calendar.set(Calendar.MINUTE, minuto_notificacao);
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
 
-        if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == calendar.get(Calendar.HOUR_OF_DAY)) {
+        if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == calendar.get(Calendar.HOUR_OF_DAY) && Calendar.getInstance().get(Calendar.MINUTE) == calendar.get(Calendar.MINUTE)) {
             mBuilder.setSmallIcon(R.mipmap.ic_launcher);
             mBuilder.setContentTitle("BeOk!");
             mBuilder.setContentText("Registro Diário!");
@@ -53,7 +63,7 @@ public class NotificacaoDiario extends Service {
         PendingIntent pi = PendingIntent.getService(NotificacaoDiario.this, 11, i, PendingIntent.FLAG_UPDATE_CURRENT);
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 3600000, pi);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 60000, pi);
 
         return START_NOT_STICKY;
     }

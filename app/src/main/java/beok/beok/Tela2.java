@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 
 import com.google.gson.Gson;
+import com.orm.SugarContext;
+
+import java.util.Date;
 
 import beok.beok.POJO.ConsumoAtual;
 import beok.beok.POJO.MetaGeral;
@@ -39,6 +42,8 @@ public class Tela2 extends AppCompatActivity implements View.OnClickListener{
 
         bundle=getIntent().getExtras();
         newBundle=new Bundle();
+
+        SugarContext.init(this);
         //Completa os checkboxs que já foram selecionados(essa informação era perdida quando muda para tela de perguntas)
         if (bundle != null){
             cbparaalcool.setChecked(bundle.getBooleanArray("checkbox")[0]);
@@ -67,13 +72,17 @@ public class Tela2 extends AppCompatActivity implements View.OnClickListener{
                 Gson g=new Gson();
                 for(int i=0;i<6;i++){
                     String str=newBundle.getString("tipoDroga"+i);
+                    Date now=new Date();
+                    now.setTime(System.currentTimeMillis());
                     if(str!=null){
                         ConsumoAtual ca=g.fromJson(str,ConsumoAtual.class);
+                        ca.setDataInicio(now);
                         DB.save(ca);
                     }
                     str=newBundle.getString("metaTipo"+i);
                     if(str!=null){
                         MetaGeral m=g.fromJson(str,MetaGeral.class);
+                        m.setDataInicio(now);
                         DB.save(m);
                     }
                 }

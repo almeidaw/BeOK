@@ -17,11 +17,13 @@ public class Pergunta5 extends AppCompatActivity {
 
 
     Button btprox5;
+
     CheckBox cbemocoes, cbsituacoes, cbestadofisico, cbproblemas, cbtestarcontrole, cboutros,
             cb1_1, cb1_2, cb1_3, cb1_4, cb1_5, cb1_6, cb1_7, cb1_8, cb1_9, cb1_10, cb1_11, cb1_12,
             cb1_13, cb1_14, cb2_1, cb2_2, cb2_3, cb2_4, cb3_1, cb3_2, cb3_3, cb3_4,
             cb3_5, cb3_6;
     TableLayout tlopcao1 , tlopcao2, tlopcao3;
+
     EditText edtxtoutros;
 
     int motivouso;
@@ -35,8 +37,6 @@ public class Pergunta5 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pergunta5);
-
-        motivouso = 0;
 
         SugarContext.init(this);
 
@@ -86,10 +86,15 @@ public class Pergunta5 extends AppCompatActivity {
 
     public void botaoProximo5 (View v){
         int contador = 1;
+        motivouso = 0;
 
         for (CheckBox cb : checkBoxes){
-            motivouso = motivouso + ch(cb)*contador;
-            contador = contador*2;
+            if (cb == null){
+                contador = contador*2;
+            } else {
+                motivouso = motivouso + ch(cb) * contador;
+                contador = contador * 2;
+            }
         }
 
         Intent i = new Intent(this, Pergunta6.class);
