@@ -68,8 +68,12 @@ public class Main extends AppCompatActivity {
         nome_navbar.setText(Conf.getNomeUsuario());
 
 
-        Intent i = new Intent(Main.this, NotificacaoDiario.class);
-        startService(i);
+        Intent i1 = new Intent(Main.this, NotificacaoDiario.class);
+        Intent i2= new Intent(Main.this, NotificacaoMetaSemanal.class);
+        Intent i3 = new Intent(Main.this, NotificacaoTerapia.class);
+        startService(i1);
+        startService(i2);
+        startService(i3);
 
         btpanico = (Button) findViewById(R.id.btpanico);
 
