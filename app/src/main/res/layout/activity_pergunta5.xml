@@ -268,7 +268,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/cbestadofisico"
-                android:text="Quando quero alterar meu estado físico (melhorar ou aliviar) devido a:"
+                android:text="Para alterar meu estado físico (melhorar ou aliviar) devido a:"
                 android:onClick="checkEstadoFisico"/>
 
             <TableLayout
@@ -367,7 +367,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/cbproblemas"
-                android:text="Por problemas no trbalho ou nos estudos (escola ou faculdade)"
+                android:text="Por problemas no trabalho ou nos estudos (escola ou faculdade)"
                 />
 
             <CheckBox
