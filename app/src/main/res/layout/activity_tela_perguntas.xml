@@ -102,7 +102,7 @@
                 android:gravity="center_horizontal"
                 android:id="@+id/txtqtddroga"
                 android:textColor="@color/cinzinha"
-                android:gravity="center"/>
+                />
         </LinearLayout>
 
         <LinearLayout
