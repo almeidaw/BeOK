@@ -30,6 +30,15 @@
         android:layout_marginTop="40dp"
         android:gravity="center"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/coments_txt_size"
+        android:textColor="@color/cinzinha"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="ex: praticar algum esporte, voltar a \ncuidar do filho, ler mais livros"/>
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

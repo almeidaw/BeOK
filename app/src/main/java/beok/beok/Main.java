@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -40,12 +41,11 @@ public class Main extends AppCompatActivity {
 
     static boolean b;
 
-    int period = 10000, inicia_insp;
+    int period = 10000, inicia_fragment;
     final Handler handler=new Handler();
     ServiceSincronizer sc;
 
     BottomNavigationView bottomNavigationView;
-
 
     Home home_fragment;
     TestFragment tf;
@@ -55,13 +55,18 @@ public class Main extends AppCompatActivity {
     TherapyMenuFragment fragment_terapia;
     NavigationView nv;
 
-    TextView nome_navbar;
     RelativeLayout content_main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View v = navigationView.getHeaderView(0);
+        TextView nome_navbar = (TextView) v.findViewById(R.id.nome_navbar);
+        nome_navbar.setText(Conf.getNomeUsuario());
+
 
         Intent i = new Intent(Main.this, NotificacaoDiario.class);
         startService(i);
@@ -84,10 +89,6 @@ public class Main extends AppCompatActivity {
 
         tf = new TestFragment();
         colocaFragment(show_diary_fragment, R.id.main_fragment_container);
-
-        View inflatedView = getLayoutInflater().inflate(R.layout.nav_header_main, null);
-        TextView nome_navbar = (TextView) inflatedView.findViewById(R.id.nome_navbar); //get a reference to the textview on the log.xml file.;
-        nome_navbar.setText("User");
 
 
         nv=(NavigationView)findViewById(R.id.nav_view);
@@ -208,10 +209,29 @@ public class Main extends AppCompatActivity {
                 });
 
         if (getIntent().getExtras() != null) {
-            Main.this.colocaFragment(fragment_inspiracao, R.id.main_fragment_container);
-            content_main.setBackgroundResource(R.drawable.bg_inspiracao);
-            bottomNavigationView.getMenu().getItem(2).setChecked(true);
-            nv.getMenu().getItem(2).setChecked(true);
+            Bundle bundle = getIntent().getExtras();
+            inicia_fragment = bundle.getInt("inicia_fragment");
+            if (inicia_fragment==1) {
+                Main.this.colocaFragment(show_diary_fragment, R.id.main_fragment_container);
+                content_main.setBackgroundResource(R.drawable.bg_diario);
+                bottomNavigationView.getMenu().getItem(0).setChecked(true);
+                nv.getMenu().getItem(0).setChecked(true);
+            }else if (inicia_fragment==2) {
+                Main.this.colocaFragment(fragment_metas_semanal, R.id.main_fragment_container);
+                content_main.setBackgroundResource(R.drawable.bg_metas);
+                bottomNavigationView.getMenu().getItem(1).setChecked(true);
+                nv.getMenu().getItem(1).setChecked(true);
+            }else if (inicia_fragment==3) {
+                Main.this.colocaFragment(fragment_inspiracao, R.id.main_fragment_container);
+                content_main.setBackgroundResource(R.drawable.bg_inspiracao);
+                bottomNavigationView.getMenu().getItem(2).setChecked(true);
+                nv.getMenu().getItem(2).setChecked(true);
+            }else if (inicia_fragment==4) {
+                Main.this.colocaFragment(fragment_terapia, R.id.main_fragment_container);
+                content_main.setBackgroundResource(R.drawable.bg_terapia);
+                bottomNavigationView.getMenu().getItem(3).setChecked(true);
+                nv.getMenu().getItem(3).setChecked(true);
+            }
         };
 
     }

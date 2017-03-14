@@ -22,7 +22,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Você usou alguma droga recentemente?"
+        android:text="Você usou alguma droga hoje?"
         android:layout_marginBottom="68dp"
         android:layout_above="@+id/btsim"
         android:layout_centerHorizontal="true"

@@ -116,7 +116,7 @@ public class BotaoPanico2 extends AppCompatActivity {
         bta.setOQueFez(1);
         DB.save(bta);
         Bundle bundle = new Bundle();
-        bundle.putInt("inicia_insp", 1);
+        bundle.putInt("inicia_fragment", 3);
         Intent i = new Intent(this,  Main.class); // Direcionar para tela de dicas efrases motivacionais
         i.putExtras(bundle);
         startActivity(i);
