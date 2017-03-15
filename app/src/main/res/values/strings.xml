@@ -7,7 +7,7 @@
     <string name="action_settings">Settings</string>
 
     <string name="freq90dias">Com que frequência semanal você utilizou em média nos últimos \n90 dias?</string>
-    <string name="qtd90dias">Qual foi a dose média dos seus consumos nesse período?</string>
+    <string name="qtd90dias">Qual foi a dose média diária dos seus consumos nesse período?</string>
     <string name="gasto">Qual seu gasto com a droga \npor unidade?</string>
     <string name="baseado_tamanho_cadastro">Qual foi em média o tamanho do seu baseado?</string>
     <string name="baseado_tamanho_meta">Qual será o tamanho do seu baseado em geral?</string>
@@ -614,7 +614,7 @@
 
     <string name="responda_aqui">Responda aqui</string>
 
-    <string name="peso_baseado">baseado fino = 0,5 grama\nbaseado normal = 1,2 grama\baseado grande = 2 gramas</string>
+    <string name="peso_baseado">baseado fino = 0,5 grama\nbaseado normal = 1,2 grama\nbaseado grande = 2 gramas</string>
     <string name="peso_pedra">1 papelote/pino = 1grama</string>
     <string name="title_activity_grupos">Grupos</string>
 

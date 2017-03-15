@@ -19,6 +19,10 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:titleTextColor="@color/branco"
+            android:subtitleTextColor="@color/branco"
+
             app:popupTheme="@style/AppTheme.PopupOverlay"
             >
 
@@ -55,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:text="2"
                 android:id="@+id/txtnumtela"
-                android:textSize="60sp"
+                android:textSize="45sp"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 android:gravity="bottom"/>

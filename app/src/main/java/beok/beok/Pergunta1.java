@@ -77,7 +77,8 @@ public class Pergunta1 extends AppCompatActivity {
 
             });
         }else if (bundle.getInt("Droga escolhida") == 2){
-            txtlegenda.setText(getResources().getString(R.string.peso_baseado));
+            //txtlegenda.setText(getResources().getString(R.string.peso_baseado));
+            txtlegenda.setText(null);
             sbqtd.setMax(19);
             sbqtd.setProgress(9);
             txtqtd.setText("5 baseados");
