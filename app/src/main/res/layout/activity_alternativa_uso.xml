@@ -386,7 +386,7 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Fui conversa pessoalmente com um profissional"
+                    android:text="Conversei pessoalmente com um profissional"
                     android:id="@+id/cbpessoalmente2" />
 
                 <RadioButton

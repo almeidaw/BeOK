@@ -224,7 +224,9 @@
         <item>\"Cocaína não causa dependência.\"</item>
         <item>\"A cocaína é menos perigosa que o crack.\"</item>
         <item>\"A cocaína melhora a \"performance\" na atividade sexual.\"</item>
-        <item>\"É possível ser infetado com o vírus do HIV ou da hepatite B e C através do consumo de cocaína.\"</item>
+        <item>\"É possível ser infetado com o vírus do HIV ou da hepatite B e C através do consumo
+            de cocaína.\"
+        </item>
         <item>\"É possível ter overdose usando a cocaína.\"</item>
         <item>\"A cocaína é uma droga totalmente diferente do crack.\"</item>
         <item>\"A cocaína pode causar diminuição de peso.\"</item>
@@ -255,68 +257,116 @@
 
     <array name="explicacoes_cocaina">
         <item>\"A cocaína é uma das drogas com maior capacidade de provocar dependência.
-            O efeito da droga geralmente é de curta duração, provocando um enorme desejo de repetir o consumo,
-            dando origem ao comportamento compulsivo. O organismo acaba por se \“acostumar\” (tolerância) a droga,
-            ou seja, a droga faz a cada dia menos efeito e a pessoa precisa usá-la mais vezes e em maior quantidade.
-            Estudos mostram que de cada 5 usuários que experimenta cocaína, 1 se torna dependente.\"</item>
-        <item>\"Não se pode afirmar que uma droga é mais perigosa que a outra, pois o conceito de \“droga perigosa\”
-            depende de muitas variáveis, como por exemplo: sensibilidade do indivíduo em relação a droga,
-            quantidade que usa, gênero, potencial adictivo da substância e além disso a quem a droga afeta.
-            O que se sabe é que as consequências do uso de cocaína são diversas e graves na maioria das vezes.
-            Está fortemente associada a problemas respiratórios, intestinais e na deglutição, complicações cardíacas
-            (arritmia, parada cardíaca), paranoia, overdose, além de estar associado a diversos comportamentos
-            de risco como violência, acidentes e sexo desprotegido.\"</item>
-        <item>\"Algumas pessoas relatam que a cocaína \“ajuda\” na atividade sexual serio? Achei que brochava,
-            sim rsrsrs e em outras tarefas que envolvem desempenho físico e mental, embora outros experimentam
+            O efeito da droga geralmente é de curta duração, provocando um enorme desejo de repetir
+            o consumo,
+            dando origem ao comportamento compulsivo. O organismo acaba por se \“acostumar\”
+            (tolerância) a droga,
+            ou seja, a droga faz a cada dia menos efeito e a pessoa precisa usá-la mais vezes e em
+            maior quantidade.
+            Estudos mostram que de cada 5 usuários que experimenta cocaína, 1 se torna dependente.\"
+        </item>
+        <item>\"Não se pode afirmar que uma droga é mais perigosa que a outra, pois o conceito de
+            \“droga perigosa\”
+            depende de muitas variáveis, como por exemplo: sensibilidade do indivíduo em relação a
+            droga,
+            quantidade que usa, gênero, potencial adictivo da substância e além disso a quem a droga
+            afeta.
+            O que se sabe é que as consequências do uso de cocaína são diversas e graves na maioria
+            das vezes.
+            Está fortemente associada a problemas respiratórios, intestinais e na deglutição,
+            complicações cardíacas
+            (arritmia, parada cardíaca), paranoia, overdose, além de estar associado a diversos
+            comportamentos
+            de risco como violência, acidentes e sexo desprotegido.\"
+        </item>
+        <item>\"Algumas pessoas relatam que a cocaína \“ajuda\” na atividade sexual serio? Achei que
+            brochava,
+            sim rsrsrs e em outras tarefas que envolvem desempenho físico e mental, embora outros
+            experimentam
             efeitos opostos. Mesmo para aqueles que relatam um efeito positivo,
             a longo prazo as consequências do uso de cocaína envolvem maior propensão a apresentar
-            diminuição do desejo sexual, problemas na ereção e ejaculação nos homens, podendo conduzir à impotência
-            e infertilidade.\"</item>
-        <item>\"Apesar de, na maioria das vezes ser inalada, a cocaína também pode ser injetada e qualquer droga
-            injetável pode causar a transmissão de diversas infeções como o vírus do HIV e hepatite B e C,
-            se as seringas e restantes materiais utilizados forem partilhados e não forem esterilizados.\"</item>
-        <item>\"A overdose ocorre quando a pessoa usa uma grande quantidade da droga e tem uma reação tóxica do organismo,
-            que resulta em sintomas graves, como alterações e ataque cardíaco, convulsões, derrame e até a morte.
+            diminuição do desejo sexual, problemas na ereção e ejaculação nos homens, podendo
+            conduzir à impotência
+            e infertilidade.\"
+        </item>
+        <item>\"Apesar de, na maioria das vezes ser inalada, a cocaína também pode ser injetada e
+            qualquer droga
+            injetável pode causar a transmissão de diversas infeções como o vírus do HIV e hepatite
+            B e C,
+            se as seringas e restantes materiais utilizados forem partilhados e não forem
+            esterilizados.\"
+        </item>
+        <item>\"A overdose ocorre quando a pessoa usa uma grande quantidade da droga e tem uma
+            reação tóxica do organismo,
+            que resulta em sintomas graves, como alterações e ataque cardíaco, convulsões, derrame e
+            até a morte.
             A morte por overdose é imprevisível e pode ocorrer até no primeiro uso da droga.
-            O risco de overdose pode aumentar quando a pessoa associa bebidas alcoólicas com a cocaína.\"</item>
+            O risco de overdose pode aumentar quando a pessoa associa bebidas alcoólicas com a
+            cocaína.\"
+        </item>
         <item>\"Na realidade, o crack nada mais é do que o \“resto\” do refino da cocaína em pó.
-            Para transformar o pó em pedra, adicionada água, bicarbonato de sódio, amoníaco e diversas outras
-            substâncias tóxicas. Essa mistura é aquecida até a água evaporar, e o produto final consiste de
-            pedras de cocaína. Elas possuem portanto o mesmo princípio ativo e um efeito parecido, que é a
+            Para transformar o pó em pedra, adicionada água, bicarbonato de sódio, amoníaco e
+            diversas outras
+            substâncias tóxicas. Essa mistura é aquecida até a água evaporar, e o produto final
+            consiste de
+            pedras de cocaína. Elas possuem portanto o mesmo princípio ativo e um efeito parecido,
+            que é a
             aceleração do metabolismo, ou seja, do funcionamento do corpo como um todo. A maior
-            diferença da cocaína para o crack está no que os especialistas chamam de \“via de administração\”.
-            O pó da cocaína é absorvido pela mucosa nasal, que tem nervos aflorados, responsáveis pelo olfato.
+            diferença da cocaína para o crack está no que os especialistas chamam de \“via de
+            administração\”.
+            O pó da cocaína é absorvido pela mucosa nasal, que tem nervos aflorados, responsáveis
+            pelo olfato.
             O efeito dura entre 30 e 45 minutos. No caso do crack, a absorção acontece no pulmão,
             de onde ela cai na corrente sanguínea. O efeito dura cerca de 15 minutos, e por isso,
-            é mais intenso que o da cocaína, o que aumenta o risco de que o usuário se torne dependente,
-            pois quando menor a duração do efeito, mais viciante é uma substância.\"</item>
-        <item>\"Uma das características mais marcantes da cocaína é sua capacidade de diminuir sensivelmente
-            o apetite e causar perda de peso no usuário. Se inicialmente a perda de peso pode ser até bem vinda,
-            com o aumento do uso ela se transforma num grande problema, pois a pessoa pode ficar dias e
-            dias sem comer, o que a levará a quadros de desnutrição, anemia e outros distúrbios metabólicos.
+            é mais intenso que o da cocaína, o que aumenta o risco de que o usuário se torne
+            dependente,
+            pois quando menor a duração do efeito, mais viciante é uma substância.\"
+        </item>
+        <item>\"Uma das características mais marcantes da cocaína é sua capacidade de diminuir
+            sensivelmente
+            o apetite e causar perda de peso no usuário. Se inicialmente a perda de peso pode ser
+            até bem vinda,
+            com o aumento do uso ela se transforma num grande problema, pois a pessoa pode ficar
+            dias e
+            dias sem comer, o que a levará a quadros de desnutrição, anemia e outros distúrbios
+            metabólicos.
             Sem contar a perda de peso é sempre acompanhada de carência de vitaminas,
-            principalmente vitmina B6 (piridoxina).\"</item>
+            principalmente vitmina B6 (piridoxina).\"
+        </item>
         <item>\Os efeitos indesejáveis da cocaína não ocorrem somente com grandes doses ou quando a
-            droga é usada por via endovenosa (injetável); mesmo doses pequenas e usadas por via nasal
-            podem provocar as consequências já descritas. Além disso, usuários que consomem cocaína há
-            algum tempo não estão protegidos dessas complicações. Isso porque a tolerância à droga varia
-            muito de pessoa para pessoa; até a sensibilidade de um indivíduo pode mudar ao longo do tempo,
-            e uma dose considerada \“segura\” anteriormente pode tornar-se letal após alguns meses. Portanto
+            droga é usada por via endovenosa (injetável); mesmo doses pequenas e usadas por via
+            nasal
+            podem provocar as consequências já descritas. Além disso, usuários que consomem cocaína
+            há
+            algum tempo não estão protegidos dessas complicações. Isso porque a tolerância à droga
+            varia
+            muito de pessoa para pessoa; até a sensibilidade de um indivíduo pode mudar ao longo do
+            tempo,
+            e uma dose considerada \“segura\” anteriormente pode tornar-se letal após alguns meses.
+            Portanto
             podemos afirmar que não existe dose segura para os usuários de cocaína, o seu uso sempre
-            implicará um risco substancial para a saúde.\"</item>
+            implicará um risco substancial para a saúde.\"
+        </item>
     </array>
 
     <array name="perguntas_alcool">
         <item>\"Cerveja e vinho são menos \“perigosos\” que os destilados.\"</item>
         <item>\"Mesmo em doses pequenas, o álcool pode causar problemas; por isso, menores de idade
-            não devem consumi-lo.\"</item>
-        <item>\"Ingerir até 4 doses de bebidas alcoólicas diariamente é considerado um nível \“seguro\”.\"</item>
-        <item>\"As mulheres estão mais \“protegidas\” dos efeitos do álcool no corpo, pois elas costumam
+            não devem consumi-lo.\"
+        </item>
+        <item>\"Ingerir até 4 doses de bebidas alcoólicas diariamente é considerado um nível
+            \“seguro\”.\"
+        </item>
+        <item>\"As mulheres estão mais \“protegidas\” dos efeitos do álcool no corpo, pois elas
+            costumam
             beber menos que os homens.
-            Desta forma, quase não sofrem as consequências nocivas do álcool.\"</item>
+            Desta forma, quase não sofrem as consequências nocivas do álcool.\"
+        </item>
         <item>\"Bebidas alcoólicas ajudam a combater o frio.\"</item>
         <item>\"O álcool é a causa do alcoolismo.\"</item>
-        <item>\"O álcool em qualquer quantidade pode prejudicar a habilidade em conduzir um automóvel.\"</item>
+        <item>\"O álcool em qualquer quantidade pode prejudicar a habilidade em conduzir um
+            automóvel.\"
+        </item>
         <item>\"O alcoolista é uma pessoa fraca e irresponsável.\"</item>
     </array>
 
@@ -343,64 +393,96 @@
     </integer-array>
 
     <array name="explicacoes_alcool">
-        <item>\"O tipo de bebida não é o fator mais importante para evitar a intoxicação aguda pelo álcool,
-            mas sim como e quanto está consumindo (por exemplo, a quantidade e frequência do consumo,
-            se a pessoa bebe durante as refeições, sozinho ou acompanhado). Assim, ao consumir grandes
-            quantidades de uma bebida que possui baixo teor alcoólico, terá praticamente o mesmo efeito
-            se ingerisse pequenas quantidades de uma bebida com maior teor alcoólico.\"</item>
+        <item>\"O tipo de bebida não é o fator mais importante para evitar a intoxicação aguda pelo
+            álcool,
+            mas sim como e quanto está consumindo (por exemplo, a quantidade e frequência do
+            consumo,
+            se a pessoa bebe durante as refeições, sozinho ou acompanhado). Assim, ao consumir
+            grandes
+            quantidades de uma bebida que possui baixo teor alcoólico, terá praticamente o mesmo
+            efeito
+            se ingerisse pequenas quantidades de uma bebida com maior teor alcoólico.\"
+        </item>
         <item>\"Não é recomendado que menores de 18 anos bebam principalmente porque seu Sistema
             Nervoso Central (SNC) ainda está em desenvolvimento. Desta maneira, suas vias neuronais
             encontram-se suscetíveis aos danos causados pelo álcool, levando ao comprometimento de
             várias funções. Inclusive, o uso antes dos 15 anos de idade é ainda mais preocupante por
-            ser um indicativo de maior risco para o desenvolvimento de abuso e dependência do álcool.
+            ser um indicativo de maior risco para o desenvolvimento de abuso e dependência do
+            álcool.
             Além disso, não é preciso se embriagar para ter problemas com o álcool: por exemplo,
             mesmo uma pessoa que bebe poucas quantidades de álcool, pode se envolver em brigas,
             acidentes de transito. Ou seja, mesmo não sendo um alcoolista, este usuário teve sérios
-            danos após beber.\"</item>
+            danos após beber.\"
+        </item>
         <item>\"De acordo com a Organização Mundial da Saúde (OMS), não existe um nível seguro para
             o consumo de álcool. Se a pessoa bebe, há risco de problemas de saúde e outros,
-            especialmente se: bebe mais de 2 doses por dia (cerca de 330ml de cerveja, 100ml de vinho,
+            especialmente se: bebe mais de 2 doses por dia (cerca de 330ml de cerveja, 100ml de
+            vinho,
             30ml de destilados) e não deixa de beber pelo menos dois dias na semana.\n
-            A OMS ainda recomenda que o consumo de bebidas alcoólicas não deve ser feito se a pessoa:\n\n
+            A OMS ainda recomenda que o consumo de bebidas alcoólicas não deve ser feito se a
+            pessoa:\n\n
             - Estiver grávida ou amamentando;\n
             - For dirigir, operar máquinas ou realizar outras atividades que envolvam riscos;\n
             - Apresentar problemas de saúde que podem ser agravados pelo álcool;\n
             - Fizer uso de medicamento que interage diretamente com o álcool;\n
-            - Não conseguir controlar o seu consumo (alcoolista).\"</item>
-        <item>\"Ao longo dos últimos anos está havendo uma convergência do uso de álcool entre os gêneros,
-            com maior aceitação social do uso pela mulher. A vulnerabilidade do organismo feminino perante
-            os efeitos do álcool é algo preocupante e merece atenção em termos de políticas públicas.
-            O uso excessivo de álcool por mulheres aumenta o risco para câncer de mama, doenças cardíacas,
-            doenças sexualmente transmissíveis, gravidez indesejada, além de outros problemas. Ainda,
+            - Não conseguir controlar o seu consumo (alcoolista).\"
+        </item>
+        <item>\"Ao longo dos últimos anos está havendo uma convergência do uso de álcool entre os
+            gêneros,
+            com maior aceitação social do uso pela mulher. A vulnerabilidade do organismo feminino
+            perante
+            os efeitos do álcool é algo preocupante e merece atenção em termos de políticas
+            públicas.
+            O uso excessivo de álcool por mulheres aumenta o risco para câncer de mama, doenças
+            cardíacas,
+            doenças sexualmente transmissíveis, gravidez indesejada, além de outros problemas.
+            Ainda,
             mulheres em período fértil que usam álcool e não realizam contracepção correm o risco de
-            causarem danos ao recém-nascido caso engravidem, a chamada Síndrome Alcoólica Fetal.\"</item>
-        <item>\"Apesar de parecer que o corpo está mais quente quando está ingerindo bebidas alcoólicas,
+            causarem danos ao recém-nascido caso engravidem, a chamada Síndrome Alcoólica Fetal.\"
+        </item>
+        <item>\"Apesar de parecer que o corpo está mais quente quando está ingerindo bebidas
+            alcoólicas,
             o que acontece é um desvio de calor de órgãos vitais para a região mais superficial.
-            Quando se consome álcool, ocorre a dilatação dos vasos sanguíneos, e isso faz com que mais
-            sangue e mais calor sejam levados à pele e extremidades, com a consequente elevação da sensação
-            térmica. Dessa forma, acredita-se que houve aquecimento, mas o calor é facilmente dissipado,
-            não apenas pela própria vasodilatação, mas pelo comportamento da pessoa, que ao perceber o
+            Quando se consome álcool, ocorre a dilatação dos vasos sanguíneos, e isso faz com que
+            mais
+            sangue e mais calor sejam levados à pele e extremidades, com a consequente elevação da
+            sensação
+            térmica. Dessa forma, acredita-se que houve aquecimento, mas o calor é facilmente
+            dissipado,
+            não apenas pela própria vasodilatação, mas pelo comportamento da pessoa, que ao perceber
+            o
             aumento de calor, se desprotege e se expõe mais ainda ao frio. Além disso, como o álcool
-            por si só afeta a autopercepção, a pessoa pode se expor mais facilmente a riscos de hipotermia
+            por si só afeta a autopercepção, a pessoa pode se expor mais facilmente a riscos de
+            hipotermia
             (diminuição excessiva da temperatura normal do corpo), uma condição caracterizada por
-            tremedeiras, frio intenso, arrepios, confusão mental e que pode levar o indivíduo à morte.\"</item>
-        <item>\"Apesar de o alcoolista ser dependente de álcool, não é apenas o álcool em si que causa
+            tremedeiras, frio intenso, arrepios, confusão mental e que pode levar o indivíduo à
+            morte.\"
+        </item>
+        <item>\"Apesar de o alcoolista ser dependente de álcool, não é apenas o álcool em si que
+            causa
             o alcoolismo. Se isto fosse verdade toda pessoa que bebesse seria alcoolista. O que se
             sabe é que as causas da doença são multifatoriais, ou seja, não pode ser explicado por
-            um único fator, mas pela interação de elementos genéticos, psicológicos e ambientais.\"</item>
+            um único fator, mas pela interação de elementos genéticos, psicológicos e ambientais.\"
+        </item>
         <item>\"As pesquisas mostram que mesmo baixos níveis de alcoolemia (álcool no sangue) podem
             prejudicar a habilidade do motorista para condução de um automóvel e aumentar os riscos
             de acidente. Certas habilidades necessárias para operar veículo motorizado já são
-            prejudicadas a partir de níveis próximos de zero de alcoolemia.  Outras habilidades
-            são prejudicadas com a maior ingestão de álcool. A partir do nível de 0,05 de alcoolemia,
-            há perda de reflexos e da percepção visual e aumento do tempo de resposta.\"</item>
-        <item>\"O alcoolismo é uma doença crônica que compreende os seguintes sintomas: desejo incontrolável
+            prejudicadas a partir de níveis próximos de zero de alcoolemia. Outras habilidades
+            são prejudicadas com a maior ingestão de álcool. A partir do nível de 0,05 de
+            alcoolemia,
+            há perda de reflexos e da percepção visual e aumento do tempo de resposta.\"
+        </item>
+        <item>\"O alcoolismo é uma doença crônica que compreende os seguintes sintomas: desejo
+            incontrolável
             de beber, perda de controle (não conseguir parar de beber depois de ter começado),
-            dependência física (sintomas físicos como sudorese, tremedeira e ansiedade quando está sem o
+            dependência física (sintomas físicos como sudorese, tremedeira e ansiedade quando está
+            sem o
             álcool), tolerância (a pessoa com o tempo passa a precisar de doses maiores de álcool),
             além de problemas interpessoais e legais decorrentes do uso. A dependência de álcool não
-            está associada ao caráter do indivíduo e muito dos problemas que ele apresenta são decorrentes
-            da própria doença.\"</item>
+            está associada ao caráter do indivíduo e muito dos problemas que ele apresenta são
+            decorrentes
+            da própria doença.\"
+        </item>
     </array>
 
     <array name="perguntas_crack">
@@ -437,24 +519,34 @@
     </integer-array>
 
     <array name="explicacoes_crack">
-        <item>\"Não se pode afirmar que uma droga é pior que a outra, pois o conceito de \“droga pesada\”
-            depende de muitas variáveis, como por exemplo: sensibilidade do indivíduo em relação a droga,
-            quantidade que usa, gênero, potencial adictivo da substância e além disso a quem a droga afeta.
-            Para cada pessoa, a sua droga de escolha é a droga mais pesada. Para uma pessoa dependente de
-            maconha será a maconha a droga mais pesada e por ai vai. O que se sabe sobre o crack é que é
-            uma droga com alto poder adictivo, no qual se obtém uma descarga de muito prazer de forma
+        <item>\"Não se pode afirmar que uma droga é pior que a outra, pois o conceito de \“droga
+            pesada\”
+            depende de muitas variáveis, como por exemplo: sensibilidade do indivíduo em relação a
+            droga,
+            quantidade que usa, gênero, potencial adictivo da substância e além disso a quem a droga
+            afeta.
+            Para cada pessoa, a sua droga de escolha é a droga mais pesada. Para uma pessoa
+            dependente de
+            maconha será a maconha a droga mais pesada e por ai vai. O que se sabe sobre o crack é
+            que é
+            uma droga com alto poder adictivo, no qual se obtém uma descarga de muito prazer de
+            forma
             quase imediata, porém pouco duradora, que faz com que a pessoa busque repetir o uso
-            incessantemente.\"</item>
+            incessantemente.\"
+        </item>
         <item>\"Apesar de ser absorvido quase totalmente pelo organismo, apenas o uso recorrente do
             crack causa dependência. Diferentemente de outras drogas, entretanto, o crack causa
             sensações intensas e desagradáveis quando seus efeitos passam, o que leva o usuário a
             repetir o uso. Esta repetição, junto com o efeito potente da droga, leva o usuário a
-            ficar dependente de forma mais rápida.\"</item>
+            ficar dependente de forma mais rápida.\"
+        </item>
         <item>\"O crack foi considerado inicialmente uma droga \'de rua\'. Por ser barata e inibir a
-            fome, muitos moradores de rua e pessoas em situação de miséria recorrem à droga como medida
+            fome, muitos moradores de rua e pessoas em situação de miséria recorrem à droga como
+            medida
             paliativa. O contexto social do usuário também é um fator agravante - é mais comum uma
             pessoa se tornar usuária de crack quando o meio social facilita o acesso. Apesar disso,
-            hoje o uso é disseminado e o crack atinge todas as camadas sociais.\"</item>
+            hoje o uso é disseminado e o crack atinge todas as camadas sociais.\"
+        </item>
         <item>\"O uso dessa droga compromete o comportamento como um todo. Por ser uma substância
             altamente estimulante, várias funções ficam comprometidas, mas as mais afetadas a médio
             e longo prazo são a atenção e a concentração, a falta de sono, além de gerar quadros
@@ -464,25 +556,34 @@
             de células cerebrais; perda de potência muscular; por causa do fumo, queimaduras na
             face, nos dedos e nos lábios são comuns e como consequência pode ter inflamações e
             contaminação de doenças infecciosas; além de problemas respiratórios: dores no peito,
-            pulmões comprometidos, bronquite, asma.\"</item>
+            pulmões comprometidos, bronquite, asma.\"
+        </item>
         <item>\"A dependência química é uma doença complexa, mas tratável, que afeta o funcionamento
             do cérebro e comportamento. Para ser eficaz, deve atender a múltiplas necessidades do
             indivíduo, e não apenas o abuso de drogas. Deve tratar do abuso do indivíduo de drogas
             e problemas médicos associados, psicológico, social, profissional e jurídico. Também é
-            importante que o tratamento seja adequado para a idade do indivíduo, gênero, etnia e cultura.\"</item>
-        <item>\"Usuários que já possuem uma tendência à agressividade podem ficar mais violentos quando
-            estão na fase de \'fissura\' ou abstinência da droga. Apesar de haver sempre uma deterioração
-            das relações sociais, especialmente no ambiente familiar, a violência não é uma conduta padrão.\"</item>
+            importante que o tratamento seja adequado para a idade do indivíduo, gênero, etnia e
+            cultura.\"
+        </item>
+        <item>\"Usuários que já possuem uma tendência à agressividade podem ficar mais violentos
+            quando
+            estão na fase de \'fissura\' ou abstinência da droga. Apesar de haver sempre uma
+            deterioração
+            das relações sociais, especialmente no ambiente familiar, a violência não é uma conduta
+            padrão.\"
+        </item>
         <item>\"O crack é amplamente consumido na região de São Paulo e avançou rapidamente para a
             maioria dos grandes centros urbanos de todo o país. Porém, já existem relatos de cidades
             do interior e mesmo de zonas rurais afetadas por problemas relacionados ao tráfico
-            e consumo desta substância.\"</item>
+            e consumo desta substância.\"
+        </item>
         <item>\"Isso ocorre porque os usuários da droga costumam adotar comportamentos de risco,
             como praticar sexo sem proteção. Influenciados pela necessidade de consumir o crack,
             muitos usuários crônicos também recorrem à prostituição para conseguir a droga,
             expondo-se a mais riscos. Além disso, o fato de  usar cachimbos ou latas para a inalação
             de crack, ampliam a superfície de contato ao redor da boca – aumentando as queimaduras
-            labiais e o risco de contaminação por doenças – e podem transmitir infecções.\"</item>
+            labiais e o risco de contaminação por doenças – e podem transmitir infecções.\"
+        </item>
     </array>
 
     <string name="pergunta">&lt;b>%1$d.&lt;/b> &lt;i>%2$s&lt;/i></string>
