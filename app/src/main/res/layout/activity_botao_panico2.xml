@@ -86,7 +86,8 @@
             android:onClick="mostrarDicas"
             android:textSize="@dimen/answer_txt_size"
             android:background="@drawable/bordered_button_shape"
-            android:layout_marginTop="7dp"/>
+            android:layout_marginTop="7dp"
+            android:visibility="gone"/>
 
         <Button
             android:layout_width="match_parent"
