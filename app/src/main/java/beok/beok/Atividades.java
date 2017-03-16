@@ -1,10 +1,13 @@
 package beok.beok;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -17,6 +20,7 @@ public class Atividades extends AppCompatActivity {
     TextView txtnum_atividade, txttema_atividade, txtatividade_descricao;
     VideoView videoView;
     Button btatividade;
+    LinearLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,16 +36,22 @@ public class Atividades extends AppCompatActivity {
         txtatividade_descricao = (TextView) findViewById(R.id.txtatividade_descricao);
         videoView = (VideoView) findViewById(R.id.videoView);
         btatividade = (Button) findViewById(R.id.btatividade);
+        layout = (LinearLayout) findViewById(R.id.layout);
 
 
         switch (atividade){
             case 1:
                 txtnum_atividade.setText("1");
                 txttema_atividade.setText("METAS DA SEMANA");
-                //videoView.setVisibility(View.VISIBLE);
-                txtatividade_descricao.setVisibility(View.VISIBLE);
-                txtatividade_descricao.setText(getResources().getString(R.string.Descricao1));
                 btatividade.setText("Definir meta da semana");
+                //videoView.setVisibility(View.VISIBLE);
+                //txtatividade_descricao.setVisibility(View.VISIBLE);
+                //txtatividade_descricao.setText(getResources().getString(R.string.Descricao1));
+                layout.setVisibility(View.VISIBLE);
+                Uri uri = Uri.parse("android.resource://beok.beok/raw/sessao01");
+                MediaController mediaController = new MediaController(videoView.getContext());
+                videoView.setVideoURI(uri);
+                videoView.setMediaController(mediaController);
                 break;
 
             case 2:
