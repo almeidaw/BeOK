@@ -85,6 +85,7 @@
             android:onClick="gruposNAClick"
             android:background="@drawable/bordered_button_shape"
             android:textColor="@color/branco"
+            android:textSize="16sp"
             />
 
         <Button
@@ -98,6 +99,7 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/bordered_button_shape"
             android:textColor="@color/branco"
+            android:textSize="16sp"
             />
     </LinearLayout>
 

@@ -9,4 +9,6 @@
     <color name="branco">#ffffff</color>
     <color name="cinzinha">#dedede</color>
 
+    <color name="selected">#64ffffff</color>
+
 </resources>
