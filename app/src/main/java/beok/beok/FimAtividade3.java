@@ -23,4 +23,8 @@ public class FimAtividade3 extends AppCompatActivity {
         Intent intent = new Intent(this, Main.class);
         startActivity(intent);
     }
+    @Override
+    public void onBackPressed() {
+
+    }
 }

@@ -86,7 +86,7 @@
                     android:id="@+id/btfim"
                     android:layout_below="@+id/txtfim"
                     android:layout_margin="8dp"
-                    android:background="@drawable/bordered_button_shape"
+                    android:background="@drawable/borda"
                     android:onClick="BotaoFim"
                     android:text="Finalizar"
                     android:layout_centerHorizontal="true"/>
