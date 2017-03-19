@@ -48,10 +48,11 @@ public class Atividades extends AppCompatActivity {
                 //txtatividade_descricao.setVisibility(View.VISIBLE);
                 //txtatividade_descricao.setText(getResources().getString(R.string.Descricao1));
                 layout.setVisibility(View.VISIBLE);
-                Uri uri = Uri.parse("android.resource://beok.beok/raw/sessao01");
-                MediaController mediaController = new MediaController(videoView.getContext());
-                videoView.setVideoURI(uri);
-                videoView.setMediaController(mediaController);
+                Uri uri1 = Uri.parse("android.resource://beok.beok/raw/sessao01");
+                MediaController mediaController1 = new MediaController(videoView.getContext());
+                videoView.setVideoURI(uri1);
+                videoView.setMediaController(mediaController1);
+                videoView.start();
                 break;
 
             case 2:
@@ -65,10 +66,16 @@ public class Atividades extends AppCompatActivity {
             case 3:
                 txtnum_atividade.setText("3");
                 txttema_atividade.setText("MOTIVAÇÃO");
-                //videoView.setVisibility(View.VISIBLE);
-                txtatividade_descricao.setVisibility(View.VISIBLE);
-                txtatividade_descricao.setText(getResources().getString(R.string.Descricao3));
+                videoView.setVisibility(View.VISIBLE);
+                //txtatividade_descricao.setVisibility(View.VISIBLE);
+                //txtatividade_descricao.setText(getResources().getString(R.string.Descricao3));
                 btatividade.setText("Ir para atividade");
+                layout.setVisibility(View.VISIBLE);
+                Uri uri3 = Uri.parse("android.resource://beok.beok/raw/sessao03");
+                MediaController mediaController3 = new MediaController(videoView.getContext());
+                videoView.setVideoURI(uri3);
+                videoView.setMediaController(mediaController3);
+                videoView.start();
                 break;
 
         }
