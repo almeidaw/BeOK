@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_informacoes"
+    android:id="@+id/activity_grupos"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="beok.beok.Informacoes"
@@ -53,54 +53,17 @@
 
     </RelativeLayout>
 
-
-    <LinearLayout
-        android:orientation="vertical"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_grupos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="64dp">
 
-        <TextView
-            android:text="Informações úteis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="55dp"
-            android:id="@+id/infoss"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@color/branco"
-            android:textSize="20sp"/>
+    </android.support.v7.widget.RecyclerView>
 
-        <Button
-            android:text="Grupos NA"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:id="@+id/gruposna"
-            android:layout_below="@+id/button5"
-            android:layout_alignLeft="@+id/button5"
-            android:layout_alignStart="@+id/button5"
-            android:onClick="gruposNAClick"
-            android:background="@drawable/bordered_button_shape"
-            android:textColor="@color/branco"
-            android:textSize="16sp"
-            />
 
-        <Button
-            android:text="Grupos AA"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
-            android:id="@+id/button5"
-            android:onClick="gruposAAClick"
-            android:layout_below="@+id/infoss"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/bordered_button_shape"
-            android:textColor="@color/branco"
-            android:textSize="16sp"
-            />
-    </LinearLayout>
 
 </RelativeLayout>

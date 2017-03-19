@@ -2,8 +2,12 @@ package beok.beok;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -12,8 +16,10 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,6 +61,9 @@ public class Grupos extends AppCompatActivity implements Callback<List<GrupoA>> 
     String zona;
     String tipo;
 
+    NavigationView nv;
+    Button btmenu, btpanico;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +85,91 @@ public class Grupos extends AppCompatActivity implements Callback<List<GrupoA>> 
 
         initializeData();
         initializeAdapter();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View v = navigationView.getHeaderView(0);
+        TextView nome_navbar = (TextView) v.findViewById(R.id.nome_navbar);
+        nome_navbar.setText(Conf.getNomeUsuario());
+
+        btpanico = (Button) findViewById(R.id.btpanico);
+
+        nv=(NavigationView)findViewById(R.id.nav_view);
+
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+                                                 // This method will trigger on item Click of navigation menu
+                                                 @Override
+                                                 public boolean onNavigationItemSelected(MenuItem item) {
+                                                     // Handle navigation view item clicks here.
+                                                     int id = item.getItemId();
+                                                     if (id == R.id.nav_diario) {
+                                                         Bundle bundle = new Bundle();
+                                                         bundle.putInt("inicia_fragment", 1);
+                                                         Intent i = new Intent(Grupos.this, Main.class); // Direcionar para tela de dicas efrases motivacionais
+                                                         i.putExtras(bundle);
+                                                         startActivity(i);
+
+                                                     } else if (id == R.id.nav_metas){
+                                                         Bundle bundle = new Bundle();
+                                                         bundle.putInt("inicia_fragment", 2);
+                                                         Intent i = new Intent(Grupos.this, Main.class); // Direcionar para tela de dicas efrases motivacionais
+                                                         i.putExtras(bundle);
+                                                         startActivity(i);
+
+                                                     } else if (id == R.id.nav_inspiracao){
+                                                         Bundle bundle = new Bundle();
+                                                         bundle.putInt("inicia_fragment", 3);
+                                                         Intent i = new Intent(Grupos.this, Main.class); // Direcionar para tela de dicas efrases motivacionais
+                                                         i.putExtras(bundle);
+                                                         startActivity(i);
+
+                                                     } else if (id == R.id.nav_terapia){
+                                                         Bundle bundle = new Bundle();
+                                                         bundle.putInt("inicia_fragment", 4);
+                                                         Intent i = new Intent(Grupos.this, Main.class); // Direcionar para tela de dicas efrases motivacionais
+                                                         i.putExtras(bundle);
+                                                         startActivity(i);
+
+                                                     } else if (id == R.id.nav_configuracoes) {
+                                                         Intent intent = new Intent(Grupos.this, SettingsActivity.class);
+                                                         startActivity(intent);
+
+                                                     } else if (id == R.id.nav_info) {
+                                                         Intent intent = new Intent(Grupos.this, Informacoes.class);
+                                                         startActivity(intent);
+                                                     }
+
+
+                                                     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                                                     drawer.closeDrawer(GravityCompat.START);
+                                                     return true;
+                                                 }
+                                             }
+        );
+
+
+
+        btpanico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Grupos.this, BotaoPanico1.class);
+                startActivity(i);
+            }
+        });
+
+        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        btmenu = (Button) findViewById(R.id.btmenu);
+
+        btmenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                drawer.openDrawer(GravityCompat.START);
+
+            }
+        });
+
     }
+
 
     private void initializeData() {
         grupos = new ArrayList<GruposAANA>();
