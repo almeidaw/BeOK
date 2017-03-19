@@ -53,7 +53,7 @@ public class Atividade3 extends AppCompatActivity {
             nao_usa_naogosto = edtxtnao_gosto.getText().toString();
             tela = 2;
         } else if (tela == 2){
-            Intent i = new Intent(this, Main.class);
+            Intent i = new Intent(this, FimAtividade3.class);
             startActivity(i);
             tela = 3;
             usa_gosto = edtxtgosto.getText().toString();

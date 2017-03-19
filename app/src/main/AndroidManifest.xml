@@ -153,6 +153,7 @@
         <activity
             android:name=".Grupos"
             android:screenOrientation="portrait" />
+        <activity android:name=".FimAtividade3"></activity>
     </application>
 
 </manifest>
