@@ -234,7 +234,7 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
                 CardViewHolder.graph.getViewport().setMinX(datas.get(datas.size() - 3).getTime());
                 CardViewHolder.graph.getViewport().setMaxX(datas.get(datas.size() - 1).getTime());
             } else {
-                CardViewHolder.graph.setVisibility(View.GONE);
+                CardViewHolder.graph.getViewport().setMinX(datas.get(0).getTime());
             }
             CardViewHolder.graph.getViewport().setXAxisBoundsManual(true);
 

@@ -40,22 +40,20 @@ public class Pergunta7 extends AppCompatActivity {
         dtnow.setTime(System.currentTimeMillis());
 
 
-
-        Date data_quando=new Date();
-
         btnao = (Button) findViewById(R.id.btnao);
         btsim = (Button) findViewById(R.id.btsim);
 
         Bundle bundle = getIntent().getExtras();
         array = bundle.getBooleanArray("checkbox");
 
-
+        Date date = new Date();
         Calendar calendar=Calendar.getInstance();
-        calendar.clear();
-        calendar.set(Calendar.YEAR,bundle.getInt("ano"));
-        calendar.set(Calendar.MONTH,bundle.getInt("mes"));
-        calendar.set(Calendar.DAY_OF_MONTH,bundle.getInt("dia"));
-        data_quando=calendar.getTime();
+        calendar.setTime(date);
+        //calendar.clear();
+        //calendar.set(Calendar.YEAR,bundle.getInt("ano"));
+        //calendar.set(Calendar.MONTH,bundle.getInt("mes"));
+        //calendar.set(Calendar.DAY_OF_MONTH,bundle.getInt("dia"));
+        Date data_quando = calendar.getTime();
 
         rd.setDataDiario(dtnow);
         rd.setUso(true);
