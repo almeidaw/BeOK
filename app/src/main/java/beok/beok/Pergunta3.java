@@ -33,7 +33,7 @@ public class Pergunta3 extends AppCompatActivity {
 
     public void usouComAmigos(View v){
         //adicionar "com quem" ele usou a droga
-        Intent i = new Intent(this, Pergunta4.class);
+        Intent i = new Intent(this, Pergunta5.class);
         bundle.putInt("usoucom",0);
         i.putExtras(bundle);
         startActivity(i);
@@ -42,7 +42,7 @@ public class Pergunta3 extends AppCompatActivity {
     }
     public void usouComDesconhecidos(View v){
         //adicionar "com quem" ele usou a droga
-        Intent i = new Intent(this, Pergunta4.class);
+        Intent i = new Intent(this, Pergunta5.class);
         bundle.putInt("usoucom",1);
         i.putExtras(bundle);
         startActivity(i);
@@ -51,7 +51,7 @@ public class Pergunta3 extends AppCompatActivity {
     }
     public void usouComParceiro(View v){
         //adicionar "com quem" ele usou a droga
-        Intent i = new Intent(this, Pergunta4.class);
+        Intent i = new Intent(this, Pergunta5.class);
         bundle.putInt("usoucom",2);
         i.putExtras(bundle);
         startActivity(i);
@@ -60,7 +60,7 @@ public class Pergunta3 extends AppCompatActivity {
     }
     public void usouSozinho(View v){
         //adicionar "com quem" ele usou a droga
-        Intent i = new Intent(this, Pergunta4.class);
+        Intent i = new Intent(this, Pergunta5.class);
         bundle.putInt("usoucom",3);
         i.putExtras(bundle);
         startActivity(i);
@@ -69,7 +69,7 @@ public class Pergunta3 extends AppCompatActivity {
     }
     public void usouComFamiliares(View v){
         //adicionar "com quem" ele usou a droga
-        Intent i = new Intent(this, Pergunta4.class);
+        Intent i = new Intent(this, Pergunta5.class);
         bundle.putInt("usoucom",4);
         i.putExtras(bundle);
         startActivity(i);

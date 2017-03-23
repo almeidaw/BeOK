@@ -22,14 +22,25 @@
         />
 
     <EditTextPreference
-        android:key="notification_time"
-        android:title="Período da notificação"
-        android:summary="Define o período em que será notificado para realizar as atividades. Use o formato hh:mm"
+        android:key="horaNotificacao"
+        android:title="Horário da da notificação"
+        android:summary="Define a hora em que será notificado para realizar as atividades. Insira valor entre 0 e 23."
         android:entries="@array/periodo_notificacao"
         android:entryValues="@array/periodo_notificacao_valor"
-        android:inputType="time"
-        android:maxLength="5"
+        android:inputType="number"
+        android:numeric="integer"
+        android:maxLength="2"
         android:defaultValue="1"/>
 
+    <EditTextPreference
+        android:key="minutoNotificacao"
+        android:title="Minuto da da notificação"
+        android:summary="Define o minuto em que será notificado para realizar as atividades. Insira valor entre 0 e 59"
+        android:entries="@array/periodo_notificacao"
+        android:entryValues="@array/periodo_notificacao_valor"
+        android:inputType="number"
+        android:numeric="integer"
+        android:maxLength="2"
+        android:defaultValue="1"/>
 
 </PreferenceScreen>

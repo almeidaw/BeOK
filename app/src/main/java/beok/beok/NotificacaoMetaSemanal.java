@@ -35,8 +35,8 @@ public class NotificacaoMetaSemanal extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        hora_notificacao = pref.getInt("horaNotificacao", 12);
-        inicio_meta_semanal = pref.getInt("notifications_week_day", 1);
+        hora_notificacao = Integer.valueOf(pref.getString("horaNotificacao", "12"));
+        inicio_meta_semanal = Integer.valueOf(pref.getString("notifications_week_day", "1"));
 
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, hora_notificacao);

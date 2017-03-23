@@ -23,6 +23,7 @@ import com.orm.SugarContext;
 import com.orm.SugarRecord;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -234,7 +235,6 @@ class DiarioAdapter extends RecyclerView.Adapter<DiarioAdapter.CardViewHolder>{
                 CardViewHolder.graph.getViewport().setMaxX(datas.get(datas.size() - 1).getTime());
             } else {
                 CardViewHolder.graph.getViewport().setMinX(datas.get(0).getTime());
-                CardViewHolder.graph.getViewport().setMaxX(datas.get(1).getTime());
             }
             CardViewHolder.graph.getViewport().setXAxisBoundsManual(true);
 

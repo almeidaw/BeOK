@@ -34,12 +34,12 @@ public class Tela6 extends AppCompatActivity {
             case R.id.btproximo4:
 
                 hora = timePicker1.getCurrentHour();
-                minuto = timePicker1.getMinute();
+                minuto = timePicker1.getCurrentMinute();
 
                 editor.putString("notification_time", hora + ":" + minuto);
 
-                editor.putInt("horaNotificacao", hora);
-                editor.putInt("minutoNotificacao", minuto);
+                editor.putString("horaNotificacao", Integer.toString(hora));
+                editor.putString("minutoNotificacao", Integer.toString(minuto));
 
                 Intent nextActivity = new Intent(this, Atividades.class);
                 Bundle bundle = new Bundle();

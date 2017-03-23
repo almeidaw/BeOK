@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <solid android:color="@null"/>
-    <corners android:radius="1dp" />
-    <stroke android:width="5px" android:color="@color/branco" />
-</shape>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/bt_selected"
+        android:state_pressed="true" />
+    <item android:drawable="@drawable/bt_display" />
+
+</selector>

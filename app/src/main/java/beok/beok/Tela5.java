@@ -46,25 +46,25 @@ public class Tela5 extends AppCompatActivity {
 
                 switch (rg.getCheckedRadioButtonId()) {
                     case R.id.domingo:
-                        editor.putInt("notifications_week_day", 1);
+                        editor.putString("notifications_week_day", "1");
                         break;
                     case R.id.segunda:
-                        editor.putInt("notifications_week_day", 2);
+                        editor.putString("notifications_week_day", "2");
                         break;
                     case R.id.terca:
-                        editor.putInt("notifications_week_day", 3);
+                        editor.putString("notifications_week_day", "3");
                         break;
                     case R.id.quarta:
-                        editor.putInt("notifications_week_day", 4);
+                        editor.putString("notifications_week_day", "4");
                         break;
                     case R.id.quinta:
-                        editor.putInt("notifications_week_day", 5);
+                        editor.putString("notifications_week_day", "5");
                         break;
                     case R.id.sexta:
-                        editor.putInt("notifications_week_day", 6);
+                        editor.putString("notifications_week_day", "6");
                         break;
                     case R.id.sabado:
-                        editor.putInt("notifications_week_day", 7);
+                        editor.putString("notifications_week_day", "7");
                         break;
                 }
 

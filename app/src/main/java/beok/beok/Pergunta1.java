@@ -77,7 +77,8 @@ public class Pergunta1 extends AppCompatActivity {
 
             });
         }else if (bundle.getInt("Droga escolhida") == 2){
-            txtlegenda.setText(getResources().getString(R.string.peso_baseado));
+            //txtlegenda.setText(getResources().getString(R.string.peso_baseado));
+            txtlegenda.setText(null);
             sbqtd.setMax(19);
             sbqtd.setProgress(9);
             txtqtd.setText("5 baseados");
@@ -114,7 +115,7 @@ public class Pergunta1 extends AppCompatActivity {
                     txtqtd.setText(Float.toString(((float)progress + 1)/2) + " gramas");
                     quantidade= progress + 1;
                 } else if (bundle.getInt("Droga escolhida") == 4){
-                    sbqtd.setMax(9);
+                    sbqtd.setMax(14);
                     txtqtd.setText(Integer.toString(progress + 1) + " pedras");
                     quantidade = progress + 1;
                 }
