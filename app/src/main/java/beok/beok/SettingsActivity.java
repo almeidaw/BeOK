@@ -8,7 +8,6 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
-import android.widget.Button;
 
 import android.widget.EditText;
 import android.widget.Toast;
@@ -24,12 +23,6 @@ public class SettingsActivity extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Add a button to the header list.
-        if (hasHeaders()) {
-            Button button = new Button(this);
-            button.setText("Some action");
-            setListFooter(button);
-        }
     }
 
     public void onBuildHeaders(List<Header> target) {
@@ -109,7 +102,6 @@ public class SettingsActivity extends PreferenceActivity {
 
         CheckBoxPreference notificationEnabled, notificationVibrates;
         ListPreference notificationDay;
-        EditTextPreference notificationTime;
 
 
         @Override
@@ -123,7 +115,6 @@ public class SettingsActivity extends PreferenceActivity {
             notificationEnabled = (CheckBoxPreference) findPreference("notification_enabled");
             notificationVibrates = (CheckBoxPreference) findPreference("notification_vibration");
             notificationDay = (ListPreference) findPreference("notification_week_day");
-            notificationTime = (EditTextPreference) findPreference("notification_time");
 
 
             //definindo ações quando as preferencias têm seus valores alterados
@@ -165,15 +156,6 @@ public class SettingsActivity extends PreferenceActivity {
                 }
             });
 
-            notificationTime.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    //String horario = notificationTime.getText();
-
-                    //Toast.makeText(getActivity(), "notificações será exibida às " + horario, Toast.LENGTH_LONG).show();
-                    return true;
-                }
-            });
 
             //fim das definições dos listener para essas preferências
         }

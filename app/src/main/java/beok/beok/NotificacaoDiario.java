@@ -37,8 +37,8 @@ public class NotificacaoDiario extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        hora_notificacao = pref.getInt("horaNotificacao", 12);
-        minuto_notificacao = pref.getInt("minutoNotificacao", 0);
+        hora_notificacao = Integer.valueOf(pref.getString("horaNotificacao", "12"));
+        minuto_notificacao = Integer.valueOf(pref.getString("minutoNotificacao", "0"));
 
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, hora_notificacao);

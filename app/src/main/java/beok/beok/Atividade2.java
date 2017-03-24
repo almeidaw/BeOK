@@ -20,6 +20,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import beok.beok.POJO.TerapiaFeita;
+
 import static beok.beok.R.id.center;
 import static beok.beok.R.id.wrap_content;
 
@@ -51,7 +54,7 @@ public class Atividade2 extends AppCompatActivity {
         res = getResources();
 
         switch (indiceDroga) {
-            case 1: {
+            case 1:
                 respostas = res.getIntArray(R.array.respostas_maconha);
                 perguntas = res.getStringArray(R.array.perguntas_maconha);
                 explicacao = res.getStringArray(R.array.explicacoes_maconha);
@@ -59,31 +62,30 @@ public class Atividade2 extends AppCompatActivity {
                 //imagens.getResourceId(indice, -1);
                 nomeDroga = "a maconha";
                 break;
-            }
-            case 2: {
+            case 2:
                 respostas = res.getIntArray(R.array.respostas_cocaina);
                 perguntas = res.getStringArray(R.array.perguntas_cocaina);
                 explicacao = res.getStringArray(R.array.explicacoes_cocaina);
                 imagens = getResources().obtainTypedArray(R.array.imagens_cocaina);
                 nomeDroga = "a cocaína";
                 break;
-            }
-            case 3: {
+
+            case 3:
                 respostas = res.getIntArray(R.array.respostas_alcool);
                 perguntas = res.getStringArray(R.array.perguntas_alcool);
                 explicacao = res.getStringArray(R.array.explicacoes_alcool);
                 imagens = getResources().obtainTypedArray(R.array.imagens_alcool);
                 nomeDroga = "o álcool";
                 break;
-            }
-            case 4: {
+
+            case 4:
                 respostas = res.getIntArray(R.array.respostas_crack);
                 perguntas = res.getStringArray(R.array.perguntas_crack);
                 explicacao = res.getStringArray(R.array.explicacoes_crack);
                 imagens = getResources().obtainTypedArray(R.array.imagens_crack);
                 nomeDroga = "o crack";
                 break;
-            }
+
         }
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -112,6 +114,7 @@ public class Atividade2 extends AppCompatActivity {
     public void botaoOk(View v){
         //botao da setinha, se estiver na tela de score passa para a proxima atividade, senao passa para a proxima tab
         if (contador == perguntas.length*2) {
+            TerapiaFeita tf = new TerapiaFeita();
             Intent i = new Intent(this, Main.class);
             startActivity(i);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -233,6 +236,8 @@ public class Atividade2 extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
+        Intent i = new Intent(this,Main.class);
+        startActivity(i);
 
     }
 }
