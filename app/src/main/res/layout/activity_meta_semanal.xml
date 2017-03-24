@@ -176,7 +176,8 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp">
 
                     <Spinner
                         android:layout_width="wrap_content"
@@ -203,6 +204,23 @@
                     android:visibility="gone">
 
                     <TextView
+                        android:text="@string/baseado_tamanho_meta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txttamanho"
+                        android:textSize="@dimen/tamanho_perguntas"
+                        android:layout_marginBottom="5dp"
+                        android:textAppearance="@style/TextAppearance.AppCompat"
+                        android:gravity="center"/>
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spbaseado_medio"
+                        android:entries="@array/baseado_tamanho_medio"
+                        android:layout_marginBottom="5dp"/>
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Qual quantidade por dia \nvocê pretende usar?"
@@ -210,16 +228,6 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="20dp"
                         />
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="baseado fino=0,5 grama\nbaeado normal = 1,2 grama\nbaseado grande= 2 gramas"
-                        android:id="@+id/txtlegenda2"
-                        android:textSize="@dimen/coments_txt_size"
-                        android:textColor="@color/cinzinha"/>
 
                     <SeekBar
                         android:layout_width="match_parent"
@@ -236,27 +244,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Em qual período do dia?"/>
-                <TextView
-                    android:text="@string/baseado_tamanho_meta"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txttamanho"
-                    android:textSize="@dimen/tamanho_perguntas"
-                    android:layout_marginBottom="5dp"
-                    android:textAppearance="@style/TextAppearance.AppCompat"
-                    android:gravity="center"/>
-
-                <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/spbaseado_medio"
-                    android:entries="@array/baseado_tamanho_medio"
-                    android:layout_marginBottom="5dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Em qual período do dia?"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"

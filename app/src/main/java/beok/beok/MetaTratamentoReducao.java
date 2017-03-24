@@ -74,7 +74,7 @@ public class MetaTratamentoReducao extends AppCompatActivity {
             txtlegenda.setText("Uma dose é igual a");
 
         } else if (bundle.getInt("Droga escolhida") == 2) {
-            txtlegenda.setText(getResources().getString(R.string.peso_baseado));
+            txtlegenda.setVisibility(View.GONE);
             sbqtd.setMax(19);
             sbqtd.setProgress(9);
             txtqtd.setText("5 baseados");

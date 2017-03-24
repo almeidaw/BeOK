@@ -70,6 +70,7 @@ public class TelaPerguntas extends AppCompatActivity implements View.OnClickList
         //spultimavez = (Spinner) findViewById(R.id.spultimavez);
         spfreq = (Spinner) findViewById(R.id.spfreq);
         spbebidas = (Spinner) findViewById(R.id.spbebidas);
+        spbaseado_medio = (Spinner) findViewById(R.id.spbaseado_medio);
 
         sbqtd = (SeekBar) findViewById(R.id.sbqtd);
 
